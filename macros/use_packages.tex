@@ -18,7 +18,31 @@
 \usepackage{graphics}
 \usepackage{graphicx}   % A package to allow insertion of
                         % external image files
-                        
+
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{url}
+\usepackage{boxedminipage}
+\usepackage{xspace}
+\usepackage{sepnum}
+\usepackage{cite}
+\usepackage{fancyhdr}
+
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{calc}
+
 
 \usepackage{tikz}
 %\usepackage{todonotes}
@@ -51,6 +75,9 @@
 %
 }%
 
+\floatstyle{ruled}
+\newfloat{placeholder}{thp}{lop}
+\floatname{placeholder}{Box}
 
 \makeatletter \newcommand \listoftodos{\section*{Todo list} \@starttoc{tdo}}
   \newcommand\l@todo[2]

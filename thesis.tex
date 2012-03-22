@@ -2,6 +2,19 @@
 \include{macros/style}
 \include{macros/use_packages}
 
+\newcommand\tm{\texttrademark}
+
+\newcommand\error{\texttt{ERROR}}
+\newcommand\ok{\texttt{OK}}
+\newcommand{\et}[1]{\emph{#1}}
+
+\newcommand{\cu}{collaborative task}
+\newcommand{\people}{project member}
+% \newcommand{\ce}{Task-related Communication}
+
+
+\newcommand{\jazztm}{Jazz}
+
 \begin{document}
 
 % Front Matter
@@ -14,8 +27,13 @@
 	\include{chapters/1-Introduction/introduction}
 	\include{chapters/2-Motivation/motivation}
 	\include{chapters/3-Background/background}
+	\startchapter{Meet IBM Rational Team Concert}
 	\include{chapters/4-Methodology/methodology}
+	\startchapter{Technical Relations and Failure}
 	\include{chapters/5-Communication-Failure/communication-failure}
+	\include{chapters/5-STC-Failure/stc-failure}
+	\include{chapters/5-STC-Failure/stc-failure2}
+	\include{chapters/7-Do-Developers-Talk-About-Change/dotalk}
 	\include{chapters/6-ActionableSTC/actionablestc}
 	\include{chapters/7-Discussion/discussion}
 	\include{chapters/8-Conclusions/conclusions}
