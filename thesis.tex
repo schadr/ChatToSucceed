@@ -47,22 +47,66 @@ As in the former case there is much merit in focusing on the developer in the en
 Both avenues, studying the human aspect and studying the technical aspect, yielded many useful results.
 For example,\todo{some examples from literature}  
 
-Yet, to truly be able to optimize the software engineering process a more holistic view and marry both the technical and social aspects.
-Cataldo et al~\cite{} proposed to overlay social and technical networks to get an overview of a projects social and technical interdependencies between 
-\todo{introduce STC}
+Yet, to truly be able to optimize the software engineering process a more holistic view is needed that marries both the technical and social aspects.
+One such way to marry those two aspects that as Conway stated are influencing each other~\cite{} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{}.
+They proposed to overlay social and technical networks to get an overview of a projects social and technical interdependencies and derive insight through the miss-match between those two networks.
 
-\todo{Give an example of STC at work}
+To be more precise, socio-technical congruence as defined by Catalto et al~\cite{}, describes a measure that outlines how much the technical networks is covered by the social network.
+This directly follows from Conway's observations~\cite{} that describe the need for the communication structure of any given organization to follow the underlying technical constructs.
+In software engineering that roughly translates into the idea that the communication flow within software teams need to follow the module dependencies described by the software architecture. 
+ 
+This idea shows great promise in applying to software repositories such as versioning archives and issue trackers or other recorded communication.
+Cataldo et al~\cite{} as well as other researchers~\cite{} found that the better the cover of the social network over the technical network is, the better productivity~\cite{} and to some extend software quality~\cite{}.
+With the ability to extract useful socio-technical measure from archives in an automated fashion enables a wide spread application to any software project that captures development data electronically.
 
-\todo{describe the benefits of using STC}
+However, there are four major issue with the concept of socio-technical congruence as it is currently used:
+\begin{itemize}
+\item There is a missing indication for the strength of connections within both the social and the technical networks.
+\item The socio-technical congruence measure itself does not give much indication with respect to how to improve the over all situation other than to suggest people to talk to each other in case they share a technical dependency. 
+\item The idea of achieving high congruence is based on the notion that it is important to communicate along all technical dependencies, which does not need to hold true.
+\item The analysis of socio-technical congruence can only be done post-mortem, which although valuable in a retrospective does not help in improving productivity or quality in an ongoing project.
+\end{itemize}
 
-\todo{what has been done with respect to STC}
+% item 1
+Technical dependencies can vary in severity, for example one small change to a method in the traditional measure is equivalent to rewriting a whole class.
+Both actions create a technical dependency but vary vary with respect to their potential impact on the software.
+Similarly the intensity and quality of communication between two individuals can vary greatly.
+To properly match both the need created by the technical dependency needs to be met by an appropriate amount and quality of communication.
+In other words, a quick exchange about re-achitecting the central part of a software system might not be enough to sufficiently understanding the implications the change can have on the work of others.
 
-\todo{what did we plan to do with STC}
+% item 2
+This is issue of imbalance between technical and social relationships between developers is related to the problem of not knowing how to improve the socio-technical congruence other than by pointing out the technical relationships between developers that did not communicate with each other.
+Given enough resources and time every technical dependency can be satisfied but this might run the risk of decreasing the productivity by introducing to much interruptions.
 
+% item 3
+Over-communication of technical dependencies might arise from the underlying assumption that every technical dependency warrants the dependent developers to communicate with each other.
+I am not solely referring to the ability of  developers to read environment traces~\cite{} but also to the fact that some changes are either not meant to be communicated or that the system architecture was designed to accommodate certain changes (think of optimizations) that should not affect other developers.
 
-\todo{what are some key results we obtained}
+% item 4
+To fully leverage the concept of socio-technical congruence it is important to act on it.
+The current concept is only shown to relate to performance and quality post-mortem.
+To truly unlock the potential of the socio-technical congruence concept it needs to be extended such that it can make on demand recommendations to improve congruence between the social and technical relations.
 
-\todo{In the remainder of this thesis}
+% how do I address the issues
+With this thesis I intend to address these issues in several ways:
+\begin{description}
+% item 1
+\item[Tie strength.]
+
+% item 2
+\item[Improving socio-technical congruence.]
+
+% item 3
+\item[Are all technical dependencies communication needs?]
+
+% item 4
+\item[How to make socio-technical congruence actionable?]
+
+\end{description}
+
+% some of the findings as a teaser
+
+Before setting the stage of the thesis 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +114,13 @@ Cataldo et al~\cite{} proposed to overlay social and technical networks to get a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\startchapter{Motivation}
+\startchapter{Motivation and Research Questions}
+
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
