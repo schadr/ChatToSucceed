@@ -31,32 +31,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startfirstchapter{Introduction}
 The software industry often visible through some of their biggest companies such as Microsoft, Google, IBM, Dell, Apple, Oracle, and SAP represents several hundred billion US Dollars a year. 
-For example \todo{insert some statistics about countries se industry sizes} U.S.A, Canada, Germany.
+For example the software industry in USA in 2002 was producing according to the US Census a total revenue of 103.7 billion USD\footnote{http://www.census.gov/prod/ec02/ec0251i06.pdf last visited May 10th, 2012}.
 As many engineering companies those companies in the software industry strive to optimize their engineering processes to produce software of higher quality in less time.
 
 Software engineering researchers all over the world have dedicated countless hours dedicated to improve the way software is developed.
-Several fields reaching not directly aimed at increasing productivity such as developing better programming languages~\cite{}, smarter compilers~\cite{}, and better education in algorithms and data structures~\cite{}.
-Other fields are more directly interested in productivity, among them are research in software processes~\cite{}, effort estimation~\cite{}, and software failure prediction~\cite{}.
+Several fields reaching not directly aimed at increasing productivity such as developing better programming languages~\cite{conf:prog:lang}, smarter compilers~\cite{cong:comp:constr}, and better education in algorithms and data structures~\cite{conf:sigcse}.
+Other fields are more directly interested in productivity, among them are research in software processes~\cite{conf:icssp}, effort estimation~\cite{molkken:isese:2003,boehm:analse:2000}, and software failure prediction~\cite{conf:promise}.
 
-The fast body of knowledge accumulated to improve the software engineering process is strongly biased towards analyzing the technical side: supporting coding activities~\cite{} and analyzing source code to improve quality~\cite{}. 
-Since producing source code is the main objective of software developer, optimizing the coding aspect~\cite{} as well as analyzing the produced code for issues~\cite{} lies at hand.
+The vast body of knowledge accumulated to improve the software engineering process is strongly biased towards analyzing the technical side: supporting coding activities (e.g.~\cite{bassil:iwpc:2001,mens:tse:2004}) and analyzing source code to improve quality~\cite{zimmermann:oopsla:2005,nagappan:icse:2006}. 
+Since producing source code is the main objective of software developer, optimizing the coding aspect~\cite{bassil:iwpc:2001,mens:tse:2004} as well as analyzing the produced code for issues~\cite{nagappan:icse:2005,schroeter:isese:2006} lies at hand.
 
-Others have focused on the people that produce the code. Studying their behavior around coding activities~\cite{}, how they communicate~\cite{} and how their relations relate to productivity~\cite{}.
+Others have focused on the people that produce the code. Studying their behavior around coding activities~\cite{latoza:icse:2006}, how they communicate~\cite{ko:icse:2007,gopal:2002:comacm} and how their relations relate to productivity~\cite{gopal:2002:comacm} and quality~\cite{abreu:iwpse:2009,wolf:icse:2009}.
 As in the former case there is much merit in focusing on the developer in the end she implements the features a software consists of and she inevitably introduces errors to the code base.
 
 Both avenues, studying the human aspect and studying the technical aspect, yielded many useful results.
-For example, on the human side, the organizational distance between developer is a good predictor of failure on file level~\cite{}, and on the technical side similar changes timely close are a good predictor of failure-inducing changes~\cite{}.
+For example, on the human side, the organizational distance between developer is a good predictor of failure on file level~\cite{nagappan:icse:2008}, and on the technical side similar changes timely close are a good predictor of failure-inducing changes~\cite{kim:icse:2007}.
 
 Yet, to truly be able to optimize the software engineering process a more holistic view is needed that marries both the technical and social aspects.
-One such way to marry those two aspects that as Conway stated are influencing each other~\cite{} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{}.
+One such way to marry those two aspects that as Conway stated are influencing each other~\cite{conway:datamination:1968} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{cataldo:cscw:2006}.
 They proposed to overlay social and technical networks to get an overview of a projects social and technical interdependencies and derive insight through the miss-match between those two networks.
 
-To be more precise, socio-technical congruence as defined by Catalto et al~\cite{}, describes a measure that outlines how much the technical networks is covered by the social network.
-This directly follows from Conway's observations~\cite{} that describe the need for the communication structure of any given organization to follow the underlying technical constructs.
+To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical networks is covered by the social network.
+This directly follows from Conway's observations~\cite{conway:datamination:1968} that describe the need for the communication structure of any given organization to follow the underlying technical constructs.
 In software engineering that roughly translates into the idea that the communication flow within software teams need to follow the module dependencies described by the software architecture. 
  
 This idea shows great promise in applying to software repositories such as versioning archives and issue trackers or other recorded communication.
-Cataldo et al~\cite{} as well as other researchers~\cite{} found that the better the cover of the social network over the technical network is, the better productivity~\cite{} and to some extend software quality~\cite{}.
+Cataldo et al~\cite{cataldo:cscw:2006,cataldo:2008:esem} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the cover of the social network over the technical network is, the better productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009}.
 With the ability to extract useful socio-technical measure from archives in an automated fashion enables a wide spread application to any software project that captures development data electronically.
 
 However, there are four major issue with the concept of socio-technical congruence as it is currently used:
@@ -80,7 +80,7 @@ Given enough resources and time every technical dependency can be satisfied but 
 
 % item 3
 Over-communication of technical dependencies might arise from the underlying assumption that every technical dependency warrants the dependent developers to communicate with each other.
-I am not solely referring to the ability of  developers to read environment traces~\cite{} but also to the fact that some changes are either not meant to be communicated or that the system architecture was designed to accommodate certain changes (think of optimizations) that should not affect other developers.
+I am not solely referring to the ability of  developers to read environment traces~\cite{bolici:stc:2009} but also to the fact that some changes are either not meant to be communicated or that the system architecture was designed to accommodate certain changes (think of optimizations) that should not affect other developers.
 
 % item 4
 To fully leverage the concept of socio-technical congruence it is important to act on it.
@@ -105,11 +105,11 @@ Another avenue we pursue identifies patterns among developer across multiple bui
 % item 4
 \item[How to make socio-technical congruence actionable?] Although socio-technical congruence can be continuously computed and the previously mentioned strategies can be applied in real time, they all take a more project centered perspective.
 To support developers to engage in communication when necessary they need to be informed of potential issues with respect to socio-technical congruence as they arise.
-Building on the concept of proximity proposed by Blincoe et al~\cite{}, we studies in depth the development interactions of a student project and the relation between issues and their fine grained real-time code dependencies.
+Building on the concept of proximity proposed by Blincoe et al~\cite{blincoe:cscw:2012}, we studies in depth the development interactions of a student project and the relation between issues and their fine grained real-time code dependencies.
 
 \end{description}
 
-As Murphy et al~\cite{} pointed out, users of automated recommendation systems need to build up some trust in the system otherwise it will be ignored.
+As Murphy et al~\cite{murphy:rsse:2010} pointed out, users of automated recommendation systems need to build up some trust in the system otherwise it will be ignored.
 This is especially true when continuously reporting information to developers and trying to steer them into another direction.
 Therefore, we investigate what the daily focus of developer is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence will bear fruit.
 
