@@ -45,7 +45,7 @@ Others have focused on the people that produce the code. Studying their behavior
 As in the former case there is much merit in focusing on the developer in the end she implements the features a software consists of and she inevitably introduces errors to the code base.
 
 Both avenues, studying the human aspect and studying the technical aspect, yielded many useful results.
-For example,\todo{some examples from literature}  
+For example, on the human side, the organizational distance between developer is a good predictor of failure on file level~\cite{}, and on the technical side similar changes timely close are a good predictor of failure-inducing changes~\cite{}.
 
 Yet, to truly be able to optimize the software engineering process a more holistic view is needed that marries both the technical and social aspects.
 One such way to marry those two aspects that as Conway stated are influencing each other~\cite{} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{}.
@@ -91,22 +91,42 @@ To truly unlock the potential of the socio-technical congruence concept it needs
 With this thesis I intend to address these issues in several ways:
 \begin{description}
 % item 1
-\item[Tie strength.]
+\item[Tie strength] between developer connected in a socio-technical network as it underlies the socio-technical congruence measure are present as soon as there is any kind of technical dependency or communication between two developers.
+We aim at giving the technical and social relationships by attaching the amount of their occurrences, for instance if developer A wrote developer B two messages instead of one their communication dependency would receive a heavier weight compared to sending only one message. 
 
 % item 2
-\item[Improving socio-technical congruence.]
+\item[Improving socio-technical congruence] in a project is the natural next step to utilize on the  relation between socio-technical one the one hand and performance and quality on the other.
+The difference between the tie strength of the social and the technical ties between two developers can serve as prioritization that additionally has the advantage to highlight technical dependencies that developers actually communicated along.
+Another avenue we pursue identifies patterns among developer across multiple builds to identify which of those patterns have a negative influence on the project to help break those pattern in the future.
 
 % item 3
-\item[Are all technical dependencies communication needs?]
+\item[Are all technical dependencies communication needs?] To address one of the underlying assumption build into the socio-technical congruence measure that each technical edge in the network should have a equivalent social edge, we analyze pairs of developers connected by a technical dependency and compare the harmfulness of pairs those pairs with a communication edge with those that don not have a communication edge.
 
 % item 4
-\item[How to make socio-technical congruence actionable?]
+\item[How to make socio-technical congruence actionable?] Although socio-technical congruence can be continuously computed and the previously mentioned strategies can be applied in real time, they all take a more project centered perspective.
+To support developers to engage in communication when necessary they need to be informed of potential issues with respect to socio-technical congruence as they arise.
+Building on the concept of proximity proposed by Blincoe et al~\cite{}, we studies in depth the development interactions of a student project and the relation between issues and their fine grained real-time code dependencies.
 
 \end{description}
 
-% some of the findings as a teaser
+As Murphy et al~\cite{} pointed out, users of automated recommendation systems need to build up some trust in the system otherwise it will be ignored.
+This is especially true when continuously reporting information to developers and trying to steer them into another direction.
+Therefore, we investigate what the daily focus of developer is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence will bear fruit.
 
-Before setting the stage of the thesis 
+% some of the findings as a teaser
+Socio-technical congruence gives a great basis to leverage several digitally recorded data treasures to generate useful and actionable information.
+We found that there is indeed value in extending the socio-technical network with weights.
+The gap that the difference between the weights of the social and the technical tie weight bears significant correlation to quality.
+In a similar fashion patterns of developer pairs showed that there are developers when not talking to each other yet sharing a technical dependency harmed the quality of the project, yet most of those pairs are not statistically related to quality.
+Furthermore, certain issues experienced during development can be traced back to code dependences that could have been detected in real time.
+
+% the structure of the thesis
+The thesis will follow a slightly different structure than suggested by the discussion of socio-technical congruence.
+We will first start introducing the motivation of and the concrete research questions pursued by this thesis.
+Following the introduction of the research question, we will present the background for the thesis as a whole.
+Next, we highlight the Rational Team Concert development team that we intensely studied with all but one case study. 
+Before we discuss the different types of technical and social and socio-technical factors that influence project quality, we will introduce our overall methodology including describing the various concepts the we use throughout the thesis.
+We will end this thesis with describing two case studies aimed at properly utilizing the socio-technical congruence in the field and discuss the overall implications of this thesis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,7 +164,7 @@ Before setting the stage of the thesis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\startchapter{Methodology}
+\startchapter{Methodology and Constructs}
 
 Suppose you are the manager of a software team and are responsible for delivering
 a software product on a specific date. Your team uses a build system to integrate
