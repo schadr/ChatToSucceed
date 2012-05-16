@@ -57,6 +57,21 @@ The IBM Rational Team Concert product development team is distributed across mul
 In this section we are going to characterize the development team at large as well as describing their development process.
 
 \subsection{The People}
+\begin{table}[t]
+\centering
+\begin{tabular}{r@{\hspace{20pt}}l}
+\toprule
+Number of Locations &  $>$16\\
+Number of Teams & 47\\
+Number of Developers & 151\\
+Range of Team size & 1 - 20 \\
+Range of Location size & 7 - 24\\
+\bottomrule
+\end{tabular}
+\label{tab:teamstats}
+\caption{Descriptive statistics of developers, locations and teams.}
+\end{table}
+
 The Jazz team is a large distributed team and uses the Jazz platform for development. 
 The Jazz development involves distributed collaboration over 16 different sites located in the United States, Canada, and Europe. 
 Seven sites are active in Jazz development and testing. 
@@ -64,6 +79,25 @@ There are 151 active contributors working in 47 teams at these locations, where 
 Each team is responsible for developing a subsystem or component of Jazz.
 The team size ranges from 1 to 20 and has an average of 5.7 members. 
 The number of developers per geographical site ranges from 7 to 24 and is 14.8 in average.
+
+The teams are organized into larger component based teams as well as subcomponent and cross-component (or functional teams).
+A developer can be part of multiple teams but usually is only part of one component teams.
+Most teams are located in one location with some satellite members in different locations.
+
+Teams on a component level represent a wealth of experiences that can range from standing veterans that did software development for several decades to fresh university graduates, with the occasional intern.
+This variance in experience also reflects in the organizational structure.
+The more experiences project members take leading roles ranging from teams leads to component leads and various council roles:
+\begin{description}
+\item[Team Leads] are still involved with daily development activities and usually have more development experience especially with the sub-component their team is developing and maintaining.
+Additionally, team leads are both the first contact person to when cross component issues arise that need to be discussed with other teams.
+Note, that this is for the initiation in of the cross team collaboration and to communicate the severity and the need for the other team to re-prioretize their work items.
+\item[Component Leads] work together with multiple team leads and are responsible for the implementation of larger components such as the source code management component and do less development work than team leads.
+\item[Council Members] deal with component crossing issues, such as architectural or process related issues.
+They decide how components interact as well as what changes need to implemented to fulfill certain feature requests on a higher level.
+Furthermore, council members also discuss how feasible the implementation of features with respect to the existing architecture is.
+\end{description}
+Of course there are still ``refular'' software developers that are less involved in cross-component issues unless when they are part of a cross-component teams to implement a feature that is similar across several components.
+In contrast to team leads, developer are focusing on their daily implementation work and interact with other developers mainly to resolve issues of expertise seeking or fixing blocking issues.
 
 \subsection{The Process}
 The project uses the Eclipse Way development process~\cite{frost:ieeesoftware:2007}.
