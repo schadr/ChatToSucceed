@@ -1,12 +1,12 @@
 \startchapter{Meet IBM Rational Team Concert}
-In this chapter we will describe the IBM Rational Team Concert product as well as its development team.
+In this chapter we will describe the IBM Rational Team Concert\footnote{https://www.jazz.net} product as well as its development team.
 Since most of the research carried out throughout this thesis was in collaboration with this product team which as part of their development process is also using their own product.
 We will begin with introducing the product and its functionalities before we describe the development team's composition and development process.
 
 \section{The IBM Rational Team Concert Product}
 IBM Rational Team Concert (RTC) is a server client application mean to support software development.
 It comprises four major functionalities that bear relevance to this thesis:
-(1) source control management that is based on similar pronciples as git\footnote{} and mercurial\footnote{}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
+(1) source control management that is based on similar principles as git\footnote{} and mercurial\footnote{}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
 
 \subsection{Source Control}
 The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{} and SVN\footnote{}.
@@ -23,18 +23,37 @@ These work items are basically an extension to bug reports as filed to a bugzill
 Developer have the ability to link work items into logical units and build hierarchies of work items to structure their work.
 Furthermore, work items allow tracking meta information such as time estimates, severity and priority and on top of that lends itself to be customized with self defined fields on a project configuration level.
 
+
 \subsection{Planning}
+In contrast to issue trackers such as bugzilla IBM Rational Team Concert offers planning capabilities.
+Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members.
+RTC also supports multiple plans for different teams to support a better overview for the teams instead of cluttering plans with less relevant tasks.
+
+The planning component supports several development styles reaching from agile-development styles such as XP~\cite{} and SCRUM~\cite{} to more traditional development methods such as Waterfall~\cite{}.
+Each different development style comes with a different default of control measures and charts such as burn down charts.
+These charts as well as the planning can be both reviewed in the Eclipse and web client.
+Both can be viewed in a customizable dashboard for quick information retrieval to stay up to date.
+
 \subsection{Build Engine}
+The RTC build engine is comparable to build engines such as IBM Rational Buildforge\footnote{http://www-01.ibm.com/software/awdtools/buildforge/enterprise/} and Jenkins\footnote{http://jenkins-ci.org/}.
+As build engine it allows for both, automated builds in pre-defined intervals such as nightly builds as well as on demand builds from users.
+
 \subsection{Foundation/Integration}
+The IBM Jazz Foundation builds the layer on which the previously described components run.
+By itself it does not offer any capabilities to the user, but it enables each component to integrated with the others. 
+This allows the developer to both manually link artifacts with each other and define queries that cross reference multiple repositories.
+
+For example, a developer is working on implementing a work item and create changes to the code base that he bundles into a change-set.
+Before she submits the change-set resolving the work items she links that change-set to the work item.
+This enables her colleagues to easily accept the change-set into their  workspaces to both review and test them.
+Once the work item is resolved, the plan and the burndown charts update to reflect this change visible to anyone with access to the plan and charts.
+
+Developers often need to modify existing code and therefore need to understand the thought process that went into the code they are looking at~\cite{}.
+For this purpose developers can create queries that look for work items associated with changes to this code parts and instead of reading source code, they have access to documentation related to the code they are investigating.
+
 
 \section{The IBM Rational Team Concert Product Development Team}
 \subsection{The People}
-\subsection{The Process}
-
-
-\pagebreak
-\section{Copied from all over}
-\subsection{Coordination and integration in Jazz}
 The Jazz team is a large distributed team and uses the Jazz platform for
 development. The Jazz development involves distributed collaboration over 16
 different sites located in the United States, Canada, and Europe. Seven sites are
@@ -44,12 +63,20 @@ teams. Each team is responsible for developing a subsystem or component of Jazz.
 The team size ranges from 1 to 20 and has an average of 5.7 members. The number
 of developers per geographical site ranges from 7 to 24 and is 14.8 in average.
 
+\subsection{The Process}
 The project uses the \emph{Eclipse Way} development process~\cite{frost:ieeesoftware:2007}.
 It defines six-week iteration cycles, which are separated into planning,
 development and stabilization activities. A project management committee
 formulates the goals and features for each release at the beginning of the each
 iteration, and \et{Work Item}s represent assignable and traceable tasks for each
 team.
+
+\pagebreak
+\section{Copied from all over}
+\subsection{Coordination and integration in Jazz}
+
+
+
 
 \begin{figure}[t]
 \begin{center}
