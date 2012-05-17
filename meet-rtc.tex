@@ -9,6 +9,17 @@ It comprises four major functionalities that bear relevance to this thesis:
 (1) source control management that is based on similar principles as git\footnote{http://git-scm.com/} and mercurial\footnote{http://mercurial.selenic.com/}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
 
 \subsection{Source Control}
+\begin{figure}
+\centering
+\subfloat[A change that is only on the developers local machine.]{\label{subfig:csb}\includegraphics[width=.6\textwidth]{figures/meet-rtc.tex/change-before-set}}
+
+\subfloat[A change that is also in the developers remote workspace.]{\label{subfig:cs}\includegraphics[width=.6\textwidth]{figures/meet-rtc.tex/change-set}}
+
+\subfloat[Caption]{\label{subfig:csa}\includegraphics[width=.6\textwidth]{figures/meet-rtc.tex/change-after-set}}
+\caption{From having created local changes over adding them to the remote workspace to attaching it to a work item.}
+\label{fig:changeset}
+\end{figure}
+
 The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{http://www.nongnu.org/cvs} and SVN\footnote{http://subversion.tigris.org/}.
 Yet, each developer has their own workspaces similarly to local git or mercurial repositories, which a developer is working on.
 These branches or in RTC terminology streams can contribute their changes, recorded in change-sets to other streams shared by teams or can be exchanged between workspaces.
