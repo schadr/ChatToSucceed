@@ -6,10 +6,10 @@ We will begin with introducing the product and its functionalities before we des
 \section{The IBM Rational Team Concert Product}
 IBM Rational Team Concert (RTC) is a server client application mean to support software development.
 It comprises four major functionalities that bear relevance to this thesis:
-(1) source control management that is based on similar principles as git\footnote{} and mercurial\footnote{}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
+(1) source control management that is based on similar principles as git\footnote{http://git-scm.com/} and mercurial\footnote{http://mercurial.selenic.com/}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
 
 \subsection{Source Control}
-The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{} and SVN\footnote{}.
+The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{http://www.nongnu.org/cvs} and SVN\footnote{http://subversion.tigris.org/}.
 Yet, each developer has their own workspaces similarly to local git or mercurial repositories, which a developer is working on.
 These branches or in RTC terminology streams can contribute their changes, recorded in change-sets to other streams shared by teams or can be exchanged between workspaces.
 
@@ -18,7 +18,7 @@ Even branching and sharing of changes to the source code work similarly to distr
 
 \subsection{Work Items}
 The work items component serves two functions: (1) it allows for customer interaction as it allows a customer or user to file feature requests and file bug reports and (2) it allows developers to additionally to manage their work by creating tasks as well as discuss and document thought about a defined unit of work.
-These work items are basically an extension to bug reports as filed to a bugzilla instance\footnote{}, since they serve more purposes than capturing bug reports and feature requests.
+These work items are basically an extension to bug reports as filed to a bugzilla instance\footnote{http://www.bugzilla.org/}, since they serve more purposes than capturing bug reports and feature requests.
 
 Developer have the ability to link work items into logical units and build hierarchies of work items to structure their work.
 Furthermore, work items allow tracking meta information such as time estimates, severity and priority and on top of that lends itself to be customized with self defined fields on a project configuration level.
@@ -29,7 +29,7 @@ In contrast to issue trackers such as bugzilla IBM Rational Team Concert offers 
 Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members.
 RTC also supports multiple plans for different teams to support a better overview for the teams instead of cluttering plans with less relevant tasks.
 
-The planning component supports several development styles reaching from agile-development styles such as XP~\cite{} and SCRUM~\cite{} to more traditional development methods such as Waterfall~\cite{}.
+The planning component supports several development styles reaching from agile-development styles such as XP and SCRUM~\cite{larman:ieeecomputer:2003} to more traditional development methods such as Waterfall~\cite{boehm:senotes:1986}.
 Each different development style comes with a different default of control measures and charts such as burn down charts.
 These charts as well as the planning can be both reviewed in the Eclipse and web client.
 Both can be viewed in a customizable dashboard for quick information retrieval to stay up to date.
@@ -48,7 +48,7 @@ Before she submits the change-set resolving the work items she links that change
 This enables her colleagues to easily accept the change-set into their  workspaces to both review and test them.
 Once the work item is resolved, the plan and the burndown charts update to reflect this change visible to anyone with access to the plan and charts.
 
-Developers often need to modify existing code and therefore need to understand the thought process that went into the code they are looking at~\cite{}.
+Developers often need to modify existing code and therefore need to understand the thought process that went into the code they are looking at~\cite{vonmayrhauser:ieeecomputer:1995}.
 For this purpose developers can create queries that look for work items associated with changes to this code parts and instead of reading source code, they have access to documentation related to the code they are investigating.
 
 
@@ -96,7 +96,7 @@ Note, that this is for the initiation in of the cross team collaboration and to 
 They decide how components interact as well as what changes need to implemented to fulfill certain feature requests on a higher level.
 Furthermore, council members also discuss how feasible the implementation of features with respect to the existing architecture is.
 \end{description}
-Of course there are still ``refular'' software developers that are less involved in cross-component issues unless when they are part of a cross-component teams to implement a feature that is similar across several components.
+Of course there are still ``regular'' software developers that are less involved in cross-component issues unless when they are part of a cross-component teams to implement a feature that is similar across several components.
 In contrast to team leads, developer are focusing on their daily implementation work and interact with other developers mainly to resolve issues of expertise seeking or fixing blocking issues.
 
 \subsection{The Process}
@@ -109,7 +109,7 @@ The development team progresses in six week iterations towards larger releases o
 These iterations as well as the release cycle are further divided into end-game and non-end-game phases.
 A typical release cycle begins with setting high level goals for the iteration to implement certain features that are determined by a committee.
 These features represent a mix of customer, community, and developer suggestions, which are then formulated into user stories and epics for the release cycle.
-These stories are then estimated and distributed across the six week iterations within a release cycles with a major milestone around the IBM Rational's Innovate conference\footnote{} to show case the latest version of IBM Rational Team Concert. 
+These stories are then estimated and distributed across the six week iterations within a release cycles with a major milestone around the IBM Rational's Innovate conference\footnote{http://www.ibm.com/software/rational/innovate} to show case the latest version of IBM Rational Team Concert. 
 At the end of each iteration the Rational Team Concert development team tries to switch to the latest RTC version for self-hosting in accordance to eating their own dog food for quality insurance.
 
 On a day to day basis developer are work on work items that are assigned to them by the team leads to work towards their iteration goals.
