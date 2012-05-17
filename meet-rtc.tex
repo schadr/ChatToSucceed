@@ -33,7 +33,7 @@ Even branching and sharing of changes to the source code work similarly to distr
 \subfloat[A work item as most developer look at it from within the Eclipse client.]{\label{subfig:wieclipse}\includegraphics[width=\textwidth]{figures/meet-rtc.tex/wi-eclipse}}
 
 \subfloat[A work item as most manager look at it from the web ui.]{\label{subfig:wiweb}\includegraphics[width=\textwidth]{figures/meet-rtc.tex/wi-web}}
-\caption{}
+\caption{Workitems as shown by the different RTC UI's.}
 \label{fig:wi}
 \end{figure}
 The work items component serves two functions: (1) it allows for customer interaction as it allows a customer or user to file feature requests and file bug reports and (2) it allows developers to additionally to manage their work by creating tasks as well as discuss and document thought about a defined unit of work.
@@ -44,6 +44,20 @@ Furthermore, work items allow tracking meta information such as time estimates, 
 
 
 \subsection{Planning}
+\begin{figure}[t]
+\centering
+\subfloat[Planning from the Eclipse UI.]{\label{subfig:planeclipse}\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/plan-eclipse}\hspace{10pt}}
+\subfloat[Planning from the Web UI.]{\label{subfig:planweb}\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/plan-web}}
+\caption{Plans as shown by the different RTC UI's.}
+\label{fig:plan}
+\end{figure}
+\begin{figure}[t]
+\centering
+\subfloat[Chars in the Eclipse UI.]{\label{subfig:charteclipse}\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/chart-eclipse}\hspace{10pt}}
+\subfloat[Chars in the Web UI.]{\label{subfig:chartweb}\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/chart-web}}
+\caption{Charts as shown by the different RTC UI's.}
+\label{fig:charts}
+\end{figure}
 In contrast to issue trackers such as bugzilla IBM Rational Team Concert offers planning capabilities.
 Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members.
 RTC also supports multiple plans for different teams to support a better overview for the teams instead of cluttering plans with less relevant tasks.
@@ -58,6 +72,12 @@ The RTC build engine is comparable to build engines such as IBM Rational Buildfo
 As build engine it allows for both, automated builds in pre-defined intervals such as nightly builds as well as on demand builds from users.
 
 \subsection{Foundation/Integration}
+\begin{figure}
+\includegraphics[width=\textwidth]{figures/meet-rtc.tex/rtc-topology}
+\caption[blubb]{RTC topology. The image available at \url{http://pic.dhe.ibm.com/infocenter/clmhelp/v3r0m1/topic/com.ibm.jazz.install.doc/images/topology_RTC_proxy.gif}}
+
+\label{fig:rtctopology}
+\end{figure}
 The IBM Jazz Foundation builds the layer on which the previously described components run.
 By itself it does not offer any capabilities to the user, but it enables each component to integrated with the others. 
 This allows the developer to both manually link artifacts with each other and define queries that cross reference multiple repositories.
