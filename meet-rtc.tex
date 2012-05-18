@@ -45,7 +45,8 @@ These work items are basically an extension to bug reports as filed to a bugzill
 
 Developer have the ability to link work items into logical units and build hierarchies of work items to structure their work.
 Furthermore, work items allow tracking meta information such as time estimates, severity and priority and on top of that lends itself to be customized with self defined fields on a project configuration level.
-
+For example in Figure~\ref{fig:wi} we see the work item view from within Eclipse (Figure~\ref{subfig:wieclipse}) and through the web (Figure~\ref{subfig:wiweb}).
+Both representations show links to other work items in the Quick Information pane as well as links to other artifacts such as change-sets.
 
 \subsection{Planning}
 \begin{figure}[t]
@@ -63,13 +64,14 @@ Furthermore, work items allow tracking meta information such as time estimates, 
 \label{fig:charts}
 \end{figure}
 In contrast to issue trackers such as bugzilla IBM Rational Team Concert offers planning capabilities.
-Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members.
+Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members (see Figure~\ref{fig:plan} for an example).
 RTC also supports multiple plans for different teams to support a better overview for the teams instead of cluttering plans with less relevant tasks.
 
 The planning component supports several development styles reaching from agile-development styles such as XP and SCRUM~\cite{larman:ieeecomputer:2003} to more traditional development methods such as Waterfall~\cite{boehm:senotes:1986}.
 Each different development style comes with a different default of control measures and charts such as burn down charts.
 These charts as well as the planning can be both reviewed in the Eclipse and web client.
 Both can be viewed in a customizable dashboard for quick information retrieval to stay up to date.
+Figure~\ref{fig:charts} shows some examples of burn down charts as they show up on the Eclipse client (Figure~\ref{subfig:charteclipse}) and the Web UI (Figure~\ref{subfig:chartweb}).
 
 \subsection{Build Engine}
 The RTC build engine is comparable to build engines such as IBM Rational Buildforge\footnote{http://www-01.ibm.com/software/awdtools/buildforge/enterprise/} and Jenkins\footnote{http://jenkins-ci.org/}.
@@ -79,12 +81,14 @@ As build engine it allows for both, automated builds in pre-defined intervals su
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/meet-rtc.tex/rtc-topology}
 \caption[blubb]{RTC topology. The image available at \url{http://pic.dhe.ibm.com/infocenter/clmhelp/v3r0m1/topic/com.ibm.jazz.install.doc/images/topology_RTC_proxy.gif}}
-
 \label{fig:rtctopology}
 \end{figure}
 The IBM Jazz Foundation builds the layer on which the previously described components run.
 By itself it does not offer any capabilities to the user, but it enables each component to integrated with the others. 
 This allows the developer to both manually link artifacts with each other and define queries that cross reference multiple repositories.
+Figure~\ref{fig:rtctopology} shows the three layers of the RTC product.
+At the top is the user that interacts with the application servers, ranging from source control over planing to work item management.
+These application run on a common plat form on the bottom also referred to as the Jazz Foundation server.
 
 For example, a developer is working on implementing a work item and create changes to the code base that he bundles into a change-set.
 Before she submits the change-set resolving the work items she links that change-set to the work item.
@@ -119,7 +123,7 @@ Range of Location size & 7 - 24\\
 \begin{center}
 \includegraphics[width=.6\textwidth]{figures/meet-rtc.tex/ppl-orga}
 \caption{Organizational structure of the technical personal in the RTC development team.}
-\label{fig:buildresult}
+\label{fig:orgastruct}
 \end{center}
 \end{figure}
 
@@ -137,7 +141,7 @@ Most teams are located in one location with some satellite members in different 
 
 Teams on a component level represent a wealth of experiences that can range from standing veterans that did software development for several decades to fresh university graduates, with the occasional intern.
 This variance in experience also reflects in the organizational structure.
-The more experiences project members take leading roles ranging from teams leads to component leads and various council roles:
+The more experiences project members take leading roles ranging from teams leads to component leads and program management council roles (see Figure~\ref{fig:orgastruct}):
 \begin{description}
 \item[Team Leads] are still involved with daily development activities and usually have more development experience especially with the sub-component their team is developing and maintaining.
 Additionally, team leads are both the first contact person to when cross component issues arise that need to be discussed with other teams.
@@ -155,7 +159,7 @@ In contrast to team leads, developer are focusing on their daily implementation 
 \begin{center}
 \includegraphics[width=.5\textwidth]{figures/BuildResult}
 \caption{Teams contribute to their own source streams, which are then merged into one project stream.}
-\label{fig:buildresult}
+\label{fig:buildresult1}
 \end{center}
 \end{figure}
 
@@ -163,7 +167,7 @@ In contrast to team leads, developer are focusing on their daily implementation 
 \centering
 \includegraphics[width=\textwidth]{figures/findingProcess2}
 \vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. Changeset-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
-\label{IterationsFig}
+\label{IterationsFig1}
 \end{figure}
 
 The IBM Rational Team Concert development team follows an agile development methodology and high community involvement.
@@ -173,7 +177,7 @@ Although IBM Rational Team Concert is not an open source product and non-employe
 
 The development team progresses in six week iterations towards larger releases of IBM Rational Team Concert.
 These iterations as well as the release cycle are further divided into end-game and non-end-game phases.
-A typical release cycle begins with setting high level goals for the iteration to implement certain features that are determined by a committee.
+A typical release cycle begins with setting high level goals for the iteration to implement certain features that are determined by a committee (see Figure~\ref{IterationsFig1}).
 These features represent a mix of customer, community, and developer suggestions, which are then formulated into user stories and epics for the release cycle.
 These stories are then estimated and distributed across the six week iterations within a release cycles with a major milestone around the IBM Rational's Innovate conference\footnote{http://www.ibm.com/software/rational/innovate} to show case the latest version of IBM Rational Team Concert. 
 At the end of each iteration the Rational Team Concert development team tries to switch to the latest RTC version for self-hosting in accordance to eating their own dog food for quality insurance.
@@ -183,7 +187,7 @@ While working on a task developer document their thoughts on the respective work
 Once the coding work for a work item is finished, a developer groups all changes into a change-set and attaches it to the respective work item and then delivers the change-set to the team stream.
 
 Change-sets in the component teams stream are used to create nightly builds and run all the test cases on.
-Once a build is stable for a component team, the change-sets provided by the team are bundled and distributed to the other component teams.
+Once a build is stable for a component team, the change-sets provided by the team are bundled and distributed to the other component teams (see Figure~\ref{fig:buildresult1}).
 During the non-end-game phase this process is very fluent and stream lined.
 Once entering an endgame-phase the process of including change-sets into a build becomes more regulated.
 Each change-set needs to approval before it is included in a build.
