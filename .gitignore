@@ -1,9 +1,9 @@
-thesis.aux
-thesis.bbl
-thesis.blg
-thesis.lof
-thesis.log
-thesis.lot
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
 thesis.pdf
-thesis.synctex.gz
-thesis.toc
+*.synctex.gz
+*.toc
