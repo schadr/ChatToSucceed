@@ -5,7 +5,7 @@ Both creation and maintenance are both substantially influenced by quality issue
 In either case, creation or maintenance, getting the software into a state it can be shipped to the customer is the next important goal of any team.
 In this thesis we are focusing on improving upon quality with a focus on improving the success of creating a sufficiently working version of product commonly referred to as build.
 
-The concept of Socio-Technical congruence introduced by Conway~\cite{} especially the refined version by Cataldo et al~\cite{} offers a good starting point to explore why software builds might fail.
+The concept of Socio-Technical congruence introduced by Conway~\cite{conway:datamination:1968} especially the refined version by Cataldo et al~\cite{cataldo:cscw:2006} offers a good starting point to explore why software builds might fail.
 Socio-Technical congruence is composed of both the technical relations within a piece of software and the corresponding social relations between developer within a project.
 This concept both builds upon existing work of technical as well as social factors that relate to software quality.
 
@@ -14,7 +14,7 @@ To understand if it makes sense to look at the concept of socio-technical congru
 
 Since the end goal is to establish a measure that can be made actionable it is important that at least one of the two sides of the socio-technical concept, social or technical, has an effect on software builds.
 Unless this effect exists it will be difficult to manipulate the socio-technical networks to improve the success of software builds.
-Therefore we formulate the research questions guiding the first half of this thesis (Chapters~\ref{}-\ref{}) as follows:
+Therefore we formulate the research questions guiding the first half of this thesis (Chapters~\ref{chap:tech-net}-\ref{chap:stc-net2}) as follows:
 
 \begin{description}
 % 
@@ -27,8 +27,9 @@ Therefore we formulate the research questions guiding the first half of this the
   \end{description}
 %
 \end{description}
+
 % rq 1.1
-Research Question 1.1 explores through a literature review in Chapter~\ref{} how technical relationships or the relationships between the units of work produced by a developer influence software quality.
+Research Question 1.1 explores through a literature review in Chapter~\ref{chap:tech-net} how technical relationships or the relationships between the units of work produced by a developer influence software quality.
 This is important to know since the actual errors are a result of implementation errors that violate explicit dependencies, such as the wrong order of calling methods, or implicit dependencies such as assumptions made about the input of a method. 
 Without an influence of technical dependencies among work units and their influence on software quality the concept of socio-technical congruence could not yield much in the sense of explanatory power due to the missing relation to the actual error.
 
@@ -57,11 +58,12 @@ From those guiding principles we formulated the following research questions:
   \item[RQ 2.4:] Can recommendation be given in a timely manner?
   \end{description}
 \end{description}
+
 % rq 2.1
-We start the second part of this thesis by exploring if after the fact recommendations can be made using the concept of socio-technical congruence (RQ 2.1 addressed in Chapter~\ref{}).
+We start the second part of this thesis by exploring if after the fact recommendations can be made using the concept of socio-technical congruence (RQ 2.1 addressed in Chapter~\ref{chap:stc-net}).
 This needs to hold before it makes sense to continue exploring the feasibility of a recommender system.
 % rq 2.2 % rq 2.3
-In the following two research questions RQ 2.2 and 2.3 (Chapter~\ref{}) we explore to what extend those recommendations we generate from socio-technical congruence are acceptable to developers in both the level of detail and the timeliness of the recommendations.
+In the following two research questions RQ 2.2 and 2.3 (Chapter~\ref{chap:talk}) we explore to what extend those recommendations we generate from socio-technical congruence are acceptable to developers in both the level of detail and the timeliness of the recommendations.
 % rq 2.4
-We will close our investigation with RQ 2.4 exploring the ability to generate those recommendations we extracted post-mortem from the concept of socio-technical congruence in a more timely fashion such that developer can intervene and fix issues sooner or enable them to prevent introducing those issues in the first place (Chapter~\ref{}). 
+We will close our investigation with RQ 2.4 exploring the ability to generate those recommendations we extracted post-mortem from the concept of socio-technical congruence in a more timely fashion such that developer can intervene and fix issues sooner or enable them to prevent introducing those issues in the first place (Chapter~\ref{chap:actionable}). 
 
