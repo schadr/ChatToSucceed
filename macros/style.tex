@@ -37,3 +37,11 @@
 \renewcommand\cftfigpresnum{Figure\ }
 \renewcommand\cftfignumwidth{0.80in}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\newenvironment{note}%
+{%\medskip
+\noindent
+\let\emph=\textbf
+\begin{boxedminipage}{\columnwidth}\em}%
+{\end{boxedminipage}}
