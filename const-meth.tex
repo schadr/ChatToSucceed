@@ -3,10 +3,25 @@ Before we dive into our actual studies of the effect of socio-technical congruen
 Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{}) as well as our analysis methods used (Section~\ref{}).
 
 \section{Definitions}
-We sill start with defining three constructs that we are heavily relying upon: (1) Change-set being the technical work submitted by a developer, (2) Work Item's being a complete unit of work, and (3) builds referring to a testable product.
+We sill start with defining three constructs that we are heavily relying upon: (1) Work Item's being a complete unit of work, (2) Change-set being the technical work submitted by a developer, and (3) builds referring to a testable product.
+
+
+\subsection{Work Item}
 
 \subsection{Change-Set}
-\subsection{Work Item}
+A \emph{Change-Set} is a set of source code changes applied to a number of source code entities, with an entity being the artifact that a developer would change to add to, modify, or delete from the current product. that are by the developer bundles into one set.
+For example, in the Eclipse project\footnote{www.eclipse.org} the developer use CVS\footnote{} as their version control system to manage changes to the Eclipse IDE.
+A developer will check out her current version of the repository and started editing, creating and deleting files in order to fulfill a work item she is currently working on.
+Once the developer decides that she accomplished the work to finish her current work item, she commits her changes.
+Those changes that consists of file creations, deletions and modifications taken together are referred to as a \emph{Change-Set}. 
+
+\begin{note}
+\newtheorem*{mydef}{Definition}
+\begin{mydef}
+A \emph{Change-Set} is a set of modifications, additions and deletions of software artifacts such as source code files, classes or methods.
+\end{mydef}
+\end{note}
+
 \subsection{Build}
 
 \section{Constructs}
