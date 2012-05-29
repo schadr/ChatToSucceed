@@ -56,6 +56,47 @@ From the definitions we are working with we can derive the three central constru
 This sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
 
 \subsection{Social Network}
+\begin{figure}[t!]
+\begin{center}
+\includegraphics[height=1\textwidth]{./figures/grand_figure}
+\caption{Social network construction examples in our approach}
+\label{fig:network}
+\end{center}
+\end{figure}
+To illustrate our approach to construct social networks we go through the example to help solve team collaboration problems, by following the example of a failed build (left side of Figure~\ref{}). 
+A social network is represented as a graph that consist of nodes connected by edges. 
+In our approach, the nodes represent people and edges represent task-related communication between these people.
+
+Let us start with a high level description of how we conceptualize and construct social networks for software teams. 
+The approach is repository and tool independent and can be applied to any repositories that provide information about people, tasks, technical artifacts, and communication. 
+This include work, issue, or change management repositories, such as Bugzilla or IBM Rational Team Concert; or source code management systems, such as CVS or IBM Rational Team Concert; or even communication repositories such as email archives.
+
+We construct and analyze social networks within a \emph{collaboration scope} of interest.
+With a collaboration scope defining the people and interactions of interest.
+In this example, around Failed Build 1, the collaboration scope is the communication of the contributors to the failed build. 
+Other examples include the collaboration of people working on a critical task, in a particular geographical location, or in a functional team such as testing.
+
+There are three critical elements that are necessary to construct task-based social networks for a collaboration scope and that need to be mined from software development repositories:
+
+\begin{description}
+\item[Project Members] are people who work on the software project. 
+These \people s can be developers, testers, project managers, requirements analysts,
+or clients. 
+Project members, such as Cathrin and Eve, become nodes in the social network.
+
+\item[Collaborative Tasks] are units of work within the project that \people s need to collaborate and communicate about. 
+Examples of \cu s include resolving Bug  123 or implementing the GUI API. 
+More generally, implementing feature requests and requirements can also be considered collaborative tasks.
+
+\item[Task-related Communication] is the information exchanged while completing a \cu\ and is the unique information that allows us to build task-based social networks. 
+In our example, dashed black lines represent task-related communication such as a comment on Bug 123, or an email or chat message about GUI API.
+Task-related communication is used to create the edges between \people s in the social networks.
+\end{description}
+
+The data underlying the social network constructed used throughout this thesis are based on work items and their associated discussions.
+In IBM Rational Team Concert each work item has an attached discussion threat were developer can discuss the work item or simply note down their thoughts while working on the work item.
+This means, we would create a link between two developer if they comment together on the same work item to indicate that they are part of the same discussion.
+
 \subsection{Technical Network}
 \subsection{Socio-Technical Network}
 
