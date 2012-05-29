@@ -7,7 +7,19 @@ We sill start with defining three constructs that we are heavily relying upon: (
 
 \subsection{Work Item}
 A \emph{Work Item} is a unit of work that can be assigned to a single developer.
-These units of work can span anything from single bug-reports, reported by either the end user or by a developer, to feature implementations. 
+These units of work can span anything from single bug-reports, reported by either the end user or by a developer, to feature implementations.
+These \emph{Work Item}s can be hierarchically organized in order to broken down into more manageable pieces.
+Still one developer or better one project team member is responsible for a work item to be completed, the sub work items that break it down do not necessarily be assigned to the owner of the parent work item.
+
+For instance, in the case of the IBM Rational Team Concert development team creates story items to describe larger functionality from the user point of view and assigns depending on the complexity and implication of the story to a component or team lead, or a developer.
+The owner of the story then either breaks down the story into multiple stories or tasks which are again assigned to team members according to their complexity and implications.
+Once the work item level is sufficiently low the developer assigned to it can make the necessary modification to the project to close the work item.
+
+\begin{note}
+\begin{mydef}
+A \emph{Work Item} is a defined and assignable unit of work.
+\end{mydef}
+\end{note} 
 
 \subsection{Change-Set}
 A \emph{Change-Set} is a set of source code changes applied to a number of source code entities, with an entity being the artifact that a developer would change to add to, modify, or delete from the current product. that are by the developer bundles into one set.
@@ -17,7 +29,6 @@ Once the developer decides that she accomplished the work to finish her current 
 Those changes that consists of file creations, deletions and modifications taken together are referred to as a \emph{Change-Set}. 
 
 \begin{note}
-\newtheorem*{mydef}{Definition}
 \begin{mydef}
 A \emph{Change-Set} is a set of modifications, additions and deletions of software artifacts such as source code files, classes or methods.
 \end{mydef}
