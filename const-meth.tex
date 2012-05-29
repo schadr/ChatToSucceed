@@ -98,6 +98,29 @@ In IBM Rational Team Concert each work item has an attached discussion threat we
 This means, we would create a link between two developer if they comment together on the same work item to indicate that they are part of the same discussion.
 
 \subsection{Technical Network}
+\begin{figure*}[t!]
+\centering
+\includegraphics[width=.7\textwidth]{figures/addedge}
+\caption{Creating a technical network by connecting two developer that changed the same file.}
+\label{fig:addtechnicaledge}
+\end{figure*}
+
+Past research~\cite{nagappan:icse:2005} has shown that dynamic dependencies have the strongest influence on the software quality.
+Therefore we use these dynamic dependencies to construct \emph{socio-technical networks} we use the steps described below (see Figure~\ref{fig:addtechnicaledge}). 
+We essentially add technical edges to the build's already constructed social network. 
+In our conceptualization a \emph{technical edge} is a source code dependency between two developers.
+A technical dependency between two developers exists if they changed the same source code file in the build of interest. 
+
+\begin{enumerate}
+\item Extract the change sets that are part the build (Figure~\ref{subfig:idcs}).
+\item Determine change set owners and add those  that are not already part of the social network (Figure~\ref{subfig:adduser}).
+\item Add a technical edge between change set owners that did change the same file (see Figure~\ref{subfig:addedge}).
+\end{enumerate}
+
+We thus call a network that contains both social and technical edges a \emph{socio-technical network}. 
+The developers in the socio-technical network that share both a technical and social edge are said to share a \emph{socio-technical edge}.
+
+
 \subsection{Socio-Technical Network}
 
 \section{Data Collection Methods}
