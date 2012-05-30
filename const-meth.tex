@@ -105,21 +105,33 @@ This means, we would create a link between two developer if they comment togethe
 \label{fig:addtechnicaledge}
 \end{figure*}
 
-Past research~\cite{nagappan:icse:2005} has shown that dynamic dependencies have the strongest influence on the software quality.
-Therefore we use these dynamic dependencies to construct \emph{socio-technical networks} we use the steps described below (see Figure~\ref{fig:addtechnicaledge}). 
-We essentially add technical edges to the build's already constructed social network. 
-In our conceptualization a \emph{technical edge} is a source code dependency between two developers.
-A technical dependency between two developers exists if they changed the same source code file in the build of interest. 
+% some preamble as in the previous subsection
+Building technical networks follows a very similar approach we described for building social networks.
+In fact the technical network is a social network whose only main distinction from the social network described earlier lies in the way edges between nodes are based on.
+We derive the name of technical network from the way we link developer with each other, namely if they are modifying related source code artifacts.
+As in the previous network construction, the construction of the technical network is based on three components:
 
-\begin{enumerate}
-\item Extract the change sets that are part the build (Figure~\ref{subfig:idcs}).
-\item Determine change set owners and add those  that are not already part of the social network (Figure~\ref{subfig:adduser}).
-\item Add a technical edge between change set owners that did change the same file (see Figure~\ref{subfig:addedge}).
-\end{enumerate}
+\begin{description}
+\item[Project Members] are people who work on the software project. 
+These \people s can be developers, testers, project managers, requirements analysts,
+or clients or in general anyone that modifies software artifacts through change-sets. 
+In Figure~\ref{} project members, such as Adam and Bart, become nodes in the technical network because they modified the same file.
 
-We thus call a network that contains both social and technical edges a \emph{socio-technical network}. 
-The developers in the socio-technical network that share both a technical and social edge are said to share a \emph{socio-technical edge}.
+\item[Change-Sets] are changes made to software artifacts by individual users. 
+A set consists of a number of artifacts that have been modified as well as the modifications themselves.
+For example Adam as shown in Figure~\ref{} modified File$_{\text{A}}$ and File$_{\text{B}}$.
 
+\item[Software Artifact Relation] describe the relation between developer in the technical networks.
+These relationship can be defined in several different ways.
+For example, in Figure~\ref{} Adam and Bart are related through a technical relationship because they modified the same file.
+Note, that we are mostly interested in relationship between artifacts that are effected by changes.
+\end{description}
+
+% Example as shown in the picture
+Constructing social networks therefor follow three steps: (1) we gather all the change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
+For example, after we selected the set of change-sets of interest we define the change-sets themselves as the source code artifact and identify the owners of those artifacts.
+Then we infer the relationship between those source code artifacts by relating all change-sets that changes the same source code file.
+And as Figure~\ref{} shows this means in the case for Adam and Bert that they are connected because both own a change-set each that modifies a common file.
 
 \subsection{Socio-Technical Network}
 
