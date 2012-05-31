@@ -134,18 +134,55 @@ Then we infer the relationship between those source code artifacts by relating a
 And as Figure~\ref{} shows this means in the case for Adam and Bert that they are connected because both own a change-set each that modifies a common file.
 
 \subsection{Socio-Technical Network}
-% the figure from the TSE paper to construct the networks as an example picture
+\begin{figure}[t!]
+%	
+  \centering
+  \subfloat[Inferring to the build focus relevant change-sets and work items.]{
+    \includegraphics[width=.46\textwidth]{figures/buildworkitem}
+    \label{fig:construct-focus}
+  }
+ % 
+  \hspace{8pt}
+  \subfloat[Constructing an social networks from work item communication.]{
+	\includegraphics[width=.46\textwidth]{figures/buildsn}
+     \label{fig:construct-sn}
+  }
+  
+    \subfloat[Linking developers in a technical networks via change-set overlaps.]{
+  	\includegraphics[width=.46\textwidth]{figures/cochangedfiles}
+    \label{fig:construct-tn}
+  }
+  %
+    \hspace{8pt}
+  \subfloat[Combine social and technical networks into a socio-technical network.]{
+  	\includegraphics[width=.46\textwidth]{figures/buildsn}
+	\label{fig:construct-combine}
+  }
+  \caption{Constructing socio-technical networks from IBM Rational Team Concert data.}
+  \label{fig:construct-stc}
+\end{figure}
 
 Socio-Technical networks are a meaningful combination of both social and technical networks.
+Selecting this meaningful combination reflects itself in the selection of the work-items in the case of building the social network and selecting the change-sets and their relations in the case of the technical network.
+Hence constructing a socio-technical network requires the following four steps:
 
-\begin{description}
-\item[Focus]
-\item[Social Network]
-\item[Technical Network]
-\item[Network Overlay]
-\end{description}
+\begin{enumerate}
+\item\textbf{Selecting the Focus} used for the socio-technical network represents the glue that binds the social and technical network into a socio-techncial network. 
+This focus also referred to as filter in our earlier publication~\cite{}, determines the content of the networks.
+One example we will use in this thesis for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
+\item\textbf{Constructing the Social Network} follows the description above with the focus determining the work items that are selected to generate the nodes from the work item participants and the edges from the communication among the participants through a work item.
+\item\textbf{Constructing the Technical Network} follows the description of constructing technical networks above with the focus determining the change-sets being used to determine and connect developers in the network.
+\item\textbf{Combining Networks} is the final step that overlays the networks by unifying the set of developers in both networks.
+Thus a pair of developers can be directly connected with each other through two edges, one representing the edge from the technical network and the other the edge from the social network.
+\end{enumerate}
 
 % describe the example in the figure
+Figure~\ref{fig:construct-stc} shows an example on how we in our studies of the IBM Rational Team Concert development team used to create socio-technical networks.
+In the first step (Figure~\ref{fig:construct-focus}) we set the focus to be a software build which allows us via the change-sets that made it into the build to infer what work items are also represented in said build, by following the link between a change-set and a work item.
+Given the focus, constructing the social network can be constructed using the work items that can be linked to the software build (Figure~\ref{fig:construct-sn}).
+Similarly the construction of the technical network relies on the change-sets that went into a build. 
+To actually infer edges between developer, we relying on co-changed files within a build as an indicator of work dependency (Figure~\ref{fig:construct-tn}).
+Finally, the two networks are combined and yield the socio-technical network shown in Figure~\ref{fig:construct-combine}.
 
 \section{Data Collection Methods}
 \subsection{Repository Mining}
