@@ -287,13 +287,29 @@ Both approaches can be well combined to address different research questions as 
 Making sense of large data, that is data that is to big to explore manually, makes use of statistical methods to extrapolate trends that are not due to chance but are particular to the data set at hand.
 We apply three different types of statistical analysis techniques: (1) Hypothesis testing to infer if two populations are different with respect to a defined attribute, (2) Correlation testing to infer if two populations follow a similar trend, and (3) Prediction analysis to ascertain if the combination of factors can predict a certain outcome as well as the strength of individual factors in the presence of other factors. 
 
-\paragraph{Hypothesis Tests}
+\paragraph{Hypothesis Tests} are used to determine the likelihood that a set of samples are different based on a combination of attributes of those data samples.
+
 \begin{itemize}
-\item\textbf{Fisher-Exact/$\chi^2$}
-\item\textbf{Kruskal-Wallis}
-\item\textbf{Wilcoxon-Ranked Sum}
-\item\textbf{P-Value Adjustment}
+\item\textbf{Wilcoxon rank-sum test} is a non-parametric test to determine the difference between two data sets with respect to a rank-able attribute.
+This mean this test can be applied to data attributes that are consist of ordered, interval or continues data.
+
+\item\textbf{Kruskal-Wallis test} tests whether a group of samples is drawn from the same distribution.
+Since the Kruskal-Wallis test is an extension to the Wilcoxon rank-sum test for more than two sample it operates on ordered data.
+The result of the Kruskal-Wallis only shows if there is at least one data set that stands out and thus requires the use of the Wilcoxon rank-sum test to determine which data sets differ from each other.
+
+\item\textbf{Fisher's exact/$\chi^2$-test} allow to assess if a set of nominal attribute can distinguish two data sets. 
+The major difference between the Fisher's exact value test and the $\chi^2$-test lie with the exactness of the tests.
+Fisher's exact value test gives a more accurate p-value whereas the $\chi^2$-test only approximates the p-value, but Fisher's exact value test becomes computationally infeasible for large attribute sets.
+
+\item\textbf{P-Value adjustment} is not a hypothesis test but is frequently necessary when many tests are preformed.
+The p-value represents the likelihood that the null hypothesis cannot be rejected.
+A typical threshold used in research to reject a null hypothesis is the 5\% level, which means that we are with a likelihood of 5\% wrong to reject the hypothesis.
+When performing multiple hypothesis test the likelihood that one of the accepted tests is falsely accepted increases, therefore the p-value needs to be adjusted.
+
 \end{itemize}
+Since we cannon make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
+Non-parametric in this case means that the tests are not making any assumptions about the underlying data sets used for testing.
+
 
 \paragraph{Correlation Tests}
 \begin{itemize}
