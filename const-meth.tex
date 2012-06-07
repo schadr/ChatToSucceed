@@ -305,8 +305,8 @@ Fisher's exact value test gives a more accurate p-value whereas the $\chi^2$-tes
 The p-value represents the likelihood that the null hypothesis cannot be rejected.
 A typical threshold used in research to reject a null hypothesis is the 5\% level, which means that we are with a likelihood of 5\% wrong to reject the hypothesis.
 When performing multiple hypothesis test the likelihood that one of the accepted tests is falsely accepted increases, therefore the p-value needs to be adjusted.
-
 \end{itemize}
+
 Since we cannon make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
 Non-parametric in this case means that the tests are not making any assumptions about the underlying data sets used for testing.
 
@@ -315,10 +315,18 @@ Non-parametric in this case means that the tests are not making any assumptions 
 We are mostly looking for linear relationships among random variables as they give an easier to interpret relationship.
 
 \begin{itemize}
-\item\textbf{Pearson}
-\item\textbf{Spearman}
-\item\textbf{Kendal's Tau}
+\item\textbf{Pearson} correlation coefficient is testing two data sets, where the data points in each data set can be paired, whether a linear relationship exists between the two data sets.
+This correlation coefficient is able to identify positive and negative relations but not the actual slope of the linear relation ship.
+
+\item\textbf{Spearman} correlation coefficient is performing a pearson correlation on the rank of the data sets values instead of the real values.
+Therefore the Spearman rank corrleation coefficient is able to be used on ordinal data as well as interval and continuous data. 
+
+\item\textbf{Kendal's Tau} correlation coefficient is like the Spearman correlation coefficient a non-parametric correlation coefficient.
+The advantage of Kendal's Tau is that it is more robust to tied ranks.
+Tied ranks happen if two values in a data set are the same.
 \end{itemize}
+
+Similarly to the hypotheses test we also opt for the most robost non-parametric test, because our data sets often contains duplicate entries with respect to the correlated variables as well as does not follow necessarily a normal distribution.
 
 \paragraph{Prediction Analysis}
 \begin{itemize}
