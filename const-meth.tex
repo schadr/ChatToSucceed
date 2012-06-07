@@ -328,11 +328,18 @@ Tied ranks happen if two values in a data set are the same.
 
 Similarly to the hypotheses test we also opt for the most robost non-parametric test, because our data sets often contains duplicate entries with respect to the correlated variables as well as does not follow necessarily a normal distribution.
 
-\paragraph{Prediction Analysis}
+\paragraph{Prediction Analysis} deals with using prediction models to assess the relationship between a set of data attributes with respect to a variable of interest.
+Classification or regression deal with approximating the class or the value associated with a data point using a given set of attributes describing the data point.
+Analysing the prediciton model can yield insights into the strength of the effect an attribute or the set of attribute has on the prediction model.
 \begin{itemize}
-\item\textbf{Regression Analysis}
-\item\textbf{Classification Models}
+\item\textbf{Regression Analysis} is often used to assess the effect of a single attribute in the precense of other atributes with respect to the amount of information it provides to make the prediction.
+Models that only use linear combinations of their attributes, such as logistic regression or linear regression, are easier to interpret with repsect to the weight these models assign to the individual attributes.
+Thus they can be used the infer the importance of an attribute with respect to the models predictive power.
+\item\textbf{Prediction Models} are used when the interest lies more with the quality of predictions that can be gained with respect to a set of attributes rather than exploring the importance of each attribute to the predictive model.
+This enables the use of more complex models where the influence of a single attribute is more difficult to assess.
 \end{itemize}
+Note, we explain the actual model and their assessment in the approriate chapter that uses these methods.
+
 
 \subsection{Grounded Theory}
 
