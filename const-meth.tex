@@ -1,8 +1,9 @@
 \startchapter{Methodology and Constructs}
-Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we will go through some common definitions (Section~\ref{}) and constructs (Section~\ref{}) that are necessary to clarify for the remainder of the thesis.
-Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{}) as well as our analysis methods used (Section~\ref{}).
+Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we will go through some common definitions (Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that are necessary to clarify for the remainder of the thesis.
+Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{c5:sec:datacollection}) as well as our analysis methods used (Section~\ref{c5:sec:analysis}).
 
 \section{Definitions}
+\label{c5:sec:definitions}
 We sill start with defining three constructs that we are heavily relying upon: (1) Work Item's being a complete unit of work, (2) Change-set being the technical work submitted by a developer, and (3) builds referring to a testable product.
 
 \subsection{Work Item}
@@ -52,6 +53,7 @@ A \emph{Build} is a to some extend executable version of the product that includ
 \end{note}
 
 \section{Constructs}
+\label{c5:sec:constructs}
 From the definitions we are working with we can derive the three central constructs we work with in this thesis: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
 This sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
 
@@ -185,6 +187,7 @@ To actually infer edges between developer, we relying on co-changed files within
 Finally, the two networks are combined and yield the socio-technical network shown in Figure~\ref{fig:construct-combine}.
 
 \section{Data Collection Methods}
+\label{c5:sec:datacollection}
 To conduct the research for this thesis we drew upon multiple data sources.
 In order to get a picture across the whole development history of the IBM Rational Team Concert development team and other projects we studied we employ repository mining techniques to identify larger trends in measurable activities.
 In oder to gain a more in-depth understanding on how developers actually work and deal with interdependencies especially how they would react to certain recommendations and whether they are can be made useful we employ qualitative methods.
@@ -280,6 +283,7 @@ Most interviews are aimed of taking 30 minutes with a 30 minute overflow in case
 Furthermore, we gave the work of the interviewee the priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
 
 \section{Analysis Methods}
+\label{c5:sec:analysis}
 We use two types of anlysis techniques to make sense of the data: (1) statistical analysis methods help to assess and extract insights from large quantitative data sets that would be very tedious to analyze by reading through them, and (2) theory building approaches such as grounded theory to make sense of qualitative data.
 Both approaches can be well combined to address different research questions as well as be used triangulate and verify insights.
 
