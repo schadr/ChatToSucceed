@@ -65,7 +65,7 @@ This sections draws heavily from our work done in collaboration with Timo Wolf, 
 \label{fig:network}
 \end{center}
 \end{figure}
-To illustrate our approach to construct social networks we go through the example to help solve team collaboration problems, by following the example of a failed build (left side of Figure~\ref{}). 
+To illustrate our approach to construct social networks we go through the example to help solve team collaboration problems, by following the example of a failed build (left side of Figure~\ref{fig:network}). 
 A social network is represented as a graph that consist of nodes connected by edges. 
 In our approach, the nodes represent people and edges represent task-related communication between these people.
 
@@ -117,15 +117,15 @@ As in the previous network construction, the construction of the technical netwo
 \item[Project Members] are people who work on the software project. 
 These \people s can be developers, testers, project managers, requirements analysts,
 or clients or in general anyone that modifies software artifacts through change-sets. 
-In Figure~\ref{} project members, such as Alfred and Bob, become nodes in the technical network because they modified the same file.
+In Figure~\ref{fig:addtechnicaledge} project members, such as Alfred and Bob, become nodes in the technical network because they modified the same file.
 
 \item[Change-Sets] are changes made to software artifacts by individual users. 
 A set consists of a number of artifacts that have been modified as well as the modifications themselves.
-For example Alfred as shown in Figure~\ref{} modified File$_{\text{A}}$ and File$_{\text{B}}$.
+For example Alfred as shown in Figure~\ref{fig:addtechnicaledge} modified File$_{\text{A}}$ and File$_{\text{B}}$.
 
 \item[Software Artifact Relation] describe the relation between developer in the technical networks.
 These relationship can be defined in several different ways.
-For example, in Figure~\ref{} Alfred and Bob are related through a technical relationship because they modified the same file.
+For example, in Figure~\ref{fig:addtechnicaledge} Alfred and Bob are related through a technical relationship because they modified the same file.
 Note, that we are mostly interested in relationship between artifacts that are effected by changes.
 \end{description}
 
@@ -133,7 +133,7 @@ Note, that we are mostly interested in relationship between artifacts that are e
 Constructing social networks therefor follow three steps: (1) we gather all the change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
 For example, after we selected the set of change-sets of interest we define the change-sets themselves as the source code artifact and identify the owners of those artifacts.
 Then we infer the relationship between those source code artifacts by relating all change-sets that changes the same source code file.
-And as Figure~\ref{} shows this means in the case for Adam and Bert that they are connected because both own a change-set each that modifies a common file.
+And as Figure~\ref{fig:addtechnicaledge} shows this means in the case for Alfred and Bob that they are connected because both own a change-set each that modifies a common file.
 
 \subsection{Socio-Technical Network}
 \begin{figure}[t!]
