@@ -8,13 +8,13 @@ We sill start with defining three constructs that we are heavily relying upon: (
 
 \subsection{Work Item}
 A \emph{Work Item} is a unit of work that can be assigned to a single developer.
-These units of work can span anything from single bug-reports, reported by either the end user or by a developer, to feature implementations.
-These \emph{Work Item}s can be hierarchically organized in order to broken down into more manageable pieces.
-Still one developer or better one project team member is responsible for a work item to be completed, the sub work items that break it down do not necessarily be assigned to the owner of the parent work item.
+A unit of work can span anything from being a bug-report, reported by either the end user or by a developer, to a feature implementation.
+\emph{Work Item}s can be hierarchically organized to show the work break-down from high-level requests to manageable pieces.
+Still one project team member is responsible for a work item to be completed, the sub work items that it is broken-down to do not necessarily need to be assigned to the owner of the parent work item.
 
-For instance, in the case of the IBM Rational Team Concert development team creates story items to describe larger functionality from the user point of view and assigns depending on the complexity and implication of the story to a component or team lead, or a developer.
+For instance, in the case of the IBM Rational Team Concert the development team creates story items to describe larger functionality from the user point of view and assigns depending on the complexity and implication of the story.
 The owner of the story then either breaks down the story into multiple stories or tasks which are again assigned to team members according to their complexity and implications.
-Once the work item level is sufficiently low the developer assigned to it can make the necessary modification to the project to close the work item.
+Once the work item level is sufficiently low the developer assigned to it can make the necessary modification to the project to accomplish the work detailed in the work item.
 
 \begin{note}
 \begin{mydef}
@@ -23,8 +23,9 @@ A \emph{Work Item} is a defined and assignable unit of work.
 \end{note} 
 
 \subsection{Change-Set}
-A \emph{Change-Set} is a set of source code changes applied to a number of source code entities, with an entity being the artifact that a developer would change to add to, modify, or delete from the current product. that are by the developer bundles into one set.
-For example, in the Eclipse project\footnote{\url{http://www.eclipse.org}} the developer use CVS\footnote{\url{http://www.nongnu.org/cvs}} as their version control system to manage changes to the Eclipse IDE.
+A \emph{Change-Set} is a set of source code changes applied to a number of source code entities, with an entity being the artifact that a developer would change to add to, modify, or delete from the current product. 
+The developer that applied those changes to the product bundles them into one or multiple change-set.
+For example, in the Eclipse project\footnote{\url{http://www.eclipse.org}} the developers use CVS\footnote{\url{http://www.nongnu.org/cvs}} as their version control system to manage changes to the Eclipse IDE.
 A developer will check out her current version of the repository and started editing, creating and deleting files in order to fulfill a work item she is currently working on.
 Once the developer decides that she accomplished the work to finish her current work item, she commits her changes.
 Those changes that consists of file creations, deletions and modifications taken together are referred to as a \emph{Change-Set}. 
@@ -39,12 +40,12 @@ A \emph{Change-Set} is a set of modifications, additions and deletions of softwa
 The goal of each software development team is to deliver a finished or improved product at some point in time.
 This finished product is often referred to as the final \emph{Build}.
 A \emph{Build} can generally be referred to as any instance of the product that can be run to some extend.
-To create a build a team gathers all the changes to work items describing changes that are required for the new build and compiles and packages the product.
+To create a build a team gathers all the changes implementing work items that are required for the new build and compiles and packages the product.
 The amount of work items and their respective changes included in a build will gradually increase over time because more work will be finished as the project progresses.
 
 In the case of the IBM Rational Team Concert development team, they create builds on a frequent basis to test the product as a whole to look for integration issues. 
-The team also subscribes to the philosophy to use their own products as intensely as possible themselves and thus try to bring each build to a level that it can be used continuously for development.
-This intense use enable the team to spot issues that are still within the product and better asses the severity of those found issues.
+The team also subscribes to the philosophy to use their own products as intensely as possible themselves and thus try to bring each build to a level that it can be used for development.
+This intense use enables the team to spot issues that are still within the product and better asses the severity of those found issues.
 
 \begin{note}
 \begin{mydef}
@@ -54,8 +55,7 @@ A \emph{Build} is a to some extend executable version of the product that includ
 
 \section{Constructs}
 \label{c5:sec:constructs}
-From the definitions we are working with we can derive the three central constructs we work with in this thesis: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
-This sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
+From the definitions introduced previously we can derive the three central constructs we work with in this thesis: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
 
 \subsection{Social Network}
 \begin{figure}[t!]
@@ -82,7 +82,7 @@ There are three critical elements that are necessary to construct task-based soc
 
 \begin{description}
 \item[Project Members] are people who work on the software project. 
-These \people s can be developers, testers, project managers, requirements analysts,
+These project members can be developers, testers, project managers, requirements analysts,
 or clients. 
 Project members, such as Cathrin and Eve, become nodes in the social network.
 
@@ -98,6 +98,7 @@ Task-related communication is used to create the edges between developers in the
 The data underlying the social network constructed used throughout this thesis are based on work items and their associated discussions.
 In IBM Rational Team Concert each work item has an attached discussion threat were developer can discuss the work item or simply note down their thoughts while working on the work item.
 This means, we would create a link between two developer if they comment together on the same work item to indicate that they are part of the same discussion.
+Note that this sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
 
 \subsection{Technical Network}
 \begin{figure*}[t!]
@@ -108,14 +109,14 @@ This means, we would create a link between two developer if they comment togethe
 \end{figure*}
 
 % some preamble as in the previous subsection
-Building technical networks follows a very similar approach we described for building social networks.
-In fact the technical network is a social network whose only main distinction from the social network described earlier lies in the way edges between nodes are based on.
+Building technical networks follows a very similar approach as we described for building social networks.
+In fact, the technical network is a social network whose only main distinction from the social network described earlier lies in the way edges between nodes are created.
 We derive the name of technical network from the way we link developer with each other, namely if they are modifying related source code artifacts.
 As in the previous network construction, the construction of the technical network is based on three components:
 
 \begin{description}
 \item[Project Members] are people who work on the software project. 
-These \people s can be developers, testers, project managers, requirements analysts,
+These project members can be developers, testers, project managers, requirements analysts,
 or clients or in general anyone that modifies software artifacts through change-sets. 
 In Figure~\ref{fig:addtechnicaledge} project members, such as Alfred and Bob, become nodes in the technical network because they modified the same file.
 
@@ -190,21 +191,21 @@ Finally, the two networks are combined and yield the socio-technical network sho
 \label{c5:sec:datacollection}
 To conduct the research for this thesis we drew upon multiple data sources.
 In order to get a picture across the whole development history of the IBM Rational Team Concert development team and other projects we studied we employ repository mining techniques to identify larger trends in measurable activities.
-In oder to gain a more in-depth understanding on how developers actually work and deal with interdependencies especially how they would react to certain recommendations and whether they are can be made useful we employ qualitative methods.
+In contrast to gain a more in-depth understanding on how developers actually work and deal with interdependencies especially how they would react to certain recommendations and whether they are can be made useful we employ qualitative methods.
 
 \subsection{Repository Mining}
-Software development usually employs several software repositories.
-Those repositories can be the version control archives tracking changes made to the software system, they also can be issue or task management software to keep track of issues that need to be resolved and features that need to be implemented.
+Software development usually uses a number of tools to manage information electronically such as version archives and issue trackers.
+Those software repositories can be the version control archives tracking changes made to the software system, they also can be issue or task management software to keep track of issues that need to be resolved and features that need to be implemented.
 Additionally, those software repositories can also contain digital communication such as forum and email discussions or log of IRC\footnote{\url{http://en.wikipedia.org/wiki/Internet_Relay_Chat} last visited June 8th, 2012} or instant messenger chats.
 
 Those repositories can grow to considerable sizes depending on the projects live span and intensity. 
-Therefore, it is often infeasible for an individually to review the history for a whole project and it is necessary to employ data-mining techniques to be able to analyze trends within those repositories.
-Although this approach is limited in helping to gain a deep understanding of the intricacies of a development project it nevertheless is invaluable to place in-depth results in the bigger picture of the project.
+Therefore, it is often infeasible to manually review the history for a whole project and it is necessary to employ data-mining techniques to be able to analyze trends.
+Although this approach is limited in helping to gain a deeper understanding of the intricacies of a development project, it nevertheless is invaluable to place in-depth results in the bigger picture of the project.
 Furthermore, data mining approaches are one way to easily feedback value to the development team without burdening any individual developer with diverting time to other non automatic data collecting instruments.
 This is an important point as one goal of this thesis is to explore the ability of the concept of socio-technical congruence to generate actionable recommendations.
 In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make them useless.
 
-We therefore extract information from three different types of repositories: (1) version control, (2) task management, and (3) build engine.
+We extract information from three different types of repositories: (1) version control, (2) task management, and (3) build engine.
 The version control supplies us with the knowledge on how developers are connected through their technical work.
 The task management supplies us with the information on who communicated with whom with respect to a work item.
 And lastly the build engine supplies us with the focus to construct socio-technical networks.
@@ -216,10 +217,10 @@ Similarly these links can be inferred as proposed by Cubranic et al~\cite{cubran
 Note, we will provide more detailed in the respective studies on how we employed repository mining techniques.
 
 \subsection{Surveys}
-To complement the insights we obtained from the repository mining we first opt to deployed surveys with the entire RTC team at the end of our observation period. 
+To complement the insights we obtained from mining repositories we use surveys.
 Surveys are designed iteratively and piloted before deployment, and intended to collect input to enrich and clarify information obtained from the software repositories. 
 With each survey we try to minimize the time each developer needs to spend completing them, which usually limits ourselves to focus on closed questions offering prepared answers.
-We constrain ourselves in this way to minimize the distraction to each individual developer in order to increase the response rate.
+We constrain ourselves in this way to minimize the distraction to each individual developer and thus to increase the response rate.
 
 Our surveys are deployed through web services to make the collections more convenient to each developer as they are spending most of their times working at a computer enabling them to fill in the survey at their earliest convenience instead of keeping track of a paper version that might not easily be returned, especially considering that the development teams we are collaborating with are distributed across different continents.
 
@@ -229,17 +230,17 @@ Note, we will discuss the actual surveys we employed during our studies in the r
 \subsection{Observations}
 The next richer and also to the developer more distracting method of data gathering are observations.
 Although not necessarily actively interrupting and distracting developer, the act of observing can distract developers and also change their behaviour.
-In order to minimize this type of distraction and the mitigate the observer bias, we employed a special form of observation study.
+In order to minimize this type of distraction and the mitigate the observer bias, we employed a special form of observation study namely participant observation.
 In short we became both an observer and a participant.
 %
 Being a participant has a multitude of advantages:
 
 \begin{itemize}
-\item\textbf{Reciprocity.} By participating in the actual development we can actually provide value to the development team from the very beginning.
-This, in turn, motivates the developers to give us the time we need to conduct other parts if the study, like surveys and interviews, because they know that we already gave them something in return independent of the findings of our study.
+\item\textbf{Reciprocity.} By participating in the actual development we can provide value to the development team from the very beginning.
+This, in turn, motivates the developers to give us the time we need to conduct other parts of the study, like surveys and interviews.
 \item\textbf{Learning the Vocabulary.} Each development project has its own project vocabulary~\cite{espinosa2007:team_knowledge} in order to efficeively and cleary communicate. 
 Understanding this vocabulary as an outside is not necessarily easy but very important to make sense of comments and answers supplied in interview and survey and of course to better interpret observations made such as of discussions among developers.
-\item\textbf{Understanding the Context.} For example in one study our observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. 
+\item\textbf{Understanding the Context.} For example, in one study our observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. 
 % something about the context helping
 Because of this closeness of our observation period to a major release we observed mainly activities around integration testing with little coding activity aside from fixing major bugs.
 
@@ -251,12 +252,12 @@ Better in the sense of both more meaningful to the developer and in the sense of
 \end{itemize}
 
 Besides of gaining a better understanding of some easily missed or miss-understood intricacies, working together with the developer establishes a trust relationship~\cite{letherbridge:ese2005}.
-This trust helps to mitigate observation biases that are introduced by simply observing as well as makes developers more forthcoming during interviews and surveys~\cite{letherbridge:ese2005}.
+This trust helps to mitigate observation biases that are introduced by just observing as well as makes developers more forthcoming during interviews and surveys~\cite{letherbridge:ese2005}.
 As you notices it is hard to separate the different data collection methods that involve human interaction, therefore we think combining these data collection methods in the right order can greatly enhance the data collected.
 
 
 \subsection{Interviews}
-To further enhance our understanding on how developers view the situation and further make sense of survey responses as well as results from repository mining, we employed interviews.
+To further enhance our understanding on how developers view the situation and further make sense of survey responses as well as results from mining repositories and our observations, we employed interviews.
 Instead of following a structured interview approach, we opt for a semi-structured with a focus on war stories.
 War stories~\cite{lutters:ist:2007} ask the interviewee to share memorable stories from work life.
 The interviewer than can explore those war stories and help shape the focus of the discussion of those events.
@@ -279,7 +280,7 @@ It is therefore necessary that the interviewer has a good understanding of the p
 
 % talk about the time of the interviews
 We tried to minimize the interruption to project members as much as possible therefore we limited the time we require for each interview as much as possible.
-Most interviews are aimed of taking 30 minutes with a 30 minute overflow in case some the participant is willing to continue the interview.
+Most interviews are aimed of taking 30 minutes with a 30 minute overflow in case a participant is willing to continue the interview.
 Furthermore, we gave the work of the interviewee the priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
 
 \section{Analysis Methods}
@@ -295,15 +296,15 @@ We apply three different types of statistical analysis techniques: (1) Hypothesi
 
 \begin{itemize}
 \item\textbf{Wilcoxon rank-sum test} is a non-parametric test to determine the difference between two data sets with respect to a rank-able attribute.
-This mean this test can be applied to data attributes that are consist of ordered, interval or continues data.
+Hence, this test can be applied to data attributes that are consist of ordered, interval or continues data.
 
 \item\textbf{Kruskal-Wallis test} tests whether a group of samples is drawn from the same distribution.
 Since the Kruskal-Wallis test is an extension to the Wilcoxon rank-sum test for more than two sample it operates on ordered data.
-The result of the Kruskal-Wallis only shows if there is at least one data set that stands out and thus requires the use of the Wilcoxon rank-sum test to determine which data sets differ from each other.
+The result of the Kruskal-Wallis tests shows if there is at least one data set that stands out and thus requires the use of the Wilcoxon rank-sum test to determine which data sets differ from each other.
 
 \item\textbf{Fisher's exact/$\chi^2$-test} allow to assess if a set of nominal attribute can distinguish two data sets. 
 The major difference between the Fisher's exact value test and the $\chi^2$-test lie with the exactness of the tests.
-Fisher's exact value test gives a more accurate p-value whereas the $\chi^2$-test only approximates the p-value, but Fisher's exact value test becomes computationally infeasible for large attribute sets.
+The Fisher's exact value test gives a more accurate p-value whereas the $\chi^2$-test only approximates the p-value, but Fisher's exact value test becomes computationally infeasible for large attribute sets.
 
 \item\textbf{P-Value adjustment} is not a hypothesis test but is frequently necessary when many tests are preformed.
 The p-value represents the likelihood that the null hypothesis cannot be rejected.
@@ -311,8 +312,7 @@ A typical threshold used in research to reject a null hypothesis is the 5\% leve
 When performing multiple hypothesis test the likelihood that one of the accepted tests is falsely accepted increases, therefore the p-value needs to be adjusted.
 \end{itemize}
 
-Since we cannon make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
-Non-parametric in this case means that the tests are not making any assumptions about the underlying data sets used for testing.
+Since we cannont make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
 
 
 \paragraph{Correlation Tests} help with determining if two data sets follow a similar trend or in other words whether there exists a relationship between two data sets.
