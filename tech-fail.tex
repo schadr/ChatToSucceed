@@ -13,7 +13,9 @@ And we close this chapter with a discussion of our findings (Section~\ref{chap:6
 \begin{table}[t]
 \centering
 \begin{tabular}{lrrr}
+\toprule
 Venue Name & Venue Type & #Papers & Vanue Size\\
+\midrule
 (TSE) IEEE Transactions of Software Engineering & Journal &\\
 IEEE Software & Jounral & \\
 (ICSE) International Conference on Software Engineering & Proceedings & \\
@@ -25,6 +27,9 @@ IEEE Software & Jounral & \\
 (RSSE) International Workshop on Recommender Systems in Software Engineering & Proceedings & \\
 (ESEM) International Symposium on Emprirical Engineering and Measurment & Proceedings & \\
 (METRICS) International Software Metrics Symposium & Proceedings & \\
+(PROMISE) & Proceedings & \\
+(ASE) & Proceedings & \\
+\bottomrule
 \end{tabular}
 \label{chap:6:tab:venues}
 \caption{Venues used as basis for the systematic literature review.}
@@ -77,6 +82,7 @@ We applied this XXX times until the referenced work of our corpus of interest di
 (1) measures studied in relation to software failures that are implicilty based on technical networks,
 (2) studies that explicily create network from software artifacts and related them to software failures,
 and (3) studies that relate technical networks to software failres.
+Note that a study can be part of more than one category.
 
 \section{Technical Network Related Measures}
 \label{chap:6:measure}
@@ -88,14 +94,66 @@ and (3) metrics that measure code interdependcies such as function fan in and fa
 
 \subsection{Code Complexity Metrics}
 how do they relate to technical networks
+
+integration errors:
+- changed lines of code~\cite{cataldo:icse:2011}
+
+file failure:
+- McCabe~\cite{nagappan:icse:2006}~\cite{shihab:fse:2011} but not across projects~\cite{zimmermann:fse:2009}~\cite{jiang:promise:2008}~\cite{zimmermann:promise:2007}
+- lines of code~\cite{shihab:esem:2010}~\cite{arisholm:isese:2006}~\cite{jiang:promise:2008}~\cite{knab:msr:2006}~\cite{zhang:icsm:2009}
+- in depth size study~\cite{koru:promise:2005}
+- coding rule violations can lead to failures in software evolution~\cite{matsumura:isese:2002}
+- graph measures on control flow graph~\cite{nikora:metrics:2005}
+
+\subsection{Change Complexity Metrics}
+file failure:
+- changes in changes to low level code fragments~\cite{giger:msr:2011}
+- entropy in change complexity~\cite{hassan:icse:2009}
+- change metrics line changes/churn~\cite{moser:icse:2008}~\cite{li:metrics:2005}
+- code churn~\cite{nagappan:icse:2005}~\cite{shihab:fse:2011} but not across projects~\cite{zimmermann:fse:2009}~\cite{bell:promise:2011}
+
 \subsection{Object Oriented Metrics}
-how do they relate to technical networks
+how do they relate to technical networksi
+
+file failure:
+- classmethods~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}
+- inheritance depth, classcoupling, subclasses~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}~\cite{english:promise:2009}
+
 \subsection{Dependency Metrics}
 how do they relate to technical networks
 
+integration errors:
+- number of dependencies~\cite{cataldo:icse:2011}
+
+file failure:
+- fanin,fanout,read/write coupling~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}~\cite{knab:msr:2006}
+- inheritance depth, classcoupling, subclasses~\cite{nagappan:icse:2006}
+- import relations~\cite{dualaekoko:esem:2009} the original is~\cite{schroeter:isese:2006}
+- module control edges to another module~\cite{jiang:promise:2008}
+- call dependency change counts~\cite{shin:msr:2009}
+- higher co-changes correlated with failure~\cite{dambros:wcre:2009}
+
+change failure:
+- not changing frequently co-changed code might introduce errors~\cite{zimmermann:icse:2004}
+
+% misc info \cite{moser:icse:2008} uses same metrics as Predicting Defects for Eclipse
+% \cite{kim:icse:2007} uses metrics extracted from the APFEL tool
+
 \section{Artifact Networks}
 \label{chap:6:an}
+
+- fixes occur at code peers~\cite{nguyen:icse:2010} 
+- ego network measures on data and call dependencies build for one instance of program~\cite{zimmermann:icse:2008}
+- ego binary netowrk can predict failure likelihood of binary~\cite{zimmermann:esem:2009}
+
 \section{Technical Networks}
 \label{chap:6:tn}
+file failure:
+- co changed files networks~\cite{meneely:fse:2008}
+
+binary failure:
+- ownership relations by changed same binary~\cite{pinzger:fse:2008}
+
+
 \section{Discussion}
 \label{chap:6:dis}
