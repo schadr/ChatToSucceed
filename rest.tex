@@ -224,7 +224,7 @@ Only few studies, such as Hassan and Zhang~\cite{hassan:ase:2006}, stepped away
 from predicting component failures and used statistical classifiers to predict
 integration outcome. Recently, we can observe a trend towards leveraging
 developer networks, created upon code related dependencies, to predict component
-failures~\cite{pinzger:fse:2008,fse08:meneely}. In our work, we focus on the
+failures~\cite{pinzger:fse:2008,meneely:fse:2008}. In our work, we focus on the
 team coordination as given by their communication instead of source code, and
 similar to Hassan and Zhang predict integration outcome. Hence we state our
 second research question as follows:
@@ -826,7 +826,7 @@ technical measures we computed when constructing the communication networks --
 the number of change sets, contributors, and work items -- have an impact on the
 integration build result, as they are an indication for the size and complexity
 of the development tasks to be coordinated. According to Nagappan and
-Ball~\cite{nagappan2005:churn}, one might expect that increased size and complexity
+Ball~\cite{nagappan:icse:2005}, one might expect that increased size and complexity
 of code changes relates to more build failures. But in our study these single
 measures did not significantly differentiate between successful and failed build
 results. However, additional technical measures that were used by Nagappan might
@@ -1289,7 +1289,7 @@ We describe unweighted congruence as presented by Cataldo et al. \cite{cataldo:c
 
 \subsection{Technical Entities and Social Relationships}
 
-A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf2009:mining} as the technical entity. The choice of technical entity depends on the context of the study.
+A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
 % A person is assigned to work on one or more technical entities.
 
 At the core of socio-technical congruence is the concept of a technical dependency. A \textbf{technical dependency} is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
@@ -1300,7 +1300,7 @@ At the core of socio-technical congruence is the concept of a technical dependen
 \item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
 \item Source code modules changed together in a change set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
 \item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
-\item Tasks that depend on other tasks \cite{wolf2009:mining}
+\item Tasks that depend on other tasks \cite{wolf:ieee:2009}
 \end{itemize}
 
 \caption{Examples of technical dependencies}
@@ -2697,7 +2697,7 @@ We found that early in the project (Figure \ref{subfig:prob_weighted_workitems_a
 %work items involved in the build, increasing the number of comments on a build,
 %and increasing the number of change sets in a build. None of these are
 %necessarily surprising---increased complexity will contribute to failure. These
-%findings align with related work on defect prediction~\cite{cataldo2009:quality,nagappan2005:churn,yu2002:fault}. These results illustrate
+%findings align with related work on defect prediction~\cite{cataldo2009:quality,nagappan:icse:2005,yu2002:fault}. These results illustrate
 %the fact that congruence does not seem to prevent error builds and that simpler factors may be more accurate predictors of build failure.
 
 %\begin{table*}
