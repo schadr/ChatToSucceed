@@ -93,19 +93,37 @@ We assign all of the XXX studies of our survey that fall into the category of us
 and (3) metrics that measure code interdependcies such as function fan in and fan out.
 
 \subsection{Code Complexity Metrics}
-how do they relate to technical networks
+Defect prediction heavily uses metrics the describe code to predict defect proness of files and other levels of software artifacts.
+One such type of code metric is assessing the complexity of code.
+Code complexity related to technical networks as a proxy.
+Since most complexity is derived from interactio between software artifacts or parts of software artifacts they implicitly measure the compelxity of a technical network.
 
+The two most common complexity metrics used are Lines of Code in a software artifact and Mc Cabe's complexity metric~\cite{}.
+Both metrics have been found to exhibit a medium to strong correlation across various software projects.
+In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
+Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
+
+The first study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
+Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
+
+Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multople source code metrics, other studies the relation ship of particular metrics with defect density.
+For instance, Koru et al~\cite{koru:promise:2005} conducted an indepth anaylisis of the relation between the number of lines of code within a file and the relationship to defect density.
+Size not only is a defect predictor in many forms, e.g., average function size or file size, but the size of components also determines how well other predictors can work on it.
+
+In 2005 one year before Nagappan et al published their study on the relation of code metrics to defect density, Nikora et al~\cite{nikora:isese:2006} discussed the use of graph masures used on the control flow graph.
+In the light of Mc Cabe's complexity metric that gives one value to the overall control flow graph within a software artifact, Nikora et al characterisze the control flow graph using graph measures such as ...
+
+Complexity and size metrics are often used as a control variable to ensure that newly found metrics are not simply a new representation of size or complexity and actually add more predictive power to already known metrics.
+Hence, there is ample evidence that lines of code~\cite{shihab:esem:2010,arisholm:isese:2006,jiang:promise:2008,knab:msr:2006,zhang:icsm:2009} and Mc Cabe's complexity~\cite{nagappan:icse:2006,shihab:fse:2011,zimermann:fse:2009,jiang:promise:2008,zimmermann:promise:2207} have a moderate correlation to software defects on a file level.
+
+Despite their moderate usefulness complexity mesures as we know them so far especially lines of code and Mc Cabe's complexity metric do not generalize across projects.
+This means, using those metrics as predictors adjusted to one project usually offers poor predictions when applied to another~\cite{zimmermann:fse:2009}. 
+
+
+\subsection{Change Complexity Metrics}
 integration errors:
 - changed lines of code~\cite{cataldo:icse:2011}
 
-file failure:
-- McCabe~\cite{nagappan:icse:2006}~\cite{shihab:fse:2011} but not across projects~\cite{zimmermann:fse:2009}~\cite{jiang:promise:2008}~\cite{zimmermann:promise:2007}
-- lines of code~\cite{shihab:esem:2010}~\cite{arisholm:isese:2006}~\cite{jiang:promise:2008}~\cite{knab:msr:2006}~\cite{zhang:icsm:2009}
-- in depth size study~\cite{koru:promise:2005}
-- coding rule violations can lead to failures in software evolution~\cite{matsumura:isese:2002}
-- graph measures on control flow graph~\cite{nikora:metrics:2005}
-
-\subsection{Change Complexity Metrics}
 file failure:
 - changes in changes to low level code fragments~\cite{giger:msr:2011}
 - entropy in change complexity~\cite{hassan:icse:2009}
