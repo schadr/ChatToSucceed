@@ -150,24 +150,19 @@ In light of our research question, whether technical-networks can predict softwa
 
 
 \subsection{Dependency Metrics}
-how do they relate to technical networks
+Besides the three types of metrics discussed that measure complexity of code and in the case of object oriented metrics sometimes actual dependencies between software artifacts.
+Metrics such as fan-in and fan-out~\cite{} of methods are directly measureing the dependencies between software artifacts and thus giving a clearer picture of the underlying technical network.
 
-integration errors:
-- number of dependencies~\cite{cataldo:icse:2011}
+Counting the number of dependecies either through metrics such as fan-in or fan-out or straight up counting call dependencies between software artifacts already yield moderate failure predictors~\cite{cataldo:icse:2011,nagappan:icse:2006,arisholm:isese:2006,knab:msr:2006,shin:msr:2006}.
+Note that although most of the object oriented metrics we mentioned in the previous section (Section~\ref{}) are also dependecy metrics we will not reiterate them in this section. 
+Using more course graiined dependency on the modul level, or in other words counting dependencies across modul boundaies, can also yield good failure predictors~\cite{jiang:promise:2008}.
+Another dependecy metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schoeter:isese:2006,dualaekoko:esem:2009}.
 
-file failure:
-- fanin,fanout,read/write coupling~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}~\cite{knab:msr:2006}
-- inheritance depth, classcoupling, subclasses~\cite{nagappan:icse:2006}
-- import relations~\cite{dualaekoko:esem:2009} the original is~\cite{schroeter:isese:2006}
-- module control edges to another module~\cite{jiang:promise:2008}
-- call dependency change counts~\cite{shin:msr:2009}
-- higher co-changes correlated with failure~\cite{dambros:wcre:2009}
+Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependecies between source code artifacts can be inferd using change information.
+Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the informaiton about co-chaning files, that are files that are frequently changed togehter in the same change-set, to determine how dangarous it can be to not change those files togethr.
+Zimmermann et al's work originally was inteeded to reommend with files to additionally change to an original software change  found that violating those co-change dependecies can lead to software failure.
+Build on that work D'Ambros et al used the amount of those vialations to build a prediction model that is able to predict defect lieklihood for a file in a given project release. 
 
-change failure:
-- not changing frequently co-changed code might introduce errors~\cite{zimmermann:icse:2004}
-
-% misc info \cite{moser:icse:2008} uses same metrics as Predicting Defects for Eclipse
-% \cite{kim:icse:2007} uses metrics extracted from the APFEL tool
 
 \section{Artifact Networks}
 \label{chap:6:an}
