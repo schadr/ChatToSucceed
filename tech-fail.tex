@@ -121,14 +121,22 @@ This means, using those metrics as predictors adjusted to one project usually of
 
 
 \subsection{Change Complexity Metrics}
-integration errors:
-- changed lines of code~\cite{cataldo:icse:2011}
+Besides measureing the complexity of the source code artifacts, measuring the complexity of the development of those code artifacts can also hint at dependencies across artifacts.
+During the evolution or maintenance of a project files are continously edited to extend or improve the exiting project.
+These changes implicitly change the dependencies to other software artifacts by changing call and data dependencoes and thus construct and measure an implicit software artifact network.
+Furthermore, changing files can create dependencies among the owner of the modified or affected and thus construct a technical network.
 
-file failure:
-- changes in changes to low level code fragments~\cite{giger:msr:2011}
-- entropy in change complexity~\cite{hassan:icse:2009}
-- change metrics line changes/churn~\cite{moser:icse:2008}~\cite{li:metrics:2005}
-- code churn~\cite{nagappan:icse:2005}~\cite{shihab:fse:2011} but not across projects~\cite{zimmermann:fse:2009}~\cite{bell:promise:2011}
+Softwre artifact modifications are seldonly equally distributed across the project time and the artifacts related to a project.
+Thus, software artifact changes lend themselves to be studies in relation to software quality.
+The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005i,moser:icse:2008,cataldo:icse:2011}.
+
+The next logical step after investigating the amount of change is to chareterise the complexity of the changes made to a software artifact. 
+These chrun metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
+To take it one step further compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
+Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
+
+Similarly to the code complexity metrics, change complecity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
+
 
 \subsection{Object Oriented Metrics}
 how do they relate to technical networksi
