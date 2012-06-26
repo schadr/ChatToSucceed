@@ -139,11 +139,15 @@ Similarly to the code complexity metrics, change complecity metrics are also not
 
 
 \subsection{Object Oriented Metrics}
-how do they relate to technical networksi
+Object oriented metrics are taking into account more language specific construct that in the caase of object oriented programming are often describing the relationship between object, such as inheritance depth, and thus desribing an implicit network constructed from objetc relationships.
+Besides mesureing the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
 
-file failure:
-- classmethods~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}
-- inheritance depth, classcoupling, subclasses~\cite{nagappan:icse:2006}~\cite{arisholm:isese:2006}~\cite{english:promise:2009}
+Complexity mesures in object oriented metrics are similarly relating to technical networks as explained in the previous section as code and change complexity.
+Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} showed a moderatly strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecumincation softwre.
+
+Direct mesures of object relationship, such as inhertance depth~\cite{}, sub-classing~\cite{} and object coupling~\cite{}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
+In light of our research question, whether technical-networks can predict software failures, the relationship between measures of object relationships and defect density are a direct indicator for the ability of technical networks to predict software quality.
+
 
 \subsection{Dependency Metrics}
 how do they relate to technical networks
