@@ -166,10 +166,19 @@ Build on that work D'Ambros et al used the amount of those vialations to build a
 
 \section{Artifact Networks}
 \label{chap:6:an}
+In the previous Section~\ref{} we presented evidence of the relation between technical networks and their predictive powers with repsect to software quality by going over past work that uses software metrics implicitly measuring the underlying technical network to predict software defects.
+This Section serves the purpose of exploring the exiting work done on failure prediction that consiously leverages networks that are build from linked software artifacts.
 
-- fixes occur at code peers~\cite{nguyen:icse:2010} 
-- ego network measures on data and call dependencies build for one instance of program~\cite{zimmermann:icse:2008}
-- ego binary netowrk can predict failure likelihood of binary~\cite{zimmermann:esem:2009}
+Using dependencies within a product one can construct a network of software artifacts that share dependencies among each other.
+Artifacts that have direct depdencies are sometimes in the case of source code referred to as code peers.
+One interesting property of code peers is that in case a code peer exhibits a defect it increases the likelihood that the code artifact whose peer contains a defect has a higher likelihood to contain a defect by itself~\cite{nguyen:icse:2010}.
+
+Form this notion of a code peer and the influence a code peer or more generally an artifact peer can have on the quality of an artifact, analysing these network with respect to an artifact and it surrounding artifacts.
+In a first study Zimmermann et al~\cite{zimmermann:icse:2008} studied data and call dependecy measures a single artifact has to its dependent artifacts and found it to be a good predictor for software defects.
+
+In a follow up study Zimmermann et al~\cite{zimmmermann:esem:2009} extended the influence of an artifacts peer by not solely focusing on an artifacts dependencies to its peers but taking into account the dependencies among an artifacts peers.
+This enables the application of network measures and social-network measures to characterize this ego network constructed around a singe software artifacts.
+As it turn out, the predictive power of such a network can be more powerful than only considering dependencies between an artifact and its peers~\cite{zimmermann:esem:2009.
 
 \section{Technical Networks}
 \label{chap:6:tn}
