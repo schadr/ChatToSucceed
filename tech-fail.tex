@@ -182,12 +182,15 @@ As it turn out, the predictive power of such a network can be more powerful than
 
 \section{Technical Networks}
 \label{chap:6:tn}
-file failure:
-- co changed files networks~\cite{meneely:fse:2008}
+Although the evidence presented in the previous Section~\cite{} on using measures capturing Artifact Networks already provides ample evidence for the predictive power of technical networks, we are going to present the final peace of evidence to make our argument of answering our research questions by going over research that constructed networks very similar to the technical networks as we defined them in this thesis.
 
-binary failure:
-- ownership relations by changed same binary~\cite{pinzger:fse:2008}
+To go from artifact network to technical network developer can be included in the already existing artifact network and thus be represented as a kind of artifact~\cite{pinzger:fse:2008}.
+These two mode networks can be used to do the same analysis that Zimmermann et al~\cite{zimmermann:esem:2008,zimmermann:icse:2008} perfomed by focusing on the software artifacts to predict the failure likelihood of each.
 
+Even closer to our definition of a technical network than the description of artifact networks and two mode networks comes the work of Meneely et al~\cite{meneely:fse:2008}.
+Their technical networks consits of developer that within a given release modifed the same file, which matches our definition of connecting developer as soon as artifacts they are related to are connected.
+These networks, or rather social network measure extracted from these networks, are able to predict the whether a file contain a failure.
 
 \section{Discussion}
 \label{chap:6:dis}
+
