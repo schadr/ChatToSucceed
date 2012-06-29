@@ -9,7 +9,43 @@ And we close this chapter with a discussion of our findings (Section~\ref{chap:6
 
 \section{Methods}
 \label{chap:6:methods}
-% venues - ISESE, WCRE, ICSM, SCAM, RSSE, ESEM, Metrics
+We conduct a systematic literature review and proceed in the following seven steps:
+
+\begin{enumerate}
+\item Define research question that the review is supposed to answer.
+\item Define search terms.
+\item Select relevant venues.
+\item Read abstracts of studies that fit search terms.
+\item Add paper to repository if adequate.
+\item Go through repository and apply search to paper references.
+\item Create categories from papers.
+\end{enumerate}
+
+The research questions guiding the systematic review is aimed at identifying a connection between technical networks and software quality.
+
+\begin{note}
+\emph{RQ:} Can technical network be related to software quality? 
+\end{note}
+
+Due to the history of software engineering research with respect to predicting and finding indicators of software quality, we suspect that enough research has been conducted that shows ample evidence of or against the existence of a relationship between software quality and technical networks.
+
+\begin{table}
+\centering
+\begin{tabular}{ll}
+\toprule
+Terms & Explanation\\
+\midrule
+Defect(s) & are one indicator of software quality.\\
+Fault(s) &are one indicator of software quality.\\
+Failure(s) &are one indicator of software quality.\\
+Quality & is a term of general interest.\\
+Success & with respect to builds or tests is a quality indicator.\\
+\bottomrule
+\end{tabular}
+\caption{exhaustive list of search terms used to identify relevant papers for the systematic review.}
+\label{chap:6:tab:terms}
+\end{table}
+
 \begin{table}[t]
 \centering
 \begin{tabular}{lrrr}
@@ -31,45 +67,15 @@ IEEE Software & Jounral & \\
 (ASE) & Proceedings & \\
 \bottomrule
 \end{tabular}
-\label{chap:6:tab:venues}
 \caption{Venues used as basis for the systematic literature review.}
-\end{table}
-
-We conduct a systematic literature review as proposed by ...~\cite{} and proceed in the following seven steps:
-
-\begin{enumerate}
-\item Define research question that the review is supposed to answer.
-\item Define search terms.
-\item Select relevant venues.
-\item Read abstracts of studies that fit search terms.
-\item Add paper to repository if adequate.
-\item Go through repository and apply search to paper references.
-\item Create categories from papers.
-\end{enumerate}
-
-The research questions guiding the systematic review is aimed at identifying a connection between technical networks and software quality.
-
-\begin{note}
-\emph{RQ:} Can technical network be related to software quality? 
-\end{note}
-
-% why do we use a lit review
-Due to the history of software engineering research with respect to predicting and finding indicators of software quality, we suspect that enough research has been conducted that shows ample evidence of or against the existence of a relationship between software quality and technical networks.
-
-\begin{table}
-\centering
-\begin{tabular}{ll}
-Terms & \\
-\end{tabular}
-\label{chap:6:terms}
-\caption{exhaustive list of search terms used to identify relevant papers for the systematic review.}
+\label{chap:6:tab:venues}
 \end{table}
 
 \paragraph{Search Terms.} Fromn the research question we extracted two sets of search terms.
 One set conists of terms related to software quality such as bugs, failure and the other set contains terms that relate to software measures and networks of constructed using software artifacts.
-For a detailed list of search teams please refer to Table~\ref{chap:6:terms}
+For a detailed list of search teams please refer to Table~\ref{chap:6:tab:terms}.
 
-\paragraph{Relevant venues.} We selected relevant venues as listed in Table~\ref{} based on their relevance to the field of software engineering at large or with respect to the data sources usually employed in the field of failure prediction using software artifacts.
+\paragraph{Relevant venues.} We selected relevant venues as listed in Table~\ref{chap:6:tab:venues} based on their relevance to the field of software engineering at large or with respect to the data sources usually employed in the field of failure prediction using software artifacts.
 This selection lead us to a copus of XXX papers before selecting relevant papers.
 
 \paragraph{Reading abstracts to add studies to list of relevant papers.} After applying the search terms to narrow down the search from the list of all papers in our venues of interest we proceed with readin all abstracts of the remaining papers to decide whether the paper is relevabt to our literature review.
