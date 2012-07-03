@@ -1,5 +1,8 @@
 \startchapter{Making Socio Technical Congruence Actionable}
 \label{chap:actionable}
+
+\section{Recommender System: Chat To Succeed}
+
 A project is comprised of multiple integration builds. An 
 integration build is usually scheduled at regular intervals to 
 compile software components into a running program. 
@@ -14,7 +17,7 @@ We believe that when a build fails, there is a possibility that members of the s
 
 %(R1) - A clarification of what a "failed" build is. What is failing? Compilation? Regression testing?
 
-\section{Socio-technical Gaps}
+\subsection{Socio-technical Gaps}
 
 
 Socio-technical congruence defines the match of technical 
@@ -34,7 +37,7 @@ can succeed despite the existence of socio-technical gaps~\cite{marczak:re:2008}
 \label{fig:multipleplanes}
 \end{figure}
 
-\section{Our Recommender System}
+\subsection{Our Recommender System}
 We propose a recommender system that recommends people you need to communicate with in order to prevent a 
 failed build. The system will identify which gaps are bad 
 and which are fine. A gap is bad if it is mainly present in 
@@ -71,7 +74,7 @@ We also draw data from open-source projects. In an open-source project that does
 %There is a critical area for improvement. The authors should emphasize the setup of the overall source control and build system when discussing their analysis approach for recommendations.  While the past congruence research focused on code changes and bug fixes - integration builds are much, much more than this.  How the different forks, versions, build scripts, unit tests, workspaces, and streams are connected together (and how all of this changes over time) strongly influence how integration builds operate.  This point was not clearly stated in the position statement.
 % Hehe, we didn't use the word stream in our paper, but it seams that this reviewer is somewhat familiar with Jazz terminology
 
-\section{Potential Challenges}
+\subsection{Potential Challenges}
 With this kind of study come a different number of challenges, in the following we list the four major challenges we think to encounter.
 \begin{itemize}
 \item \emph{Noise} can either be outliers in form of abnormal situations, such as a partly system failure that prevented recording the ongoing communication, or wrongly reported data.
@@ -88,3 +91,11 @@ We aim to overcome this challenge by applying our approach to several major open
 %(R1) - A brief discussion of the potential for noise and false positives in the data used to generate recommendations
 
 %(R1) - Some proposed approaches to testing the recommendation algorithms, such as a Wizard of Oz approach to check the quality and relevance of the recommendations.
+
+\section{A Course on Globally Distributed Software Development}
+\section{Background and Related Work}
+\section{Setting}
+\section{Methodology}
+\section{Findings}
+\section{Discussion}
+\section{Conclusions}
