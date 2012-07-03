@@ -5,17 +5,17 @@ To explore this final question we first present how such a recommender system mi
 
 \section{Recommender System: Chat To Succeed}
 
-A project is comprised of multiple integration builds. An 
-integration build is usually scheduled at regular intervals to 
-compile software components into a running program. 
+A project is comprised of multiple integration builds. 
+An integration build is usually scheduled at regular intervals to compile software components into a running program. 
 
-Most software projects have infrastructure in place that automatically builds the software system on a regular basis. If there are errors in this build, or if automated regression tests fail, then we consider this as a failed build.  Research shows that communication structures can be used 
-to predict the outcome of a build~\cite{wolf:tr2008}.  Certain patterns of 
-communication among team members who contribute to the 
-code can determine if a build fails or succeeds. We expand this idea by providing specific recommendations of 
-who should chat together to ensure a successful build.
+Most software projects have infrastructure in place that automatically builds the software system on a regular basis. If there are errors in this build, or if automated regression tests fail, then we consider this as a failed build.  
+Research shows that communication structures can be used to predict the outcome of a build~\cite{wolf:tr2008}.  
+Certain patterns of communication among team members who contribute to the code can determine if a build fails or succeeds. 
+We expand this idea by providing specific recommendations of who should chat together to ensure a successful build.
 
-We believe that when a build fails, there is a possibility that members of the software team coordinated poorly between the time the current build broke, and the last known successful build. One possible reason for this lack of coordination is that the team members who worked on interrelated components failed to inform each other about their changes. This brings us to the discussion of socio-technical congruence.
+We believe that when a build fails, there is a possibility that members of the software team coordinated poorly between the time the current build broke, and the last known successful build. 
+One possible reason for this lack of coordination is that the team members who worked on interrelated components failed to inform each other about their changes. 
+This brings us to the discussion of socio-technical congruence.
 
 %(R1) - A clarification of what a "failed" build is. What is failing? Compilation? Regression testing?
 
@@ -24,13 +24,10 @@ We believe that when a build fails, there is a possibility that members of the s
 
 Socio-technical congruence defines the match of technical 
 and social dependencies among people, for example tasks 
-(technical) and task related communication (social)~\cite{cataldo:cscw:2006}. It 
-compares a technical network to a communication network 
-and identifies gaps where a coordination need exists, but no 
-communication fills the gap. Recent work addressing socio-technical congruence assumes that each gap has a negative 
-influence on the project, but there is no substantial evidence 
-to support this. Further research has indicated that projects 
-can succeed despite the existence of socio-technical gaps~\cite{marczak:re:2008}.
+(technical) and task related communication (social)~\cite{cataldo:cscw:2006}. 
+It compares a technical network to a communication network and identifies gaps where a coordination need exists, but no communication fills the gap. 
+Recent work addressing socio-technical congruence assumes that each gap has a negative influence on the project, but there is no substantial evidence to support this. 
+Further research has indicated that projects can succeed despite the existence of socio-technical gaps~\cite{marczak:re:2008}.
 
 \begin{figure}[t]
 \centering
@@ -40,35 +37,33 @@ can succeed despite the existence of socio-technical gaps~\cite{marczak:re:2008}
 \end{figure}
 
 \subsection{Our Recommender System}
-We propose a recommender system that recommends people you need to communicate with in order to prevent a 
-failed build. The system will identify which gaps are bad 
-and which are fine. A gap is bad if it is mainly present in 
-failed builds whereas a gap is fine if it is present in both 
-failed builds and successful builds. 
-Figure~\ref{fig:multipleplanes} shows the social and technical networks for three 
-builds. Developers are connected by working on the same 
-artifact and by dependent artifacts. We see that the failed 
-build exposes two socio-technical gaps. A first glance, this 
-would lead to the conclusion that these gaps are bad. Further examination of the two following successful builds suggests that only one gap is bad since the other gap exists in 
-one of the successful builds as well. 
-To generate our recommendations we connect people in 
-two ways: (1) on the technical level and (2) at the social 
-level. 
+We propose a recommender system that recommends people you need to communicate with in order to prevent a failed build. 
+The system will identify which gaps are bad and which are fine. 
+A gap is bad if it is mainly present in failed builds whereas a gap is fine if it is present in both failed builds and successful builds. 
+Figure~\ref{fig:multipleplanes} shows the social and technical networks for three builds. 
+Developers are connected by working on the same artifact and by dependent artifacts. 
+We see that the failed build exposes two socio-technical gaps. 
+A first glance, this would lead to the conclusion that these gaps are bad. 
+Further examination of the two following successful builds suggests that only one gap is bad since the other gap exists in one of the successful builds as well. 
+To generate our recommendations we connect people in two ways: (1) on the technical level and (2) at the social level. 
 
 \begin{description}
 \item[Technical Level.] 
-We mine repositories such as tracking systems and 
-code for technical connections. For example, two developers have a technical connection if they work on 
-dependent components or related bug fixes.
+We mine repositories such as tracking systems and code for technical connections. 
+For example, two developers have a technical connection if they work on dependent components or related bug fixes.
 \item[Social Level.]
-Social level connections can be found by mining email, chat, or comments~\cite{cataldo:cscw:2006}. In particular we need to 
-focus on the tasks that are represented by the mined 
-technical connections. 
+Social level connections can be found by mining email, chat, or comments~\cite{cataldo:cscw:2006}. 
+In particular we need to focus on the tasks that are represented by the mined technical connections. 
 \end{description}
 
-We draw data from repository system by IBM called Jazz, which stores issue tracking, source code, and change sets in a single database. Jazz records associations between work items and change sets, as well as the results of integration builds. A build, therefore, includes the code contributions between the current integration build and the previous integration build. Thus, we can identify who has contributed to each integration build and who has coordinated about change sets that were included in a particular build.
+We draw data from repository system by IBM called Jazz, which stores issue tracking, source code, and change sets in a single database. 
+Jazz records associations between work items and change sets, as well as the results of integration builds. 
+A build, therefore, includes the code contributions between the current integration build and the previous integration build. 
+Thus, we can identify who has contributed to each integration build and who has coordinated about change sets that were included in a particular build.
 
-We also draw data from open-source projects. In an open-source project that does not use Jazz, we can identify change sets from their source code repositories, and corresponding tracker items or development mailing list items based on commit logs. Prior to the data mining, the project's development system must be studied and understood in order to provide good recommendations.
+We also draw data from open-source projects. 
+In an open-source project that does not use Jazz, we can identify change sets from their source code repositories, and corresponding tracker items or development mailing list items based on commit logs. 
+Prior to the data mining, the project's development system must be studied and understood in order to provide good recommendations.
 
 %An open-source project may have multiple branches that are to be merged, such as a live stream for the current release, and a developer stream. We intend to treat each branch's change sets independently. For example, if only a subset of team members are permitted to check in change sets to a branch, then we know that coordination among that subset of team members only influences the outcome of integration builds on that branch. 
 
