@@ -167,7 +167,18 @@ This build system allows for continous testing and thus help the students to get
 \section{Background and Related Work}
 
 \section{Methodology}
-\subsection{Proximity to Infer Real Time Technical Networks }
+\subsection{Proximity to Infer Real Time Technical Networks}
+In order to be able to explore the possibility of recommending improvements with respect to the socio-technical networks, we need to be able to intervene before the majority of work has been done.
+The main issue with creating real time socio-technical networks lies with constructing technical networks as they are only known once a developer submits her changes to a repository.
+On the other hand social-networks can be more readily constructed in real time because in order to communicate, at least electronically, will yield a trace for each bit of communication traveling from one person to the other and thus allow to extend a social network with each new instance of communication.
+
+To gain a similarly effective way to construct technical network we build upon the work of Blincoe et al~\cite{}, who proposed a measure called proximity using Mylyn~\cite{} traces to infer real time developer dependencies.
+Mylyn is an Eclipse plug-in that records edits and selects within source code fiiles.
+These event show which artifacts have been modified and selected thus allow the partial construction of a technical network based on ownership information of the modified, selected, and implicated source code artifacts.
+
+In order to record this information in real time in a central repository we developed a plug-in that is captureing events recorded by Mylyn, connecting them to the current task a developer is working on, and submitting this information to a central server. 
+To encourage students fruther to install this plug-in, we also provided a visualisation of the current proximity of a developer to any other developer given her current task in a visualization plug-in called ProxiScentia~\cite{}.
+
 \subsection{Data Collection}
 \subsection{Analaysis}
 
