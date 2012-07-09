@@ -220,10 +220,37 @@ We go over data collected during the course in six steps, starting from identify
 \item Identify build issues mentioned by the developers.
 \item Identify the actual failed build in the Jenkins build logs.
 \item Identify the code changes that contributed to the build failure.
-\item Check if the relation between the code changes could have predicted the build failure.
 \item Check if the recorded code interactions could have predicted the build failure.
+\item Check if the relation between the code changes could have predicted the build failure.
 \item Check if using the social-network help findings the right people to include in order to resolve the issue.
 \end{enumerate}
+
+% generally answer the question why it is ok to do it this way
+\paragrpah{Identifying build issues.}
+To find build issues that are truely build issues to the developer and not only such that report as a build failure due to test cases that failed and were meant to fail, we code the communication with respect to problems experienced in the project.
+From those coded problems we select all problems related to building the software.
+
+\paragraph{Indetifying the actual failed build.}
+After we identified from all the recorded communication what failed builds are truely failures, we identify those builds as they are shown in the Jenkins logs.
+These builds show what went wrong as well as what changes are new to those builds that potentially broke it.
+
+\paragraph{Identify code changes.}
+Knowing the code changes that newly went into a build and consequently made it fale, are important to now as we need to use those change-sets to determine which interaction history to investigate.
+From the change set we can determine the task worked on, as we require every student to annotate each submitted change-set with work item id the change-set was meant to implement.
+
+\paragraph{Check code interactions}
+Having the change-sets and thus the work items the developers worked on, enables us to retrieve the specific code interactions associated with that tasked produced by the developer that submitted the possibly offending change-set.
+
+\paragraph{Check change relations.}
+Knowing both, the change-set as well as the interaction traces that where involved in the failed build, we can contrast and overlay those change-sets as well as code interactions to see if the path of different developers overlap in way that let's us predict the issues we observed.
+
+\paragraph{Check social network}
+In case we see observe that the code traces that we collected could have predicted the issue, we look for cues in the communication medio for the resultion of the issues and see if the knowledge about the code traces and the communication happening at the time of implementing the change-set.
+Finding a relation between the code interactions and the ongoing communication during the implementation contrasted with the communication needed to resolve the issue create by the change-set is the key to building a useful recommendation.
+
+% some closing words towards how many instances we are looking at and why this numner is sufficient 
+Instead of analysing each build failure that is important to the developers, we focus on finding one build that let's us trace the error back to the code interactions as well as shows a connection between the code interactions and the communication needed to resolve the build issue.
+We will leave the autmatzation and analysis for future work.
 
 \section{Findings}
 \section{Discussion}
