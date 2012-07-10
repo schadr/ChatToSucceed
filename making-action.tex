@@ -253,16 +253,33 @@ Instead of analysing each build failure that is important to the developers, we 
 We will leave the autmatzation and analysis for future work.
 
 \section{Findings}
+\begin{table}[tb]
+\centering
+\begin{tabular}{lll}
+\toprule
+something\\
+\midrule
+somthing\\
+\bottomrule
+\end{tabular}
+\label{tab:}
+\caption{Statistics about student problems and builds}
+\end{table}
+
 \subsection{Build Failures That Matter}
-% problems that do matter
-% build failures that prevent other teams from continuing their work in the next sprint
-%% most of them are merge conflicts that happend at the end of a sprint when integrating code of different teams
+Throghout the feed back and comminication logs received from the students show that the most important problems to the students are those build failures that prevent other teams from continuing their work.
+These issues usually happend towards the end of the sprint as this is the time the teams are integrating their code into a common code base.
 
+QUOTE HERE
 
-% problems that do not matter
-% failed test cases
-%% product owner approval was of more importance than actual failing test cases
-%% further many test cases became out dated over the lifetime of the project
+QUOTE HERE
+
+On the other hand, most failed builds are of less interest to the students for two reasons: 
+(1) test got outdated as the core functionality of the product changed considerably 
+and (2) the product owner was deciding what features are of acceptable quality regardless of the test case results.
+
+Since most of the work preformed by the students changed core functionality or at least needed to extend the core functionality that the implementation required substantial changes to the existing code changes that often broke the old test cases.
+At the same time test cases lose in value with respect to deciding whether a feautre is of acceptable quality, because the product owner is deciding on whether a feature is deployable based on a demo and manual testing.
 
 \subsection{Preventable Build Failures}
 % the change-sets of the different merge conflicts show a definite overlap
