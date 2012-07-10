@@ -282,8 +282,25 @@ Since most of the work preformed by the students changed core functionality or a
 At the same time test cases lose in value with respect to deciding whether a feautre is of acceptable quality, because the product owner is deciding on whether a feature is deployable based on a demo and manual testing.
 
 \subsection{Preventable Build Failures}
-% the change-sets of the different merge conflicts show a definite overlap
-% furthermore the edit and select statements captured by our plug-in also allow to infer the conflict across teams
+\begin{table}[ht]
+\begin{tabular}{ccc}
+\toprule
+awesome\\
+\midrule
+thesis\\
+\bottomrule
+\end{tabular}
+\label{tab:overlappingtraces}
+\caption{Overlapping code interaction traces that lead to a merge conflict.}
+\end{table}
+
+Table~\ref{overlappingtraces} shows two traces that directly link to one of the major build failures caused by merge conflicts.
+Similarly, the change-set that these two traces turn into show the issue resulting from merging.
+
+EXPLAIN THE OVERLAP IN THE TRACES
+
+Note that the time those traces were recoreded during the same sprint but shifted in time.
+Furthermore, the owners of the two traces and thus change-sets belong to different teams whose work is supposed to be integrated towards the end of the sprint.
 
 \subsection{The Right Recommendations}
 % looking at the communication going on we definetly see missing links between the change-set owners
