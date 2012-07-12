@@ -312,14 +312,12 @@ After the issue had been resolved the team fixing the issue issued the concern i
 From the communication it became aparent that the issue could have been prevented if the authors of the conflicting change-set would have known about each others change.
 
 \section{Discussion}
-% did we answer our research question
-%% yes we did, we found build failures that could have been prevented using recommendations generated from the data we gathered potentially in real time
-% what is the answer to our research question
-% why is this answer appropriate
-% what are the threats to validity
-%% course project not real development
-%% looked only for anecdotal evidence
-%%% build failures that might not happen in real life
+In this chapter we set out to answer the question whether it is pissible to make recommendations to prevent build failures before they happen.
+We found that the methods proposed by Blincoe et al~\cite{} gathering real time code interactions using Mylyn to make the post-mortem analysis perfomed in the traditional socio-technical congurnce context~\cite{} actionable, is useful to provide real time recommendations.
+Although we did not show by implementing a recommender system, nontheless, the data is in place and shows promise to resolve certain issues before they become problematic.
+The students course showed that there is a link between the build failures that stems from technical dependencies that can be constructed while developers are working to implement their work items.
 
-\section{Conclusions}
-% summarize what we showed in this chapter
+Although the study was conducted in a student course as opposed to an industrial setting, we used an existing open source project that is used in industry as project for the students to work on.
+Together with the use of state of the art tooling and agile methodology as well as co-op suplemented programming experience of the students made this project very much alike a profesional defvelopment project.
+Another threat to the validity of our study lies within the focus on finding a single isntance which could have been prevented to our recommendation framework.
+Although this severly limits the generalizability, especially in the light of the build failures being due to merge conflicts, we think that as a proof of concept this one instance is sufficient and with a more detailed conceptualization of technical dependencies more intricate build failures can be prevented.
