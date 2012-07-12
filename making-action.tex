@@ -63,104 +63,80 @@ The reasoning for choosing this student course as the basis for exploring our fi
 \item A course setting enables better access to study participants.
 \end{itemize}
 
-%Providing a project infrastructure that supports data collection.
 One key to explore our research question is to collect data to analyze.
 In a course project we are able to choose and instrument the infrastructure used by the students to actively develop software and thus possible gain more insight or at least miss less data than in most industrial settings that rarely focus on collecting data for analysis.
 This especially allows us to establish traceability links between artifacts that are often missing and need to be inferred using semi-accurate heuristics.
 
-%The distribution of the course across countries ensures a minimum at electronically recordable and mineable communication data being generated.
 Furthermore, the distributed nature of the project makes synchronous non-text based communication more difficult and thus increasing the use of text based asynchronous, and therefore recorded, communication.
 This additional need to rely and flexible and stable communication media, mainly email and text based chats, enables us to collect more data that is easier to mine than it would have been realistic in a collocated setting.
 The distributed nature of the teams, also induced an openness to work in a more distributed fashion even among collocated team members due to a sensibilisation of trying to enable their remote team members to follow their discussions.
 
-%A course setting allows for more control to ensure data quality.
 Due to the nature of the study being conducted in a course setting, we had more control about how participants are using technology and could give guidance on how to improve their collaboration through means that are easy to record.
 Because participants need to attend lectures we can educate them in a way that emphasizes the importance of recording traceability links in an searchable format.
 
-%A course setting enables better access to study participants.
 Since the participants are students taking a class on software development, we can more easily arrange for time to give feedback on the study in the form of the quality of data that we are collecting and the collections method influence on the development process.
 This feedback loop enables us to change the data collection to accommodate the needs of the students more easily and therefore ensure data quality by mitigating the risk of participants neglecting the data collection process. 
 
-%lead into next section
 In the next section we provide a more in-depth description of the study setting and the data that we expect to collect.
 
 \section{Setting}
 \subsection{Course Details}
-% course goals
 The globally distributed software evelopment course taught at both the Universiyt of Victoria, Canada, and Altoo University, Finland, aims at teaching students how to develop software in a distributed setting.
 In this particular course student teams where forced to deal with the issues that come with a distributed team in an extreme way since both West Coast Canada and Finland are seperated by a time difference of 11 hourse minimizing the time all team members are awake.
 This both necessaitates and motivates the students to apply lessons learned in the class room as for most of the students this situation is unfamiliar.
 
-% course length
 The course on globally distributed software development took place starting in October 2011 and ended in April 2012.
 With the Finnish stutends starting in October 2011 and the Canadian students joining the development effort in Januaray 2012.
 This further allowed the students to engage in remote collboration as the Finish students represent the experts on the system the teams are working on and will need to guide their Canadian teammates in getting used to the projects layout and functions.
 
-% the average class
 Besides developing a software product the Canadian students also have regular classes.
 During a regular class the students participate in a seminar style setting that requires each student to read a set of papers, that can be discussed on the course blog, and discuss implications of the findings detailed in the papers and how these findings may apply to their current development experience.
 Every two weeks the seminar style class is interrupted for a project wide meeting to bring together all the teams, including the Finish team members, to show case their progress and to plan the next steps and for the following two weeks.
 
-% feedback system
 The students filled out a survey every other week giving feedback on the class, the development process, and the use of different tools for communication and development.
 Besides this bi-weeklu survey the students also had the chance to talk to the course instructors as well as the teaching assitant to issue concerns and make suggestion on how to improve the course for the students as well as issues they see with the quality of the collected or non-collected data.
 
 \subsection{Team Composition}
-% 12 Canadians and 6 Finish
-% each team 2 Finish 4 Canadians
 As desribed earlier each development team consists of both students from Canada and Finnland.
 There are three teams with each team consiting of four students from Canada and two students from Finnland.
 
-% one product owner
 In addition to the three teams we also have a product owner of software product that came up with the idea of the product, that we will describe in greated detail in Subsection~\ref{}.
 The product owner is located in Finland and is responsible for prioritizing the different features that he wants to be implemented.
 Moreover, he negotiates with the teams what items they should aim for within a given two week span. 
 
-% one scrum master/project manager
 To coordinate the work across teams, one Finish student has become the scrum master or defactor project manager.
 He is both the most experienced developer as well as has the most knowledge about the projectas he is using the product within his own company.
 Facilitating coordination across teams entails setting up meeting between team memebrs as well as structuing the bi-weekly project meeting.
 He also takes care of scoping out development tools to use and ensures that everyone is up to speed with issues arising from other teams that may implicate their work.
 
 \subsection{Development Project}
-% agilefant - agileplaning tool
 The students in this course are extending the agile-planning tool agilefant\footnote{}.
 Agilefant combines task creation, management, and planning into one tool that allows both to schedule different tasks for different sprints, with a sprint being a time period that is meant to implement a fixed set of tasks.
 Furthermore, tasks can be organized hirachacly and be of different types, such as user stories or bug reports.
  
-% open source project with project owner
 As mentioned previously, this product was conceived by the product owner and has since been developed by students participating in cap-stone projects~\footnote{} at Altoo University, Finnland.
 The tool itself is open source and available to any one to download, install and extend as they see fit.
 
-% developed through student projects but used in industry
 Besides being a student driven project it found a number of users in industry.
 Due to the development being mainly undertaken in the cap-stone projects that are offered yearly to the students, the project progresses in spurts instead of gradually.
 Nevertheless, the stability of its core feature and light weight apporach it is popular among small and mid-sized companies to plan their development.
 
 \subsection{Development Process}
-% scrum
 The project follows a scrum process~\cite{} and thus development progresses in small sprints working of a common backlog.
 A sprint, in the case of our project, is defined to be two weeks long starting with a planning session and ending in a retrospective.
 The planning sessions and retrospectives take place between two sprints at the same day starting with the retrospective followed by the planning for the next sprint.
-% group meetings at least once a week
-% bi-weekly project meetings (every other week)
 
 \subsection{IT-Infrastructure}
-% github.com
 The source code is managed using GIT\footnote{} and is available on github.com\footnote{}.
 Although agilefant or github.com issues can be used for task management both are missing important features, github.com is missing the planning capabilities of a full agile planning tool and agilefant is missing the ability to discuss work items.
-% rtc for issue tracking
 Therefore, we use IBM Rational Team Concert for the planning of sprints and tracking of work items.
 An additional advantage of IBM Rational Team Concert it is intergrating with Eclipse the main development environment, which also integrates with git. 
 
-% irc/email for additional communication
 Besides using discussions on work items, the students also use email and irc for communication.
 To ensure that everyone has the same knowledge students are encouraged to summarize their email and irc discussion in work item discussion.
-% google hangout for team meetings
 For group meetings especially the planning and retrospective session we provided the student with seperate rooms and internet access to use google hangout for video chatting and screen sharing when disucssing their group individual sprint plans.
 For the project meeting after each sprint to demo their accomplishment to the development team at large, we provided conferences room with multiple microphones and screens to simultaniously show a number of remote participants as well as screen sharing sessions. 
 
-% jenkins build engine
 To further support the development process the students set up a Jenkins an open source webbased build system.
 This build system allows for continous testing and thus help the students to get a better understanding of their progress with respect to implementing their tasks for a given sprint.
 
@@ -190,26 +166,20 @@ For our study we collect six types of data:
 \item Mylyn events gathered using our custom build Eclipse plug-in.
 \end{itemize}
 
-%Communication data such as e-mails, irc chat logs and work item dicussions.
 Although we are not necessarily intrested in constructing social networks for this part of the study but rather we are concerend whether it is possible to prevent build failures given a certain set of collectible data, we need access to as much comminication data as possible not only as a means to see what kind of problems arose and whether they were of any importance to the developers.
 For example, are build failures a problem for the developers and as such are all build failure equal.
 Knowing which build failure are actually problematic to the developers lets us focus on those instances that do matter.
 
-%The source code repositories on github.com, including each developers fork of the main repository.
 To further the investigation into the issues reported by the developers we make use of the version control systems used.
 In our case these are several git repositories hosted on github.com.
 Each developer owns her own forked repository from which she pushes changes to her respective team repository.
 Once a feature implementation or bug fix has been reviewd by the product owner it is pushed to the project repository to ensure that each development team and team members is working on the latest stable code.
 
-%Log of the build engine indicating failed and successful builds.
 Since implementing quality features was a main concern during the class, the students set up a buildengine to continously test their implementations.
 Jenkins\footnote{}, the build engine used by the teams, keeps a log of all the builds as well as their outcomes.
 
-%Documentation and diaries created by students during the course.
-%Surveys and questionnaires completed by students throughout the course.
 Besides collecting data that is generated by the development activities of the students during the course we also asked them to keep a development direy as well as fill out frequent surveys that gauge their impression of the progress within the project as well as the adequacy of the tools used.
 
-%Mylyn events gathered using our custom build Eclipse plug-in.
 Finally, as mentioned in the previous Subsection~\ref{} we also collect the code itneractions with respect to which methods in the source code have been edited or selected in a central repository.
 
 \subsection{Analaysis}
@@ -225,7 +195,6 @@ We go over data collected during the course in six steps, starting from identify
 \item Check if using the social-network help findings the right people to include in order to resolve the issue.
 \end{enumerate}
 
-% generally answer the question why it is ok to do it this way
 \paragrpah{Identifying build issues.}
 To find build issues that are truely build issues to the developer and not only such that report as a build failure due to test cases that failed and were meant to fail, we code the communication with respect to problems experienced in the project.
 From those coded problems we select all problems related to building the software.
@@ -248,7 +217,6 @@ Knowing both, the change-set as well as the interaction traces that where involv
 In case we see observe that the code traces that we collected could have predicted the issue, we look for cues in the communication medio for the resultion of the issues and see if the knowledge about the code traces and the communication happening at the time of implementing the change-set.
 Finding a relation between the code interactions and the ongoing communication during the implementation contrasted with the communication needed to resolve the issue create by the change-set is the key to building a useful recommendation.
 
-% some closing words towards how many instances we are looking at and why this numner is sufficient 
 Instead of analysing each build failure that is important to the developers, we focus on finding one build that let's us trace the error back to the code interactions as well as shows a connection between the code interactions and the communication needed to resolve the build issue.
 We will leave the autmatzation and analysis for future work.
 
