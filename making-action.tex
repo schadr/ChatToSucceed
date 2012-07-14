@@ -4,13 +4,14 @@ This Chapter concludes the work of this thesis by exploring the final research q
 To explore this final question we first present how such a recommender system might look like to motivate its potential usefulness and continue with describing our study in a student course setting to answer our final research question.
 
 \section{Recommender System: Chat To Succeed}
+\label{chap:making:sec:cts}
 Most software projects have infrastructure in place that automatically builds the software system on a regular basis. 
 If there are errors in this build, if automated regression tests fail, or if a developer finds a major flaw in a build this build is considered as a failed build.  
 Research shows that communication structures can be used to predict the outcome of a build~\cite{wolf:icse:2009}.  
 Certain patterns of communication among team members who contribute to the code can determine if a build fails or succeeds. 
 We expand this idea by providing specific recommendations of who should chat together to ensure a successful build.
 
-We showed in Chapter~\ref{} evidence that a build might fail due to a possibility that members of the software team coordinated poorly between the time the current build broke, and the last known successful build. 
+We showed in Chapter~\ref{chap:stc-net} evidence that a build might fail due to a possibility that members of the software team coordinated poorly between the time the current build broke, and the last known successful build. 
 One possible reason for this lack of coordination is that the team members who worked on interrelated components failed to inform each other about their changes. 
 This brings us to the discussion of socio-technical congruence.
 
@@ -100,7 +101,7 @@ Besides this bi-weeklu survey the students also had the chance to talk to the co
 As described earlier each development team consists of both students from Canada and Finland.
 There are three teams with each team consisting of four students from Canada and two students from Finland.
 
-In addition to the three teams we also have a product owner of software product that came up with the idea of the product, that we will describe in greater detail in Subsection~\ref{}.
+In addition to the three teams we also have a product owner of software product that came up with the idea of the product, that we will describe in greater detail in Subsection~\ref{chap:make:subset:devproject}.
 The product owner is located in Finland and is responsible for prioritizing the different features that he wants to be implemented.
 Moreover, he negotiates with the teams what items they should aim for within a given two week span. 
 
@@ -110,11 +111,12 @@ Facilitating coordination across teams entails setting up meeting between team m
 He also takes care of scoping out development tools to use and ensures that everyone is up to speed with issues arising from other teams that may implicate their work.
 
 \subsection{Development Project}
-The students in this course are extending the agile-planning tool agilefant\footnote{}.
+\label{chap:make:subset:devproject}
+The students in this course are extending the agile-planning tool agilefant\footnote{www,agilefant.org}.
 Agilefant combines task creation, management, and planning into one tool that allows both to schedule different tasks for different sprints, with a sprint being a time period that is meant to implement a fixed set of tasks.
 Furthermore, tasks can be organized hierarchically and be of different types, such as user stories or bug reports.
  
-As mentioned previously, this product was conceived by the product owner and has since been developed by students participating in cap-stone projects~\footnote{} at Altoo University, Finland.
+As mentioned previously, this product was conceived by the product owner and has since been developed by students participating in cap-stone projects at Altoo University, Finland.
 The tool itself is open source and available to any one to download, install and extend as they see fit.
 
 Besides being a student driven project it found a number of users in industry.
@@ -127,7 +129,7 @@ A sprint, in the case of our project, is defined to be two weeks long starting w
 The planning sessions and retrospectives take place between two sprints at the same day starting with the retrospective followed by the planning for the next sprint.
 
 \subsection{IT-Infrastructure}
-The source code is managed using GIT\footnote{} and is available on github.com\footnote{}.
+The source code is managed using GIT\footnote{http://git-scm.com/} and is available on github.com\footnote{https://github.com}.
 Although Agilefant or github.com issues can be used for task management both are missing important features, github.com is missing the planning capabilities of a full agile planning tool and Agilefant is missing the ability to discuss work items.
 Therefore, we use IBM Rational Team Concert for the planning of sprints and tracking of work items.
 An additional advantage of IBM Rational Team Concert it is integrating with Eclipse the main development environment, which also integrates with git. 
@@ -141,13 +143,13 @@ To further support the development process the students set up a Jenkins an open
 This build system allows for continuous testing and thus help the students to get a better understanding of their progress with respect to implementing their tasks for a given sprint.
 
 \section{Background and Related Work}
-Socio-technical congruence builds the basis for our recommendation generating approach detailed in the previous Section~\ref{}.
+Socio-technical congruence builds the basis for our recommendation generating approach detailed in the previous Section~\ref{chap:making:sec:cts}.
 Measuring the overlap between social relations, as represented by the communication among developers, and technical relations, as represented by artifact dependencies, socio-technical congruence shows a relation between build success and maximum coverage of technical relations by social relations~\cite{}.
 
 Traditionally socio-technical congruence research focused showing that better adherence to Conway's law~\cite{} results in higher productivity~\cite{}.
 We and others showed that additionally to the relation with productivity socio-technical congruence also has an affect on software quality.  
 
-Although socio-technical congruence has the potential to generate recommendations that can be used to prevent failures (as detailed earlier in Section~\ref{} and Chapter~\ref{}), it currently lacks in its actionability to utilize the insights produces so far.
+Although socio-technical congruence has the potential to generate recommendations that can be used to prevent failures (as detailed earlier in Section~\ref{chap:making:sec:cts} and Chapter~\ref{chap:stc-net}), it currently lacks in its actionability to utilize the insights produces so far.
 In the calculation of socio-technical congruence, or to be more precise, in building the technical networks, the knowledge about technical relationship as created by change-sets is needed.
 Since a change-set is only known once it has been submitted and thus the work has already been done, there is a need to approximate a change-set before all the work has been done.
 
@@ -157,6 +159,7 @@ Furthermore, proximity can accurately predict coordination needs before before t
 
 \section{Methodology}
 \subsection{Proximity to Infer Real Time Technical Networks}
+\label{chap:making:subset:proximity}
 In order to be able to explore the possibility of recommending improvements with respect to the socio-technical networks, we need to be able to intervene before the majority of work has been done.
 The main issue with creating real time socio-technical networks lies with constructing technical networks as they are only known once a developer submits her changes to a repository.
 On the other hand social-networks can be more readily constructed in real time because in order to communicate, at least electronically, will yield a trace for each bit of communication traveling from one person to the other and thus allow to extend a social network with each new instance of communication.
@@ -191,9 +194,9 @@ Once a feature implementation or bug fix has been reviewed by the product owner 
 Since implementing quality features was a main concern during the class, the students set up a build-engine to continuously test their implementations.
 Jenkins\footnote{}, the build engine used by the teams, keeps a log of all the builds as well as their outcomes.
 
-Besides collecting data that is generated by the development activities of the students during the course we also asked them to keep a development direy as well as fill out frequent surveys that gauge their impression of the progress within the project as well as the adequacy of the tools used.
+Besides collecting data that is generated by the development activities of the students during the course we also asked them to keep a development diary as well as fill out frequent surveys that gauge their impression of the progress within the project as well as the adequacy of the tools used.
 
-Finally, as mentioned in the previous Subsection~\ref{} we also collect the code interactions with respect to which methods in the source code have been edited or selected in a central repository.
+Finally, as mentioned in the previous Subsection~\ref{chap:making:subset:proximity} we also collect the code interactions with respect to which methods in the source code have been edited or selected in a central repository.
 
 \subsection{Analysis}
 Our analysis of for determine the feasibility of creating predictions based on socio-technical networks.
@@ -315,8 +318,8 @@ Bernards Method Trace fo Task ... \\% Timestamp \\
      UserLoadWidget.java-getUser                                                     \\% 2012-02-22 19:55:33.581 \\
       \bottomrule
 \end{tabular}
-\label{tab:overlappingtraces}
 \caption{Overlapping code interaction traces that lead to a merge conflict.}
+\label{tab:overlappingtraces}
 \end{table}
 
 Table~\ref{tab:overlappingtraces} shows two traces that directly link to one of the major build failures caused by merge conflicts.
