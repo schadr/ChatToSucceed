@@ -240,7 +240,7 @@ These issues usually happened towards the end of the sprint as this is the time 
 \\ \ \\
 \indent\emph{``Unexpected problems when merging the old code in, had to overload a couple methods [...]  and create some new code to mesh it together.  Eventually fixed with a decent solution.''} - student comment
 \\ \ \\
-On the other hand, most failed builds are of less interest to the students for two reasons: 
+\indent On the other hand, most failed builds are of less interest to the students for two reasons: 
 (1) test got outdated as the core functionality of the product changed considerably 
 and (2) the product owner was deciding what features are of acceptable quality regardless of the test case results.
 
@@ -248,23 +248,84 @@ Since most of the work preformed by the students changed core functionality or a
 At the same time test cases lose in value with respect to deciding whether a feature is of acceptable quality, because the product owner is deciding on whether a feature is deployable based on a demo and manual testing.
 
 \subsection{Preventable Build Failures}
-\begin{table}[ht]
-\centering
-\begin{tabular}{ccc}
+\begin{table}[t!]
+\centering\small
+\begin{tabular}{l}
 \toprule
-awesome\\
+Angeliques Method Trace for Task ... \\%
 \midrule
-thesis\\
-\bottomrule
+     HourEntryBusiness.java-calculateWeek-Sum-QLocalDate                                                                  \\% 2012-02-12 18:01:59.344\\
+     HourEntryBusiness.java-getDailySpentEffortByInterval-QDateTime-QDateTime                                    \\% 2012-02-12 18:51:43.353 \\
+     HourEntryBusiness.java-getDailySpentEffortByIteration-QIteration                                                     \\% 2012-02-12 17:59:43.698 \\
+     HourEntryBusiness.java-getDailySpentEffortByWeek-QLocalDate                                                           \\% 2012-02-12 18:50:46.942 \\
+     %HourEntryBusiness.java-getDailySpentEffortByWeek-QLocalDate                                                         \\% 2012-02-12 17:45:23.787 \\
+     HourEntryBusiness.java-getEntriesByUserAndDay-QLocalDate                                                            \\% 2012-02-12 18:02:53.219 \\
+     HourEntryBusiness.java-logBacklogEffort-QHourEntry-QSet                                              \\% 2012-02-12 17:59:33.333 \\
+     HourEntryBusinessImpl.java-calculateWeekSum-QLocalDate                                                   \\% 2012-02-12 18:02:04.738 \\
+     HourEntryBusinessImpl.java-getDailySpentEffortByInterval-QDateTime-QDateTime                                  \\% 2012-02-12 20:29:30.971 \\
+     %HourEntryBusinessImpl.java-getDailySpentEffortByInterval-QDateTime-QDateTime                              \\% 2012-02-12 19:00:39.81  \\
+     HourEntryBusinessImpl.java-getDailySpentEffortByIteration-QIteration-QDateTimeZone                              \\% 2012-02-12 18:00:09.826 \\
+     HourEntryBusinessImpl.java-getDailySpentEffortByWeek-QLocalDate                                            \\% 2012-02-12 19:25:18.785 \\
+     HourEntryBusinessImpl.java-getDailySpentEffortForHourEntries-QList-QDateTime-QDateTime          \\% 2012-02-12 18:56:34.409 \\
+     HourEntryBusinessImpl.java-getEntriesByUserAndDay-QLocalDate                                               \\% 2012-02-12 18:02:50.675 \\
+     IterationBurndownBusinessImpl.java-getBurndownTimeSeries-QList-QLocalDate-QLocalDate \\% 2012-02-12 19:10:16.384 \\
+     IterationBurndownBusinessImpl.java-getCurrentDaySpentEffortSeries-QList-QDateTime                \\% 2012-02-12 18:19:11.223 \\
+     IterationBurndownBusinessImpl.java-getEffortSpentDataItemForDay-QDailySpentEffort                                \\% 2012-02-12 19:15:17.272 \\
+     IterationBurndownBusinessImpl.java-getEffortSpentTimeSeries-QList-QDateTime-QDateTime           \\% 2012-02-12 19:01:14.579 \\
+     ProjectBusinessImpl.java-getProjectData                                                                         \\% 2012-02-11 15:23:30.342 \\
+     \emph{ProjectBusinessImpl.java-retrieveLeafStories-QStoryFilters}                                                     \\% 2012-02-11 15:44:00.868 \\
+     StoryHierarchyBusinessImpl.java-moveUnder-QStory-QStory                                                         \\% 2012-02-28 20:34:29.65  \\
+     HourEntryDAOHibernate.java-getHourEntriesByFilter-QDateTime-QDateTime                                         \\% 2012-02-15 11:30:28.254 \\
+     DailySpentEffort.java-setDay-QDateTime                                                                                \\% 2012-02-12 18:10:38.683 \\
+     StoryHierarchyAction.java-moveMultipleAfter                                                                                 \\% 2012-02-28 21:38:09.445 \\
+     StoryHierarchyAction.java-moveMultipleBefore                                                                                \\% 2012-02-28 21:39:41.965 \\
+     StoryHierarchyAction.java-moveMultipleUnder                                                                                 \\% 2012-02-28 21:37:56.006 \\
+     StoryHierarchyAction.java-moveStoryUnder                                                                                    \\% 2012-02-25 13:00:26.604 \\
+     StoryHierarchyAction.java-recurseHierarchyAsList                                                                            \\% 2012-02-25 13:00:15.767 \\
+%      \bottomrule
+%\end{tabular}
+%\label{tab:overlappingtraces}
+%\caption{Overlapping code interaction traces that lead to a merge conflict.}
+%\end{table}
+%
+%
+%\begin{table}[t!]
+%\centering\small
+%\begin{tabular}{l}
+%\toprule
+\midrule
+\midrule
+Bernards Method Trace fo Task ... \\% Timestamp \\
+ \midrule
+     BacklogHistoryEntryBusinessImpl.java-setStoryHi-erarchyDAO-QStoryHierarchyDAO \\% 2012-02-10 13:40:28.454 \\
+     BacklogHistoryEntryBusinessImpl.java-updateHistory                          \\% 2012-02-10 13:40:48.593 \\
+     ProductBusinessImpl.java-store-QProduct                                    \\% 2012-02-23 12:01:52.557 \\
+     ProjectBusinessImpl.java-persistProject-QProject                             \\% 2012-02-23 12:04:28.878 \\
+     ProjectBusinessImpl.java-store-QInteger-QProject-QSet        \\% 2012-03-14 14:02:37.353 \\
+     %14 \\
+     %ProjectBusinessImpl.java-store-QInteger-QProject-QSet        \\% 2012-03-14 15:33:12.686 \\
+     \emph{ProjectBusinessImpl.java-retrieveLeafStories-QStoryFilters}                                 \\% 2012-02-23 11:59:40.577 \\
+     StoryBusinessImpl.java-createStoryRanks-QStory-QBacklog                     \\% 2012-03-14 13:55:45.079 \\
+     %46 \\
+     %StoryBusinessImpl.java-createStoryRanks-QStory-QBacklog                     \\% 2012-03-14 14:10:16.51  \\
+     StoryBusinessImpl.java-store-QInteger-QStory-QInteger-QSet  \\% 2012-03-14 13:57:53.526 \\
+     %10\\
+%     StoryBusinessImpl.java-store-QInteger-QStory-QInteger-QSet  \\% 2012-03-14 14:07:20.516 \\
+     StoryWidget.java-getStory                                                       \\% 2012-02-09 09:13:07.167 \\
+     UserLoadWidget.java-getUser                                                     \\% 2012-02-22 19:55:33.581 \\
+      \bottomrule
 \end{tabular}
 \label{tab:overlappingtraces}
 \caption{Overlapping code interaction traces that lead to a merge conflict.}
 \end{table}
 
-Table~\ref{overlappingtraces} shows two traces that directly link to one of the major build failures caused by merge conflicts.
+Table~\ref{tab:overlappingtraces} shows two traces that directly link to one of the major build failures caused by merge conflicts.
 Similarly, the change-set that these two traces turn into show the issue resulting from merging.
 
-EXPLAIN THE OVERLAP IN THE TRACES
+Each trace contains a list of methods ordered by when the developer selected or edited a method.
+The two traces shown in Table~\ref{tab:overlappingtraces} only show edit events and removed redundancies when multiple subsequent edit events in the same method occurred.
+We can see that the two traces, which each belong to a different developer working on different tasks, 
+Furthermore, the two traces overlap by both editing a common function \emph{ProjectBusinessImpl.java-retrieveLeafStories-QStoryFilters} (emphasis also added in the Table), which turned out to be the offending function that causes a merge conflict.
 
 Note that the time those traces were recorded during the same sprint but shifted in time.
 Furthermore, the owners of the two traces and thus change-sets belong to different teams whose work is supposed to be integrated towards the end of the sprint.
