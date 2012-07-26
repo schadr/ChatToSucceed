@@ -57,7 +57,6 @@ Selecting a software build as the focus of building and generting insights into 
 With a software build representing a high level software artifact identifying this artifact is straight forward as the studies presented in this thesis sufficiently demostrated.
 Generally any scope that is easily captured within a software artifact such as a software change or a work item can server as a scope sused to construct and generate insight from socio-technical networks.
 
-% 2. Define outcome metric.
 \paragraph{Outcome}
 With our focus on software quality in the form of build success, we chose as outcome metric whether in the opinion of the developer a build was counted as success or not.
 The studies we performed and reported on in Chapters~\ref{}-\ref{} showed that a meaninful outcome metric can be attached to the scope of a build, which in our case is the build outcome as percieved by the develope.
@@ -65,7 +64,6 @@ We postulate that this can be done for other scopes as well.
 Consider for instance the scope of a software change.
 The work by Slivserski et al~\cite{} showed a way to infer whether a software change can be induced a fix worthy failure and thus yielding a similar outcome metric as build success for software changes. 
 
-% 3. Build social networks according to the scope in real time.
 \paragraph{Social Networks}
 In Chapter~\ref{} we reported on a study~\cite{wolf:icse:2009} using social networks related to software builds to predict build outcome.
 The construction of social networks depends mainly on the possibility of tracing communication artifacts such as work item comments to the respective build.
@@ -75,7 +73,6 @@ To apply this step in project that do not make these links between artifacts exp
 The nature of how communication recorded electronically enables the automatic construction of social networks as soon as the communication artifacts are recorded within the respective system.
 In the case of modern issue trackers that would mean, as soon as a developer adds a comment to a work item this information can be used to complement all social networks this comment is relevant to.
 
-% 4. Build technical networks according to the scope in real time.
 \paragraph{Technical Networks}
 In the beginning of this thesis in Chapter~\ref{} we detailed related work that looked into leveraging technical networks to predict software failures.
 Chapter~\ref{} presents work that focuses on files or binray/package level predictions and thus build technical networks around a software artifact that is hard to associate to a specific time in the project.
@@ -86,11 +83,11 @@ In contrast to constructing social networks once changes to the version control 
 Thus unless the recommendations help after the actual work has been accomplished there is an inherent need to build technical networks as the code is modified for a given task.
 For example, when looking into increasing productivity generating recommendations from technical networks after the work has been accomplish is of little use.
 
-% 5. Generate actionable insights.
 \paragraph{Insights}
 Once the social and technical networks are created the combined socio-technical networks can then be contrasted based on the outcome metric each network is associated with.
 In Chapter~\ref{} and~\ref{} we showed how to generate insights using a binary outcome metric by decomposing the networks and measuring the correlation of the network parts with the outcome metric, thus yielding insights that can be used to directly change the social network to be more liekly to yield the desired outcome.
 
 % concluding sentence leading into the threats to validity and maybe a sentence on why we will omit practical and research implications
+Although we showed through the studies reported in this thesis that there is ample evidence supporting the usefulness of the approach to leverage socio-technical congruence to generate actionable knowledge, there are limitations that we discuss in the next section.
 
 \section{Threats to Validity}
