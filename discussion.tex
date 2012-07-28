@@ -5,7 +5,7 @@ Then we follow up with a more detailed explanations on how the research presente
 Closing with some remarks on the general threats to validity.
 
 \section{Approach to Leveraging Socio-Technical Congruence}
-The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{} described it in their seminal paper.
+The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
 Since the research questions we formulated for this thesis only implicitly describe the approach, it is necessary to describe the approach to wrest actionable insights from the concept of socio-technical congruence.
 
 Our approach took five steps:
@@ -24,7 +24,7 @@ This focus defines the source and communication artifacts that are used to const
 
 \paragraph{Outcome}
 In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
-For example, throughout this thesis we used build success, a binary varibale that states whether a build is of acceptable quality.
+For example, throughout this thesis we used build success, a binary variable that states whether a build is of acceptable quality.
 With an outcome measure at hand we can contrast networks to gain insights.
 
 \paragraph{Social Networks}
@@ -37,7 +37,7 @@ Gathering all to the selected scope relevant communication artifacts than yields
 \paragraph{Technical Networks}
 To complement the social networks and thus create socio-technical networks we need to produce technical networks.
 The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
-For instance, Blincoe et al~\cite{} proposed to use Mylyn\footnote{} events to accomplish the extraction of interactions with source code in real time.
+For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{} events to accomplish the extraction of interactions with source code in real time.
 
 \paragraph{Inishgts}
 In Chapter~\ref{} and~\ref{} we showed how to generate recommendations by contrasting the networks according to their outcome metrics based on a binary outcome metric indicating whether a build failed.
@@ -60,13 +60,13 @@ With our focus on software quality in the form of build success, we chose as out
 The studies we performed and reported on in Chapters~\ref{}-\ref{} showed that a meaningful outcome metric can be attached to the scope of a build, which in our case is the build outcome as perceived by the developer.
 We postulate that this can be done for other scopes as well.
 Consider for instance the scope of a software change.
-The work by Slivserski et al~\cite{} showed a way to infer whether a software change can be induced a fix worthy failure and thus yielding a similar outcome metric as build success for software changes. 
+The work by Slivserski et al~\cite{sliwerski:notes} showed a way to infer whether a software change can be induced a fix worthy failure and thus yielding a similar outcome metric as build success for software changes. 
 
 \paragraph{Social Networks}
 In Chapter~\ref{} we reported on a study~\cite{wolf:icse:2009} using social networks related to software builds to predict build outcome.
 The construction of social networks depends mainly on the possibility of tracing communication artifacts such as work item comments to the respective build.
 In our case studies with the IBM Rational Team Concert development team as well as the course study presented in Chapter~\ref{} the development teams used systems that made links between software builds explicit through their issue tracking and version control systems.
-To apply this step in project that do not make these links between artifacts explicit methods proposed through the Hipicat~\cite{} by ... et al can be used to heuristically infer links between artifacts of interest.
+To apply this step in project that do not make these links between artifacts explicit methods proposed through the Hipicat~\cite{cubranic:tse:2005} by Cubranic et al can be used to heuristically infer links between artifacts of interest.
 
 The nature of how communication recorded electronically enables the automatic construction of social networks as soon as the communication artifacts are recorded within the respective system.
 In the case of modern issue trackers that would mean, as soon as a developer adds a comment to a work item this information can be used to complement all social networks this comment is relevant to.
@@ -76,7 +76,7 @@ In the beginning of this thesis in Chapter~\ref{} we detailed related work that 
 Chapter~\ref{} presents work that focuses on files or binary/package level predictions and thus build technical networks around a software artifact that is hard to associate to a specific time in the project.
 Most of the research reported on resolves this by looking at a milestone level and thus declaring the milestone as the scope and relate parts of the milestone level technical network to software artifacts in whose failure-proneness is of interest.
 
-In our study described in Chapter~\ref{}, we showed how to use the method proposed by Blincoe et al~\cite{} to construct technical networks while developer are exploring and modifying source code.
+In our study described in Chapter~\ref{}, we showed how to use the method proposed by Blincoe et al~\cite{blincoe:cscw:2012} to construct technical networks while developer are exploring and modifying source code.
 In contrast to constructing social networks once changes to the version control are committed the work or task associated with the change has been finished.
 Thus unless the recommendations help after the actual work has been accomplished there is an inherent need to build technical networks as the code is modified for a given task.
 For example, when looking into increasing productivity generating recommendations from technical networks after the work has been accomplish is of little use.
