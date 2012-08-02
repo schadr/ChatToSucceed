@@ -13,6 +13,48 @@ Originally as first defined by Cataldo et al~\cite{} socio-techncial congruence 
 Following we discuss the two commonly used approached to infer socio-technical dependecies among developers, starting with the traditional definition initially presented by Cataldo et al~\cite{} followed by a more network centric definition.
 
 \subsubsection{Task Assignment and Dependecy}
+Cataldo et al~\cite{} defined the technical dependencies among developers as the matrix multiplication of the matrix defining the assignment of a developer to a task with the matrix defining the dependencies among tasks multiplid with the invers of the matri defining the assigment of a devloper to a task.
+Thus two matrices need to be infered from a data set: (1) task assignment matrix describing which developer is assigned to what task and (2) the task dependency matix describing which tasks share dependencies.
+
+\paragraph{Task Assignment Matrix}
+The task assginment matrix dimension is the number of developers times the number of tasks.
+Each entry in the matrix denotes whether a given developer is assigned to a given task, note that this notation allows for more than one developer to be assigned to a task as well as one developer being assigned to multiple tasks.
+This infromation is inferred from task manahement systems such as BugZilla\footnote{} or Jira\footnote{} that show who is assigned to work on a given task.
+Thus constructing the task assigment matrix together with identifying developer and task is straight forward when a task management is available.
+
+\paragraph{Task Dependency Matrix}
+The task dependecy matrix dimension is the number of tasks times the number of tasks with each row and column representing all tasks.
+Each entry in the task dependecy matrix indicated whether two tasks have a dependecy, note that although this matrix allows for defining a direction with respect to the dependency but as Cataldo et al~\cite{} forumulated it and other researchers used it~\cite{} the direction is essentially not used.
+The task dependency matrix is populated by identifying the code written to finish a task and infer dependencies among the various code changes implementing different tasks.
+For example, Cataldo et al~\cite{} defined two tasks to be dependend if the associated changes modify the same file. 
+
+\begin{figure}[ht]
+\centering
+\includegrahics{}
+\caption{Calculating technical dependecies among developer using the task assignment nd task dependency matrix.}
+\label{chap:3:fig:example:stc:cataldo}
+\end{figure}
+The final calculation of the technical dependency among developer follows the formula presented below:
+
+\begin{equation}
+something
+\end{equation}
+
+Figure~\ref{chap:3:fig:example:stc:cataldo} shows and example on how to derive the technical dependencies among developers given a task assignment and task dependency matrix.
+Following the formula presented in Equation~\ref{}, we multiply the task assignment matrix with the task dependecy matrix with the transposed task assignment matrix to optain a matrix of dimension of number of developers by number of developer with each entry in the matrix greater than 0 denoting a technical dependency between two developers.
+For instance developer Adam and Eve have a resulting dependency because they are both assigned to tasks that have a dependency in the task dependecy matrix. 
+This resluting matrix is also reffered to as the coordination needs matrix.
+
+The technical dependecy matrix opteined throught the matrix multiplication described, needs to be contrasted with the actual coordintation that happened in the project.
+For this purpose Cataldo et a~\cite{} proposed to create a matrix recording whether two developer coordinate their work.
+Communication is often~\cite{} used as a proxy for coordination and as soon as there is an instance of coordination among two developers recorded, such as emails or posting together comments on the same task.
+To congruence metric itself is the ratio between developers that have both a technical dependency and did coordinate over the number of developer that have a technical dependency.
+
+% lead into the next subsection
+The actual coordination matrix depics a social network with developer being nodes and coordination instances edges.
+Similarly the coordination needs matrix depicts a social network connecting developers when they share a technical dependency.
+Thus another method to approach socio-technical congruence instead theough the explict definition of the task assignment and the task depenecy matrix is to take a more social networks analysis point of view and construct the two types of social networks directly as we discuss in the next section.
+
 \subsubsection{Social and Technical Networks}
 
 \subsection{Socio-Technical Congruence and Performance}
