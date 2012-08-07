@@ -50,12 +50,24 @@ For this purpose Cataldo et a~\cite{} proposed to create a matrix recording whet
 Communication is often~\cite{} used as a proxy for coordination and as soon as there is an instance of coordination among two developers recorded, such as emails or posting together comments on the same task.
 To congruence metric itself is the ratio between developers that have both a technical dependency and did coordinate over the number of developer that have a technical dependency.
 
-% lead into the next subsection
 The actual coordination matrix depics a social network with developer being nodes and coordination instances edges.
 Similarly the coordination needs matrix depicts a social network connecting developers when they share a technical dependency.
 Thus another method to approach socio-technical congruence instead theough the explict definition of the task assignment and the task depenecy matrix is to take a more social networks analysis point of view and construct the two types of social networks directly as we discuss in the next section.
 
 \subsubsection{Social and Technical Networks}
+Since the task dependency as we saw earlier depends on the changes made to the software and their dependencies through the code it is often easier to directly construct the coordination needs matrix or for that matter the social network connecting developer via technical dependencies form the changes made to the system.
+This is possible since changes to a software system are usually recorded in a source code repository and each change belongs to a developer.
+Thus research~\cite{} working with the socio-technical congruence concept with a social network view contrast social and technical networks.
+
+\paragraph{Technical Networks}
+In Cataldo et al's~\cite{} formulation of technical dependencies he is constructing them by multiplying the task assignment and task dependecy matrix.
+Since the task dependency matrix is inferred from the overlap in code modifications, say both tasks are accomplished by modifyng the same source code files, the technical depnencies among developers can be directly inferred from a software repository.
+This more direct approach enables for the construction of technical networks, connecting developers through the dependencies of the changes they made to a software project, enables us to construct technical networks withouth the need of accessing a task manegement system.
+
+\paragraph{Social Networks}
+The social network representation of the ongoing communication is exactly the same as the actual coodination matrix as descibed by Cataldo et al's~\cite{} as the matrix is in effect a way to represent a network (also known as adjancancy matrix).
+
+The tricky part of this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less goverend by processes demanding nameing concentions of account names~\cite{}.
 
 \subsection{Socio-Technical Congruence and Performance}
 \subsection{Socio-Technical Congruence Next Steps}
