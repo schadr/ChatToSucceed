@@ -110,6 +110,47 @@ and (2) recommender systems that create awareness of change within the code.
 We are intrested in these two types of recommender systems because they each directly influence the technical and social network, respectively.
 
 \subsection{Recommending Code Changes}
+% eRose
+% find bugs
+% mylyn
+% look through rsse tools
+
 \subsection{Establishing Awareness}
+Another type of recommender systems aims at providing developers and managers with awareness of technical relations among software developers.
+Derived from the implication of socio-technical congruence described by Conway's Law~\cite{} and later confirmed by Cataldo et al~\cite{}, this additional awareness is mean to improve the coordination among software development especially in a distributed setting where coordination is most difficult~\cite{}.
+In the following we describe five awreness systems, we are aware (pun intended) that this list is not exhaustive, but it presents a reasonable overview of awreness systems proposed by software engineering researchers that are recognized by the research community.
 
+% ariadne
+Ariadne~\cite{} prodives awarness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting when following call dependencies.
+This allows a developer to see which developer she might need to coordinate her work with to not negatively impact the code of other developers that are using the code she is modifying.
+%
+% palantir
+Palantir~\cite{} complements the dependencies among developer by providing the reverse awarness, namely, showing a developer what source code they are currently accessing in their workspace is affected by code changes submitted by co-workers.
+For example, Palantir indicates which source code files have been changed in the mean time by other developer that are present in the developer current work space and thus might hint at possible merge conflicts.
 
+% tesseract
+Tesseract~\cite{} extends the concept of showing code dependencies among developers by fostering awareness through visualizing task and developer centric socio-technical networks, which would extend the technical networks directly and indirectly shown in Ariadne and Palantir by a social component.
+A task centric socio-technical networks is build from all developers and source code changes that are related through code dependencies or task discussions to a specific task.
+These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what social, technical, or socio-technical relationaships she has with her collegues.
+
+% proxi scentia
+Ariadne, Plantir, and Tesseract suffer from the issue that they cannot provide real time feedback on changes in the technical networks, as they can only record changes made to source code as developer commit complete changes to the source code repository. 
+Proxiscentia~\cite{} address this issue by implementing an apporach proposed by Blincoe et al~\cite{} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{}.
+This enables a developer to be forwarned of changes that are made to related code as for example Palantir relies on or would enable Ariadne to take into account newly create source call dependencies as a developer is modifying code calling methods that are currently modified by another developer.
+
+% Ensemble
+All the previously described systems aim at providing developer with awerness that is meant to ease identifying collegues to coordinate work with.
+And as Tesseract shows being aware of the ongoing social connections is valuable as well, as it gives you an idea who one already coordinated with, it also gives you an idea on who can give advice related to work currently performed.
+This opens the way for awareness systems that provide either notifaction systems about changes to any relevant artifact or enable developers to search across multiple repositores to find answers with respect to impact and expertise seeking.
+
+For example, Ensemble~\cite{} provides a constant stream of events consiting of modifications to artifacts that are related to the stream owner.
+If developer Adam posts a comment on a task onwed by developer Eve, then Eve's stream of events would contain an event showing that Adam commented on her task.
+Similarly, the stream of a developer also contains information about relevant code modifications that overlap or potentially interact with code he or she previsouly modified.
+
+% code book
+% hipicat
+On the other hand systems such as Hipikat\cite{} and Codebook~\cite{} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositries, or any other electronically accessible developement repository.
+In contrast to as system such as Essemble, ssearch based systems will not flood developers with a large amount of notifications that are of little ineterest to develeoper, yet at the same time search based systems will not be able to notify developer if something of great importance that require imidate attention, such as a build that was meant as a release canadidate failed.
+
+\subsection{Next Steps}
+% what are the issues arising from the various systems that we then want to address in this thesis
