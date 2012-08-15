@@ -19,7 +19,7 @@ Thus two matrices need to be infered from a data set: (1) task assignment matrix
 \paragraph{Task Assignment Matrix}
 The task assginment matrix dimension is the number of developers times the number of tasks.
 Each entry in the matrix denotes whether a given developer is assigned to a given task, note that this notation allows for more than one developer to be assigned to a task as well as one developer being assigned to multiple tasks.
-This infromation is inferred from task manahement systems such as BugZilla\footnote{} or Jira\footnote{} that show who is assigned to work on a given task.
+This infromation is inferred from task manahement systems such as BugZilla\footnote{\url{http://www.bugzilla.org/}} or Jira\footnote{\url{http://www.atlassian.com/software/jira}} that show who is assigned to work on a given task.
 Thus constructing the task assigment matrix together with identifying developer and task is straight forward when a task management is available.
 
 \paragraph{Task Dependency Matrix}
@@ -37,11 +37,12 @@ For example, Cataldo et al~\cite{} defined two tasks to be dependend if the asso
 The final calculation of the technical dependency among developer follows the formula presented below:
 
 \begin{equation}
+\label{eq:stc:cataldo}
 something
 \end{equation}
 
 Figure~\ref{chap:3:fig:example:stc:cataldo} shows and example on how to derive the technical dependencies among developers given a task assignment and task dependency matrix.
-Following the formula presented in Equation~\ref{}, we multiply the task assignment matrix with the task dependecy matrix with the transposed task assignment matrix to optain a matrix of dimension of number of developers by number of developer with each entry in the matrix greater than 0 denoting a technical dependency between two developers.
+Following the formula presented in Equation~\ref{eq:stc:cataldo}, we multiply the task assignment matrix with the task dependecy matrix with the transposed task assignment matrix to optain a matrix of dimension of number of developers by number of developer with each entry in the matrix greater than 0 denoting a technical dependency between two developers.
 For instance developer Adam and Eve have a resulting dependency because they are both assigned to tasks that have a dependency in the task dependecy matrix. 
 This resluting matrix is also reffered to as the coordination needs matrix.
 
@@ -100,7 +101,7 @@ In case of failure prevention the current way socio-technical congruence is cons
 On the other hand, to contribute to the improvment of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
 Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantagous as it allows developer to intervene early on and spend less time on correct errors later on.
 
-Therefore we propose as detailed in the previous Chapter~\ref{} to explore to what extend the socio-technical network can be manipulated and how to do so in a timely fashion following the approach proposed by Blincoe et al~\cite{}.
+WILL NEED TO BE MOVED TO THE LAST SECTION
 
 \section{Recommendations in Software Engineering}
 Software engineering research produces several recommender systems.
@@ -147,10 +148,10 @@ Similarly, the stream of a developer also contains information about relevant co
 
 % code book
 % hipicat
-On the other hand systems such as Hipikat\cite{} and Codebook~\cite{} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositries, or any other electronically accessible developement repository.
+On the other hand systems such as HipikaT~\cite{} and Codebook~\cite{} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositries, or any other electronically accessible developement repository.
 In contrast to as system such as Essemble, ssearch based systems will not flood developers with a large amount of notifications that are of little ineterest to develeoper, yet at the same time search based systems will not be able to notify developer if something of great importance that require imidate attention, such as a build that was meant as a release canadidate failed.
 
-\subsection{Next Steps/Research Questions}
+\section{Next Steps/Research Questions}
 % what are the issues arising from the various systems that we then want to address in this thesis
 
 CHAPTER 2 (RESEARCH QUESTIONS) SHOULD GO HERE
