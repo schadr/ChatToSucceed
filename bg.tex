@@ -1,32 +1,32 @@
 \startchapter{Background}
 In this chapter we will give a rough overview over the challenge that we described in the introduction and how other work tried partially or in full to address these challenges.
-Note that we will not go into great detail of the indvidual steps that we undertook in this thesis as we discuss related work in the appropriate chapter.
-Thus we will discuss two areas: (1) the research around the concept of socio-technical congruence and (2) recommender systems in sofftware engineering.
+Note that we will not go into great detail of the individual steps that we undertook in this thesis as we discuss related work in the appropriate chapter.
+Thus we will discuss two areas: (1) the research around the concept of socio-technical congruence and (2) recommender systems in software engineering.
 
 \section{Socio-Technical Congruence}
-As mentioned earlier this thesis explores to what extend cane we leverage the concept of socio-technical congruence, before we start discussion the work that has been done with respect to using the concept of socio-technical congruence to analyise softare development teams and their performance, we explain the socio-technical congruence conpect and it different ways it was implemented so far.
+As mentioned earlier this thesis explores to what extend cane we leverage the concept of socio-technical congruence, before we start discussion the work that has been done with respect to using the concept of socio-technical congruence to analyze software development teams and their performance, we explain the socio-technical congruence concept and it different ways it was implemented so far.
 We close this section by discussion the next step we are going to take with respect to concept.
 
 \subsection{Socio-Technical Congruence Definitions}
-The literature ecploring and using the concept of socio-technical congruence often relies on two interconnected definitions of socio-technical congruence.
-Originally as first defined by Cataldo et al~\cite{cataldo:cscw:2006} socio-techncial congruence was a single metric describing how much of the work dependencies between developersa are covered by the commonuication between those developers, but the interest in socio-technical congruence took a broader view and instead of focusing on the metric researchers~\cite{} started focusing on the underlying construct conceptualizing the different connections among dvelopers.
-Following we discuss the two commonly used approached to infer socio-technical dependecies among developers, starting with the traditional definition initially presented by Cataldo et al~\cite{cataldo:cscw:2006} followed by a more network centric definition.
+The literature exploring and using the concept of socio-technical congruence often relies on two interconnected definitions of socio-technical congruence.
+Originally as first defined by Cataldo et al~\cite{cataldo:cscw:2006} socio-technical congruence was a single metric describing how much of the work dependencies between developers are covered by the communication between those developers, but the interest in socio-technical congruence took a broader view and instead of focusing on the metric researchers~\cite{} started focusing on the underlying construct conceptualizing the different connections among developers.
+Following we discuss the two commonly used approached to infer socio-technical dependencies among developers, starting with the traditional definition initially presented by Cataldo et al~\cite{cataldo:cscw:2006} followed by a more network centric definition.
 
 \subsubsection{Task Assignment and Dependecy}
-Cataldo et al~\cite{cataldo:cscw:2006} defined the technical dependencies among developers as the matrix multiplication of the matrix defining the assignment of a developer to a task with the matrix defining the dependencies among tasks multiplid with the invers of the matri defining the assigment of a devloper to a task.
-Thus two matrices need to be infered from a data set: (1) task assignment matrix describing which developer is assigned to what task and (2) the task dependency matix describing which tasks share dependencies.
+Cataldo et al~\cite{cataldo:cscw:2006} defined the technical dependencies among developers as the matrix multiplication of the matrix defining the assignment of a developer to a task with the matrix defining the dependencies among tasks multiplied with the inverse of the matrix defining the assignment of a developer to a task.
+Thus two matrices need to be inferred from a data set: (1) task assignment matrix describing which developer is assigned to what task and (2) the task dependency matrix describing which tasks share dependencies.
 
 \paragraph{Task Assignment Matrix}
-The task assginment matrix dimension is the number of developers times the number of tasks.
+The task assignment matrix dimension is the number of developers times the number of tasks.
 Each entry in the matrix denotes whether a given developer is assigned to a given task, note that this notation allows for more than one developer to be assigned to a task as well as one developer being assigned to multiple tasks.
-This infromation is inferred from task manahement systems such as BugZilla\footnote{\url{http://www.bugzilla.org/}} or Jira\footnote{\url{http://www.atlassian.com/software/jira}} that show who is assigned to work on a given task.
-Thus constructing the task assigment matrix together with identifying developer and task is straight forward when a task management is available.
+This information is inferred from task management systems such as BugZilla\footnote{\url{http://www.bugzilla.org}} or Jira\footnote{\url{http://www.atlassian.com/software/jira}} that show who is assigned to work on a given task.
+Thus constructing the task assignment matrix together with identifying developer and task is straight forward when a task management is available.
 
 \paragraph{Task Dependency Matrix}
-The task dependecy matrix dimension is the number of tasks times the number of tasks with each row and column representing all tasks.
-Each entry in the task dependecy matrix indicated whether two tasks have a dependecy, note that non-zero entries refer to the existence of a dependency but not its strength.
+The task dependency matrix dimension is the number of tasks times the number of tasks with each row and column representing all tasks.
+Each entry in the task dependency matrix indicated whether two tasks have a dependency, note that non-zero entries refer to the existence of a dependency but not its strength.
 The task dependency matrix is populated by identifying the code written to finish a task and infer dependencies among the various code changes implementing different tasks.
-For example, Cataldo et al~\cite{cataldo:cscw:2006} defined two tasks to be dependend if the associated changes modify the same file. 
+For example, Cataldo et al~\cite{cataldo:cscw:2006} defined two tasks to be dependent if the associated changes modify the same file. 
 
 \begin{figure}[ht]
 \centering
@@ -67,7 +67,7 @@ For example, Cataldo et al~\cite{cataldo:cscw:2006} defined two tasks to be depe
 \end{matrix}
 \right)
 \]
-\caption{Calculating technical dependecies among developer using the task assignment and task dependency matrix.}
+\caption{Calculating technical dependencies among developer using the task assignment and task dependency matrix.}
 \label{chap:3:fig:example:stc:cataldo}
 \end{figure}
 The final calculation of the technical dependency among developer follows the formula presented below:
@@ -78,18 +78,18 @@ The final calculation of the technical dependency among developer follows the fo
 \end{equation}
 
 Figure~\ref{chap:3:fig:example:stc:cataldo} shows and example on how to derive the technical dependencies among developers given a task assignment and task dependency matrix.
-Following the formula presented in Equation~\ref{eq:stc:cataldo}, we multiply the task assignment matrix with the task dependecy matrix with the transposed task assignment matrix to optain a matrix of dimension of number of developers by number of developer with each entry in the matrix greater than 0 denoting a technical dependency between two developers.
-For instance developer Adam and Eve have a resulting dependency because they are both assigned to tasks that have a dependency in the task dependecy matrix. 
-This resluting matrix is also reffered to as the coordination needs matrix.
+Following the formula presented in Equation~\ref{eq:stc:cataldo}, we multiply the task assignment matrix with the task dependency matrix with the transposed task assignment matrix to obtain a matrix of dimension of number of developers by number of developer with each entry in the matrix greater than 0 denoting a technical dependency between two developers.
+For instance developer Adam and Eve have a resulting dependency because they are both assigned to tasks that have a dependency in the task dependency matrix. 
+This resulting matrix is also referred to as the coordination needs matrix.
 
-The technical dependecy matrix opteined throught the matrix multiplication described, needs to be contrasted with the actual coordintation that happened in the project.
+The technical dependency matrix obtained through the matrix multiplication described, needs to be contrasted with the actual coordination that happened in the project.
 For this purpose Cataldo et a~\cite{cataldo:cscw:2006} proposed to create a matrix recording whether two developer coordinate their work.
 Communication is often~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008,wolf:icse:2009} used as a proxy for coordination and as soon as there is an instance of coordination among two developers recorded, such as emails or posting together comments on the same task.
 To congruence metric itself is the ratio between developers that have both a technical dependency and did coordinate over the number of developer that have a technical dependency.
 
-The actual coordination matrix depics a social network with developer being nodes and coordination instances edges.
+The actual coordination matrix depicts a social network with developer being nodes and coordination instances edges.
 Similarly the coordination needs matrix depicts a social network connecting developers when they share a technical dependency.
-Thus another method to approach socio-technical congruence instead theough the explict definition of the task assignment and the task depenecy matrix is to take a more social networks analysis point of view and construct the two types of social networks directly as we discuss in the next section.
+Thus another method to approach socio-technical congruence instead through the explicit definition of the task assignment and the task dependency matrix is to take a more social networks analysis point of view and construct the two types of social networks directly as we discuss in the next section.
 
 \subsubsection{Social and Technical Networks}
 Since the task dependency as we saw earlier depends on the changes made to the software and their dependencies through the code it is often easier to directly construct the coordination needs matrix or for that matter the social network connecting developer via technical dependencies form the changes made to the system.
@@ -97,17 +97,17 @@ This is possible since changes to a software system are usually recorded in a so
 Thus research~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} working with the socio-technical congruence concept with a social network view contrast social and technical networks.
 
 \paragraph{Technical Networks}
-In Cataldo et al's~\cite{cataldo:cscw:2006} formulation of technical dependencies he is constructing them by multiplying the task assignment and task dependecy matrix.
-Since the task dependency matrix is inferred from the overlap in code modifications, say both tasks are accomplished by modifyng the same source code files, the technical depnencies among developers can be directly inferred from a software repository.
-This more direct approach enables for the construction of technical networks, connecting developers through the dependencies of the changes they made to a software project, enables us to construct technical networks withouth the need of accessing a task manegement system.
+In Cataldo et al's~\cite{cataldo:cscw:2006} formulation of technical dependencies he is constructing them by multiplying the task assignment and task dependency matrix.
+Since the task dependency matrix is inferred from the overlap in code modifications, say both tasks are accomplished by modifying the same source code files, the technical dependencies among developers can be directly inferred from a software repository.
+This more direct approach enables for the construction of technical networks, connecting developers through the dependencies of the changes they made to a software project, enables us to construct technical networks without the need of accessing a task management system.
 
 \paragraph{Social Networks}
-The social network representation of the ongoing communication is exactly the same as the actual coodination matrix as descibed by Cataldo et al's~\cite{cataldo:cscw:2006} as the matrix is in effect a way to represent a network (also known as adjancancy matrix).
+The social network representation of the ongoing communication is exactly the same as the actual coordination matrix as described by Cataldo et al's~\cite{cataldo:cscw:2006} as the matrix is in effect a way to represent a network (also known as adjacency matrix).
 
-The tricky part of this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less goverend by processes demanding nameing concentions of account names~\cite{schroeter:isese:2006}.
+The tricky part of this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less governed by processes demanding naming conventions of account names~\cite{schroeter:isese:2006}.
 
 \subsection{Socio-Technical Congruence and Performance}
-Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} stating that any product developed by an organization will invitably structured as that organizations communication structure.
+Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} stating that any product developed by an organization will inevitably structured as that organizations communication structure.
 From this starting point Cataldo et al~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated if there exists a connection between productivity and the overlap of the communication among developers and the technical dependencies of their work.
 The communication is taken as the organizational communication structure and the technical dependencies between the work each developer needs to accomplish as the systems organization.
 The idea is that if the communication structure completely contains the work dependencies among developers, that developer will be able to accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
@@ -120,29 +120,29 @@ Overall Cataldo et al~\cite{cataldo:cscw:2006} found and were confirmed by other
 Considering that the main issue with the productivity is the longer way of communication through intermediates in contrast to the direct way lends itself to open the question of whether congruence can predict software quality.
 The rational is that the additional complication in communication might introduce errors into the system due to awareness.
 Meneely et al~\cite{meneely:fse:2008} showed that socio-technical networks can be used to predict software failures whereas Kwan et al~\cite{kwan:tse:2011} found that the congruence metric statistically relates to build success.
-In both cases, software quality and prductivity there are some additional steps that need to be taken to fully leveragre the concept of socio-technical congrunce.
+In both cases, software quality and productivity there are some additional steps that need to be taken to fully leverage the concept of socio-technical congruence.
 
 \subsection{Socio-Technical Congruence Next Steps}
-The concept of socio-technical congruence shows potential to help make software developement more efficient.
-Cataldo et al~\cite{cataldo:cscw:2006} demostrated its relation to productivit, and we show among other things in this thesis the ability to use socio-technical congruence to predict software quality.
-The concept of socio-technical congruence lends itself to improve software developement as it is based on social networks connecting developer on a coordination and technical level.
+The concept of socio-technical congruence shows potential to help make software development more efficient.
+Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show among other things in this thesis the ability to use socio-technical congruence to predict software quality.
+The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
 Because of the concept being based on networks it is possible to manipulate the networks.
 
 There are two steps that need to be taken:
 (1) identify the parts of the network that need to be changed
 and (2) devise strategies to change the social network in a timely fashion.
-In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compiute after a task has been completed to assess the quality of the submitted code.
-On the other hand, to contribute to the improvment of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
-Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantagous as it allows developer to intervene early on and spend less time on correct errors later on.
+In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
+On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
+Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
 
 WILL NEED TO BE MOVED TO THE LAST SECTION
 
 \section{Recommendations in Software Engineering}
 Software engineering research produces several recommender systems.
-For us two types pf recommender systems are of interest:
+For us two types of recommender systems are of interest:
 (1) recommender systems that recommend code changes
 and (2) recommender systems that create awareness of change within the code.
-We are intrested in these two types of recommender systems because they each directly influence the technical and social network, respectively.
+We are interested in these two types of recommender systems because they each directly influence the technical and social network, respectively.
 
 \subsection{Technical Recommendations}
 
@@ -151,39 +151,39 @@ CHAPTER 6 (TECHNICAL NETWORKS) SHOULD GO HERE
 \subsection{Establishing Awareness}
 Another type of recommender systems aims at providing developers and managers with awareness of technical relations among software developers.
 Derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} and later confirmed by Cataldo et al~\cite{cataldo:cscw:2006}, this additional awareness is mean to improve the coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
-In the following we describe five awreness systems, we are aware (pun intended) that this list is not exhaustive, but it presents a reasonable overview of awreness systems proposed by software engineering researchers that are recognized by the research community.
+In the following we describe five awareness systems, we are aware (pun intended) that this list is not exhaustive, but it presents a reasonable overview of awareness systems proposed by software engineering researchers that are recognized by the research community.
 
 % ariadne
-Ariadne~\cite{trainer2005:ariadne} prodives awarness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting when following call dependencies.
+Ariadne~\cite{trainer2005:ariadne} provides awareness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting when following call dependencies.
 This allows a developer to see which developer she might need to coordinate her work with to not negatively impact the code of other developers that are using the code she is modifying.
 %
 % palantir
-Palantir~\cite{sarma:cscw:2002} complements the dependencies among developer by providing the reverse awarness, namely, showing a developer what source code they are currently accessing in their workspace is affected by code changes submitted by co-workers.
+Palantir~\cite{sarma:cscw:2002} complements the dependencies among developer by providing the reverse awareness, namely, showing a developer what source code they are currently accessing in their workspace is affected by code changes submitted by co-workers.
 For example, Palantir indicates which source code files have been changed in the mean time by other developer that are present in the developer current work space and thus might hint at possible merge conflicts.
 
 % tesseract
 Tesseract~\cite{arma:icse:2009} extends the concept of showing code dependencies among developers by fostering awareness through visualizing task and developer centric socio-technical networks, which would extend the technical networks directly and indirectly shown in Ariadne and Palantir by a social component.
 A task centric socio-technical networks is build from all developers and source code changes that are related through code dependencies or task discussions to a specific task.
-These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what social, technical, or socio-technical relationaships she has with her collegues.
+These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what social, technical, or socio-technical relationships she has with her colleagues.
 
 % proxi scentia
 Ariadne, Plantir, and Tesseract suffer from the issue that they cannot provide real time feedback on changes in the technical networks, as they can only record changes made to source code as developer commit complete changes to the source code repository. 
 Proxiscentia~\cite{borici:chase:2012} address this issue by implementing an apporach proposed by Blincoe et al~\cite{blincoe:cscw:2012} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
-This enables a developer to be forwarned of changes that are made to related code as for example Palantir relies on or would enable Ariadne to take into account newly create source call dependencies as a developer is modifying code calling methods that are currently modified by another developer.
+This enables a developer to be forewarned of changes that are made to related code as for example Palantir relies on or would enable Ariadne to take into account newly create source call dependencies as a developer is modifying code calling methods that are currently modified by another developer.
 
 % Ensemble
-All the previously described systems aim at providing developer with awerness that is meant to ease identifying collegues to coordinate work with.
+All the previously described systems aim at providing developer with awareness that is meant to ease identifying colleagues to coordinate work with.
 And as Tesseract shows being aware of the ongoing social connections is valuable as well, as it gives you an idea who one already coordinated with, it also gives you an idea on who can give advice related to work currently performed.
-This opens the way for awareness systems that provide either notifaction systems about changes to any relevant artifact or enable developers to search across multiple repositores to find answers with respect to impact and expertise seeking.
+This opens the way for awareness systems that provide either notification systems about changes to any relevant artifact or enable developers to search across multiple repositories to find answers with respect to impact and expertise seeking.
 
-For example, Ensemble~\cite{xiang:rsse:2008} provides a constant stream of events consiting of modifications to artifacts that are related to the stream owner.
-If developer Adam posts a comment on a task onwed by developer Eve, then Eve's stream of events would contain an event showing that Adam commented on her task.
-Similarly, the stream of a developer also contains information about relevant code modifications that overlap or potentially interact with code he or she previsouly modified.
+For example, Ensemble~\cite{xiang:rsse:2008} provides a constant stream of events consisting of modifications to artifacts that are related to the stream owner.
+If developer Adam posts a comment on a task owned by developer Eve, then Eve's stream of events would contain an event showing that Adam commented on her task.
+Similarly, the stream of a developer also contains information about relevant code modifications that overlap or potentially interact with code he or she previously modified.
 
 % code book
 % hipicat
-On the other hand systems such as HipikaT~\cite{cubranic:tse:2005} and Codebook~\cite{begel:icse:2010} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositries, or any other electronically accessible developement repository.
-In contrast to as system such as Essemble, ssearch based systems will not flood developers with a large amount of notifications that are of little ineterest to develeoper, yet at the same time search based systems will not be able to notify developer if something of great importance that require imidate attention, such as a build that was meant as a release canadidate failed.
+On the other hand systems such as HipikaT~\cite{cubranic:tse:2005} and Codebook~\cite{begel:icse:2010} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositories, or any other electronically accessible development repository.
+In contrast to as system such as Essemble, search based systems will not flood developers with a large amount of notifications that are of little interest to developer, yet at the same time search based systems will not be able to notify developer if something of great importance that require immediate attention, such as a build that was meant as a release candidate failed.
 
 \section{Next Steps/Research Questions}
 % what are the issues arising from the various systems that we then want to address in this thesis
