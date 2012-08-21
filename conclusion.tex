@@ -1,41 +1,41 @@
 \startchapter{Conclusions and Future Work}
-In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actioable knowledge.
-This five step approach focuses on defining two key paramters up front: (1) the scope of interest and (2) the outcome metric of interest.
-The first paramter, scope, helps with constructing the socio-technical networks, with constructing the social networks being the thrid and constructing the technicla networks being the fourth step, by supporting the selection of the best data sources.
+In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
+This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
+The first parameter, scope, helps with constructing the socio-technical networks, with constructing the social networks being the third and constructing the technical networks being the fourth step, by supporting the selection of the best data sources.
 the outcome metric guides the analysis to produce actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
 
-We dervide this approach through a number of case studies that investigate the usefulness of social and socio-technical networks with respect to supporting developers improve software quality (Chapters~\ref{chap:soc-net}-\ref{chap:stc-net}).
-Through these studies this approach crystalized to the point that in Chapter~\ref{chap:stc-net} we followed it ourselves.
-The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with repsect to whether exprets expect the level of recommendations to be of use as well if these recommendations could be produced in real time and potentially preevnt issues from arising.
+We derived this approach through a number of case studies that investigate the usefulness of social and socio-technical networks with respect to supporting developers improve software quality (Chapters~\ref{chap:soc-net}-\ref{chap:stc-net}).
+Through these studies this approach crystallized to the point that in Chapter~\ref{chap:stc-net} we followed it ourselves.
+The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well if these recommendations could be produced in real time and potentially preevnt issues from arising.
 
 Each study by itself contributed the the overall body of knowledge besides furthering the goal of the thesis to lay the foundations of a recommendations system leveraging the construct of socio-technical congruence.
 With our first study we gave empirical evidence of communication among software developers influencing software quality.
-Although by itself not surpising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the firts study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
+Although by itself not surprising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the first study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
 
 % stc and build success
 The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
 This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
 Backed up y findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
-As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:soc-net} that it actually predicts build failures with variing accuracy depending on the type of build.
+As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:soc-net} that it actually predicts build failures with varying accuracy depending on the type of build.
 
 % failure inducing pairs
-Being able to predict whether a build fails already help developer to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but utlimatly we want to be able to prevent builds from failing.
-To that purpose we would need to influence the socio-technical network such that it takes a structure that is more favorable to build success.
-We found that certain constalations within a socio-technical network, to be more precise pairings of software developer and their repsective relationship, seem to be correlating with build success.
+Being able to predict whether a build fails already help developer to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
+To that purpose we would need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
+We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success.
 This evidence can be used to recommend action before the build is commenced in the sense that developer can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
 
 % talk or not to talk
 Recommendations to manipulate the socio-technical network to improve the odds of a successful build is a good start, however the developers that need to follow these recommendations need to accepts them first.
 It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as development process.
-For instance, we found depening on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers forcus more high level reusablitly issues at the beginning of a release cycle.
+For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers forcus more high level reusability issues at the beginning of a release cycle.
 
 % leveraging stc in real time
-Knowing that socio-technical congruence lends it self to produce actionable knowledge that has an acceptable form to support developers in the wild is one step short is still one step short in exploring the feasability of prooving to of use.
-The final peace as we showed in Chapter~\ref{chap:actionable} is to show the feasability of generating the recommendations at the right time.
+Knowing that socio-technical congruence lends it self to produce actionable knowledge that has an acceptable form to support developers in the wild is one step short is still one step short in exploring the feasibility of proving to of use.
+The final peace as we showed in Chapter~\ref{chap:actionable} is to show the feasibility of generating the recommendations at the right time.
 Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 % future work
 The work presented in this thesis lend it self to several obvious venues of future work, such as building and testing the recommendation system with several software development teams to study its impact.
-A more interesting avenue to persue is to explore what software architecture can support what kind of communication and organizational structure.
-So far, the research around socio-technical congruence is pointing into the direction of changing how software developers coordinate their work, but returning to the original observation Conway made in that the software architecture will change to accomodate the communication structures inhering in an organization.
-Therefore, analysing software architectures with respect to the project properties, such as distribution of the development team or the organizational hierarchy, might yield valuable insight in guiding design desicions of the software product that not only take into account properties to increase the feature richness or maintainablility of the osftware product but to properties of the organization and the development team to increase productivity to develop and quality of software product. 
+A more interesting avenue to pursue is to explore what software architecture can support what kind of communication and organizational structure.
+So far, the research around socio-technical congruence is pointing into the direction of changing how software developers coordinate their work, but returning to the original observation Conway made in that the software architecture will change to accommodate the communication structures inhering in an organization.
+Therefore, analyzing software architectures with respect to the project properties, such as distribution of the development team or the organizational hierarchy, might yield valuable insight in guiding design decisions of the software product that not only take into account properties to increase the feature richness or maintainability of the software product but to properties of the organization and the development team to increase productivity to develop and quality of software product. 
