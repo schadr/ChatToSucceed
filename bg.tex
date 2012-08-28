@@ -1,3 +1,4 @@
+% !TEX root = thesis.tex
 \startchapter{Background}
 \label{chap:bg}
 In this chapter we will give a rough overview over the challenge that we described in the introduction and how other work tried partially or in full to address these challenges.
@@ -138,19 +139,144 @@ Even though in the case of software quality it is sufficient to assess the work 
 
 WILL NEED TO BE MOVED TO THE LAST SECTION
 
+
+
+
+
+
+\section{Source Code and Failure}
+In this section we go over the evidence empirical research has produced that bring technical networks produced through source code dependencies into relation with software defects.
+
+\subsection{Technical Network Related Measures}
+\label{chap:6:measure}
+Software artifact networks are necessarily made explicit to compute certain metrics but they can be often found as the implicit foundations of those metrics.
+We assign all of the 30 studies of our survey that fall into the category of using measure related to software artifact derived networks into three sub-categories:
+(1) code complexity metrics often measure the interdependencies between low level software artifacts,
+(2) object oriented metrics often measure very localized aspects or the class interdependencies,
+and (3) metrics that measure code interdependencies such as function fan in and fan out.
+
+\subsubsection{Code Complexity Metrics}
+Defect prediction heavily uses metrics the describe code to predict defect proneness of files and other levels of software artifacts.
+One such type of code metric is assessing the complexity of code.
+Code complexity related to technical networks as a proxy.
+Since most complexity is derived from interaction between software artifacts or parts of software artifacts they implicitly measure the complexity of a technical network.
+
+The two most common complexity metrics used are Lines of Code in a software artifact and Mc Cabe's complexity metric~\cite{mccabe:ieee:1976}.
+Both metrics have been found to exhibit a medium to strong correlation across various software projects.
+In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
+Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
+
+The first study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
+Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
+
+Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multiple source code metrics, other studies the relation ship of particular metrics with defect density.
+For instance, Koru et al~\cite{koru:promise:2005} conducted an in-depth analysis of the relation between the number of lines of code within a file and the relationship to defect density.
+Size not only is a defect predictor in many forms, e.g., average function size or file size, but the size of components also determines how well other predictors can work on it.
+
+In 2005 one year before Nagappan et al published their study on the relation of code metrics to defect density, Nikora et al~\cite{nikora:metrics:2005} discussed the use of graph measures used on the control flow graph.
+In the light of Mc Cabe's complexity metric that gives one value to the overall control flow graph within a software artifact, Nikora et al characterize the control flow graph using graph measures.
+
+Complexity and size metrics are often used as a control variable to ensure that newly found metrics are not simply a new representation of size or complexity and actually add more predictive power to already known metrics.
+Hence, there is ample evidence that lines of code~\cite{shihab:esem:2010,arisholm:isese:2006,jiang:promise:2008,knab:msr:2006,zhang:icsm:2009} and Mc Cabe's complexity~\cite{nagappan:icse:2006,shihab:fse:2011,zimmermann:fse:2009,jiang:promise:2008,zimmermann:promise:2007} have a moderate correlation to software defects on a file level.
+
+Despite their moderate usefulness complexity maesures as we know them so far especially lines of code and Mc Cabe's complexity metric do not generalize across projects.
+This means, using those metrics as predictors adjusted to one project usually offers poor predictions when applied to another~\cite{zimmermann:fse:2009}. 
+
+
+\subsubsection{Change Complexity Metrics}
+Besides measuring the complexity of the source code artifacts, measuring the complexity of the development of those code artifacts can also hint at dependencies across artifacts.
+During the evolution or maintenance of a project files are continuously edited to extend or improve the exiting project.
+These changes implicitly change the dependencies to other software artifacts by changing call and data dependencies and thus construct and measure an implicit software artifact network.
+Furthermore, changing files can create dependencies among the owner of the modified or affected and thus construct a technical network.
+
+Software artifact modifications are seldomly equally distributed across the project time and the artifacts related to a project.
+Thus, software artifact changes lend themselves to be studies in relation to software quality.
+The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005,moser:icse:2008,cataldo:icse:2011}.
+
+The next logical step after investigating the amount of change is to characterize the complexity of the changes made to a software artifact. 
+These churn metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
+To take it one step further compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
+Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
+
+Similarly to the code complexity metrics, change complexity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
+
+
+\subsubsection{Object Oriented Metrics}
+\label{chap:6:sub:oom}
+Object oriented metrics are taking into account more language specific construct that in the case of object oriented programming are often describing the relationship between object, such as inheritance depth, and thus describing an implicit network constructed from object relationships.
+Besides measuring the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
+
+Complexity measures in object oriented metrics are similarly relating to technical networks as explained in the previous section as code and change complexity.
+Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
+
+Direct measures of object relationship, such as inheritance depth~\cite{chidamber:tse:1994}, sub-classing~\cite{chidamber:tse:1994} and object coupling~\cite{chidamber:tse:1994}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
+In light of our research question, whether technical-networks can predict software failures, the relationship between measures of object relationships and defect density are a direct indicator for the ability of technical networks to predict software quality.
+
+
+\subsubsection{Dependency Metrics}
+\label{chap:6:sub:depmet}
+Besides the three types of metrics discussed that measure complexity of code and in the case of object oriented metrics sometimes actual dependencies between software artifacts.
+Metrics such as fan-in and fan-out~\cite{henry:tse:1981} of methods are directly measuring the dependencies between software artifacts and thus giving a clearer picture of the underlying technical network.
+
+Counting the number of dependencies either through metrics such as fan-in or fan-out or straight up counting call dependencies between software artifacts already yield moderate failure predictors~\cite{cataldo:icse:2011,nagappan:icse:2006,arisholm:isese:2006,knab:msr:2006,shin:msr:2009}.
+Note that although most of the object oriented metrics we mentioned in the previous section (Section~\ref{chap:6:sub:oom}) are also dependency metrics we will not reiterate them in this section. 
+Using more course grained dependency on the module level, or in other words counting dependencies across module boundaries, can also yield good failure predictors~\cite{jiang:promise:2008}.
+Another dependency metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schroeter:isese:2006,dualaekoko:esem:2009}.
+
+Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependencies between source code artifacts can be inferred using change information.
+Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the information about co-chaning files, that are files that are frequently changed togehter in the same change-set, to determine how dangerous it can be to not change those files together.
+Zimmermann et al's work originally was intended to recommend with files to additionally change to an original software change  found that violating those co-change dependencies can lead to software failure.
+Build on that work D'Ambros et al used the amount of those violations to build a prediction model that is able to predict defect likelihood for a file in a given project release. 
+
+
+\subsection{Artifact Networks}
+\label{chap:6:an}
+In the previous Section~\ref{chap:6:measure} we presented evidence of the relation between technical networks and their predictive powers with respect to software quality by going over past work that uses software metrics implicitly measuring the underlying technical network to predict software defects.
+This Section serves the purpose of exploring the exiting work done on failure prediction that consciously leverages networks that are build from linked software artifacts.
+
+Using dependencies within a product one can construct a network of software artifacts that share dependencies among each other.
+Artifacts that have direct dependencies are sometimes in the case of source code referred to as code peers.
+One interesting property of code peers is that in case a code peer exhibits a defect it increases the likelihood that the code artifact whose peer contains a defect has a higher likelihood to contain a defect by itself~\cite{nguyen:icse:2010}.
+
+Form this notion of a code peer and the influence a code peer or more generally an artifact peer can have on the quality of an artifact, analyzing these network with respect to an artifact and it surrounding artifacts.
+In a first study Zimmermann et al~\cite{zimmermann:icse:2008} studied data and call dependency measures a single artifact has to its dependent artifacts and found it to be a good predictor for software defects.
+
+In a follow up study Zimmermann et al~\cite{zimmermann:esem:2009} extended the influence of an artifacts peer by not solely focusing on an artifacts dependencies to its peers but taking into account the dependencies among an artifacts peers.
+This enables the application of network measures and social-network measures to characterize this ego network constructed around a singe software artifacts.
+As it turn out, the predictive power of such a network can be more powerful than only considering dependencies between an artifact and its peers~\cite{zimmermann:esem:2009}.
+
+\subsection{Technical Networks}
+\label{chap:6:tn}
+Although the evidence presented in the previous Section~\ref{chap:6:an} on using measures capturing Artifact Networks already provides ample evidence for the predictive power of technical networks, we are going to present the final peace of evidence to make our argument of answering our research questions by going over research that constructed networks very similar to the technical networks as we defined them in this thesis.
+
+To go from artifact network to technical network developer can be included in the already existing artifact network and thus be represented as a kind of artifact~\cite{pinzger:fse:2008}.
+These two mode networks can be used to do the same analysis that Zimmermann et al~\cite{zimmermann:esem:2009,zimmermann:icse:2008} performed by focusing on the software artifacts to predict the failure likelihood of each.
+
+Even closer to our definition of a technical network than the description of artifact networks and two mode networks comes the work of Meneely et al~\cite{meneely:fse:2008}.
+Their technical networks consist of developer that within a given release modified the same file, which matches our definition of connecting developer as soon as artifacts they are related to are connected.
+These networks, or rather social network measure extracted from these networks, are able to predict the whether a file contain a failure.
+
+
+
+
+
+
+
+
+
 \section{Recommendations in Software Engineering}
-Software engineering research produces several recommender systems.
-For us two types of recommender systems are of interest:
-(1) recommender systems that recommend code changes
-and (2) recommender systems that create awareness of change within the code.
-We are interested in these two types of recommender systems because they each directly influence the technical and social network, respectively.
-
-\subsection{Technical Recommendations}
-
-CHAPTER 6 (TECHNICAL NETWORKS) SHOULD GO HERE
-
-\subsection{Establishing Awareness}
-Another type of recommender systems aims at providing developers and managers with awareness of technical relations among software developers.
+%Software engineering research produces several recommender systems.
+%For us two types of recommender systems are of interest:
+%(1) recommender systems that recommend code changes
+%and (2) recommender systems that create awareness of change within the code.
+%We are interested in these two types of recommender systems because they each directly influence the technical and social network, respectively.
+%
+%\subsection{Technical Recommendations}
+%
+%CHAPTER 6 (TECHNICAL NETWORKS) SHOULD GO HERE
+%
+%\subsection{Establishing Awareness}
+Recommender systems often aim at providing developers and managers with awareness of technical relations among software developers.
 Derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} and later confirmed by Cataldo et al~\cite{cataldo:cscw:2006}, this additional awareness is mean to improve the coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
 In the following we describe five awareness systems, we are aware (pun intended) that this list is not exhaustive, but it presents a reasonable overview of awareness systems proposed by software engineering researchers that are recognized by the research community.
 
