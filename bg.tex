@@ -124,24 +124,6 @@ The rational is that the additional complication in communication might introduc
 Meneely et al~\cite{meneely:fse:2008} showed that socio-technical networks can be used to predict software failures whereas Kwan et al~\cite{kwan:tse:2011} found that the congruence metric statistically relates to build success.
 In both cases, software quality and productivity there are some additional steps that need to be taken to fully leverage the concept of socio-technical congruence.
 
-\subsection{Socio-Technical Congruence Next Steps}
-The concept of socio-technical congruence shows potential to help make software development more efficient.
-Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show among other things in this thesis the ability to use socio-technical congruence to predict software quality.
-The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
-Because of the concept being based on networks it is possible to manipulate the networks.
-
-There are two steps that need to be taken:
-(1) identify the parts of the network that need to be changed
-and (2) devise strategies to change the social network in a timely fashion.
-In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
-On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
-Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
-
-WILL NEED TO BE MOVED TO THE LAST SECTION
-
-
-
-
 
 
 \section{Source Code and Failure}
@@ -312,7 +294,70 @@ Similarly, the stream of a developer also contains information about relevant co
 On the other hand systems such as HipikaT~\cite{cubranic:tse:2005} and Codebook~\cite{begel:icse:2010} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositories, or any other electronically accessible development repository.
 In contrast to as system such as Essemble, search based systems will not flood developers with a large amount of notifications that are of little interest to developer, yet at the same time search based systems will not be able to notify developer if something of great importance that require immediate attention, such as a build that was meant as a release candidate failed.
 
-\section{Next Steps/Research Questions}
-% what are the issues arising from the various systems that we then want to address in this thesis
 
-CHAPTER 2 (RESEARCH QUESTIONS) SHOULD GO HERE
+
+
+
+
+
+
+\section{Next Steps/Research Questions}
+The concept of socio-technical congruence shows potential to help make software development more efficient.
+Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show among other things in this thesis the ability to use socio-technical congruence to predict software quality.
+The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
+Because of the concept being based on networks it is possible to manipulate the networks.
+
+There are two steps that need to be taken:
+(1) identify the parts of the network that need to be changed
+and (2) devise strategies to change the social network in a timely fashion.
+In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
+On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
+Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
+
+Any socio-technical network can be manipulated in two ways: (1) changing the technical dependencies among developer by refactoring or architectural changes to make them unnecessary and (2) by engaging developer in discussions about their recent work and therefore creating a coordination edge in the socio-technical network.
+Since many product aren't developed from scratch and because architectural changes once development has been going on for a number of months are costly and time consuming~\cite{vangurp:jss:2002}, we aim at generating recommendations to change the actual coordination to improve the socio-technical network where it matters.
+Therefore, as a first step we need to assess if the actual communication structure among software developers has an influence on software quality to lay the basis for manipulating the actual coordination to improve software quality.
+As a follow up step, we need to explore the relationship between socio-technical networks and software quality.
+Especially we are interested in the relationship in whether missing actual coordination in the face of a coordination needs is related to software failures.
+Note, in this thesis we focus on software builds and their success as a measure for software quality.
+Thus we formulate the following research questions:
+\begin{description}
+%
+\item[RQ 1:] Does Socio-Technical Congruence influence build success?
+  %
+  \begin{description}
+  \item[RQ 1.1:] Do Social Networks from repositories influence build success?
+  \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
+  \end{description}
+%
+\end{description}
+We explore \textbf{RQ~1.1} and \textbf{RQ~1.2} in Chapter~\ref{chap:soc-net} and Chapter~\ref{chap:stc-net2}, respectively, using data mining techniques as this allows us later to generate recommendations automatically.
+
+Knowing that there is a relationship between the mis-match of coordination needs and actual coordination leads into the investigation of whether remedying this mismatch can be used to improve software quality.
+Instead of suggesting that simply each coordination needs needs to be met, we want to focus on the most important violations that diminish software quality most often.
+We start with investigations if single violations can be related to low software quality to form the basis for recommendations that can be ranked by their likelihood of having a negative influence on software quality.
+Although knowing that socio-technical networks can be manipulated to increase software quality is a necessary step towards creating actionable knowledge, it is important that developers are willing to use the information and not to bother developer when they are not in need of recommendations.
+Finally, to be able to deliver the recommendations we need a mechanism to compute socio-technical congruence in a timely manner.
+Thus we formulate the following research questions:
+\begin{description}
+%
+\item[RQ 2:] Can Socio-Technical Networks be used to recommend improvements? 
+  %
+  \begin{description}
+  \item[RQ 2.1:] Can Socio-Technical-Networks be used to suggest improvements that matter?
+  \item[RQ 2.2:] Does recommending on the lowest level make sense?
+  \item[RQ 2.3:] When does recommending on the lowest level make sense?
+  \item[RQ 2.4:] Can recommendation be given in a timely manner?
+  \end{description}
+\end{description}
+Chapter~\ref{chap:stc-net} offers an insight into \textbf{RQ~2.1} by applying data mining techniques, whereas we investigate \textbf{RQ~2.2} and \textbf{RQ~2.3} through an in-depth participant observer study in Chapter~\ref{chap:talk}.
+\textbf{RQ~2.4} is answered in Chapter~\ref{chap:actionable} in a qualitative way by exploring data gathered during a university course.
+
+
+
+
+
+
+
+
+
