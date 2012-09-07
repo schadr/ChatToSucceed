@@ -313,48 +313,44 @@ Because of the concept being based on networks it is possible to manipulate the 
 There are two steps that need to be taken:
 (1) identify the parts of the network that need to be changed
 and (2) devise strategies to change the social network in a timely fashion.
+%A socio-technical network can be changed by encouraging communication or remove or add technical dependencies among developers.
+%As changing technical dependencies often means re-factorings or even major changes in the software architecture and as such changes are usually economically discouraged as clients rarely want to pay for non feature for, hence, we focus on adjusting the social dimension of socio-technical coordination.
+%
+%
+%
+%
 In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
 On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
 Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
 
 Any socio-technical network can be manipulated in two ways: (1) changing the technical dependencies among developer by refactoring or architectural changes to make them unnecessary and (2) by engaging developer in discussions about their recent work and therefore creating a coordination edge in the socio-technical network.
 Since many product aren't developed from scratch and because architectural changes once development has been going on for a number of months are costly and time consuming~\cite{vangurp:jss:2002}, we aim at generating recommendations to change the actual coordination to improve the socio-technical network where it matters.
-Therefore, as a first step we need to assess if the actual communication structure among software developers has an influence on software quality to lay the basis for manipulating the actual coordination to improve software quality.
-As a follow up step, we need to explore the relationship between socio-technical networks and software quality.
-Especially we are interested in the relationship in whether missing actual coordination in the face of a coordination needs is related to software failures.
-Note, in this thesis we focus on software builds and their success as a measure for software quality.
-Thus we formulate the following research questions:
-\begin{description}
-%
-\item[RQ 1:] Does Socio-Technical Congruence influence build success?
-  %
-  \begin{description}
-  \item[RQ 1.1:] Do Social Networks from repositories influence build success?
-  \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
-  \end{description}
-%
-\end{description}
-We explore \textbf{RQ~1.1} and \textbf{RQ~1.2} in Chapter~\ref{chap:soc-net} and Chapter~\ref{chap:stc-net2}, respectively, using data mining techniques as this allows us later to generate recommendations automatically.
+Therefore, as a first step we need to assess if the actual communication structure among software developers has an influence on build success to lay the basis for manipulating the actual coordination to increase build success.
+As a follow up step, we need to explore the relationship between socio-technical networks and build success.
+Especially we are interested in the relationship in whether missing actual coordination in the face of a coordination needs is related to build success.
 
-Knowing that there is a relationship between the mis-match of coordination needs and actual coordination leads into the investigation of whether remedying this mismatch can be used to improve software quality.
-Instead of suggesting that simply each coordination needs needs to be met, we want to focus on the most important violations that diminish software quality most often.
-We start with investigations if single violations can be related to low software quality to form the basis for recommendations that can be ranked by their likelihood of having a negative influence on software quality.
-Although knowing that socio-technical networks can be manipulated to increase software quality is a necessary step towards creating actionable knowledge, it is important that developers are willing to use the information and not to bother developer when they are not in need of recommendations.
-Finally, to be able to deliver the recommendations we need a mechanism to compute socio-technical congruence in a timely manner.
-Thus we formulate the following research questions:
+We start in the second part of this thesis with investigating the influence of communication among team members in the form of the communication structure as represented by social networks on build success followed by investigating if the gaps between developers as highlighted by socio-technical networks and the socio-technical networks themselves can be brought into relation with build success.
+Therefore Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
+
 \begin{description}
-%
-\item[RQ 2:] Can Socio-Technical Networks be used to recommend improvements? 
-  %
-  \begin{description}
-  \item[RQ 2.1:] Can Socio-Technical-Networks be used to suggest improvements that matter?
-  \item[RQ 2.2:] Does recommending on the lowest level make sense?
-  \item[RQ 2.3:] When does recommending on the lowest level make sense?
-  \item[RQ 2.4:] Can recommendation be given in a timely manner?
-  \end{description}
+  \item[RQ 1.1:] Do Social Networks from repositories influence build success? (Chapter~\ref{chap:soc-net})
+  \item[RQ 1.2:] Does Socio-Technical Networks influence build success? (Chapter~\ref{chap:stc-net2})
 \end{description}
-Chapter~\ref{chap:stc-net} offers an insight into \textbf{RQ~2.1} by applying data mining techniques, whereas we investigate \textbf{RQ~2.2} and \textbf{RQ~2.3} through an in-depth participant observer study in Chapter~\ref{chap:talk}.
-\textbf{RQ~2.4} is answered in Chapter~\ref{chap:actionable} in a qualitative way by exploring data gathered during a university course.
+
+Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs, with build success, while knowing that communication alone has an effect on build success we formulate an approach to leverage socio-technical networks in Chapter~\ref{chap:approach}.
+The third and final part of this thesis focuses on evaluating this approach in three ways:
+(1) gathering general statistical evidence of parts of the network and build success to foster recommendations,
+(2) the acceptance of such recommendation of developers,
+and (3) a proof of concepts that the recommendation can prevent failures.
+Hence, the first three chapters of the third part of this thesis are guided by the following three research questions:
+
+\begin{description}
+  \item[RQ 2.1:] Can Socio-Technical-Networks be manipulated to increase build success? (Chapter~\ref{chap:stc-net})
+  \item[RQ 2.2:] Do developer accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})
+  \item[RQ 2.3:] Can recommendation actually prevent build failures? (Chapter~\ref{chap:actionable})
+\end{description}
+
+In the following discussion Chapter~\ref{chap:disc} we will highlight how our findings from these three research questions support the approach we detailed in Chapter~\ref{chap:approach}.
 
 
 
