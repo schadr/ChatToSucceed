@@ -5,6 +5,73 @@ Furthermore, we also will discuss the general approach to the data collection me
 
 \section{Methodology Roadmap}
 \label{c5:sec:roadmap}
+In this section we will discuss what methods we apply to answer the research questions presented in Chapter~\ref{chap:bg}.
+Figure~\ref{} depicts the relationship between the research questions and the contribution of this thesis.
+Research questions~1.1 and~1.2 discussed in Chapters~\ref{} and~\ref{} motivate the approach.
+Research questions~2.1 and~2.3 (Chapters~\ref{}| and~\ref{}) explore whether socio-technical networks can be used to form recommendations that can prevent build failures, whereas research question~2.2 inquires in Chapter~\ref{} whether such recommendations are acceptable by developers.
+
+\subsection{rq 1.1}
+%Motivation
+The thesis goal is to device an approach that is able to improve the social interactions in the form of communication among software developers.
+As a first step we need to establish if the communication among software developers has an influence on the build success.
+
+%Data Source
+We have access to the development repositories used by the IBM Rational Team Concert development team giving us access to their source code management systems, communication repositories in the form of work item discussions, and their build results.
+All these artifacts are linked together in such a way that we can trace from the build result, which changes  went into the build and which work items a change is meant to implement.
+
+%Methods
+Using this information we can construct social networks from all the work items that can be via changes related to builds.
+These network are then described using social network metric and feed into machine learning algorithms to predict whether a build based on these metrics is more likely to fail or succeed.
+
+%Expected results
+Via this machine learning approach we want to establish a connection between a builds social network and its outcome. 
+If we are able to predict the build outcome more accurately than by simply guessing using the likelihood for a build failure we showed that there is a statistical relationship between build outcome and social networks.
+Thus, this result form the first evidence that manipulating the social network might yield positive impact on build success.
+
+\subsection{rq 1.2}
+%Motivation
+Knowing that a social network can influence the success of the corresponding build leaves the question open as to how that networks should be manipulated to improve the likelihood of a build to succeed.
+Therefore, we explore the relationship between socio-technical networks generally and gaps within that networks, with a gap being formed by two developers that share a technical dependencies but did not communicate about work related to the build of interest, and build success.
+%Data Source
+Similarly to the previous research question, we base the analysis on the same data set, as it allows us to directly infer technical relationships among developers related to a software build from the changes submitted to the source code management tool and which we used previously to infer the work items developers used to communicate among each other about the build.
+
+%Methods
+Since the socio-technical networks can have two semantically different edges connecting two developer within a network (technical dependencies and communication among developers) we refrain from using social network metrics as they assume only one mode of connection among nodes within a network.
+Instead we investigate the relationship of the socio-technical congruence index and build success as well as focusing on the influence on gaps in the network and build success.
+
+%Expected results
+Via statistical analysis tools such as regression analysis and hypothesis testing we want to establish a relationship between the existence of gaps within the socio-technical network and build success.
+Thus, this research question gives us another piece of evidence that let us formulate an approach to recommend actions to increase build success that is specifically alleviate gaps within the socio-technical network by recommending developer to communicate.
+
+\subsection{rq 2.1}
+%Motivation
+
+%Data Source
+
+%Methods
+
+%Expected results
+
+\subsection{rq 2.2}
+%Motivation
+
+%Data Source
+
+%Methods
+
+%Expected results
+
+\subsection{rq 2.3}
+%Motivation
+
+%Data Source
+
+%Methods
+
+%Expected results
+
+\pagebreak
+
 This thesis is aiming to answer two major research questions that we broke down into six research questions that are each covered in one chapter of this thesis (with the exception of \textbf{RQ~2.2} and \textbf{RQ~2.3}).
 With respect to methodology these six research questions can be roughly organized into three groups by their respective methodology employed to answer them.
 
