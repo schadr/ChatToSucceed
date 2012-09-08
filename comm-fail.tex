@@ -24,18 +24,15 @@ Then, we go over the analysis and results we obtained in Section~\ref{} followed
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
 
 %- chapter back ground 
-%  TODO merge 1 and 2 section
+%  TODO merge 1, 2, and 3 section
 %  TODO merge introduction into back ground
 %- methodology chapter
 %  TODO cut constructs
-%- analysis and results
-%- discussion
 %- conclusion
 %  TODO rewrite into answer to RQ and lead into next chapter
 
 
-\pagebreak
-
+\section{Introduction}
 Communication problems lead to coordination and integration failures in work
 teams (e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew,souza:cscw:2004}). This
 situation is further exacerbated in large and distributed teams, where effective
@@ -983,39 +980,15 @@ predictions before the actual build fails.
 
 \section{Conclusion}
 \label{sec:conclusion}
-Our results indicate that developer communication plays an important role in the
-quality of software integrations. Complementary to existing literature on
-communication and coordination outcome in software engineering, we objectively
-measured coordination outcome by the result of the integration build. To capture
-and study communication we used social network measures. Although we found that
-no individual social network measure could indicate whether a build will fail or
-succeed, the combination of network measures can be combined into a predictive
-model. The model indicates whether an integration will fail based on the current
-communication structure of a development team. For five project studied teams,
-our predictive model yielded recall values between 55\% and 75\%, and precision
-values between 50\% to 76\%.
+We end this chapter bringing it back to the initial research questions we set out to answer:
+\begin{description}
+\item[RQ 1.1] Do Social Networks from repositories influence build success?
+\end{description}
 
-The study of communication patterns in relation to team performance is important
-given that communication is the main mechanism for knowledge sharing in work
-groups. Software engineers differ in the expertise, knowledge, and background
-they bring to the development task. Group performance depends not only on the
-information available to developers and the knowledge distribution within the
-team, but also on the properties of the communication structure that facilitates
-knowledge dissemination.
+The result we presented in Section~\ref{} show that our predictions, though not highly accurate, outperform random guesses.
+Therefore, we conclude that with recall of 55\% to 75\% and precision of 50\% to 76\%, depending on the development team, that communication indeed has a statistical influence on build success.
 
-Having identified that communication plays an important role in
-integration success, future research should examine the interaction with other factors
-that could determine integration failure. In addition to our focus of
-communication, the analysis of code and code changes should be considered. We
-believe that a combination of both will lead to even better prediction models for
-software integration builds.
-
-Based on the information provided by our predictive model, awareness systems can
-be developed to provide recommendations to improving a team's communication
-structure when developers face a likly build failure. We intend to integrate our
-predictive model into the Jazz development environment itself, and provide
-developers and managers with a real-time communication quality feedback mechanism
-that would predict possible failed builds based on the current communication
-behavior in the project. This will give us the opportunity to evaluate the value
-of our predictions with respect to improvements in software coordination.
+This finding opens the research avenue of investigating whether the manipulation of communication among software developers can yield positive results with respect to build success.
+This leads us to the next research question that we want to search for places within the social networks that we should manipulate to stimulate build success.
+For that purpose we turn in the next chapter to the concept of socio-technical congruence that might help us highlighting those developers that should have communicated.
 
