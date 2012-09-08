@@ -28,19 +28,19 @@ We conclude this chapter with offering an answer to our research question and le
 %  TODO merge introduction into back ground
 %- methodology chapter
 %  TODO cut constructs
-%- conclusion
-%  TODO rewrite into answer to RQ and lead into next chapter
 
+\section{Background}
+Before we start with exploring the research question using data we obtained from the Rational Team Concert Team, we discuss related work investigating the relationship between team communication with respect to software integration issues as well as software quality and thus further motivating the value in investigating the relationship between communication and build success.
 
-\section{Introduction}
-Communication problems lead to coordination and integration failures in work
+\subsection{Motivation}
+Communication problems can lead to coordination and integration failures in work
 teams (e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew,souza:cscw:2004}). This
 situation is further exacerbated in large and distributed teams, where effective
 communication and activity awareness of related but remote project members are
 problematic, yet key to anticipate and resolve coordination problems early
 (e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew}).
 
-We strive to contribute to the growing body of research into the role of
+Besides exploring the research question in the context of creating an approach to improve communication among software developer, we strive to contribute to the growing body of research into the role of
 communication structures in determining coordination ease~\cite{hinds:cscw:2006} and
 success~\cite{hossain:cscw:2006}. Although there has been some research on the
 relationship between communication and coordination in work teams, research in
@@ -74,30 +74,7 @@ network analysis measures such as density and centrality to obtain measurable
 characteristics of the communication structure.
 
 
-This study examines the data from IBM's distributed development project Jazz. Jazz
-is a development environment that focuses on collaboration support and tightly
-integrates programming, communication, and project
-management~\cite{frost:ieeesoftware:2007}. 
-Aiming to answer \textbf{RQ 1.2:} \emph{Do Social Networks from software repositories influence build success},  the two step study we report on in this chapter reveals the following: Our
-results indicate that developer communication plays an importancet role in the
-quality of software integrations. Although we found that no individual measure
-could indicate whether a build will fail or succeed, we leveraged the combination
-of communication structure measures into a predictive model that indicates
-whether an integration will fail.
-
-The remainder of the paper is structured as follows: we first discuss related
-work (Section~\ref{sec:RelatedCommunication}) and introduce our two research
-questions (Section~\ref{sec:ResearchQuestions}). Section~\ref{sec:Methodology}
-describes our methodology in the study of communication structures and
-integration in the Jazz project. Section~\ref{sec:AnalysisResults} describes the
-results of our analysis. We close with their discussion and implications for
-practice in Section~\ref{sec:discussion} and~\ref{sec:conclusion}.
-
-
-
-
-
-\section{Communication, Coordination and Integration}
+\subsection{Communication, Coordination and Integration}
 \label{sec:RelatedCommunication}
 
 The relationship between communication, coordination and project outcome has been
@@ -143,23 +120,6 @@ to project success: factors such as ``harmony''~\cite{Souder:1988jpim},
 communication structure~\cite{Robin:1990jpim}, and communication
 frequency~\cite{Griffin:1992ms} were related to project success.
 
-In summary, the research so far suggests that coordination affects project
-outcome, but it leaves us without clear measurable evidence about this effect.
-The above studies, in software development or organizational behavior, have not
-used objective measures of communication or project success. Self-reported data
-was largely used in their analysis. Further, the relationship between
-coordination and project outcome was examined at a rather coarse-grain level --
-the project level -- and by largely using only subjective measures for
-coordination and project success.
-
-We analyze coordination at a finer level of detail, at the level of software
-subsystem integration and the integration of multiple subsystems and
-conceptualize the coordination success by the success of integration. In turn, we
-regard the integration to be successful if the associated software build, which
-includes compilation, testing and packaging, is successful. Thus, we are able to
-provide an objective measure of the coordination outcome.
-
-
 The difficulty in studying failed integration in relation to communication lies
 in capturing and quantifying information about communication in teams that have a
 well-defined coordination goal but dynamic patterns of interaction. In our work
@@ -168,9 +128,7 @@ participants. This enables us to study the structure of the communication
 networks emerged around code integrations, both at individual teams of the
 project and within the entire project.
 
-
-
-\section{Can communication predict failure?}
+\subsection{Can communication predict failure?}
 \label{sec:ResearchQuestions}
 In order to examine the communication involved in the coordination necessary
 during subsystem integrations, we draw on social network analysis methods. Social
@@ -191,8 +149,7 @@ Communication structure in particular -- the topology of a communication network
 communication structure include network density, centrality and structural
 holes~\cite{Wasserman:1994sq,Freeman:1979rl}.
 
-
-\emph{Density}, as a measure of the extent to which all members in a team are
+Density, as a measure of the extent to which all members in a team are
 connected to one another, reflects the ability to distribute
 knowledge~\cite{Rulke:2000ys}. Density has been studied, for example, in relation
 to coordination ease~\cite{hinds:cscw:2006}, coordination
@@ -200,7 +157,7 @@ capability~\cite{hossain:cscw:2006} and enhanced group
 identification~\cite{RayReagans:2001os}.
 
 
-\emph{Centrality} measures indicate importance or prominence of actors in a
+Centrality measures indicate importance or prominence of actors in a
 social network. The most commonly used centrality measures include degree and
 betweenness centrality having different social implication. Centrality measures
 have been used to characterize and compare different communication networks
@@ -215,7 +172,7 @@ are considered to be ``actors in the middle'' and to have more ``interpersonal
 influence'' in the
 network(e.g.~\cite{Gloor:2003cikm,zimmermann:icse:2008,hossain:cscw:2006}).
 
-The \emph{structural holes} measures are concerned with the degree to which there
+The structural holes measures are concerned with the degree to which there
 are missing links in between nodes and with the notion of redundancy in
 networks~\cite{Burt:1995vo}. At the node level, structural holes are gaps between
 nodes in a social network. At the network level, people on either side of the
@@ -224,20 +181,7 @@ indicating that there is a diversity of information flow in the network.
 Structural holes have been used to measure social capital in relation to the
 performance of academic collaborators (e.g.~\cite{Brambila:PICMET2007}).
 
-
-Thus, having defined an objective measure of coordination outcome -- the
-successful or failed integration build result
-(Section~\ref{sec:RelatedCommunication}) -- we investigate the role played by
-communication structure in software integration. Our first research question is:
-
-\ \
-
-\noindent\textbf{RQ 1.2.1:} \emph{Can individual measures of communication structure
-predict integration failure?}
-
-\ \
-
-Next, to further our investigation into the role played by communication in
+To further our investigation into the role played by communication in
 predicting integration failure, we go one step further and investigate whether
 the different communication structure measures can be combined into a prediction
 model that indicates whether an integration will fail.
@@ -262,14 +206,7 @@ integration outcome. Recently, we can observe a trend towards leveraging
 developer networks, created upon code related dependencies, to predict component
 failures~\cite{pinzger:fse:2008,meneely:fse:2008}. In our work, we focus on the
 team coordination as given by their communication instead of source code, and
-similar to Hassan and Zhang predict integration outcome. Hence we state our
-second research question as follows:
-
-\ \\
-
-\noindent\textbf{RQ 1.2.2:} \emph{Can the combination of communication structure
-measures predict integration failure?}
-
+similar to Hassan and Zhang predict integration outcome.
 
 
 \section{Methodology}
