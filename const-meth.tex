@@ -10,7 +10,7 @@ Figure~\ref{} depicts the relationship between the research questions and the co
 Research questions~1.1 and~1.2 discussed in Chapters~\ref{} and~\ref{} motivate the approach.
 Research questions~2.1 and~2.3 (Chapters~\ref{}| and~\ref{}) explore whether socio-technical networks can be used to form recommendations that can prevent build failures, whereas research question~2.2 inquires in Chapter~\ref{} whether such recommendations are acceptable by developers.
 
-\subsection{rq 1.1}
+\subsection{Research Question 1.1}
 %Motivation
 The thesis goal is to device an approach that is able to improve the social interactions in the form of communication among software developers.
 As a first step we need to establish if the communication among software developers has an influence on the build success.
@@ -28,7 +28,7 @@ Via this machine learning approach we want to establish a connection between a b
 If we are able to predict the build outcome more accurately than by simply guessing using the likelihood for a build failure we showed that there is a statistical relationship between build outcome and social networks.
 Thus, this result form the first evidence that manipulating the social network might yield positive impact on build success.
 
-\subsection{rq 1.2}
+\subsection{Research Question 1.2}
 %Motivation
 Knowing that a social network can influence the success of the corresponding build leaves the question open as to how that networks should be manipulated to improve the likelihood of a build to succeed.
 Therefore, we explore the relationship between socio-technical networks generally and gaps within that networks, with a gap being formed by two developers that share a technical dependencies but did not communicate about work related to the build of interest, and build success.
@@ -43,33 +43,46 @@ Instead we investigate the relationship of the socio-technical congruence index 
 Via statistical analysis tools such as regression analysis and hypothesis testing we want to establish a relationship between the existence of gaps within the socio-technical network and build success.
 Thus, this research question gives us another piece of evidence that let us formulate an approach to recommend actions to increase build success that is specifically alleviate gaps within the socio-technical network by recommending developer to communicate.
 
-\subsection{rq 2.1}
+\subsection{Research Question 2.1}
 %Motivation
+The previous two research questions enable us to formulate an approach to generate recommendations that are meant to foster communication among developers in order to increase build success.
+This leads to the next step, namely, to explore whether this approach can generate recommendations that bear a statistical relationship to build success.
 
 %Data Source
+With the same data source we used to explore the previous two research questions, we try to relate individual reoccurring gaps in socio-technical networks to build failure.
+%Methods
+Knowing those gaps, or developers that frequently share a technical dependency without communicating for a build, that relate to build failure, we check if adding a social dependency would change the likelihood of a build to fail.
+%Expected results
+We expect to find a number of gaps that when mitigated increase the likelihood of build success.
+
+\subsection{Research Question 2.2}
+%Motivation
+Before exploring the in more detail if the recommendation hold actual value with preventing build failures, we explore if developer would welcome recommendations with respect to changes.
+%Data Source
+Therefor, we joined the development effort of one of the Rational Team Concert as participant observer to get an insight into how the actual developer communicate during their day to day work.
 
 %Methods
+We complement these observations with follow up interviews to gain a better understanding of the team dynamics and their discussion topics, since as a project newcomer our work is limited to more basic tasks in contrast to higher level decision making.
+To extend out reach beyond the local team we deployed a questionnaire with the product team at large to gain a better understanding whether the recommendations we would supply can easily be integrated in their typical discussions with fellow developers.
 
 %Expected results
+This study should give us a better understanding of whether developer are discussing individual changes, thus justifying the appropriateness of the level of recommendations, as well as with general suggestions on when and how to supply such recommendations as developer are not always interested in individual changes even if they pose a threat to build success.
 
-\subsection{rq 2.2}
+\subsection{Research Question 2.3}
 %Motivation
+We conclude our evaluation of our proposed approach with  a proof of concept in a more controlled environment to ascertain whether the recommendation we can generate actually help in preventing builds from failing.
+As root cause analysis of failures can be very tedious and due to the various reasons a build can fail that are not necessarily due to software changes we depart from studying the development of Rational Team Concert and observe students extending an open source project.
 
 %Data Source
+This different setting allows us to ask the study participants to use tool we developed to collect more fine grained data on their development efforts, such as when they edited which parts of the source code, in addition to access to the actual source code repositories such as source code management, issue tracking, email, and text chat sessions.
+Furthermore, we ask them to answer regular questionnaires and keep a development diary that are meant to collect information on issues that the students encounter during the course and are especially related to their development effort.
 
 %Methods
+Analyzing the collected data from the questionnaires and development diaries is done manually, by reading and annotating the different responses and entries to uncover build issues that were important to the students.
+Knowing the build issues we select the most severe in terms on the number of reports and trace them to the actually root cause if possible by identifying the code changes that causes them (if applicable) and continuing to analyze the offending changes and identifying corresponding communication.
 
 %Expected results
-
-\subsection{rq 2.3}
-%Motivation
-
-%Data Source
-
-%Methods
-
-%Expected results
-
+We expect to find one or more representative example of build issues that the students encounter during the course that can be resolved using recommendations based on information that is available before the students actually incorporate their modifications in to the source code repository of the project.
 
 \section{Definitions}
 \label{c5:sec:definitions}
