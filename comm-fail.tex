@@ -23,9 +23,6 @@ Subsequently, we briefly go over the methodology that is relevant to exploring o
 Then, we go over the analysis and results we obtained in Section~\ref{} followed by a discussion of the results and their implications in Section~\ref{}.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
 
-%- chapter back ground 
-%  TODO merge 1, 2, and 3 section
-%  TODO merge introduction into back ground
 %- methodology chapter
 %  TODO cut constructs
 
@@ -223,56 +220,6 @@ Jazz as the context for our investigation. We then explain how we conceptualized
 communication and integration outcome in Jazz, as well as the data collection
 instruments.
 
-
-\subsection{Coordination and integration in Jazz}
-%The Jazz team is a large distributed team and uses the Jazz platform for
-%development. The Jazz development involves distributed collaboration over 16
-%different sites located in the United States, Canada, and Europe. Seven sites are
-%active in Jazz development and testing. There are 151 active contributors
-%working in 47 teams at these locations, where contributors belong to multiple
-%teams. Each team is responsible for developing a subsystem or component of Jazz.
-%The team size ranges from 1 to 20 and has an average of 5.7 members. The number
-%of developers per geographical site ranges from 7 to 24 and is 14.8 in average.
-
-The project uses the \emph{Eclipse Way} development process~\cite{frost:ieeesoftware:2007}.
-It defines six-week iteration cycles, which are separated into planning,
-development and stabilization activities. A project management committee
-formulates the goals and features for each release at the beginning of the each
-iteration, and \et{Work Item}s represent assignable and traceable tasks for each
-team.
-
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=\columnwidth]{figures/BuildResult}
-%\caption{Illustrates the exchange of change sets between different source code
-%streams and the results of building the source code of the streams in time. Team
-%members collaborate and interchange source code on a team related stream, while
-%inter-team collaboration occurs on an integration stream.}
-\caption{Teams contribute to their own source streams, which are then merged into one project stream.}
-\label{fig:BuildResult}
-\end{center}
-\end{figure}
-
-
-As illustrated in Figure~\ref{fig:BuildResult}, the coordination process within
-each iteration requires the integration of subsystems developed by individual
-Jazz teams in a major milestone build of the product (referred to as beta build).
-Each team owns a source code \et{Stream} for collaboration and concurrent
-implementation of the subsystem. A Stream is the Jazz equivalent to a branch of a
-source configuration management system such as Subversion.
-
-A continuous integration process takes place at team-level or project-level. In
-frequent intervals, each integration build (referred to a build henceforth)
-compiles, packages, and tests the source code of a stream. At the team-level,
-contributors commit code changes that are encapsulated in \et{Change Sets} from
-their own workspace to the \et{Team Stream}. The team integrations build the
-subsystem developed by the team. Once a team has a stable version within the Team
-Stream, the team publishes the change sets into the Jazz \et{Project Integration
-Stream} (see Figure~\ref{fig:BuildResult}). At the project level, the automated
-Jazz integration builds the subsystems of all teams. The Jazz project-level
-integration takes place \et{nightly}, \et{weekly}, and at the end of each
-iteration -- \et{beta} build.
-
 \subsection{Coordination outcome measure}
 In our study we conceptualize the coordination outcome by the \et{Build Result},
 which is regarded as a coordination success indicator in Jazz and can be \error,
@@ -288,81 +235,70 @@ and development effort. We thus treated all \texttt{WARNING}s as \ok s to clearl
 separate between failed and successful builds in our conceptualization of
 coordination outcome.
 
-
-\subsection{Communication in Jazz}
-
-\et{Commenting} on work items is the main task-related communication and
-collaboration channel used by Jazz. \et{Work Item}s represent single assignable
-and traceable tasks. A set of work items defines the tasks for each team in each
-iteration. Different types of work items represent defects, enhancements, and
-general tasks. The work items are assigned to and owned by contributors. The
-coordination necessary around the implementation of a work item is facilitated by
-contributors commenting or observing the communication around work items.
-
-\subsection{Communication measures}
-To investigate the communication of contributors involved in an integration
-build, we study the characteristics of the \emph{communication network} for each
-build. In order to construct this network, we examine the content of the
-\et{Change Set}s associated with the build. Whenever an integration is executed,
-the change sets contain information on all changes made after the previous build,
-and the work items associated with the changes. By identifying the contributors
-who commented on these work items, we conceptualize communication among
-contributors coordinating for the build by their commenting behavior.
-
-
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=\columnwidth]{figures/BuildResultNetworks3}
-%\caption{Illustrates the construction of communication networks in time, based on
-%build results of a stream.}
-\caption{Communication networks construction example for a failed Build N.}
-\label{fig:NetworkConstructionExample}
-\end{center}
-\end{figure}
-
-We use the example in Figure~\ref{fig:NetworkConstructionExample} to explain the
-construction of communication networks. For a $Build~N$, the change sets made in
-the time range $t_0$ to $t_1$ are used to construct the $Build~N~Network$, which
-represents the communication that leads to $Build~N$. To construct the
-\emph{communication network} for a build we consider that:
-
-\begin{enumerate}
-  \item the \emph{nodes} represent the contributors involved in the build or 
- its communication as follows:
-  \begin{enumerate}
-    \item committers of change sets involved in the build, as they have a
-    direct impact on the build result
-    \item creators, commenters, and subscribers on the work items associated with
-    change sets, as they communicated on the build related tasks
-  \end{enumerate}
-  \item the \emph{directed connections} represent communication flow
-  from contributor $c_i$ to $c_j$, communicating about a common set of
-  work items that we name $WIs$ if:
-  \begin{enumerate}
-    \item $c_i$ is creator of or commenter on $WIs$ and provides
-    information that is read by $c_j$
-    \item $c_j$ is commenter or subscriber of any work items $WIs$ (assuming
-    that $c_j$ reads all comments of $c_i$)
-  \end{enumerate}
-\end{enumerate}
-
-For Build N in Figure~\ref{fig:NetworkConstructionExample} contributors $c_1$,
-$c_2$, $c_3$, and $c_4$ delivered change sets to the stream in the time range $t_0$
-to $t_1$. Thus, they are added to the associated Build N Network. To connect the
-contributors in the network, we explore the work items $w_1$ and $w_2$ as they
-are associated with the delivered change sets. The contributors $c_1$ and $c_2$
-commented on $w_1$. As we assume that $c_2$ reads all comments of the work items
-he comments on, we create a directed connection from $c_1$ to $c_2$, representing
-the communication flow. Vice versa, we create a directed connection from $c_2$
-and $c_1$. As $c_2$ is only subscribed to work item $w_2$ and did not add any
-comments, we only create directed connections from $c_3$ and $c_4$ to $c_2$, as
-those contributors commented on $w_2$. The resulting communication-based social
-network Build N network represents the communication related to the development
-that leads to the failed $Build~N$.
+%\subsection{Communication measures}
+%To investigate the communication of contributors involved in an integration
+%build, we study the characteristics of the \emph{communication network} for each
+%build. In order to construct this network, we examine the content of the
+%\et{Change Set}s associated with the build. Whenever an integration is executed,
+%the change sets contain information on all changes made after the previous build,
+%and the work items associated with the changes. By identifying the contributors
+%who commented on these work items, we conceptualize communication among
+%contributors coordinating for the build by their commenting behavior.
+%
+%
+%\begin{figure}[t]
+%\begin{center}
+%\includegraphics[width=\columnwidth]{figures/BuildResultNetworks3}
+%%\caption{Illustrates the construction of communication networks in time, based on
+%%build results of a stream.}
+%\caption{Communication networks construction example for a failed Build N.}
+%\label{fig:NetworkConstructionExample}
+%\end{center}
+%\end{figure}
+%
+%We use the example in Figure~\ref{fig:NetworkConstructionExample} to explain the
+%construction of communication networks. For a $Build~N$, the change sets made in
+%the time range $t_0$ to $t_1$ are used to construct the $Build~N~Network$, which
+%represents the communication that leads to $Build~N$. To construct the
+%\emph{communication network} for a build we consider that:
+%
+%\begin{enumerate}
+%  \item the \emph{nodes} represent the contributors involved in the build or 
+% its communication as follows:
+%  \begin{enumerate}
+%    \item committers of change sets involved in the build, as they have a
+%    direct impact on the build result
+%    \item creators, commenters, and subscribers on the work items associated with
+%    change sets, as they communicated on the build related tasks
+%  \end{enumerate}
+%  \item the \emph{directed connections} represent communication flow
+%  from contributor $c_i$ to $c_j$, communicating about a common set of
+%  work items that we name $WIs$ if:
+%  \begin{enumerate}
+%    \item $c_i$ is creator of or commenter on $WIs$ and provides
+%    information that is read by $c_j$
+%    \item $c_j$ is commenter or subscriber of any work items $WIs$ (assuming
+%    that $c_j$ reads all comments of $c_i$)
+%  \end{enumerate}
+%\end{enumerate}
+%
+%For Build N in Figure~\ref{fig:NetworkConstructionExample} contributors $c_1$,
+%$c_2$, $c_3$, and $c_4$ delivered change sets to the stream in the time range $t_0$
+%to $t_1$. Thus, they are added to the associated Build N Network. To connect the
+%contributors in the network, we explore the work items $w_1$ and $w_2$ as they
+%are associated with the delivered change sets. The contributors $c_1$ and $c_2$
+%commented on $w_1$. As we assume that $c_2$ reads all comments of the work items
+%he comments on, we create a directed connection from $c_1$ to $c_2$, representing
+%the communication flow. Vice versa, we create a directed connection from $c_2$
+%and $c_1$. As $c_2$ is only subscribed to work item $w_2$ and did not add any
+%comments, we only create directed connections from $c_3$ and $c_4$ to $c_2$, as
+%those contributors commented on $w_2$. The resulting communication-based social
+%network Build N network represents the communication related to the development
+%that leads to the failed $Build~N$.
 
 \subsection{Communication network measures}
-To characterize the communication structure represented by the constructed
-networks for each build, we compute a number of social network measures. The
+To characterize the communication structure represented by the constructed social
+networks for each build (as described in Chapter~\ref{}), we compute a number of social network measures. The
 measures that we include in our analysis are: Density, Centrality and Structural
 holes. Some of these measures characterize single nodes and their neighbours (ego
 networks), while others relate to complete networks. As we are interested in
@@ -490,7 +426,6 @@ As the measures are based on network connections, we normalize the sum by
 computing the fraction of the sum and the number of possible network connections.
 
 \subsection{Data collection} 
-
 We mined the Jazz development repository for build and communication information.
 A query plug-in was implemented to extract all development and communication
 artifacts involved in each build from the Jazz server. These build-related
