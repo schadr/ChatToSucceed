@@ -22,7 +22,6 @@ Then, we go over the analysis and results we obtained in Section~\ref{} followed
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
 
 %TODOS
-% write chapter preamble
 % merge intro into background
 % remove research objective section
 % adjust methodology/remove stuff
@@ -199,53 +198,6 @@ For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in th
 Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
 
 In summary, there is a need to coordinate effectively in software development across technical dependencies that may cross geographical boundaries, and socio-technical congruence is a useful mechanism for studying coordination.
-%, and (3) that there is a need to coordinate across technical dependencies.
-
-
-% The rationale is that, because a successful software build requires aligned module dependencies, and because high socio-technical congruence leads to improvements in the alignment of these dependencies, high socio-technical congruence should improve the chance of a successful software build.
-
-
-\section{Research Objective}
-\label{sec:objective}
-
-Our research objective in this paper is to study the applicability of socio-technical congruence on a large, distributed software team. The theory of socio-technical congruence suggests that increasing socio-technical congruence will improve the outcome of a software development activity that requires a high amount of coordination.
-
-We use a software build as our coordination-intensive software development activity and unit of success. A build result is ``OK'' when the software compiles with no errors and passes every test case. A build result is ``error'' when an error is discovered during compiling or testing. We know that builds are important to the RTC team: to them, build quality is almost synonymous with code quality. An OK build implies that the team was able to achieve a successful outcome, and an error build implies that the team had a problem during development.
-
-We conceptualize a coordination need between two individuals as a relationship indicating that these two individuals change the same file before a build. We conceptualize actual coordination between two individuals as an instance in which each individual writes at least one comment in at least one work item associated with either of the file changes. The size of a gap between two individuals indicates the proportion of actual coordination over the coordination needs. A small gap size suggests that there is a sufficient actual coordination to cover the coordination needs.
-
-We hypothesize that, when using congruence calculated by ``files changed together'' and ``work item co-commenting'', increasing congruence results in an increase in the probability of a successful build result. We also anticipate that a decrease in gap size increases the probability of a successful build.
-
-Due to our conceptualizations, we expect that our calculated congruence values may be lower than what occurs in reality. First, our conceptualization will likely underestimate the actual coordination occurring in the project.
-% The RTC team uses the commenting system frequently, but our conceptualization cannot take into account direct, point-to-point communication between developers on a particular topic.
-Second, our dependencies may overestimate the dependencies between files in RTC.
-As RTC is a distributed project that follows a modular design, it is possible that many changes are not as strongly dependent as our conceptualization suggests. Nonetheless, in absence of more detailed data we believe that our conceptualizations capture the relationships between developers and illustrate potential dependencies where coordination issues may occur and contribute to a build failure.
-
-We use two different congruence measurements to explore what advantages a new measure can provide. The first congruence measurement is an unweighted technique developed by Cataldo, et al.~\cite{cataldo:cscw:2006}. The second congruence measurement is a weighted technique from our previous work~\cite{kwan2009:weighted}, which offers additional features such as relationship strength between two people and variable size of a socio-technical congruence gap.
-Thus we decompose our over arching research question \textbf{RQ 1.3} into:
-
-\begin{description}
-\item[RQ 1.3.1:] Does socio-technical congruence have an effect on build success probability in RTC?
-\item[RQ 1.3.2:] Does gap size have an effect on build success probability in RTC?
-\end{description}
-
-%\vspace{15pt}
-%
-%\noindent\textbf{RQ 1.3.1: Does socio-technical congruence have an effect on build success probability in RTC?}
-%
-%\vspace{15pt}
-%
-%\noindent\textbf{RQ 1.3.2: Does gap size have an effect on build success probability in RTC?}
-%
-%\vspace{15pt}
-
-Our work differs from previous socio-technical congruence studies because it applies two different congruence measures on software builds that occur every one to six weeks in a single project. This differs from previous studies that apply congruence to entire project releases. To our knowledge no application of weighted congruence has been applied to software engineering.
-
-% In the next section (Section \ref{sec:congruence}), we present two approaches to calculate congruence: an unweighted
-% congruence measurement developed by Cataldo et al.~\cite{cataldo:cscw:2006}, and a weighted
-% congruence measurement from our own work~\cite{kwan2009:weighted}. Gap size is defined in Section \ref{sec:lack}.
-
-% We then present our research methodology, followed by our study results.
 
 
 \section{Calculating Congruence}
