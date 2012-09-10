@@ -29,7 +29,6 @@ We conclude this chapter with offering an answer to our research question and le
 % TAKE OUT WEIGHTS
 
 
-%--------------------------------------------------------------------------------------------------------------
 \section{Background}
 \label{sec:background}
 Before we start with exploring the research question using data we obtained from the Ration Team Concert Team, we discuss related work investigating socio-technical congruence as well how the subject of team coordination has been approach by other researchers.
@@ -166,11 +165,11 @@ At the core of socio-technical congruence is the concept of a technical dependen
 \label{ph:technicalunits}
 \end{placeholder}
 
-A \textbf{coordination need} is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
+A coordination need is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
 
 Social relationships are identified through actual coordination, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
 
-\subsection{TODO Calculating Socio-Technical Congruence}
+\subsection{Calculating Socio-Technical Congruence}
 \label{sec:stc}
 In Chapter~\ref{} we described socio-technical networks and how we conceptualize them in this thesis.
 If we reformulate this network into the terms originally used by Cataldo et al~\cite{} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
@@ -191,39 +190,19 @@ The main difference to the original formula lies solely in our more direct appro
 \end{placeholder}
 
 
-\section{TODO Research Methodology}
+\section{Analysis Methods}
 \label{sec:methodology}
-NEED NEW BLURB
-
-In this section, we revisit our research questions, present our socio-technical
-conceptualizations in RTC, and outline our analysis techniques.
-
-\subsection{TODO Conceptualizing Gap Size}
-The gap size in RTC represents a relative distance between the coordination needs and actual coordination. Since the two measurements are not necessarily comparable to each other, we normalize both measures to identify a relative ``rank'' of coordination needs and actual coordination. For example, if there is a coordination need in a build that has many dependencies, intuitively we would want a larger amount of communication around that build rather than on a build with few coordination needs. The gap size calculation identifies this mismatch.
-
-We use the weighted congruence measure to compute the gap size. For each build, we calculate the gap size between each pair with a coordination need using the lack-of-coordination matrix explained in Section \ref{sec:lack}. Because of the normalization, each gap size is a value from $1$ to $-1$, where 1 is a large gap with little or no communication, 0 is full congruence, and -1 is a gap where there is more communication than necessary to fulfill the coordination need. We take the mean of these gap sizes and use this as a variable in a logistic regression model. We also consider an alternative calculation of gap size where we do not punish extra communication and set all values of gap size less than 0 to 0.
-
-
-\subsection{TODO Statistical Analysis Methods}
-TODO: remove mentioning of the paper research questions
-
-To answer Research Question 1, we conceptualize congruence as described in Section \ref{sec:analysis} and test our hypothesis using logistic regression.
-
 Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
+The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the amount of gaps, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
 
 We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
 
 We run two different logistic regression models: one using weighted congruence, and one using unweighted congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
 Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
 
-To answer Research Question 2, we calculate the gap size and include this as a variable in our logistic regression model to study the effects on build success probability.
-
-We use R \cite{R} and the Design package \cite{designR} for logistic regression analysis.
-
-
 \section{TODO Results}
 \label{sec:results}
-In the RTC repository, we analysed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
+In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
 Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_weighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
 
 The congruence values are low on average. The unweighted congruence has a mean value of 0.331, and the weighted measure has a mean value of 0.196, meaning that about one-third and one-fifth of the coordination needs are satisfied by actual coordination, respectively. Over 75\% of the builds have a weighted congruence value of less than 0.25.
