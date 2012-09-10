@@ -26,7 +26,8 @@ We conclude this chapter with offering an answer to our research question and le
 % remove research objective section
 % adjust methodology/remove stuff
 % rewrite conclusion to answer the research question and lead into next chapter (approach)
-
+%
+% TAKE OUT WEIGHTS
 
 
 %--------------------------------------------------------------------------------------------------------------
@@ -197,22 +198,19 @@ For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in th
 
 Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
 
-In summary, there is a need to coordinate effectively in software development across technical dependencies that may cross geographical boundaries, and socio-technical congruence is a useful mechanism for studying coordination.
+%In summary, there is a need to coordinate effectively in software development across technical dependencies that may cross geographical boundaries, and socio-technical congruence is a useful mechanism for studying coordination.
 
 
 \section{Calculating Congruence}
 \label{sec:congruence}
-
 We describe unweighted congruence as presented by Cataldo et al. \cite{cataldo:cscw:2006} in Section \ref{sec:stc}. Weighted congruence~\cite{kwan2009:weighted}, described in Section \ref{sec:measure} is a weighted congruence measure from our work that addresses limitations of unweighted congruence.
 
 \subsection{Technical Entities and Social Relationships}
 
 A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
-% A person is assigned to work on one or more technical entities.
 
 At the core of socio-technical congruence is the concept of a technical dependency. A \textbf{technical dependency} is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
 
-% \begin{float*}
 \begin{placeholder}[t]
 \begin{itemize}
 \item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
@@ -220,18 +218,13 @@ At the core of socio-technical congruence is the concept of a technical dependen
 \item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
 \item Tasks that depend on other tasks \cite{wolf:ieee:2009}
 \end{itemize}
-
 \caption{Examples of technical dependencies}
 \label{ph:technicalunits}
 \end{placeholder}
 
-
-% \end{float*}
-
 A \textbf{coordination need} is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
 
 Social relationships are identified through \textbf{actual coordination}, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
-%Actual coordination may also be represented as a composite of relationships~\cite{ehrlich2008:congruence_gaps}.
 
 
 
@@ -245,11 +238,7 @@ Given $m$ people, and $n$ technical entities to examine, the coordination needs 
 
 \noindent where $A$ is an $m \times n$ assignment matrix that indicates that a person is assigned to a technical entity of the project, and $D$ is a $n \times n$ technical dependency matrix that indicates that a technical entity is dependent on another technical entity~\cite{cataldo:cscw:2006}. The result is $CN$, an $m \times m$ coordination needs matrix that indicates who in the project should be coordinating with whom.
 
-% In the technical dependency matrix, a technical entity is dependent on itself. The reason this assumption is made is best illustrated with an example. Person A and Person B are both assigned to work on the same technical entity. If we do not assume a technical entity is dependent on itself, then in the coordination needs matrix, Person A and Person B do not have a coordination need with each other even though they work on the entity.
-
 Once the coordination needs matrix is calculated, congruence is calculated by comparing this matrix to an actual coordination matrix. If an edge exists in the actual coordination matrix, and the same edge exists in the coordination needs matrix, then there is congruence on this edge. Given definitions
-
-% \[ congruence = \frac{\displaystyle\sum^{m}_{i=1} \sum^{m}_{j=1} CN_{ij} - \sum^{m}_{i=1}\sum^{m}_{j=1}AC_{ij}}{\displaystyle\sum^{m}_{i=1}\sum^{m}_{j=1}CN_{ij}} \]
 
 \[ \text{Diff}(CN, AC) = card\{ \text{diff}_{ij} | CN_{ij} > 0 \& AC_{ij} > 0 \} \]
 \[|CN| = card \{ CN_{ij} > 0 \} \]
@@ -259,9 +248,6 @@ Once the coordination needs matrix is calculated, congruence is calculated by co
 \[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
 
 \noindent where $AC$ is an $m \times m$ matrix representing actual coordination. The resulting congruence value is a number between 0 and 1, where 0 indicates no congruence, and 1 indicates full congruence.
-% If there are people involved in the actual coordination matrix that do not appear in the assignment matrix, these additional people are ignored.
-
-% In the case when there are no coordination needs, socio-technical congruence is undefined. If there are no technical dependencies or no coordination needs between different individuals, then presumably the work can be accomplished by a single person.
 
 \begin{placeholder}[t]
 \begin{itemize}
@@ -282,22 +268,7 @@ Ehrlich, et al.~\cite{ehrlich2008:gaps} suggest that having an individual act as
 Communication structures may compensate for a lack of congruence~\cite{hinds:cscw:2006}. Literature in areas such as management science supports the idea that gaps are not a liability, but simply a reality~\cite{deSouza2004:thwarts_collaboration,hossain:cscw:2006}.
 
 As developers have multiple dependencies~\cite{desouza2007:awarenessnetwork,mockus2002:opensource}, one would presume that those pairs with more coordination needs would need to coordinate more. Current socio-technical congruence provides no way to identify which pairs have high coordination needs. Researchers have suggested that both social and technical dependencies should be weighted \cite{valetto:msr:2007,kwan2009:weighted}, 
-%They suggest that the number of changes made to the same artifact, or the number of dependencies of a source file onto another are possible candidates for weights,
 but do not evaluate their proposed changes.
-
-%Thus, we believe that one of our objectives is not to eliminate every gap, but rather to identify which gaps in a matrix have high coordination needs and which gaps are not satisfied by actual coordination. 
-
-% In the next section, we propose a new method to calculate socio-technical congruence to address this limitation.
-
-
-
-%Unfortunately, the measure of congruence presented by Cataldo, et al~\cite{cataldo:cscw:2006} bears some limitations. One limitation is that it uses dichotomized values for its relationships between people, resulting in a coarse interaction model.
-
-%% A congruence ``gap'' is an instance in a social matrix where a coordination need is suggested between two specific individuals, but no actual coordination exists between these individuals. The meaning of a gap in socio-technical congruence is still not fully understood. Previous work by Ehrlich, et al. \cite{ehrlich2008:congruence_gaps} explored the implications of having gaps in a matrix and discovered that gaps appear to have a negative effect on developer performance; in this case, performance is conceptualized by the size of a change.
-
-%Literature in other areas, namely social network analysis and management science supports the idea that gaps are not necessarily a liability, but simply a reality \cite{deSouza2004:thwarts_collaboration,hossain:cscw:2006,burt2004}. 
-
-%Thus, we believe that one of our objectives of a method for congruence is not to minimize gaps, but rather to qualify which gaps in a matrix have a detrimental effect on project performance in order to calculate a more accurate congruence measurement. In addition, if we know to what degree a gap impedes project performance, then we can identify and prioritize congruence gaps that should be repaired.
 
 \subsection{A Weighted Congruence Measurement}
 \label{sec:measure}
@@ -362,162 +333,61 @@ Weighted actual coordination is a relative value that indicates the strength of 
 
 Other relationships that may be used as actual coordination are the amount of distance between individuals and how frequently they meet with other members in their team.
 
-%\begin{comment}
-%\subsection{Schemes for Weighing Actual Coordination}
-
-%\begin{placeholder}
-%\begin{itemize}
-%\item Person--Artifact: Degree of assignment. The number of hours, proportionally, that someone is assigned to a task.
-%\item Person--Artifact: The expertise a person has about a task, based on a known metric, such as the number of contributions made to a particular component of the software.
-%\end{itemize}
-%\label{box:weighted_congruence_schemes}
-%\caption{Example Schemes for Weighted Congruence}
-%\end{placeholder}
-
-%Different actual coordination measurements may be used for the congruence calculation. We present a few examples of techniques that can be used to weigh actual coordination matrices:
-
-%\textbf{Communication} A social network such as a communication network can be weighed according to the amount of ongoing communication. Consider Alice and Bob that work on dependent tasks:
-
-%\begin{enumerate}
-%	\item If Adam talks to Bart about his interdependent tasks, then for each task discussed the weight is increased by $a\cdot1/n$, where $a$ is the weight of the communication and $n$ is the number of Adam's tasks that depend on Bob's tasks.
-%	\item In case Adam discusses a task dependency very frequently with Bart, then, given a three point scale ``occasionally/frequently/very frequently'', $a$ is set to 1. For another task that is only occasionally discussed, $a$ would be $0.\bar{3}$.
-%\end{enumerate}
-%In the end, if only two of Adam's tasks depend on Bart's tasks, the weight of Adam actual coordinating with Bart would be $1.0\cdot1/2+ 0.\bar{3}\cdot1/2= 0.6\bar{6}$.
-
-%Another scheme is to scale the amount of communication to a value relative to the maximum number of comments in the network.
-%\begin{enumerate}
-%\item For a communication network, identify the largest value of communication between two individuals.
-%\item Divide all other values by the largest one.
-%\item The result is a number between 0 and 1, where 1 indicates the largest value of communication in the network, and 0 is no communication.
-%\end{enumerate}
-
-%\textbf{Distance}
-%We can also measure the relationship between Alice and Bob by looking at different types of distance.
-%We can measure:
-%\begin{itemize}
-%\item how far they are apart in terms of physical distance, like meters or kilometres,
-%\item the time difference between their time zones, and
-%\item the number of organizational units that part them.
-%\end{itemize}
-%These values are normalized to fit within 0 and 1. All three of those measures result in a symmetric matrix, meaning Alice will always have the same distance to Bart and vice versa.
-%	
-%After we weigh all entries within the task assignment, task dependency, and actual coordination matrix, we can compare the coordination requirements with the actual coordination using the method described in Section \ref{subsec:ourmeasure}.
-%%We discuss next the expected benefits from this weighted approach.
-%\end{comment}
-
-
-%------------------------------------------------------------------------- 
 \subsection{Identifying Gaps in Socio-Technical Congruence}
 \label{sec:lack}
-
-%Currently, there is no formal technique to identify which pairs of individuals have a gap in congruence.
 We complement our
 weighted congruence measure with a technique to generate a \emph{lack-of-coordination matrix}. This matrix not only identifies the
 gaps between a coordination needs matrix and an actual coordination matrix, but can also identify the size of these gaps (Figure \ref{subfig:coordLack}). This lack-of-coordination matrix can be used with both unweighted congruence and weighted congruence.
 
-% \[ g_{ij}(CN'_{ij}, AC'_{ij}) = \Big\lbrace \begin{array}{ l l } 1 \text{,}  & CN'_{ij} - AC'_{ij} > 0 \\ 0 \text{,} & \text{otherwise} \end{array} \]
  \[ g_{ij}(CN'_{ij}, AC'_{ij}) = CN'_{ij} - AC'_{ij} \]
 
 \noindent for $i=1,\dots,m$ and $j=1,\dots,m$. The value of $g_{ij}$ is the \textbf{gap size} between the pair $ij$. The lack-of-coordination matrix illustrates situations where the proportion of communication exceeds the expected proportion of coordination needs. If the value is positive, then there is not enough coordination to satisfy the information needs requested by the $CN'$ matrix, resulting in a \textbf{gap}. If a value is negative, then there was more coordination than requested through the $CN'$ matrix, resulting in \textbf{overload}.  Neither situation necessarily results in a problem, but we believe that investigating overload and lack of coordination has implications on software engineering coordination.
 
-% The values in this matrix may be normalized to create a relative distance between the coordination needs and communication. 
-
 \subsection{Weighted Congruence Index}
-
-
 To convert the lack-of-coordination matrix to a single socio-technical congruence measurement, we apply
 
 \[ \text{congruence} = 1 - \frac{\displaystyle\sum^{m}_{i=1} \sum^{m}_{j=1} g_{ij}}{\displaystyle\sum^{m}_{i=1}\sum^{m}_{j=1}CN'_{ij}} \]
 \noindent for each $i$ and each $j$, unless $i=j$. This value, which is usually between 0 and 1, is an overall level of the congruence in the current network. In theory, the formula allows the index to fall outside of this range for some edge cases, but we did not observe any such cases in practice.
 
-
 \subsection{Benefits of Weighted Congruence}
 \label{sec:benefit}
 
 Using a weighted congruence model allows us to deal with situations that are not handled with unweighted congruence.
-% We can investigate relationships between people and the technical entities in finer-grained detail, including situations where people have multiple coordination needs with others. 
 Using the weighted congruence approach allows a person diagnosing the organization to benefit from \emph{locality} and \emph{relationship strength}.
 
 \textbf{Locality}
 allows us to identify which area of a network has a gap.
-% Not only does this give us an overall measure of congruence, but now we can identify potential coordination problems in the network.
 The lack-of-coordination matrix identifies which pairs of individuals do not fulfill coordination needs.
 Although the original model does give us some limited locality in the sense of identifying congruence gaps, it is far more coarse grained.
 
-
-%Using weighted congruence, we can identify people working on two interdependent tasks who do not discuss both technical entities.
-
 \textbf{Relationship strength}
 indicates how strong the relationship between two developers is. Relationship strength allows us to identify pairs of people who have multiple coordination needs, and therefore who need to coordinate more often with each other. Using relationship strength allows us to investigate coordination in more detail because we can investigate pairs with strong dependencies---these people also tend to be key individuals in a team.
-\\
 
-%ranks people pairs where more coordination might be needed by the computed lack of congruence.
-%Ranking is a considerable improvement over Cataldo's model since it allows us to only extract an unordered list of gaps. 
-%This also covers gaps, but does not necessarily priorates gaps more.
-%Because filling congruence gaps can be risky~\cite{valetto2007:value,ehrlich2008:congruence_gaps}, a ranking can provides us with a better assessment of which gaps to fill first if at all.
-
-
-\indent By allowing better locality and relationship strength, we believe that this weighted model provides an in-depth technique with which to study congruence.
-
-%In the next section, we discuss how in our methodology we used these two
-%measurements to investigate the relationship between socio-technical congruence
-%and build success probability. 
+By allowing better locality and relationship strength, we believe that this weighted model provides an in-depth technique with which to study congruence.
 
 \subsection{Comparison with Other Weighted Measures}
-
 We know of three other methods for assigning a weight to relationships and gaps. Cataldo proposed a system using weights with integers \cite{cataldo:esem:2008}. Ehrlich, et al. \cite{ehrlich2008:gaps} used a method to rank communication into three levels of importance. Gokpinar \cite{gokpinar2010} independently proposed a weighted congruence measure.
 
 \subsubsection{Integer Matrices}
-
 Cataldo's method assigns integer weights as values in the task assignment and task dependency matrices, resulting in a weighted coordination needs matrix. However, his formula in Section \ref{sec:stc} considers that a single communication instance is sufficient for satisfying any amount of coordination. Our method provides information about overload and lack of coordination, and provides a more fine-grained representation through the the lack-of-coordination matrix.
 
 \subsubsection{Levels of Communication}
-
 Ehrlich's method aggregates multiple relationships between two individuals to determine a ``level of communication''.  The relationships are: when two individuals work together on a project; when two individuals communicate several times a month for any reason; and when two individuals work together on shared files. If one or more of these relationships are true, they are added to provide a number representing the level.
 
-% If one and only one of the above relationships hold between two individuals, then they are considered to be at level 1. If two of the relationships hold, then they are at level 2, and if all three relationships hold then they are at level 3. If none of the relationships hold, the connection between the two individuals is level 0, a gap.
-
 The level of communication does not provide a ranking of gap size because they presume that a gap either exists, or that it is covered with one of the three levels. This paper mentions ranking gaps by size, but the gap rank is the total number of gaps that exist between two developers over the entire project. Thus, this measurement does not actually weigh the conceptual lack-of-communication distance between two individuals for each gap.
-%Our proposed gap size measurement measure the size of a single gap.
 
 \subsubsection{Coordination Deficit}
-
 Gopkinar independently proposed a weighted congruence called ``coordination deficit'', which is equivalent to our gap size. It weighs the number of dependencies between components, and the number of communications between individuals. Like our method presented in prior work \cite{kwan2009:weighted}, they calculated the coordination deficit by normalizing the edges and subtracting the values between the equivalent of an actual coordination network and a coordination needs network. The fact that the authors used normalization and algebraic subtraction suggests that they are reasonable approaches to calculating gap size.
 
 
 
-%--------------------------------------------------------------------------------------------------------------
 \section{Research Methodology}
 \label{sec:methodology}
-
 In this section, we revisit our research questions, present our socio-technical
 conceptualizations in RTC, and outline our analysis techniques.
 
-\subsection{Research Questions}
-
-%We are interested in using socio-technical congruence to study coordination in
-%RTC. In particular, we are interested in investigating the effects of
-%socio-technical congruence on build quality
-
-%We have established that coordination is essential in software
-%development, and that high socio-technical congruence, which is one measurement
-%of coordination quality, corresponds to high developer productivity. We know
-%that builds are relevant to the RTC team; in an interview with a RTC
-%managers, he stated ``Build quality is almost code quality''.
-%An ``OK'' build implies good software quality, and an ``error'' implies that mistakes have occurred during
-%software development. The build success probability is the probability that a build will have an ``OK'' result.
-
-\subsubsection*{Research Question 1: Does socio-technical congruence have an effect on build success probability in the RTC project?}
-
-We hypothesize that high socio-technical congruence increases build success probability.
-
-\subsubsection*{Research Question 2: Does gap size have an effect on build success probability in the RTC project?}
-
-We hypothesize that the mean gap size in a build is inversely correlated with build success probability. That is, a smaller mean gap size is related to a larger probability of build success.
-
 \subsection{Data Description and Collection}
 \label{sec:data}
-
 \begin{figure*}
   \setbox1=\hbox{\includegraphics{figures/cochangedfiles}}% The smaller image
   \setbox2=\hbox{\includegraphics{figures/buildworkitem}}% The larger image 
@@ -570,7 +440,6 @@ There are three types of builds that we investigate in this study: \emph{continu
 Because we have a data set of builds over time, we include the date of a build as a variable in our analysis. The build date is conceptualized as the number of days after the first build in our data set.
 
 \textbf{Comment.} A comment is written text authored by a developer that is about a particular work item. Comments are the primary method of transferring information among developers in RTC. Multiple comments may be attached to a single work item. The data subset contains 9323 comments.
-%Comments are not threaded---that is, we do not know if a comment specifically references an existing comment in the work item discussion. \\
 
 \textbf{Change set.} A change set is a collection of code changes to a number of files. When a developer updates the repository, all of the files that were changed together are updated in a single change set. A change set is generated by one author only, and is related to exactly one work item. A single work item may contain multiple change sets, and the same change set may occur in multiple builds. There are 3013 change sets in RTC. The number of change sets per work item ranges from 1 to 246. Ninety-five percent of the work items contain 15 or less change sets, and 42\% of the work items contain only one change set.
 
@@ -580,16 +449,10 @@ Because we have a data set of builds over time, we include the date of a build a
 
 
 \subsubsection{Distribution of Build Data}
-
-% We illustrate the authors, change sets, work items, and files per build in Figure \ref{fig:buildworkitem}.
-
 Each build involves a number of file authors, change sets, work items, and files. The same author, file, and work item may be involved across multiple builds.
 We plot the histograms for each of these entities in Figures \ref{fig:hist_authors}, \ref{fig:hist_changesets}, \ref{fig:hist_workitems}, and \ref{fig:hist_files}.
 Most of these distributions, especially the files, are skewed toward the left. 
 
-%We show a scatterplot of the relationships between the number of authors and the number of files per build, as well as the number of authors and the number of work items per build. There is a correlation between authors and files (Spearman $\rho = 0.78$) and no correlation between the number of authors and the number of work items per build (Spearman $\rho=0.056$).
-
-% -------------------------- MOVED TO APPENDIX -------
 \begin{figure*}[ht]
 \centering
 
@@ -614,32 +477,12 @@ Most of these distributions, especially the files, are skewed toward the left.
 	\label{fig:entities_per_build}
 
 \end{figure*}
-% -------------------------- MOVED TO APPENDIX -------
 
-%\begin{figure}
-%\centering
-%
-%	\subfigure[Authors vs Files] {
-%		\includegraphics[scale=0.4]{figures/scatter_authors_files}
-%		\label{fig:scatter_authors_files}
-%	}
-%	\subfigure[Authors vs Work Items] {
-%		\includegraphics[scale=0.4]{figures/scatter_authors_workitems}
-%		\label{fig:scatter_authors_workitems}
-%	}
-%	\caption{Relationship between build variables per build}
-%	\label{fig:relationship_builds}
-%\end{figure}
-
-\subsection{Analysis Method}
+\subsection{TODO Analysis Method}
 \label{sec:analysis}
-
 We use the unweighted congruence measure and weighted congruence measure presented in Section \ref{sec:congruence} for our analysis. We explain how we conceptualize congruence in this section.
 
 \subsubsection{Conceptualizing Coordination Needs}
-
-% We conceptualize technical dependencies as files that were changed together in multiple change sets in a build.
-
 Previous studies use various heuristics for determining the dependencies between modules. One conceptualization is based on method call graphs generated by static code analysis, and has been used by Ehrlich \cite{ehrlich2008:gaps}.  Another conceptualization is a ``files-changed together'' heuristic, used by Cataldo \cite{cataldo:cscw:2006}, where the files that were modified in the solution of a change request are considered to be dependent on each other. A third conceptualization is to use experts who manually identify dependencies~\cite{gokpinar2010}.
 
 We decided to construct dependencies based on a variation of the files-changed together heuristic because a ``files-changed together'' heuristic was more reflective of social relationships than a call-graph approach \cite{cataldo:esem:2008}, and best reflected our understanding of the RTC team's work.
@@ -659,7 +502,6 @@ We generate the coordination needs matrix as follows.
 We use this conceptualization because of the explicit relationships between change sets, builds, and authors in RTC. In previous ``files-changed-together'' approaches, multiple files checked in together were associated with multiple authors, whereas in RTC, a change set is authored by one author only. Our conceptualization of coordination needs represents a situation in which two individuals work on a file that are in two different change sets, but are within the same build. Though the file-level changes may not necessarily be to the same lines of code, we presume that multiple changes within a single file are sensitive enough such that each developer working on that file benefits by being informed of every change.
 
 \subsubsection{Conceptualizing Actual Coordination}
-
 We conceptualize actual coordination as communication through comments in the
 RTC environment. We treat those who comment on a work item as a group of communicators, and assign weights when individuals comment on multiple work items that others also comment on (Figure \ref{fig:buildsn}).
 
@@ -682,15 +524,11 @@ We considered incorporating the RTC development mailing list into communication,
 Unfortunately, due to the distribution of the 151 developers in the RTC team, as well as the one-year time period across which our study is conducted, we were unable to collect communication data such as instant messenger or face-to-face communication that we could associate to individual builds. Our concern with this missing data led us to inquire about the use of other forms of media among the team. We learned that although unofficial communication does happen between developers, the RTC team culture requires that the content of unrecorded and private communications be recreated as work item comments for consumption by remote project participants. We still expect that socio-technical congruence will be lower than we might expect from such a team as a consequence.
 
 \subsubsection{Conceptualizing Gap Size}
-
 The gap size in RTC represents a relative distance between the coordination needs and actual coordination. Since the two measurements are not necessarily comparable to each other, we normalize both measures to identify a relative ``rank'' of coordination needs and actual coordination. For example, if there is a coordination need in a build that has many dependencies, intuitively we would want a larger amount of communication around that build rather than on a build with few coordination needs. The gap size calculation identifies this mismatch.
 
 We use the weighted congruence measure to compute the gap size. For each build, we calculate the gap size between each pair with a coordination need using the lack-of-coordination matrix explained in Section \ref{sec:lack}. Because of the normalization, each gap size is a value from $1$ to $-1$, where 1 is a large gap with little or no communication, 0 is full congruence, and -1 is a gap where there is more communication than necessary to fulfill the coordination need. We take the mean of these gap sizes and use this as a variable in a logistic regression model. We also consider an alternative calculation of gap size where we do not punish extra communication and set all values of gap size less than 0 to 0.
 
 \subsubsection{Statistical Analysis Methods}
-
-%Most of our data is highly skewed to the left, meaning that we have a larger proportion of small values than we would expect from a normal distribution. We attempted to fit the data to a log approximation, but found that even with this transformation, the Kolmogorov-Smirnov Test showed significant differences between a normal distribution and our data for both unweighted and weighted congruence. To account for this we use non-parametric statistics to test significance between variables.
-
 To answer Research Question 1, we conceptualize congruence as described in Section \ref{sec:analysis} and test our hypothesis using logistic regression.
 
 Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
@@ -700,27 +538,15 @@ We show the relationship between a variable and the build success probability by
 We run two different logistic regression models: one using weighted congruence, and one using unweighted congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
 Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
 
-
-% We include also every first-order interaction between these variables to test for possible interaction effects. % Including these interaction effects increased the reliability of the regression model.
-%% FIX?
-%, increasing the model likelihood ratio $\chi^2$ from 40.04 to 67.15 in the unweighted case $(p = 0)$ and 39.13 to 58.08 in the weighted case $(p = 0)$.
-
 To answer Research Question 2, we calculate the gap size and include this as a variable in our logistic regression model to study the effects on build success probability.
-
-% To answer Research Question 3, we examine in detail overall characteristics of RTC to explore other potential influences that may affect congruence, as well as build results. Data that we examine include the effect of other variables on the build success probability, and the effects of social factors on congruence, such as communication and commenting behaviour.
 
 We use R \cite{R} and the Design package \cite{designR} for logistic regression analysis.
 
-%--------------------------------------------------------------------------------------------------------------
 
-
-\section{Results}
+\section{TODO Results}
 \label{sec:results}
-
 In the RTC repository, we analysed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
 Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_weighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
-
-
 
 The congruence values are low on average. The unweighted congruence has a mean value of 0.331, and the weighted measure has a mean value of 0.196, meaning that about one-third and one-fifth of the coordination needs are satisfied by actual coordination, respectively. Over 75\% of the builds have a weighted congruence value of less than 0.25.
 
@@ -760,31 +586,9 @@ The congruence values are low on average. The unweighted congruence has a mean v
 	\label{fig:hist_weighted_congruence}
 \end{figure}
 
-%              weighted  unweighted     authors       files  workitems        date
-%weighted    1.00000000  0.77321937 -0.22499546 -0.13734420 0.04553513  0.02475572
-%unweighted  0.77321937  1.00000000 -0.26675774 -0.21972887 0.08265125  0.19178548
-%authors    -0.22499546 -0.26675774  1.00000000  0.41240536 0.09800938 -0.30061898
-%files      -0.13734420 -0.21972887  0.41240536  1.00000000 0.07767137 -0.20237118
-%workitems   0.04553513  0.08265125  0.09800938  0.07767137 1.00000000  0.03615854
-%date        0.02475572  0.19178548 -0.30061898 -0.20237118 0.03615854  1.00000000
-
-
-%We examined data for multicollinearity using variance inflation factor (VIF)~\cite{davis1986}.
-%%A high VIF value suggests multicollinearity may exist among the variables, and a low VIF value suggests a lack of multicollinearity.
-%% We create separate models for unweighted congruence (Table \ref{tab:vif-unweighted}) and weighted congruence (Table \ref{tab:vif-weighted}).
-%In both weighted and unweighted congruence models, there is a significant risk of multicollinearity between authors and change sets.
-%We choose to remove change sets from our models because, due to the enforced processes in RTC, we know that there is exactly one author per change set, and therefore, in a build, there is always at least as many change sets as authors, and that removing change sets has no bearing on dependencies as dependencies are calculated at the file level.
-%% Removing the change sets reduces the multicollinearity risk.
-
-%Recalculating the VIF indicates that the values are reduced in line with the other variables.
-% Model II in Tables \ref{tab:vif-unweighted} and \ref{tab:vif-weighted} illustrate the model without change sets, and shows a reduced risk of multicollinearity between the remaining variables.
-% Consequently, the logistic regression models in the remainder of this paper do not include change sets as a variable.
-
 \begin{table}[t]
 \centering
 \begin{tabular}{l|rrrr}
-
-
  & Min & Median & Max & Mean\\\hline
 Authors & 2 & 17 & 44 & 18.62\\
 Files & 5 & 131 & 3101 & 342.3 \\
@@ -803,8 +607,6 @@ Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
 \begin{table}[t]
 \begin{center}
 \begin{tabular}{l|rrrrrr}
-
-
  & 2. & 3. & 4. & 5. & 6. & 7. \\ 
   \hline
    1. Weighted & 0.77 & -0.22 & -0.14 & -0.12 & 0.05 & 0.02 \\ 
@@ -844,23 +646,8 @@ Main effects only & 7   & 213.2 & 0.269 & 214.2 & 0.263 \\
 \label{tab:models}
 \end{table}
 
-
-
-% To assist with evaluating the fit of our models, we compared the logistic regression models with the main effects only to the models that included the interaction effects. To evaluate their performance, we used bootstrapping \cite{harrell2001} for each model and plot the results of  the predicted model versus the actual results (Figures \ref{fig:calibrate}). \texttt{Appa}, which stands for apparent validity, provides an optimistic estimate of model performance, and \texttt{bias-corrected} indicates a non-parametric calibration curve estimated from the predicted values. \texttt{Ideal} indicates that the predicted model fits the actual data. We observe that the models with main effects must correct strongly for bias and do not fit as well as the model that includes interaction effects.
-
-
-
-
-
-
-% latex table generated in R 2.11.0 by xtable 1.5-6 package
-% Thu Jul 29 14:02:07 2010
-
-
-
 \subsection{Effects of Congruence on Build Result}
 \label{sec:congruence_effect_build_result}
-
 
 \begin{table}[t]
 \begin{center}
@@ -931,17 +718,12 @@ Model likelihood ratio & 40.59 &  & $R^2=0.269$ & 39.52 &  &	$R^2 = 0.263$ \\
 
 To answer Research Question 1, we perform a logistic regression analysis between the variables of the builds and the build outcome (Table \ref{tab:logr}).
 
-% \textbf{Null hypothesis:} There is no significant difference between the congruence value in the population of OK builds and the congruence value in the population of error builds in RTC.
-
-% \textbf{Alternate hypothesis:} There is a significant difference between the congruence value in the population of OK builds and the congruence value in the population of error builds in RTC.
-
 The result of logistic regression indicates that the following effects are significant for both unweighted and weighted congruence models: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence. We also identify unweighted congruence as a significant main effects in the unweighted congruence model.
 
 In the next section we discuss the main effects and interactions effects that involve congruence affecting build probability. We discuss the effects of the non-congruence effects, including the authors, files, work~items~$\times$~date interaction effect and the date~$\times$~nightly~build effect in Section \ref{sec:otherfactors}.
 
 \subsubsection{Effects of interactions involving congruence}
 \label{sec:congruenceinteractions}
-
 The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figures \ref{fig:unweighted_congruence_typeci_age} and \ref{fig:weighted_congruence_typeci_age} the effects of weighted congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
 
 
@@ -993,242 +775,22 @@ The type~$\times$~congruence interaction effect, the date~$\times$~congruence in
 	\label{fig:weighted_congruence_typeci_age}
 \end{figure*}
 
-% The weighted and unweighted congruence models are very similar, and the effects on the variable for both models are the same. Consequently, we plot only weighted congruence probability plots to save space.
-
-
-%We examine the relationship between congruence and build type on the build success probability using plots for each type of build across the life of the project. Our data contains 122 continuous builds, 55 nightly builds, and 14 integration builds. 
-
 For continuous builds in weighted congruence (Figures \ref{fig:weighted_congruence_typeci_age}, in grey), an increase in congruence correlates to build success probability. The build date as the project ages appears to decrease the probability of build success for high-congruence builds more than low-congruence builds (Figure \ref{subfig:prob_weighted_age_typeci_q100}). Note that, in the unweighted congruence model (Table \ref{tab:logr}) the effect of unweighted congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. However, the effect of weighted congruence in continuous builds is not as large as in unweighted congruence, nor is it considered statistically significant.
 
 For integration builds (Figures \ref{fig:weighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_weighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_weighted_age_typeci_q100}).
 
 The effect of congruence is totally opposite for continuous builds and integration builds in both unweighted and weighted congruence. Based on Figure \ref{subfig:prob_unweighted_age_typeci_q100}, increasing unweighted congruence significantly improves the continuous build success rate. However, increasing both types of congruence significantly decreases the integration build success rate.
 
-% Nightly builds (Figures \ref{fig:weighted_congruence_typen_age}), are the most successful types of builds in RTC, and tend to succeed regardless of the congruence levels. % However the nightly builds also suffer from very wide confidence intervals, suggesting that a lack of data may have had an influence.
-
-% The 95\% confidence intervals, indicated by the dashed lines and \ref{fig:weighted_congruence_summary} are extremely large. As congruence increases, the uncertainty of the effect on the probability of build success increases, suggesting that the relationship between congruence, type, and build success probability is vulnerable to being affected by other variables or random error. 
-
-
-%For comparison, we illustrate in Figure \ref{} the effects of weighted congruence on build success using the same parameters, in which there is no significant interaction effect. We see a slight increase in build success when increasing weighted congruence in continuous builds (Figure \ref{subfig:prob_weighted_typeC}), but the confidence intervals also increase, decreasing the reliability. Both nightly builds (Figure \ref{subfig:prob_weighted_typeN}) and integration builds (Figure \ref{subfig:prob_weighted_typeI}) suggest no relationship between weighted congruence and build success probability.
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_unweighted_age_typec_q010}
-%    \label{subfig:prob_unweighted_age_typec_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typec_q025}
-%     \label{subfig:prob_unweighted_age_typec_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typec_q050}
-%     \label{subfig:prob_unweighted_age_typec_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typec_q075}
-%     \label{subfig:prob_unweighted_age_typec_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typec_q100}
-%     \label{subfig:prob_unweighted_age_typec_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{unweighted congruence and date}, adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), workitems $\approx$ -0.399 (34), type = cont.}
-%	\label{fig:unweighted_congruence_age}
-%\end{figure*}
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_unweighted_age_typei_q010}
-%    \label{subfig:prob_unweighted_age_typei_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typei_q025}
-%     \label{subfig:prob_unweighted_age_typei_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typei_q050}
-%     \label{subfig:prob_unweighted_age_typei_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typei_q075}
-%     \label{subfig:prob_unweighted_age_typei_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typei_q100}
-%     \label{subfig:prob_unweighted_age_typei_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{unweighted congruence and date}. adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), workitems $\approx$ -0.399 (34), type = int.}
-%	\label{fig:unweighted_congruence_age}
-%\end{figure*}
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_unweighted_age_typen_q010}
-%    \label{subfig:prob_unweighted_age_typen_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typen_q025}
-%     \label{subfig:prob_unweighted_age_typen_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typen_q050}
-%     \label{subfig:prob_unweighted_age_typen_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typen_q075}
-%     \label{subfig:prob_unweighted_age_typen_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_unweighted_age_typen_q100}
-%     \label{subfig:prob_unweighted_age_typen_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{unweighted congruence and date}. adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), workitems $\approx$ -0.399 (34), type = night.}
-%	\label{fig:unweighted_congruence_age}
-%\end{figure*}
-
-
-
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_weighted_age_typec_q010}
-%    \label{subfig:prob_weighted_age_typec_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typec_q025}
-%     \label{subfig:prob_weighted_age_typec_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typec_q050}
-%     \label{subfig:prob_weighted_age_typec_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typec_q075}
-%     \label{subfig:prob_weighted_age_typec_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typec_q100}
-%     \label{subfig:prob_weighted_age_typec_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{weighted congruence} and \emph{build date} for \emph{continuous builds}, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), workitems $\approx$ -0.399 (34 work items)}
-%	\label{fig:weighted_congruence_typec_age}
-%\end{figure*}
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_weighted_age_typei_q010}
-%    \label{subfig:prob_weighted_age_typei_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typei_q025}
-%     \label{subfig:prob_weighted_age_typei_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typei_q050}
-%     \label{subfig:prob_weighted_age_typei_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typei_q075}
-%     \label{subfig:prob_weighted_age_typei_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typei_q100}
-%     \label{subfig:prob_weighted_age_typei_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{weighted congruence} and \emph{build date} for \emph{integration builds}, adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), workitems $\approx$ -0.399 (34)}
-%	\label{fig:weighted_congruence_typei_age}
-%\end{figure*}
-
-%\begin{figure*}
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_weighted_age_typen_q010}
-%    \label{subfig:prob_weighted_age_typen_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typen_q025}
-%     \label{subfig:prob_weighted_age_typen_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typen_q050}
-%     \label{subfig:prob_weighted_age_typen_q050}
-%  }
-%  \subfigure[ \small{2008-06-18} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typen_q075}
-%     \label{subfig:prob_weighted_age_typen_q075}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_age_typen_q100}
-%     \label{subfig:prob_weighted_age_typen_q100}
-%  }
-%  
-%	\caption{Estimated probability of build success for \emph{weighted congruence} and \emph{build date} for \emph{nightly builds}, adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), workitems $\approx$ -0.399 (34)}
-%	\label{fig:weighted_congruence_typen_age}
-%\end{figure*}
-
-
-%\subsubsection{Effect of Number of Work Items}
-
-%Another influence on socio-technical congruence is the number of work items that
-%a build is involved in. A work item is of interest in RTC because it represents
-%a unit of work. We would expect to see an inverse correlation between the number
-%of work items and congruence on the rationale that the more work items that are involved
-%in the build, the harder it is for people to coordinate.
-
-%To count the number of work items in a build, we identify the change sets in each build. Each change set is attached to a work item. Our results indicate that the number of work items range from 4 up to 182, with a mean value of 42.54 work items per build. The distribution is highly skewed to the left.
-
-%From our previous models (Tables \ref{tab:logr_unweighted} and \ref{tab:logr_weighted}), which feature the number of work items per build as a variable, there is no significant effect of the number of work items on the build result.
-
-%A correlation test using the Spearman $\rho$ method on the number of work items per build versus unweighted congruence indicated that there was no correlation between the number of work items, and congruence (S = 2.04e+12, p-value~=~0.7869, $\rho = -0.00178$).
-
-%The same correlation test on the number of work items per build versus weighted
-%congruence indicated also that there is correlation
-%between the number of work items and unweighted congruence (S = 1.88e+12, p-value $<$ 2.2e-16, $\rho = 0.0794$), but because the $\rho$ value is so low, these results are not reliable.
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[scale=0.5]{figures/boxplot_numworkitems}
-%	\caption{Boxplot of Average Number of Work Items Referred to in OK builds and error builds}
-%	\label{fig:numworkitems}
-%\end{figure}
-
-%We also investigate the relationship between the number of work items and build result. There is a statistically significant difference between the mean number of work items involved in an error build compared to an OK build (W = 61046557, p-value $<$ 2.2e-16) (Figure \ref{fig:numworkitems}).
-
-
 
 \subsection{Effect of Gap Size on Build Result}
 \label{sec:gapsizeresult}
-
 To answer Research Question 2, we fit a logistic regression model to determine the effect of the mean gap size on the build success probability. The mean gap size appears in Table \ref{tab:summary} and Figure \ref{fig:gapsizes}.
-% For error builds, the values range from -0.0405 to 1.0, with a mean of 0.147. For OK builds, the values range from -0.0834 to 1.0, with a mean of 0.391.
-
-%For interest, we adjusted the gap size and limited it to the ranges 0 and 1. A Mann-Whitney test between the gap size and the adjusted gap size illustrates that the difference in means is not significant (W = 18048.5, p = 0.859) and a logistic regression analysis using adjusted gap size instead of gap size with negative values revealed no differences.
 
 We build logistic regression models based on the model in Table \ref{tab:logr} using the gap size measurement. In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous weighted congruence logistic regression in Table \ref{tab:logr}.
 We compare two different models: Model G1 contains the gap size with weighted congruence as a variable, and Model G2 contains the gap size without weighted congruence.  We do not use unweighted congruence as it is not possible to calculate gap size with unweighted congruence.
 
 The effect of gap size on build result is significant in both models (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gap size significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap size is large, the build success probability increases.
 
-%\begin{figure}
-%	\centering
-%  \subfigure[Gap Size (H1)]{
-%	\includegraphics[scale=0.55]{prob_gapsize_5a}
-%	\label{subfig:prob_gapsize_a}
-%  }
-%  \subfigure[Gap size (H2)]{
-%	\includegraphics[scale=0.55]{prob_gapsize_6b}
-%     \label{subfig:prob_gapsize_6a}
-%  }
-%	\caption{Effect of Gap Size on build success (authors = 17, files = 131, change sets = 34, type = continuous, and weighted cong = 0.1446)}
-%	\label{fig:prob_gapsize_a}
-%\end{figure}
-
-% latex table generated in R 2.11.0 by xtable 1.5-6 package
-% Mon Sep 13 10:39:05 2010
 \begin{table}[t]
 \begin{center}
 \begin{tabular}{l|rr}
@@ -1262,48 +824,26 @@ Intercept & 0.95 & 1.32 \\
 	\caption{Mean Gap Size per Build}
 	\label{fig:gapsizes}
 \end{figure}
-%\hspace{0.5cm}
 
 \begin{figure}[t]
-%\begin{minipage}[b]{0.4\linewidth}
 	\centering
 	\includegraphics[width=.5\columnwidth]{figures/prob_gapsize_g1}
 	\caption{Effect of gap size on build success probability, model G1. }
 	\label{fig:prob_gapsize_a}
-%\end{minipage}
 \end{figure}
 
-% Adjusted to authors $\approx$ -0.156 (17), workitems $\approx$ {-0.399} (34), type=cont, weightedCong $\approx$ 0.1446, date $\approx$ 2008-06-07)
 
 
 
 \subsection{Social and Technical Factors in RTC Affecting Build Success and Congruence}
 \label{sec:otherfactors}
-
-% In light of the results of Research Questions 1 and 2, we perform additional analysis on other variables that may affect the probability of build success.
 In light of our results, we examine not only the number of work~items~$\times$~date significant interaction found in Section \ref{sec:congruence_effect_build_result}, but different social and technical factors that may affect congruence
 and build success probability to find explanations for the interactions between socio-technical congruence and build success probability in RTC.
 Specifically, we examine the effect of build date on work items, coordination around fully-congruent builds and
 incongruent builds, and the effects of commenting behaviour on builds.
 
-% After adding the "date" variable, authors * files is no longer significant.
-%
-%\subsubsection{Effect of Authors and Files on build success probability}
-
-%
-%The unweighted~congruence~$\times$~build~type interaction is not the only significant variable affecting build result rate. There is a significant interaction between authors and files in both unweighted and weighted congruence (Table \ref{tab:logr_unweighted}). 
-
-%\TODO[FIX THIS] The scatterplot visualization of this data (Figure \ref{fig:scatter_authors_files}) reveals that though most of the builds involve under 500 files, the number of authors across these builds varies from 2 authors to 44 authors.
-
-%To explore this interaction, we plot the effect of the number of files on the probability of build success for different numbers of authors while holding the other variables at fixed values. We show the unweighted congruence plots in Figure \ref{fig:files_authors_unweighted}. Since the effect of authors $\times$ files on build success probability is similar in the weighted and unweighted congruence cases, we do not show the weighted congruence plots to save space. The baseline for comparison is 35 authors, which we chose because it is the level at which the effect of files on build success probability is not extremely pronounced (Figure \ref{subfig:prob_unweighted_35authors}). We do not include the graphs for weighted congruence for space reasons, but the plots for weighted congruence are almost identical to their unweighted congruence counterparts.
-
-%\TODO[FIX THIS TOO] When the number of files is low---700 and below---having a small number of authors involved in the build increases the chance that the build outcome will be successful (Figure \ref{subfig:prob_unweighted_02authors}). Increasing the number of files drastically decreases the probability of build success (Figure \ref{subfig:prob_unweighted_44authors}). However, as more authors contribute to the build, build success decreases when the number of files is low, but build success increases when the number of files are high.
-
-
 \subsubsection{Other Effects on Build Success}
 \label{sec:effectauthors}
-
-\indent\indent
 \textbf{Authors} For both weighted and unweighted congruence, as the number of authors involved in a build increases, the probability that the build succeeds decreases. The build probability is significantly lowered after more than 15 authors are involved in the build (Figure \ref{subfig:prob_weighted_authors_age_q100}). When over 30 authors are involved in the build, the estimated build success probability falls under 10\%.
 
 \begin{figure}[t]
@@ -1321,8 +861,6 @@ incongruent builds, and the effects of commenting behaviour on builds.
   \label{fig:weighted_congruence_authors_age}
 \end{figure}
 
-
-
 \textbf{Files} For both weighted and unweighted congruence, as the number of files involved in a build increases, the probability that the build will succeed decreases (Figure \ref{subfig:prob_weighted_files_age_q100}).
 
 \textbf{Build Date and Work items} The work~items~$\times$~date interaction is significant in both weighted and unweighted congruence. Early in the project, as the number of work items increases, the probability of build success decreases (Figure \ref{subfig:prob_weighted_workitems_age_q010}). As the project ages, this trend reverses and as the number of work items increases, the probability of build success increases as well (Figure \ref{subfig:prob_weighted_workitems_age_q100}). According to the coefficients in Table \ref{tab:logr}, this effect on build success probability is not as strong as the authors main effect or the files main effect.
@@ -1333,18 +871,6 @@ incongruent builds, and the effects of commenting behaviour on builds.
     \includegraphics[width=.45\columnwidth]{figures/prob_weighted_workitems_x_age_q010}
     \label{subfig:prob_weighted_workitems_age_q010}
   }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_workitems_x_age_q025}
-%     \label{subfig:prob_weighted_workitems_age_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_workitems_x_age_q050}
-%     \label{subfig:prob_weighted_workitems_age_q050}
-%  }
-  %\subfigure[ \small{2008-06-18} ]{
-	%\includegraphics[scale=0.372]{prob_weighted_workitems_x_age_q075}
-     %\label{subfig:prob_weighted_workitems_age_q075}
-  %}
   \subfloat[ \small{2008-06-26} ]{
 	\includegraphics[width=.45\columnwidth]{figures/prob_weighted_workitems_x_age_q100}
      \label{subfig:prob_weighted_workitems_age_q100}
@@ -1354,31 +880,8 @@ incongruent builds, and the effects of commenting behaviour on builds.
 \end{figure}
 
 
-%\begin{figure*}
-%\centering
-%  \subfigure[ \small{2008-01-25} ]{
-%    \includegraphics[scale=0.372]{prob_weighted_authors_age_q010}
-%    \label{subfig:prob_weighted_workitems_age_q010}
-%  }
-%  \subfigure[ \small{2008-05-14} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_authors_age_q025}
-%     \label{subfig:prob_weighted_workitems_age_q025}
-%  }
-%  \subfigure[ \small{2008-06-07} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_authors_age_q050}
-%     \label{subfig:prob_weighted_workitems_age_q050}
-%  }
-%  \subfigure[ \small{2008-06-26} ]{
-%	\includegraphics[scale=0.372]{prob_weighted_authors_age_q100}
-%     \label{subfig:prob_weighted_workitems_age_q100}
-%  }
-%  \caption{Estimated probability of build success for \emph{authors} and \emph{date}, weighted congruence. Adjusted to workitems $\approx$ -0.399 (34), files $\approx$ -0.352 (131), weighted congruence $\approx$ 0.1446, type = cont}
-%  \label{fig:weighted_congruence_authors_age}
-%\end{figure*}
-
 \subsubsection{Commenting Behaviour by Change Set Authors}
 \label{sec:commenting}
-
 As congruence expects those who contribute technical work to a project to also communicate changes, we decided to examine commenting behaviour of change set contributors.
 We examine whether a work item related to a change set has a corresponding comment posted by the change set's author. We also identify if the work item/change set pair is involved in an OK build or an Error build. Note that a work item/change set pair can occur in multiple builds. We consider only comments posted before the build was started. These results are shown in Table \ref{tab:changesets_authors}.
 The build result rates does not appear to be affected by whether the change set contributor commented: 43\% of the builds resulted in error when the contributor commented, and 41\% of builds resulted in error when the contributor did not comment. A $\chi^2$ test on this table does not show a significant difference between the factors at the 0.05 threshold ($\chi^2 = 3.217$, df = 1, {p=0.073}).
@@ -1395,21 +898,13 @@ Total 	& 2186 (24\%) 	& 7032 (76\%) 	& 9218 (100\%)	\\
 \label{tab:changesets_authors}
 \end{table}
 
-% We then examined the amount of communication that occurs over coordination needs between pairs of individuals. Over 95\% of the coordination needs in the project are not satisfied by a corresponding communication edge between the developers.
-
 \subsubsection{Examining Extreme Congruence Values}
 \label{sec:extremecongruence}
-
 We are interested in the differences between high-congruence builds and low-congruence builds.
 We further this investigation by looking at builds that have extreme values of congruence: zero, where absolutely no coordination needs are satisfied with communication, and one, where every coordination need is satisfied with communication.
-%A congruence index of 0 means that absolutely no actual coordination occurs where a coordination need exists.
-%A congruence index of 1 means that actual coordination occurs for every coordination need that exists.
 We chose to investigate the extreme cases to see if there were differences in the way people coordinated in fully-congruent builds, and in incongruent builds.
 Table \ref{tab:congruence_extremes} shows the number of OK and error builds that occurred when congruence was equal to one, and equal to zero. The weighted builds with full congruence are a subset of the unweighted builds with full congruence.
 
-%In our data, 32 builds have both a weighted and unweighted congruence index of 0. Among these builds, 2 of them are error builds and 30 are OK builds. It appears that, even in a situation with with 0 congruence, the majority of these builds appeared to have built successfully.
-
-% We then examine the builds that have a congruence of 1, which suggests ``perfect congruence''. There are 26 builds that have an unweighted congruence index of 1; of these builds, 2 builds are error builds and 26 are OK builds. For weighted congruence, there are 7 builds that have a weighted congruence of 1; 1 build is an error build and 6 are OK builds. The weighted congruence builds are subsets of the unweighted congruence builds.
 
 \begin{table}[t]
 \centering
@@ -1424,19 +919,6 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
 \caption{Number of Builds with Congruence Values 0 and 1}
 \label{tab:congruence_extremes}
 \end{table}
-
-
-
-% \texttt{28  44  55  66  71  76  86  104 123 144 147 164 171 172 176 194 210 222 239 246 248 250 256 268 289 292 313 321 336 337 341 347 354}, 33 builds.
-
-
-
-%Weighted congruence \texttt{143 177 190 213 226 283 327}, 7 builds.
-%Nonweighted congruence \texttt{5   32  42  43  57  63  64  77  80  93  111 113 143 163 170 177 179 190 213 226 266 269 283 297 324 327 355 356}, 28 builds.
-% weighted = 0 \texttt{143 177 190 213 226 283 327},
-% weighted error: (177)
-% unweighted error: build 177 but also build 93. 
-
 
 To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme unweighted congruence values. Our results are shown in Table \ref{tab:changeset_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
 
@@ -1459,12 +941,10 @@ Congruence &                                & 1     & 0   & 1 & 0 \\\hline
 \end{table}
 
 We manually inspected the work items with extreme amounts of congruence, reading the comments for any differences in the content discussed. Unfortunately, there were no obvious qualities between comments made in a build with a congruence of zero, and comments made in a build with a congruence of one. In both builds, individuals discussed technical implementation details, provided updates to colleagues, or requested assistance from colleagues. We are unable to discover root causes of failure without a deeper examination of the technical changes and more knowledge of the RTC context.
-% Another observation made from reading the comments is that these work items for the cases where congruence is 0 or 1 do not appear to have strong dependencies on other work items.
 
 
-\section{Discussion}
+\section{TODO: Discussion}
 \label{sec:discussion}
-
 The concepts illustrated in Conway's Law, as well as previous empirical work on socio-technical congruence lead us to expect that team members must coordinate according to coordination needs suggested by technical dependencies in order to build software effectively.
 In this case study, we applied socio-technical congruence to study coordination and its relationship to build success probability in RTC. We applied a modified weighted congruence measurement to study also how the size of a coordination gap affects build success probability, and investigated what social and technical factors in RTC affect congruence and builds.
 
@@ -1485,23 +965,18 @@ We hypothesized that a small mean gap size would increase the probability of suc
 Below we discuss the reasons for these observed results based on our knowledge of RTC.
 
 \subsection{Strong Awareness Helps Coordination}
-
 The overall congruence for the majority of builds is low: over 75\% of
 builds have a congruence of less than 0.25 (Section \ref{sec:congruence_effect_build_result}).
 Despite low congruence, the RTC team is able to successfully build its software in many situations.
 The fact that the change set author comments on a work item related to the change set does not appear to affect build results either (Section \ref{sec:commenting}), suggesting that changes do not need to be explicitly communicated for every build.
 
-%Even in co-located continuous builds late in the project, increasing congruence does not appear to affect build success probability as strongly as we might have anticipated (Figure \ref{subfig:prob_weighted_age_typeci_q100}).
 
 When we examined extreme congruence values, we observed 85\% build success probability when weighted congruence is 1 and 93\% build success when weighted congruence is 0 (Section \ref{sec:extremecongruence}).
 If socio-technical congruence is a measure of coordination quality in software, and builds rely on coordination quality to be successful, then there must be reasons why builds can succeed even when the congruence is zero.
 
-%The theory of socio-technical congruence proposes that low amounts of congruence result in poor outcomes in coordination-intensive activities. We believe that the reasons for this finding are two-fold.
-
 First, because RTC is a highly-distributed project, the product under development uses a modular design \cite{maccormack2006} and thus is affected less by dependencies. Second, team members in RTC do not conduct all of their coordination through \emph{explicit communication} even though work item inspection and discussion with developers indicate that the RTC corporate culture focuses on the work item as their base for communication. Rather, they use the \emph{shared workspace} that incorporates cues from the environment and from peers in order to address technical issues. Both of these effects may contribute to congruence being lower than expected.
 
 \subsubsection{RTC supports Explicit Communication}
-
 The RTC team members use the RTC environment extensively to communicate with each other. We were informed that RTC team members rarely use private email, and our inspection of the mailing list reveals that its primary purpose is for announcements such as server outages rather than for discussing technical work.
 
 This leaves the RTC work item comment system and instant messaging as methods for communication, as well as the phone and internal face-to-face meetings.
@@ -1510,13 +985,8 @@ We learned that while face-to-face interaction is efficient for solving local is
 However, explicit coordination has a cost. There is evidence that involving too many authors in the same build also reduces the build success when using a weighted congruence conceptualization (Figure \ref{subfig:prob_weighted_authors_age_q100}); the effect for unweighted congruence is similar. The overhead required to coordinate many people may interfere with the ability of the team to build the project successfully, suggesting that there is a limit before a developer is overloaded with information.
 
 \subsubsection{RTC is a Shared Workspace}
-
 The RTC client software helps a developer acquire and maintain \emph{environmental awareness} of what is going on in the project by providing access to a shared workspace. Much of the work is centred around the RTC technical entities, which include plans, source code, work items, and comments.
 RTC's awareness mechanisms feature a developer-centred dashboard that reports changes to the workspace, built-in traceability, user notifications, regularly-generated reports, and an optional web browser interface. For example, when a change set is created, it is attached to a work item, thus ensuring that people who are involved with the work item receive notification of this change set. These automatic notifications cut down the amount of explicit communication and allow people to coordinate implicitly.
-
-% Their forty-seven teams are distributed across seven sites, and their ``open commercial'' development model centres around the use of the environment as a coordination mechanism. The public is able to view and contribute to RTC. 
-
-% RTC can also be used in a web browser, meaning that any participant can get the benefits of RTC without installing the client.
 
 Coordinating using the workspace is well-known in the computer-supported cooperative work domain \cite{schmidt1996}. Open-source developers, in particular, coordinate around source code~\cite{bolici:stc:2009} and mailing lists \cite{gutwin2004:awareness,mockus2002:opensource} because there is little opportunity for face-to-face interaction. RTC shares many characteristics with open-source development, such as a distributed team and a transparent development process.
 
@@ -1525,7 +995,6 @@ Much of the need for explicit, point-to-point communication is mitigated by impl
 We expect that the remaining congruence is covered through the RTC workspace, and through face-to-face communication, instant messenger, and phone communication. Though our congruence value appears low for the RTC team, the coordination in reality may be higher. Future studies should keep in mind that congruence may be lower than expected because of conceptualizations that cannot include every type of coordination in a project.
 
 \subsection{Coordination and Geographic Distribution}
-
 As RTC is a distributed team, geographic distribution has an effect on team performance, though the RTC environment helps mitigate some of these effects \cite{Nguyen:2008Distance}.
 
 We learned from the RTC project that continuous and nightly builds should involve mainly a co-located team, and that integration builds involve multiple components from RTC teams in different locations. Our results suggest that congruence best benefits builds that occur within co-located teams; however, the design of our study does not allow us to draw a firm conclusion about the influence of both co-location and congruence on build success probability.
@@ -1534,7 +1003,6 @@ It appears that involving too many individuals when coordinating the activities 
 
 \subsection{Communication Between Individuals Occurs When Problems Arise}
 \label{sec:communicating_problems}
-
 Our results indicate that even when congruence gaps are bridged, there is a high probability that a build still fails.
 
 We have observed that, due to awareness through RTC, the RTC team is able to react to situations with multiple technical dependencies by communicating quickly, a trait that has been previously observed among open-source developers \cite{mockus2002:opensource}. Contributors are likely to comment on their own change sets (Section \ref{sec:commenting}).
@@ -1543,11 +1011,8 @@ The RTC team is aware of builds that require high coordination, and are able to 
 This amount of written communication may not occur in an OK build simply because the level of coordination is not necessary; in essence, not every technical dependency requires explicit coordination to bridge that gap.
 There is also a possibility that developers coordinate on difficult builds using methods that are not captured by our conceptualizations such as phone or face-to-face. More study of how developers coordinate under ``problematic situations'' is warranted.
 
-% This would lead to the situation where builds with high coordination needs also have high communication.
-
 
 \subsection{Project Maturity and Build Success}
-
 We found that early builds exhibited a different type of relationship between congruence and build success probability than later builds (Section \ref{sec:congruenceinteractions}). Over the course of the study, we observed 13 internal milestones; the last milestone in our observed builds was a public beta release for end users.
 
 Build success probability decreased significantly over time for continuous builds and stayed roughly the same for integration builds (Figures \ref{fig:weighted_congruence_typeci_age}).
@@ -1557,88 +1022,9 @@ In addition to interactions between congruence and type, and congruence and date
 We found that early in the project (Figure \ref{subfig:prob_weighted_workitems_age_q010}), builds with large numbers of work items have a high probability of failing, but late in the project (Figure \ref{subfig:prob_weighted_workitems_age_q100}), these builds succeed. Because the latest release was focused on a public release, a build linked to numerous work items may indicate that a bug is highly problematic or a feature is highly desired, and therefore received more attention. This is similar to the effect discussed with gap size (Section \ref{sec:communicating_problems}), where an error build requires more coordination from involved developers.
 
 
-
-%\subsection{Social and Technical Factors In RTC}
-
-%% Our third research question asked, What social and technical factors in RTC affect congruence and build success probability?
-
-%% Our intention was to find factors that could explain the lack of relationship between socio-technical congruence and build success probability, by investigating a number of factors that could possibly affect either the congruence or the build result.
-
-%
-%Other factors such as work item usage were involved in influencing build success probability and coordination in RTC. We identified the following factors and their effects.
-
-%As mentioned above, we identified that the type of build is related to the amount of necessary coordination and consequently affects congruence.
-%We identified that the number of work items in a build does not affect congruence because work items provide a location in the shared workspace for developers to comment, but that the build date and work item interaction does affect build success probability. Initially, builds involving a large number of work items do not have a high probability of success, but this trend is reversed over time. We believe that this is due in part to increased capabilities to handle a build with a large number of issues filed against it. In addition, the phenomenon of developers coming together to discuss error builds that we discussed in Section \ref{sec:communicating_problems} may also apply to the build date $\times$ work item interaction effect.
-
-%We identified that some features of the RTC
-%collaboration environment contribute to enhanced coordination behavior and that
-%the communication of emergent members (those not captured in coordination needs
-%matrices) may possibly contribute to the success of a build.
-
-%We found that the type of build does make a difference when it comes to the
-%amount of coordination and consequently the socio-technical congruence values.
-%Both continuous builds and nightly builds had similar levels of congruence, which
-%is expected as these builds are done at the team level; these teams tend to be
-%co-located. However, integration builds had significantly lower congruence
-%values. Integration builds, rather than focusing on code changes, tend to focus
-%instead on packaging issues. As each team in RTC is responsible for a package
-%that is integrated into the final product, full congruence is not necessary. Rather,
-%integration can proceed by coordinating representatives for each package. If a
-%particular package has problems, then the representative can go back to his
-%development team and resolve the issue. It appears that high congruence is not
-%necessary for integration builds.
-
-% Adding date removes the significance of this variable.
-%\subsubsection*{People and Files in Builds}
-
-%If congruence was not one of the stronger factors affecting builds, which are a coordination-intensive software development activity, then what other variables affect the build success probability?
-
-%The most significant variable affecting build results is the interaction between files and authors. In RTC, increasing the number of files in a build will increase the chances that the build will result in an error, which is expected.  However if you have a large number of authors, the chance of failure will increase.
-
-%We attribute this to issues of coordination overhead---adding a large number of authors increases the difficulty of coordinating each author's dependencies and thus contributes to the error rate of builds. However, if there are a large number of files, increasing the number of authors after a point (34 people for unweighted congruence, 38 people for weighted congruence) results in an increase in the chance of getting an OK build. It appears that, after a point, the additional authors can help manage the dependencies between the files and create successful builds.
-
-% \subsubsection*{The Work Item World}
-
-% There was no observed relationship between the number of work items in the build and build success.
-
-%We observed that 76\% of the developers that attach their change set to a work item also comment on that work item, suggesting that most developers who post a change set also communicate their changes (Table \ref{tab:changesets_authors}).
-%% This means that, as more work items are created, in turn creating coordination needs among people, contributors are not increasing their actual coordination to meet these needs and instead, the communication rises proportionally.
-%The traceability implicitly provided with the RTC software encourages the change set author to communicate information about the change set, but does not necessarily require that other interdependent people coordinate as well.
-%%While this commenting behaviour increases the amount of communication in a build, it does not necessarily lead to increased actual coordination between those who have coordination needs, especially because comments are broadcasted. 
-%These results illustrate two benefits of tracing work items to change sets.
-%
-%First, connecting a work item to a change set allows a developer to communicate without the effort of discovering who to communicate to.
-%Developers are highly concerned about contacting the right people when they make modifications~\cite{desouza2007:awarenessnetwork}, but need to go through involved processes to find appropriate contacts~\cite{nakakoji2010:rdc,desouza2007:awarenessnetwork}.
-%
-%Second, the open work item comment system allows anyone, including people who are not in the coordination needs network, to contribute to the work item (as observed in Table \ref{tab:changeset_commenters}).
-%Many people who are not in a technical dependency with the change set comment on a work item to provide expertise.
-%RTC provides a way for a developer to write relevant information without the effort of discovering who is affected by the change.
-
-
-%Other factors that influenced build success probability included increasing number of
-%work items involved in the build, increasing the number of comments on a build,
-%and increasing the number of change sets in a build. None of these are
-%necessarily surprising---increased complexity will contribute to failure. These
-%findings align with related work on defect prediction~\cite{cataldo2009:quality,nagappan:icse:2005,yu2002:fault}. These results illustrate
-%the fact that congruence does not seem to prevent error builds and that simpler factors may be more accurate predictors of build failure.
-
-%\begin{table*}
-%\begin{tabularx}{\textwidth}{l|l|X}
-%Variable & Effect & Causes \\\hline
-%Integration builds & Low congruence $\rightarrow$ build success & Distance affects communication. Specialists from each team involved in build rather than every person with coordination needs. \\\hline
-%Continuous builds  & High congruence $\rightarrow$ build success & Distance affects communication, proximity helps people coordinate builds locally. \\\hline
-%Gap size & error build $\rightarrow$ small gap size  & Developers coordinate for builds that may be difficult. \\
-%\end{tabularx}
-%\caption{Findings}
-%\label{ph:findings}
-%\end{table*}
-
 \subsection{Improvements to Socio-technical Congruence}
 \label{sec:improvements}
-
 Based on these results, we discuss our conceptualizations of congruence, and how we can improve socio-technical congruence as an approach to measuring coordination. This paper takes a step in the direction of exploring the situations of applicability that socio-technical congruence has to software projects. Our study is limited to digital, comment-based communication, but indicates the usefulness of socio-technical congruence in highlighting the relationship between communication, technical dependencies, and work outcomes.
-
-% Conceptualizing congruence in RTC required us to take into account not only previous conceptualizations of congruence, but also an understanding of the entities that the developers work with.
 
 We presented a weighted congruence measure which provides measurements such as gap sizes and relationship strengths that were not available by using unweighted congruence. Although the weighted congruence measure yielded similar results to the unweighted congruence measure, the weighted congruence model appeared to lower the threshold of congruence by smoothing out the index values into a more balanced distribution compared to unweighted congruence (compare Figures \ref{subfig:hist_nonweighted} and \ref{subfig:hist_weighted}).
 This led to the unweighted congruence model having a significant main effect on continuous build success, whereas the weighted congruence model did not have such an effect.
@@ -1647,15 +1033,6 @@ measure than unweighted congruence. Depending on the objective of the
 analysis, the unweighted congruence may represent an upper range of
 potential congruence in a project, whereas the weighted congruence
 tends to be less likely to report perfect congruence and may represent an average scenario.
-
-%Consequently, the unweighted congruence measure is a less conservative measure than weighted congruence. One may want a less conservative measure if a team is observed to work well together in a way that cannot be represented by the conceptualization.
-%Weighted congruence measure is more conservative and is appropriate in projects where contextual information about the team is not known.
-
-% In addition, weighted congruence provides additional information such as normalized weights and gap size.% without sacrificing the capabilities of unweighted congruence.
-
-% Thus, the measure provides additional information without sacrificing the capabilities of unweighted congruence.
-
-% This study also illustrates how a detailed measure of coordination can be analyzed from only a software repository, even without face-to-face communication and other unrecorded communication. Numerous practical and ethical implications arise from collecting detailed information from developers such as face-to-face conversations and instant messenger logs.
 
 However our conceptualization of who should be related to a work item is not complete and can be improved.
 Many roles in the project are important, but do not have explicit technical dependencies.
@@ -1675,75 +1052,34 @@ Another improvement would be modelling transitive communication because informat
 
 \subsection{Threats to Validity}
 \label{sec:threats}
-
-% As this study is a case study examining the relationship between congruence and build success probability, there are a number of threats to validity.
-%Conceptualizing congruence is extremely dependent on the project context and the available data. Variations in conceptualization from project to project may explain the results of our paper.
-
 Socio-technical congruence can be difficult to compare between studies. Conceptualizations, such as technical dependencies and actual coordination, vary from project to project. Some project-specific conceptualizations we used are the build as a measure of success, the fact that only files that are touched by more than one individual qualified as having dependencies on each other, and the work item comments connecting people in a clique.
 Because of the context-sensitive nature of socio-technical congruence, especially with respect to the construction of communication and dependencies, it is difficult to apply socio-technical congruence as a benchmark for coordination. Having an understanding of the context of the project is extremely important when interpreting results obtained from socio-technical congruence calculations.
-
-%Some of our counter-intuitive results may have been a result of our congruence conceptualizations as well as the limited data we were able to acquire. 
-
-% We believe that, overall, our values for socio-technical congruence are underestimated compared to the coordination that occurs in reality. This is because coordination needs are overestimated, and actual coordination is underestimated.
 
 Our coordination needs are likely overestimated due to the modular nature of RTC.
 As we are studying a distributed project that follows a transparent development process, RTC uses a modular design \cite{maccormack2006} and a change in a file in a change set may not necessarily be dependent on other changes within the same file. 
 We observed evidence in our study that the dependencies among change sets as well as the attached work items may not be as strong as we have originally believed.
 
-% A future modification would be to take into account not only file dependencies within change sets, but to also examine source code context to come up with a dependency measure that merges the features of both ``files-changed together'' and source code features such as call graphs.
-
 Our conceptualization of actual coordination underestimates the amount of communication that truly occurs in the project. 
 We relied on repository data in RTC and were unable to conceptualize forms of communication such as instant messenger, phone calls, and face-to-face interactions.
 Due to geographical distance and time zone differences, the RTC team's primary mode of collaboration is the work item comment system, but we made a number of assumptions about commenting behaviour.
 
-% RTC comments are posted in public, which has two implications in our conceptualization.
 First, we assume that everyone involved in the work item reads every comment. Second, we do not take into consideration any additional coordination that may occur from a silent onlooker reading the comments. We believe intuitively that the first effect is greater than the second.
 This may help explain part of the effect of the unintuitive gap size result; rather than the gap being actually large in reality, it is large in our conceptualization because actual coordination outside of commenting is not recorded.
 
-% These two effects ultimately mean that our calculated congruence would be lower than what occurs in theory. Future studies of congruence might consider scaling congruence to account for missing data.
-
 Another threat to validity is that our data does not cover every build executed in the lifetime of RTC. RTC does not keep a full archive of build results, and as a consequence, we do not have a full population from which to draw data from. The threats are particularly high for early data points. The large confidence intervals in some of the builds, namely nightly builds, reflect this lack of data, thus we hesitate to draw conclusions based on early builds and nightly builds.
-
-% We have observed, in many of our logistic regression models and probability plots, that the 95\% confidence intervals are large. This means that even though we have observed a particular trend in our study, the results are highly variable and the explanation for the observed effects in our study may in fact be influenced by variables outside the scope of our work. Thus, even though we have observed an interaction effect between unweighted congruence and build type in our study, the effect may not be a strong one that holds in the general case.
 
 Finally, this study is a single case study and the results are not generalizable, nor can they be directly compared to existing studies due to the differences in the projects under examination. However, we believe that this study advances the theoretical and the empirical examination of socio-technical congruence, and raises a number of questions that are worthwhile for future study.
 
 
 \section{Conclusion}
 \label{sec:conclusion}
+We end this chapter by bringing it back to the initial research question we set out to answer:
+\begin{description}
+  \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
+\end{description}
 
-In this paper, we performed a study of coordination in the IBM Rational Team Concert project using a
-socio-technical congruence approach. We applied an unweighted congruence
-measurement proposed previously in literature as well as a weighted congruence
-approach to RTC in order to discover the effects of congruence on
-build results. We found that both unweighted and weighted congruence have similar effects on build success probability. With respect to build success probability, we found an interaction effect between congruence
-and build results: if the build type was a continuous build, then increasing the congruence led to an increase in the build success probability. If the build type was an integration build, then increasing congruence actually led to a decrease in the build success probability. We also observed interaction effects between congruence and build date, the number of work items and build date, and build date and build type.
+We conducted two investigations: (1) the investigation the influence of the socio-technical congruence index on build success and (2) the investigation of gaps as within the socio-technical networks.
+Both avenues of investigations showed that they expose an influence on build success even in the presence of other measures of build size.
 
-%Project maturity appears to have a significant effect on build success probability and may affect the reliability of congruence in predicting build success probability.
-
-% We believe that this result is valuable since we call into question previous
-% research has shown that increasing congruence leads to better outcomes.
-
-%In this paper, we present four results from the case study.
-
-%First, we believe that the awareness mechanisms in RTC help developers \emph{coordinate through indirect communication} in order to build software successfully. This result has two implications: it illustrates the usefulness of awareness mechanisms during software development, and it highlights the need for socio-technical congruence to take into account indirect communication when calculating congruence.
-
-%Second, we observed that explicit communication occurs especially when problems arise. This implies that the awareness mechanisms in RTC such as automatically-generated reports, once again, allows developers in RTC to identify problems, contact the appropriate developers, and contribute to the discussion.
-
-
-Our study, however, has broader significance than the relationship
-between socio-technical congruence and build success probability in RTC.
-%We determined two factors that reduce the need for high socio-technical congruence when current measures are used.
-
-First, RTC is a
-specialized platform that enhances communication over distance and awareness
-of work among developers. We believe that the RTC platform may have had the
-effect of maintaining awareness among developers, not only through explicit communication in
-comments, but also implicit communication through notifications.
-
-%Our investigation suggests that there may be a ``good enough'' threshold for congruence where even a small amount of coordination may cover a large number of technical dependencies. Even though the congruence in RTC builds was low---between 0.2 and 0.3---the RTC team was able to coordinate successfully on builds and respond to builds that had high coordination needs.
-
-Second, we found that RTC developers react to problem situations. If the software is easily built, then coordination is not strictly necessary---environmental awareness may be enough to allow the team members to coordinate. However, if a build and its work items are complex, then the developers communicate more often.
-
-These findings are significant because they provide empirical evidence that illustrate the applicability of socio-technical congruence, and illustrates that an increase in socio-technical congruence may not always be connected to improvements in software development, depending on the conceptualizations and project context.
-Nonetheless, we believe that socio-technical congruence is useful for studying the alignment of social and technical entities and can be used to better understand the relationship between socio-technical collaboration and performance in software development.
+These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
+Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
