@@ -25,7 +25,6 @@ We conclude this chapter with offering an answer to our research question and le
 % merge intro into background
 % remove research objective section
 % adjust methodology/remove stuff
-% rewrite conclusion to answer the research question and lead into next chapter (approach)
 %
 % TAKE OUT WEIGHTS
 
@@ -56,7 +55,6 @@ has been shown to be a predictor of coordination success
 The mismatches between the social and technical dimensions, or \textbf{gaps},
 also have been observed as increasing resolution times for software activities.
 The objective of this study is to investigate the effects of socio-technical congruence on high-coordination software development activities during a project.
-%, and to examine the usefulness of the measure when drawing conclusions about collaboration around software development.
 
 We seek to discover the relationship that congruence has on the probability that a regularly-scheduled software build will be successful.marczak:re:2008
 We conduct a case study of a large software project at IBM.  A build result, which can be \emph{error} or \emph{OK}, indicates the relative health of the project up to that build. To
@@ -75,7 +73,6 @@ Although the congruence per build is relatively low at approximately 20\% overal
 We also find that the mean size of a congruence gap correlates inversely with build success probability.
 Our findings on the socio-technical congruence and build quality in RTC are complemented by insights we
 obtained by studying the context of the RTC project. Some of these results may be explained also by the congruence conceptualizations that we use in our empirical study.
-% By using the weighted congruence measure we could investigate gaps in coordination at a fine level of detail and unveil interesting patterns in the teams' coordination behaviour.
 
 Our case study adds to the scarce but needed empirical evidence about
 socio-technical congruence measures in the investigation of coordination in
@@ -159,30 +156,10 @@ If two individuals have a coordination need, but do not coordinate, then there i
 What socio-technical congruence offers is an approach to measure the coordination quality~\cite{cataldo:cscw:2006}. We can use this measurement to identify the effect of socio-technical coordination on software build quality.
 
 
-%\section{Related Work}
-%\label{sec:relwork}
-%
-%Socio-technical congruence was proposed initially as a fine-grained measure of coordination that can be used to diagnose coordination problems in a software development team~\cite{cataldo:cscw:2006}.
-%The original conceptualization of socio-technical congruence was in Conway's Law, which observed that
-%product architecture reflects organizational structure~\cite{conway:datamination:1968}.
-%
-%Socio-technical congruence has been recognized as an important element of product
-%design in the management sciences field~\cite{sosa2004:manage}. The socio-technical congruence community goes one step further
-%and declares that not only does this alignment happen as a consequence of product
-%architecture, but that it is in fact desired
-%\cite{sarma2008:measuring_stc,valetto2007:value}. Unfortunately there are only a
-%handful of empirical research results that discuss the effects of the
-%socio-technical congruence approach on software teams.
-
-% First, we review research on studies of coordination in software engineering, and then we review related work on socio-technical congruence.
-
 
 
 
 \subsection{Effects of Socio-technical Congruence}
-
-
-
 Current research suggests that attaining a high level of socio-technical congruence is beneficial to an organization.
 Evidence shows that higher congruence leads to faster completion of modification requests~\cite{cataldo:cscw:2006}. 
 The presence of gaps increases the number of code changes \cite{ehrlich2008:gaps}, and a lack of coordination connections across system and organizational boundaries have a negative effect on performance~\cite{sosa2004:manage}.
@@ -191,14 +168,11 @@ Socio-technical gaps have been found to be an issue not only because they lower
 the congruence and thus lower productivity~\cite{cataldo:cscw:2006}, but because they are especially problematic in the context of distributed development~\cite{ehrlich2008:gaps}. Thus, researchers have proposed remedial actions when socio-technical congruence gaps are discovered~\cite{valetto2007:value}. 
 Examples of actions include closing a gap by augmenting coordination and eliminating the gap by refactoring software.
 
-% ~\cite{curtis1988}
 The usefulness of socio-technical congruence depends on the conceptualizations of
 the social and the technical dimensions. Communication is believed to help people coordinate. However, it is not the only way to describe the social dimension. 
 For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in the context of software development using different representations of actual coordination, including geographical proximity, IRC communication, and issue-tracking comments; these factors correlate with the resolution time of modification requests. There are also variations in the way technical dependencies can be handled. Cataldo et al.~\cite{cataldo:esem:2008} used differing ways to measure architectural dependencies and found that the congruence values computed using a ``files changed together'' dependency are more reliable than call graph dependencies~\cite{deSouza2004:thwarts_collaboration}. Gokpinar, et al \cite{gokpinar2010} applied a congruence technique and discovered that a higher coordination deficit leads to a larger number of filed incident reports, implying reduced quality.
 
 Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
-
-%In summary, there is a need to coordinate effectively in software development across technical dependencies that may cross geographical boundaries, and socio-technical congruence is a useful mechanism for studying coordination.
 
 
 \section{Calculating Congruence}
@@ -206,7 +180,6 @@ Socio-technical congruence has been explored outside of the software development
 We describe unweighted congruence as presented by Cataldo et al. \cite{cataldo:cscw:2006} in Section \ref{sec:stc}. Weighted congruence~\cite{kwan2009:weighted}, described in Section \ref{sec:measure} is a weighted congruence measure from our work that addresses limitations of unweighted congruence.
 
 \subsection{Technical Entities and Social Relationships}
-
 A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
 
 At the core of socio-technical congruence is the concept of a technical dependency. A \textbf{technical dependency} is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
@@ -231,7 +204,6 @@ Social relationships are identified through \textbf{actual coordination}, which 
 
 \subsection{Calculating Socio-Technical Congruence}
 \label{sec:stc}
-
 Given $m$ people, and $n$ technical entities to examine, the coordination needs are calculated as 
 
 \[ CN = A \times D \times (A)^t \]
@@ -260,7 +232,6 @@ Once the coordination needs matrix is calculated, congruence is calculated by co
 \end{placeholder}
 
 \subsection{Limitations of the Unweighted Socio-technical Congruence Calculation}
- 
 Unfortunately, the unweighted congruence measure has a limitation because socio-technical congruence identifies if a coordination need is either satisfied, or not satisfied, with no values indicating relative strengths.
 
 The missing strengths prevent the identification of gaps that may be large or high-priority gaps that require attention.  Previous research has shown that projects succeed despite the presence of gaps. Marczak, et al.~\cite{marczak:re:2008} identified a project that delivered requirements on time despite the existence of gaps. 
@@ -272,7 +243,6 @@ but do not evaluate their proposed changes.
 
 \subsection{A Weighted Congruence Measurement}
 \label{sec:measure}
-
 We present an extension to congruence based on prior work~\cite{kwan2009:weighted} that addresses the
 limitation discussed in the previous section. The intention is that this improvement will
 provide more information about coordination behaviour than the current congruence measure. 
@@ -322,7 +292,6 @@ To calculate the coordination needs matrix, we use the same formula proposed by 
 The coordination needs matrix shows how strong the relations between people are supposed to be based on their technical work.
 
 \subsubsection{Weighted Actual Coordination}
-
 Weighted actual coordination is a relative value that indicates the strength of a relationship between two individuals (Figure \ref{subfig:actualCoord}). A social network such as a communication network can be weighed according to the amount of ongoing communication. For example, one such weighing scheme may work as follows:
 
 \begin{enumerate}
