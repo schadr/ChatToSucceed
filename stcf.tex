@@ -446,7 +446,13 @@ incongruent builds, and the effects of commenting behaviour on builds.
 
 \subsubsection{Other Effects on Build Success}
 \label{sec:effectauthors}
-\textbf{Authors} For both weighted and unweighted congruence, as the number of authors involved in a build increases, the probability that the build succeeds decreases. The build probability is significantly lowered after more than 15 authors are involved in the build (Figure \ref{subfig:prob_weighted_authors_age_q100}). When over 30 authors are involved in the build, the estimated build success probability falls under 10\%.
+\begin{description}
+\item[Authors] As the number of authors involved in a build increases, the probability that the build succeeds decreases. The build probability is significantly lowered after more than 15 authors are involved in the build (Figure \ref{subfig:prob_weighted_authors_age_q100}). When over 30 authors are involved in the build, the estimated build success probability falls under 10\%.
+
+\item[Files] As the number of files involved in a build increases, the probability that the build will succeed decreases (Figure \ref{subfig:prob_weighted_files_age_q100}).
+
+\item[Build Date and Work items] The work~items~$\times$~date interaction is significant. Early in the project, as the number of work items increases, the probability of build success decreases (Figure \ref{subfig:prob_weighted_workitems_age_q010}). As the project ages, this trend reverses and as the number of work items increases, the probability of build success increases as well (Figure \ref{subfig:prob_weighted_workitems_age_q100}). According to the coefficients in Table \ref{tab:logr}, this effect on build success probability is not as strong as the authors main effect or the files main effect.
+\end{description}
 
 \begin{figure}[t]
 \centering
@@ -459,13 +465,11 @@ incongruent builds, and the effects of commenting behaviour on builds.
 \label{subfig:prob_weighted_files_age_q100}
 }
 
-\caption{Estimated probability of build success for \emph{authors} and \emph{files}, weighted congruence. Adjusted to work~items $\approx$ -0.399 (34), authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), w. congruence $\approx$ 0.1446, type = cont, date=2008-06-26}
+\caption{Estimated probability of build success for \emph{authors} and \emph{files},  congruence. Adjusted to work~items $\approx$ -0.399 (34), authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), congruence $\approx$ 0.1446, type = cont, date=2008-06-26}
   \label{fig:weighted_congruence_authors_age}
 \end{figure}
 
-\textbf{Files} For both weighted and unweighted congruence, as the number of files involved in a build increases, the probability that the build will succeed decreases (Figure \ref{subfig:prob_weighted_files_age_q100}).
 
-\textbf{Build Date and Work items} The work~items~$\times$~date interaction is significant in both weighted and unweighted congruence. Early in the project, as the number of work items increases, the probability of build success decreases (Figure \ref{subfig:prob_weighted_workitems_age_q010}). As the project ages, this trend reverses and as the number of work items increases, the probability of build success increases as well (Figure \ref{subfig:prob_weighted_workitems_age_q100}). According to the coefficients in Table \ref{tab:logr}, this effect on build success probability is not as strong as the authors main effect or the files main effect.
 
 \begin{figure}[t]
 \centering
@@ -477,7 +481,7 @@ incongruent builds, and the effects of commenting behaviour on builds.
 	\includegraphics[width=.45\columnwidth]{figures/prob_weighted_workitems_x_age_q100}
      \label{subfig:prob_weighted_workitems_age_q100}
   }
-  \caption{Estimated probability of build success for \emph{work items} and \emph{date}, weighted congruence. Adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), w. congruence $\approx$ 0.1446, type = cont}
+  \caption{Estimated probability of build success for \emph{work items} and \emph{date},  congruence. Adjusted to authors $\approx$ -0.156 (17), files $\approx$ -0.352 (131), congruence $\approx$ 0.1446, type = cont}
   \label{fig:weighted_congruence_workitems_age}
 \end{figure}
 
