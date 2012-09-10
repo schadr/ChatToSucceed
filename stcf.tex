@@ -263,11 +263,9 @@ Congruence & 0  & 0.21  & 1 & 0.331 \\
 \label{tab:pairwise}
 \end{table}
 
-We calculated pairwise correlations between the variables weighted congruence, unweighted congruence, number of authors, number of files, number of change sets, number of work items, and build date (Table \ref{tab:pairwise}). There is a strong correlation between weighted and unweighted congruence, which is expected; a strong correlation between change sets and authors; and a weak correlation between authors and files. To avoid multicollinearity problems in our data, we choose to remove change sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change set, and thus there is at least as many change sets as authors per build. Note that weighted congruence and unweighted congruence do not appear in the same model and are thus not subject to multicollinearity problems.
+We calculated pairwise correlations between the variables weighted congruence, unweighted congruence, number of authors, number of files, number of change sets, number of work items, and build date (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change set, and thus there is at least as many change sets as authors per build.
 
-To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581 and 0.548 for unweighted and weighted congruence models respectively. We compared our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
-
-We observe also that the unweighted congruence model and the weighted congruence model are very similar, with a difference in Nagelkerke $R^2$ of only 0.030.
+To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. We present our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
 
 \begin{table}[t]
 \begin{center}
@@ -328,7 +326,6 @@ Model likelihood ratio & 101.92 &  & $R^2=0.581$ & 94.36 &  &	$R^2 = 0.548$ \\
 
 \begin{table}[t]
 \begin{center}
-
 \begin{tabular}{l|r@{\hspace{5pt}}r@{\hspace{-5pt}}r|r@{\hspace{5pt}}r@{\hspace{-5pt}}r}
  & \multicolumn{3}{c|}{Unweighted} & \multicolumn{3}{c}{Weighted} \\\hline
 Variable & Coef. & S.E. & \emph{p} & Coef. & S.E. & \emph{p} \\
@@ -347,22 +344,18 @@ Model likelihood ratio & 40.59 &  & $R^2=0.269$ & 39.52 &  &	$R^2 = 0.263$ \\
 \multicolumn{1}{l}{ } & \multicolumn{6}{l}{\scriptsize{Build type is set to continuous}} \\
 \multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{6}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
-
-
 \end{center}
 \caption{Logistic Regression models predicting build success probability with main effects only}
 \label{tab:logr_maineffects}
 \end{table}
 
-To answer Research Question 1, we perform a logistic regression analysis between the variables of the builds and the build outcome (Table \ref{tab:logr}).
-
-The result of logistic regression indicates that the following effects are significant for both unweighted and weighted congruence models: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence. We also identify unweighted congruence as a significant main effects in the unweighted congruence model.
+The result of logistic regression indicates that the following effects are significant for both unweighted and weighted congruence models: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence. We also identify unweighted congruence as a significant main effects in the unweighted congruence model (see Table~\ref{tab:logr}).
 
 In the next section we discuss the main effects and interactions effects that involve congruence affecting build probability. We discuss the effects of the non-congruence effects, including the authors, files, work~items~$\times$~date interaction effect and the date~$\times$~nightly~build effect in Section \ref{sec:otherfactors}.
 
 \subsubsection{Effects of interactions involving congruence}
 \label{sec:congruenceinteractions}
-The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figures \ref{fig:unweighted_congruence_typeci_age} and \ref{fig:weighted_congruence_typeci_age} the effects of weighted congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
+The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figure~\ref{fig:unweighted_congruence_typeci_age} the effects of congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
 
 
 \begin{figure*}
@@ -385,70 +378,41 @@ The type~$\times$~congruence interaction effect, the date~$\times$~congruence in
      \label{subfig:prob_unweighted_age_typeci_q100}
   }
   
-	\caption{Estimated probability of build success for \emph{unweighted congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
+	\caption{Estimated probability of build success for \emph{congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
 	\label{fig:unweighted_congruence_typeci_age}
 \end{figure*}
 
-\begin{figure*}
-\centering
-  \subfloat[ \small{2008-01-25} ]{
-    \includegraphics[width=.4\columnwidth]{figures/prob_weighted_age_typeci_q010}
-    \label{subfig:prob_weighted_age_typeci_q010}
-  }
-  \subfloat[ \small{2008-05-14} ]{
-	\includegraphics[width=.4\columnwidth]{figures/prob_weighted_age_typeci_q025}
-     \label{subfig:prob_weighted_age_typeci_q025}
-  }
-  
-  \subfloat[ \small{2008-06-07} ]{
-	\includegraphics[width=.4\columnwidth]{figures/prob_weighted_age_typeci_q050}
-     \label{subfig:prob_weighted_age_typeci_q050}
-  }
-  \subfloat[ \small{2008-06-26} ]{
-	\includegraphics[width=.4\columnwidth]{figures/prob_weighted_age_typeci_q100}
-     \label{subfig:prob_weighted_age_typeci_q100}
-  }
-  
-	\caption{Estimated probability of build success for \emph{weighted congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
-	\label{fig:weighted_congruence_typeci_age}
-\end{figure*}
-
-For continuous builds in weighted congruence (Figures \ref{fig:weighted_congruence_typeci_age}, in grey), an increase in congruence correlates to build success probability. The build date as the project ages appears to decrease the probability of build success for high-congruence builds more than low-congruence builds (Figure \ref{subfig:prob_weighted_age_typeci_q100}). Note that, in the unweighted congruence model (Table \ref{tab:logr}) the effect of unweighted congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. However, the effect of weighted congruence in continuous builds is not as large as in unweighted congruence, nor is it considered statistically significant.
-
-For integration builds (Figures \ref{fig:weighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_weighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_weighted_age_typeci_q100}).
-
-The effect of congruence is totally opposite for continuous builds and integration builds in both unweighted and weighted congruence. Based on Figure \ref{subfig:prob_unweighted_age_typeci_q100}, increasing unweighted congruence significantly improves the continuous build success rate. However, increasing both types of congruence significantly decreases the integration build success rate.
+The congruence model (Table \ref{tab:logr}) the effect of congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. 
+For integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_unweighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_unweighted_age_typeci_q100}).
+The effect of congruence is totally opposite for continuous builds and integration builds. Based on Figure \ref{subfig:prob_unweighted_age_typeci_q100}, increasing congruence significantly improves the continuous build success rate. However, increasing congruence significantly decreases the integration build success rate.
 
 
-\subsection{Effect of Gap Size on Build Result}
+\subsection{Effect of Gap Ratio on Build Result}
 \label{sec:gapsizeresult}
-To answer Research Question 2, we fit a logistic regression model to determine the effect of the mean gap size on the build success probability. The mean gap size appears in Table \ref{tab:summary} and Figure \ref{fig:gapsizes}.
+We build logistic regression models based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs) . In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous weighted congruence logistic regression in Table \ref{tab:logr}.
 
-We build logistic regression models based on the model in Table \ref{tab:logr} using the gap size measurement. In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous weighted congruence logistic regression in Table \ref{tab:logr}.
-We compare two different models: Model G1 contains the gap size with weighted congruence as a variable, and Model G2 contains the gap size without weighted congruence.  We do not use unweighted congruence as it is not possible to calculate gap size with unweighted congruence.
-
-The effect of gap size on build result is significant in both models (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gap size significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap size is large, the build success probability increases.
+The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap size is large, the build success probability increases.
 
 \begin{table}[t]
 \begin{center}
-\begin{tabular}{l|rr}
-  \hline
- & Model G1 & Model G2 \\ 
-  \hline
-Intercept & 0.95 & 1.32 \\ 
-  Authors & 0.43 & 0.60 \\ 
-  Files & 0.63 & 0.63 \\ 
-  Work~items & 0.75 & 0.85 \\ 
-  Build type=I & 4.22 & 1.31 \\ 
-  Weighted cong & 8.41 & - \\ 
-  Gapsize & 7.71 & 8.71 \\ 
-  Build date & 1.81 & 0.59 \\ 
-  Authors * Build date & 0.40 & 0.74 \\ 
-  Work~items * Build date & 2.75 & 1.83 \\ 
-  Build type=I * Build date & 3.54 & 2.52 \\ 
-  Build type=I * Weighted cong & 0.01 & - \\ 
-  Weighted cong * Build date & 0.00 & - \\ 
-   \hline
+\begin{tabular}{lrr}
+  \toprule
+ & Model\\ 
+  \midrule
+Intercept & 1.32 \\ 
+  Authors &  0.60 \\ 
+  Files &  0.63 \\ 
+  Work~items  & 0.85 \\ 
+  Build type=I  & 1.31 \\ 
+%  Weighted cong & 8.41 & - \\ 
+  Gap ratio  & 8.71 \\ 
+  Build date  & 0.59 \\ 
+  Authors * Build date & 0.74 \\ 
+  Work~items * Build date  & 1.83 \\ 
+  Build type=I * Build date  & 2.52 \\ 
+%  Build type=I * Weighted cong & 0.01 & - \\ 
+%  Weighted cong * Build date & 0.00 & - \\ 
+   \bottomrule
 \end{tabular}
 \caption{Odds Ratio for Gapsize Models}
 \label{tab:oddsratio_gapsize}
@@ -466,7 +430,7 @@ Intercept & 0.95 & 1.32 \\
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=.5\columnwidth]{figures/prob_gapsize_g1}
-	\caption{Effect of gap size on build success probability, model G1. }
+	\caption{Effect of gap ratio on build success probability. }
 	\label{fig:prob_gapsize_a}
 \end{figure}
 
