@@ -17,30 +17,44 @@ Our approach took five steps:
 \item Generate actionable insights.
 \end{enumerate}
 
-\paragraph{Scope} 
+\section{Define Scope} 
 Each network, social, technical and thus socio-technical, needs to build with a specific scope in mind.
-For example, throughout this thesis we used software builds a focus.
-This focus defines the source and communication artifacts that are used to construct the socio-technical networks. 
+For example, throughout this thesis we focus on software builds.
+This focus defines the source and communication artifacts that are used to construct the social and technical networks.
+In Chapter~\ref{} Figure~\ref{} we showed how we conceptualized social network and how defining software builds as our scope we omit several artifacts related to communication from the construction of a social network for a specific build.
 
-\paragraph{Outcome}
+\section{Define Outcome}
 In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
-For example, throughout this thesis we used build success, a binary variable that states whether a build is of acceptable quality.
+For example, in this thesis we are interested in build success, a binary variable that states whether a build is of acceptable quality.
 With an outcome measure at hand we can contrast networks to gain insights.
+Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the chosen scope.
 
-\paragraph{Social Networks}
+\section{Construct Social Networks}
 After the defining the scope and outcome, the next step is to construct the socio-technical networks.
 In our approach we first focus on the construction of the social part of the networks.
 This involves identifying all communication channels that are programatically accessible in real time.
 Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
-Gathering all to the selected scope relevant communication artifacts than yields the social-network.
+Gathering all to the selected scope relevant communication artifacts than yields the social network.
+In Chapter~\ref{} Figure~\ref{} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
 
-\paragraph{Technical Networks}
+\section{Construct Technical Networks}
 To complement the social networks and thus create socio-technical networks we need to produce technical networks.
 The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
 For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
+In Chapter~\ref{} we detail how we use Mylyn traces to gather information to construct technical networks.
 
-\paragraph{Insights}
-In Chapter~\ref{chap:stc-net} and~\ref{chap:actionable} we showed how to generate recommendations by contrasting the networks according to their outcome metrics based on a binary outcome metric indicating whether a build failed.
-By breaking down networks, as demonstrated in Chapter~\ref{chap:stc-net} and~\ref{chap:actionable}, and correlating the different elements with the outcome metric generates insights that can be used to improve the collaboration represented by the network.
+With respect to software quality it can sufficient to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
+In this case the network construction we described in Chapter~\ref{} is sufficient to later on generate actionable knowledge.
 
-In the next section we add to the example given in this section that are based on the chapters in this thesis arguments to the feasibility and validity of the individual steps to ground the approach in the research we conducted in this thesis.
+\section{Generate Insights}
+In Chapter~\ref{} we showed that gaps in socio-technical networks influence build success.
+We take this as starting point for generating insights by breaking down socio-technical networks into triples the consists of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
+
+Since we are focusing on improving the social interactions we focus on identifying those gaps (unmet coordination needs) that are most likely to increase build success.
+For this purpose we split those triples derived from all socio-technical networks into two groups, those triples that originate from a socio-technical network of a failed build and those that originate from a socio-technical network of a successful build.
+
+For each triple we can now apply statistical tests to see if a given triple is more often observed with failed or successful builds.
+Those that are statistically significant for failed builds should be broken by suggesting to developers to communicate.
+To ensure not to worsen the odds of a successful build we contrast the developer pair forming the gap with the same pair being connected both technically and socially.
+
+\section{Conclusion}
