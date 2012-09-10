@@ -32,11 +32,9 @@ We conclude this chapter with offering an answer to our research question and le
 %--------------------------------------------------------------------------------------------------------------
 \section{Background}
 \label{sec:background}
-TODO new blurb here
+Before we start with exploring the research question using data we obtained from the Ration Team Concert Team, we discuss related work investigating socio-technical congruence as well how the subject of team coordination has been approach by other researchers.
 
-Here we discuss coordination in software engineering and discuss socio-technical congruence as a way to measure coordination quality. We then present our case study of the IBM Rational Team Concert\textsuperscript{\textregistered} project.
-
-\subsection{TODO Introduction}
+\subsection{Motivation}
 Coordinating the efforts of individuals working together in a team is
 necessary to build software systems. The complexity of current systems require contributions
 from tens or hundreds of people who may span multiple offices, cities, or even continents.
@@ -44,15 +42,15 @@ To build such systems, we need to ensure that the team is not only capable of
 developing components of a system, but also has the governance to be able to integrate the
 interdependent parts into a whole.
 
-We describe a case study of socio-technical coordination and its effect on software builds in the IBM\textsuperscript{\textregistered}
-Rational Team Concert\textsuperscript{\textregistered} (RTC) software product\footnote{IBM, Rational, Jazz and Rational Team Concert are trademarks or registered trademarks of International Business Machines Corporation in the United States, other countries, or both.}.
+We describe a case study of socio-technical coordination and its effect on software builds in the IBM
+Rational Team Concert (RTC) software product.
 Our approach to investigating coordination is to examine the
 alignment between the technical dimension of work and the social relationships
-between team members. This alignment is called \textbf{socio-technical
-congruence}~\cite{cataldo:cscw:2006}. High socio-technical congruence
+between team members. This alignment is called socio-technical
+congruence~\cite{cataldo:cscw:2006}. High socio-technical congruence
 has been shown to be a predictor of coordination success
 \cite{cataldo:cscw:2006,ehrlich2008:gaps}.
-The mismatches between the social and technical dimensions, or \textbf{gaps},
+The mismatches between the social and technical dimensions, or gaps,
 also have been observed as increasing resolution times for software activities.
 The objective of this study is to investigate the effects of socio-technical congruence on high-coordination software development activities during a project.
 
@@ -66,37 +64,8 @@ also examine RTC's processes and tools to identify any
 explanations of the relationship between congruence and builds that
 we find.
 
-Our results indicate that congruence affects build success probabilities for certain types of builds.
-In a continuous build, which may involve changes submitted primarily by a co-located team, high congruence leads to a higher probability of build success.
-However, in an integration build, which involves code submitted by many distributed teams, high congruence actually reduces the probability of build success.
-Although the congruence per build is relatively low at approximately 20\% overall, the team is able to coordinate to complete their builds.
-We also find that the mean size of a congruence gap correlates inversely with build success probability.
-Our findings on the socio-technical congruence and build quality in RTC are complemented by insights we
-obtained by studying the context of the RTC project. Some of these results may be explained also by the congruence conceptualizations that we use in our empirical study.
-
-Our case study adds to the scarce but needed empirical evidence about
-socio-technical congruence measures in the investigation of coordination in
-software projects, and allows us to
-discuss improvements to congruence conceptualizations and measures. 
-
-The paper begins with background on the need for coordination in software
-projects and socio-technical congruence, and motivates the applicability of
-socio-technical congruence to our case study setting in Section
-\ref{sec:background}. We discuss related
-work in Section \ref{sec:relwork} and describe the research objective in Section \ref{sec:objective}. We then describe
-in Section \ref{sec:congruence} the two measurements for socio-technical
-congruence that we used in our case study: an unweighted congruence measurement
-found in the literature \cite{cataldo:cscw:2006}, and a weighted congruence measurement from
-our own work \cite{kwan2009:weighted}. We describe our research questions and
-methodology in Section \ref{sec:methodology}, and outline
-the results in Section \ref{sec:results}. Our discussion 
-in Section \ref{sec:discussion} provides an explanation of the effects we
-observed. We conclude the paper by
-outlining the threats to validity in our study in Section
-\ref{sec:threats} and conclude in Section \ref{sec:conclusion}.
 
 \subsection{The Need for Coordination}
-
 Software is extremely complex because of the sheer number of dependencies~\cite{sawyer2004:teams}.
 Large software projects have a large number of components that interoperate with one another.
 The difficulty arises when changes must be made to the software, because a change in one component of the software often requires changes in dependent components~\cite{desouza:2008}. Because a single person's knowledge of a system is specialized as well as limited, that person often is unable to make the appropriate modifications in dependent components when a component is changed.
@@ -231,77 +200,10 @@ Once the coordination needs matrix is calculated, congruence is calculated by co
 \label{ph:relationships}
 \end{placeholder}
 
-\subsection{Limitations of the Unweighted Socio-technical Congruence Calculation}
-Unfortunately, the unweighted congruence measure has a limitation because socio-technical congruence identifies if a coordination need is either satisfied, or not satisfied, with no values indicating relative strengths.
 
-The missing strengths prevent the identification of gaps that may be large or high-priority gaps that require attention.  Previous research has shown that projects succeed despite the presence of gaps. Marczak, et al.~\cite{marczak:re:2008} identified a project that delivered requirements on time despite the existence of gaps. 
-Ehrlich, et al.~\cite{ehrlich2008:gaps} suggest that having an individual act as an intermediary between two groups, known as a \emph{broker}, may be able to mitigate the effect of gaps.
-Communication structures may compensate for a lack of congruence~\cite{hinds:cscw:2006}. Literature in areas such as management science supports the idea that gaps are not a liability, but simply a reality~\cite{deSouza2004:thwarts_collaboration,hossain:cscw:2006}.
-
-As developers have multiple dependencies~\cite{desouza2007:awarenessnetwork,mockus2002:opensource}, one would presume that those pairs with more coordination needs would need to coordinate more. Current socio-technical congruence provides no way to identify which pairs have high coordination needs. Researchers have suggested that both social and technical dependencies should be weighted \cite{valetto:msr:2007,kwan2009:weighted}, 
-but do not evaluate their proposed changes.
-
-\subsection{A Weighted Congruence Measurement}
-\label{sec:measure}
-We present an extension to congruence based on prior work~\cite{kwan2009:weighted} that addresses the
-limitation discussed in the previous section. The intention is that this improvement will
-provide more information about coordination behaviour than the current congruence measure. 
 
 \subsubsection{Weighted Coordination Needs}
 \label{subsec:ourmeasure}
-
-\begin{figure*}
-  \centering
-  \subfloat[The coordination needs]{
-    \includegraphics[width=20px]{figures/whitespace}
-	\includegraphics[width=0.38\columnwidth]{figures/coordRequirement}
-	\includegraphics[width=20px]{figures/whitespace}
-     \label{subfig:coordRequ}
-  }
-  \hspace{12pt}
-  \subfloat[The actual coordination]{
-    \includegraphics[width=20px]{figures/whitespace}
-    \includegraphics[width=0.38\columnwidth]{figures/actualCoord}
-    \includegraphics[width=20px]{figures/whitespace}
-    \label{subfig:actualCoord}
-  }
-  \hspace{12pt}
-  \subfloat[The coordination that is lacking]{
-    \includegraphics[width=20px]{figures/whitespace}
-    \includegraphics[width=0.38\columnwidth]{figures/coordLack}
-    \includegraphics[width=20px]{figures/whitespace}
-    \label{subfig:coordLack}
-  }
-	\caption{Comparing coordination needs with actual coordination to find lacking coordination}
-	\label{fig:communication}
-\end{figure*}
-
-This measurement assigns a number between 0 and 1 to each entry in the task assignment, task-dependency, and actual coordination matrices.
-The weighted assignment matrix is a $m\times n$ matrix where $m$ is the number of people and $n$ denotes the number of entities. 
-Each entry in the matrix illustrates the strength of the connection between a person $i$ and an entity $j$. Such a connection may be the expertise person $i$ has with a task $j$, or the priority that person $i$ places on task $j$.
-
-The weighted dependency matrix is an $n\times n$ matrix where $n$ denotes the number of entities.
-Each entry in the matrix describes the strength of the relationship between two entities. The weighted dependency matrix may show the ratio of dependencies an entity has with another over the number of total dependencies that entity has on others. 
-For example, an entity strongly coupled with another has a high entity dependency.
-
-To calculate the coordination needs matrix, we use the same formula proposed by Cataldo, et al.~\cite{cataldo:cscw:2006}, using the weighted values in the task assignment $A'$ and task dependency $D'$ matrices.
-
-\[ CN' = A' \times D' \times (A')^t \]
-
-\noindent This calculation will yield the weighted coordination needs matrix $CN'$, an $m\times m$ people by people matrix (Figure \ref{subfig:coordRequ}).
-The coordination needs matrix shows how strong the relations between people are supposed to be based on their technical work.
-
-\subsubsection{Weighted Actual Coordination}
-Weighted actual coordination is a relative value that indicates the strength of a relationship between two individuals (Figure \ref{subfig:actualCoord}). A social network such as a communication network can be weighed according to the amount of ongoing communication. For example, one such weighing scheme may work as follows:
-
-\begin{enumerate}
-\item For a communication network, identify the largest value of communication between two individuals.
-\item Divide all other values by the largest, thus normalizing the communication.
-\item The result is a number between 0 and 1, where 1 indicates the largest value of communication in the network, and 0 is no communication.
-\end{enumerate}
-
-Other relationships that may be used as actual coordination are the amount of distance between individuals and how frequently they meet with other members in their team.
-
 \subsection{Identifying Gaps in Socio-Technical Congruence}
 \label{sec:lack}
 We complement our
