@@ -116,11 +116,11 @@ shows that the task completion time is not as strongly affected by distance as i
 
 
 \subsection{Socio-technical Congruence}
-Socio-technical congruence is defined as the match between the coordination needs established by the technical domain and the actual coordination activities carried out by project members. Socio-technical congruence in software engineering was brought to attention by Cataldo, et al.~\cite{cataldo:cscw:2006}, though the concept has been explored in engineering \cite{browning2001} and management science \cite{henderson1990}. A \textbf{coordination need} indicates that two persons should be coordinating based on the technical dependencies on the project. A coordination need is determined by analysing the assignments of people to a technical entity such as a source code module, and the technical dependencies among the technical entities.
+Socio-technical congruence is defined as the match between the coordination needs established by the technical domain and the actual coordination activities carried out by project members. Socio-technical congruence in software engineering was brought to attention by Cataldo, et al.~\cite{cataldo:cscw:2006}, though the concept has been explored in engineering \cite{browning2001} and management science \cite{henderson1990}. A coordination need indicates that two persons should be coordinating based on the technical dependencies on the project. A coordination need is determined by analysing the assignments of people to a technical entity such as a source code module, and the technical dependencies among the technical entities.
 Socio-technical congruence states that if there is a coordination need between two people, these people should be coordinating.
 For example, if two people work on different, but dependent components of the project, then those persons should be coordinating with each other.
 
-If two individuals have a coordination need, but do not coordinate, then there is a \textbf{gap} between these two individuals. A gap suggests the existence of a coordination problem. One of the goals of socio-technical congruence is to minimize the number of gaps, either by maintaining good coordination between individuals who have a coordination need, or by reducing the number of technical dependencies in the project and therefore reducing the coordination needs~\cite{sarma2008:measuring_stc}.
+If two individuals have a coordination need, but do not coordinate, then there is a gap between these two individuals. A gap suggests the existence of a coordination problem. One of the goals of socio-technical congruence is to minimize the number of gaps, either by maintaining good coordination between individuals who have a coordination need, or by reducing the number of technical dependencies in the project and therefore reducing the coordination needs~\cite{sarma2008:measuring_stc}.
 
 What socio-technical congruence offers is an approach to measure the coordination quality~\cite{cataldo:cscw:2006}. We can use this measurement to identify the effect of socio-technical coordination on software build quality.
 
@@ -144,14 +144,16 @@ For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in th
 Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
 
 
+
+
 \section{Calculating Congruence}
 \label{sec:congruence}
-We describe unweighted congruence as presented by Cataldo et al. \cite{cataldo:cscw:2006} in Section \ref{sec:stc}. Weighted congruence~\cite{kwan2009:weighted}, described in Section \ref{sec:measure} is a weighted congruence measure from our work that addresses limitations of unweighted congruence.
+In this section new describe how we derive the socio-technical index as used by Cataldo et al~\cite{} from our technical networks by additionally giving some comparison of our approach to the original.
 
 \subsection{Technical Entities and Social Relationships}
 A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
 
-At the core of socio-technical congruence is the concept of a technical dependency. A \textbf{technical dependency} is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
+At the core of socio-technical congruence is the concept of a technical dependency. A technical dependency is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
 
 \begin{placeholder}[t]
 \begin{itemize}
@@ -166,29 +168,17 @@ At the core of socio-technical congruence is the concept of a technical dependen
 
 A \textbf{coordination need} is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
 
-Social relationships are identified through \textbf{actual coordination}, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
+Social relationships are identified through actual coordination, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
 
-
-
-
-\subsection{Calculating Socio-Technical Congruence}
+\subsection{TODO Calculating Socio-Technical Congruence}
 \label{sec:stc}
-Given $m$ people, and $n$ technical entities to examine, the coordination needs are calculated as 
-
-\[ CN = A \times D \times (A)^t \]
-
-\noindent where $A$ is an $m \times n$ assignment matrix that indicates that a person is assigned to a technical entity of the project, and $D$ is a $n \times n$ technical dependency matrix that indicates that a technical entity is dependent on another technical entity~\cite{cataldo:cscw:2006}. The result is $CN$, an $m \times m$ coordination needs matrix that indicates who in the project should be coordinating with whom.
-
-Once the coordination needs matrix is calculated, congruence is calculated by comparing this matrix to an actual coordination matrix. If an edge exists in the actual coordination matrix, and the same edge exists in the coordination needs matrix, then there is congruence on this edge. Given definitions
-
-\[ \text{Diff}(CN, AC) = card\{ \text{diff}_{ij} | CN_{ij} > 0 \& AC_{ij} > 0 \} \]
-\[|CN| = card \{ CN_{ij} > 0 \} \]
-
-\noindent the socio-technical congruence index is calculated as~\cite{cataldo:esem:2008}
+In Chapter~\ref{} we described socio-technical networks and how we conceptualize them in this thesis.
+If we reformulate this network into the terms originally used by Cataldo et al~\cite{} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
+Thus we calcite the socio-technical congruence index as follows:
 
 \[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
 
-\noindent where $AC$ is an $m \times m$ matrix representing actual coordination. The resulting congruence value is a number between 0 and 1, where 0 indicates no congruence, and 1 indicates full congruence.
+The main difference to the original formula lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
 
 \begin{placeholder}[t]
 \begin{itemize}
@@ -201,205 +191,22 @@ Once the coordination needs matrix is calculated, congruence is calculated by co
 \end{placeholder}
 
 
-
-\subsubsection{Weighted Coordination Needs}
-\label{subsec:ourmeasure}
-\subsection{Identifying Gaps in Socio-Technical Congruence}
-\label{sec:lack}
-We complement our
-weighted congruence measure with a technique to generate a \emph{lack-of-coordination matrix}. This matrix not only identifies the
-gaps between a coordination needs matrix and an actual coordination matrix, but can also identify the size of these gaps (Figure \ref{subfig:coordLack}). This lack-of-coordination matrix can be used with both unweighted congruence and weighted congruence.
-
- \[ g_{ij}(CN'_{ij}, AC'_{ij}) = CN'_{ij} - AC'_{ij} \]
-
-\noindent for $i=1,\dots,m$ and $j=1,\dots,m$. The value of $g_{ij}$ is the \textbf{gap size} between the pair $ij$. The lack-of-coordination matrix illustrates situations where the proportion of communication exceeds the expected proportion of coordination needs. If the value is positive, then there is not enough coordination to satisfy the information needs requested by the $CN'$ matrix, resulting in a \textbf{gap}. If a value is negative, then there was more coordination than requested through the $CN'$ matrix, resulting in \textbf{overload}.  Neither situation necessarily results in a problem, but we believe that investigating overload and lack of coordination has implications on software engineering coordination.
-
-\subsection{Weighted Congruence Index}
-To convert the lack-of-coordination matrix to a single socio-technical congruence measurement, we apply
-
-\[ \text{congruence} = 1 - \frac{\displaystyle\sum^{m}_{i=1} \sum^{m}_{j=1} g_{ij}}{\displaystyle\sum^{m}_{i=1}\sum^{m}_{j=1}CN'_{ij}} \]
-\noindent for each $i$ and each $j$, unless $i=j$. This value, which is usually between 0 and 1, is an overall level of the congruence in the current network. In theory, the formula allows the index to fall outside of this range for some edge cases, but we did not observe any such cases in practice.
-
-\subsection{Benefits of Weighted Congruence}
-\label{sec:benefit}
-
-Using a weighted congruence model allows us to deal with situations that are not handled with unweighted congruence.
-Using the weighted congruence approach allows a person diagnosing the organization to benefit from \emph{locality} and \emph{relationship strength}.
-
-\textbf{Locality}
-allows us to identify which area of a network has a gap.
-The lack-of-coordination matrix identifies which pairs of individuals do not fulfill coordination needs.
-Although the original model does give us some limited locality in the sense of identifying congruence gaps, it is far more coarse grained.
-
-\textbf{Relationship strength}
-indicates how strong the relationship between two developers is. Relationship strength allows us to identify pairs of people who have multiple coordination needs, and therefore who need to coordinate more often with each other. Using relationship strength allows us to investigate coordination in more detail because we can investigate pairs with strong dependencies---these people also tend to be key individuals in a team.
-
-By allowing better locality and relationship strength, we believe that this weighted model provides an in-depth technique with which to study congruence.
-
-\subsection{Comparison with Other Weighted Measures}
-We know of three other methods for assigning a weight to relationships and gaps. Cataldo proposed a system using weights with integers \cite{cataldo:esem:2008}. Ehrlich, et al. \cite{ehrlich2008:gaps} used a method to rank communication into three levels of importance. Gokpinar \cite{gokpinar2010} independently proposed a weighted congruence measure.
-
-\subsubsection{Integer Matrices}
-Cataldo's method assigns integer weights as values in the task assignment and task dependency matrices, resulting in a weighted coordination needs matrix. However, his formula in Section \ref{sec:stc} considers that a single communication instance is sufficient for satisfying any amount of coordination. Our method provides information about overload and lack of coordination, and provides a more fine-grained representation through the the lack-of-coordination matrix.
-
-\subsubsection{Levels of Communication}
-Ehrlich's method aggregates multiple relationships between two individuals to determine a ``level of communication''.  The relationships are: when two individuals work together on a project; when two individuals communicate several times a month for any reason; and when two individuals work together on shared files. If one or more of these relationships are true, they are added to provide a number representing the level.
-
-The level of communication does not provide a ranking of gap size because they presume that a gap either exists, or that it is covered with one of the three levels. This paper mentions ranking gaps by size, but the gap rank is the total number of gaps that exist between two developers over the entire project. Thus, this measurement does not actually weigh the conceptual lack-of-communication distance between two individuals for each gap.
-
-\subsubsection{Coordination Deficit}
-Gopkinar independently proposed a weighted congruence called ``coordination deficit'', which is equivalent to our gap size. It weighs the number of dependencies between components, and the number of communications between individuals. Like our method presented in prior work \cite{kwan2009:weighted}, they calculated the coordination deficit by normalizing the edges and subtracting the values between the equivalent of an actual coordination network and a coordination needs network. The fact that the authors used normalization and algebraic subtraction suggests that they are reasonable approaches to calculating gap size.
-
-
-
-\section{Research Methodology}
+\section{TODO Research Methodology}
 \label{sec:methodology}
+NEED NEW BLURB
+
 In this section, we revisit our research questions, present our socio-technical
 conceptualizations in RTC, and outline our analysis techniques.
 
-\subsection{Data Description and Collection}
-\label{sec:data}
-\begin{figure*}
-  \setbox1=\hbox{\includegraphics{figures/cochangedfiles}}% The smaller image
-  \setbox2=\hbox{\includegraphics{figures/buildworkitem}}% The larger image 
-	
-  \centering
-  \subfloat[Relationship among Builds, Change Sets, Files, and Work Items]{
-    \includegraphics[height=.25\textheight]{figures/buildworkitem}
-    \label{fig:buildworkitem}
-  }
-%  \hspace{8pt}
-
-  \subfloat[Constructing a Coordination Needs Instance]{
-  	\raisebox{0.4\ht2-0.5\ht1}{\includegraphics[height=.25\textheight]{figures/cochangedfiles}} \hfill
-    \label{fig:cochangedfiles}
-  }
-%  \hspace{8pt}
-
-  \subfloat[Constructing an Actual Coordination Instance]{
-	\includegraphics[height=.25\textheight]{figures/buildsn}
-     \label{fig:buildsn}
-  }
-  \caption{Conceptualizing Socio-technical Congruence in IBM Rational Team Concert}
-  \label{fig:constructing}
-\end{figure*}
-
-In collaboration with IBM, we acquired a copy of the RTC repository containing data over a one year period.
-%between June 2007 and June 2008.
-This period of time covers twelve ``milestones'', varying from 1 week to 4 weeks long, during which the RTC team achieved a number of objectives. The end of our data set coincides with a major milestone in which RTC was to be released for open beta testing. 
-
-In addition to quantitative data, we had obtained contextual information about the development team. We also investigated work items, comments, and reports available on the \texttt{jazz.net} web site.
-
-The repository contains build information, work items, comments, change sets, and anonymised author information. We describe the data in more detail below.
-
-\textbf{Work item.} A work item is a description of a unit of work to be done. A work item can be assigned a type of \emph{task}, \emph{enhancement}, or \emph{defect}.
-We extracted 2008 unique work items that were relevant to our study.
-The same work item may be involved in multiple builds; a total of 9218 non-unique work items were associated with a build across our data set. As our conceptualization focuses on the per-build level, we must consider these non-unique work items.
-
-\textbf{Build.} A build is the process of compiling the software to create a working program.
-A build outcome can be an \emph{error}, which indicates that there was either a
-compilation error or a test suite error, \emph{OK}, which indicates no
-errors, and \emph{Warning}, which indicates that there were warnings
-returned by the compiler or the test suites.
-
-A build contains the work from one or more work items, and these work items are not necessarily unique from build to build. The RTC repository does not keep a full record of every build over time, which means that we have more data points for the two most recent milestones compared to earlier in the project.
-
-The RTC repository contains 533 builds, but we consider only builds that contain coordination needs, therefore dropping the number of builds to 214.  We remove 17 builds whose result is Warning because the way that the RTC team treats its Warning builds is dependent on the build. Finally, we remove 7 builds whose types could not be identified. The resulting data set contains 191 builds.
-
-There are three types of builds that we investigate in this study: \emph{continuous builds}, \emph{nightly builds}, and \emph{integration builds}. Continuous builds, which are run regularly by a user, incorporate changes from the local development site, plus known stable components from remote sites.  Nightly builds also incorporate changes from the local site and stable components from remote sites approximately once a day. Integration builds integrate the latest components from every development site. The integration builds are often expected to break due to their large complexity, but errors in continuous and nightly builds are potentially indicative of coordination problems. Our data contains 122 continuous builds, 55 nightly builds, and 14 integration builds.
-
-Because we have a data set of builds over time, we include the date of a build as a variable in our analysis. The build date is conceptualized as the number of days after the first build in our data set.
-
-\textbf{Comment.} A comment is written text authored by a developer that is about a particular work item. Comments are the primary method of transferring information among developers in RTC. Multiple comments may be attached to a single work item. The data subset contains 9323 comments.
-
-\textbf{Change set.} A change set is a collection of code changes to a number of files. When a developer updates the repository, all of the files that were changed together are updated in a single change set. A change set is generated by one author only, and is related to exactly one work item. A single work item may contain multiple change sets, and the same change set may occur in multiple builds. There are 3013 change sets in RTC. The number of change sets per work item ranges from 1 to 246. Ninety-five percent of the work items contain 15 or less change sets, and 42\% of the work items contain only one change set.
-
-\textbf{Source code file.} A file contains source code and is included in change sets. Over time, a file may be associated with multiple change sets.
-
-\textbf{Author.} An author is someone who has contributed to RTC. In our conceptualization, we specifically identify an author as meaning someone who has submitted a change set containing modifications to files. Because each change set can be attributed to one author, there are always at least as many change sets as there are authors in a build.
-
-
-\subsubsection{Distribution of Build Data}
-Each build involves a number of file authors, change sets, work items, and files. The same author, file, and work item may be involved across multiple builds.
-We plot the histograms for each of these entities in Figures \ref{fig:hist_authors}, \ref{fig:hist_changesets}, \ref{fig:hist_workitems}, and \ref{fig:hist_files}.
-Most of these distributions, especially the files, are skewed toward the left. 
-
-\begin{figure*}[ht]
-\centering
-
-	\subfloat[Authors per Build] {
-		\includegraphics[width=.45\columnwidth]{figures/hist_authors_per_build}
-		\label{fig:hist_authors}
-	}
-	\subfloat[Change Sets Per Build] {
-		\includegraphics[width=.45\columnwidth]{figures/hist_changesets_per_build}
-		\label{fig:hist_changesets}
-	}
-	
-	\subfloat[Work Items Per Build] {
-		\includegraphics[width=.45\columnwidth]{figures/hist_workitems_per_build}
-		\label{fig:hist_workitems}
-	}	
-	\subfloat[Files Per Build] {
-		\includegraphics[width=.45\columnwidth]{figures/hist_files_per_build}
-		\label{fig:hist_files}
-	}
-	\caption{Distribution of authors, change sets, work items, and files per build}
-	\label{fig:entities_per_build}
-
-\end{figure*}
-
-\subsection{TODO Analysis Method}
-\label{sec:analysis}
-We use the unweighted congruence measure and weighted congruence measure presented in Section \ref{sec:congruence} for our analysis. We explain how we conceptualize congruence in this section.
-
-\subsubsection{Conceptualizing Coordination Needs}
-Previous studies use various heuristics for determining the dependencies between modules. One conceptualization is based on method call graphs generated by static code analysis, and has been used by Ehrlich \cite{ehrlich2008:gaps}.  Another conceptualization is a ``files-changed together'' heuristic, used by Cataldo \cite{cataldo:cscw:2006}, where the files that were modified in the solution of a change request are considered to be dependent on each other. A third conceptualization is to use experts who manually identify dependencies~\cite{gokpinar2010}.
-
-We decided to construct dependencies based on a variation of the files-changed together heuristic because a ``files-changed together'' heuristic was more reflective of social relationships than a call-graph approach \cite{cataldo:esem:2008}, and best reflected our understanding of the RTC team's work.
-
-We presume that a coordination need between two individuals exists if, minimally, these two individuals change the same file within the same build. In RTC, since only one author can be associated with each file check-in, there are two change sets involved, one associated with each file author. These two individuals should communicate with each other to ensure that the appropriate file dependencies are properly handled before the software is built (Figure \ref{fig:cochangedfiles}).
-
-We generate the coordination needs matrix as follows.
-
-\textbf{1) For each build, we identify every change set included in the build.} Every change set between the previous build and the current build is considered a part of the current build.
-
-\textbf{2) We determine authorship for each file to generate the assignment matrix \emph{A}.} Since each change set has only one author, the author is assigned to every file in that change set. If an author modifies the same file in a different change set, then we add an additional edge for each change set in which the author changed that file.
-
-\textbf{3) We determine the file dependencies in a build to generate the dependency matrix \emph{D}.} We iterate through every change set in the build. Each file is dependent on every other file within a change set. For example, if there are two change sets $C_1$ and $C_2$ in Build 1, with $C_1$ containing files A, B, and C, and $C_2$ containing files A, D, and E, the resulting dependency matrix $D$ would correspond to Figure \ref{fig:cochangedfiles}. In weighted congruence, we add one additional edge for each file pair that exists in each additional change set in that build. Thus, in a Build 2 with change sets $C_3$=\{A,~B,~C\} and $C_4$=\{A,~B\}, the dependency matrix entries in $D$ would be $D_{AB}= 2$, $D_{AC}=1$, and $D_{BC}=1$.
-
-\textbf{4) We calculate the coordination needs as per the coordination needs calculation in Section \ref{sec:stc}.} The diagonals are ignored. When applying weighted congruence, we normalize the coordination needs matrix by taking the highest-ranked edge and dividing every entry in the matrix by that value. This converts each edge to a value between 0 and 1, indicating the relative rank of a coordination need between two individuals in the matrix.
-
-We use this conceptualization because of the explicit relationships between change sets, builds, and authors in RTC. In previous ``files-changed-together'' approaches, multiple files checked in together were associated with multiple authors, whereas in RTC, a change set is authored by one author only. Our conceptualization of coordination needs represents a situation in which two individuals work on a file that are in two different change sets, but are within the same build. Though the file-level changes may not necessarily be to the same lines of code, we presume that multiple changes within a single file are sensitive enough such that each developer working on that file benefits by being informed of every change.
-
-\subsubsection{Conceptualizing Actual Coordination}
-We conceptualize actual coordination as communication through comments in the
-RTC environment. We treat those who comment on a work item as a group of communicators, and assign weights when individuals comment on multiple work items that others also comment on (Figure \ref{fig:buildsn}).
-
-Though the RTC commenting system allows users to post multiple posts to the same work item, we do not count multiple posts in a single work item as weighted communication.
-Since a work item comment can be read by anyone with access to the work item repository, and there is no threading in the work item comments, we cannot assume that there is point-to-point communication from one person directly to another.
-In addition, comment communication within the same work item do not correspond to weighted technical dependencies that cross different change sets.
-
-We calculate the actual coordination matrix as follows.
-
-\textbf{1) We identify the comments from the work items involved in a build.} Each build contains a number of change sets, and each change set has an associated work item with comments. For each work item, we include every comment that was posted after the previous build, but before the current build started.
-
-\textbf{2) For each person who commented on a work item, we add a communication edge to every other person who commented on the same work item.} In weighted congruence, add one additional communication edge for each additional work item in which two individuals comment. We do not count weights for multiple comments in a single work item for the reasons discussed above. Thus, if work item $W_1$ contains commenters {A, B, C} and $W_2$ contains {B, C, D}, the resulting entries in the actual coordination matrix $AC$ would be $AC_{AB}=1$, $AC_{BC}=2$, $AC_{CD}=1$, $AC_{AC}=1$, and $AC_{CD}=1$.
-
-\textbf{3) When applying weighted congruence, we normalize the communication network by taking the highest-ranked edge and dividing every edge in the network by that value.} This converts each edge to a value between 0 and 1, indicating the relative rank of comment-based communication between two individuals in the network.
-
-This conceptualization of weighted communication represents the number of people who post a comment to the same work item.
-
-We considered incorporating the RTC development mailing list into communication, but inspection of the mailing list revealed that the developers did not talk about technical issues and that the development list is primarily used for general announcements.
-
-Unfortunately, due to the distribution of the 151 developers in the RTC team, as well as the one-year time period across which our study is conducted, we were unable to collect communication data such as instant messenger or face-to-face communication that we could associate to individual builds. Our concern with this missing data led us to inquire about the use of other forms of media among the team. We learned that although unofficial communication does happen between developers, the RTC team culture requires that the content of unrecorded and private communications be recreated as work item comments for consumption by remote project participants. We still expect that socio-technical congruence will be lower than we might expect from such a team as a consequence.
-
-\subsubsection{Conceptualizing Gap Size}
+\subsection{TODO Conceptualizing Gap Size}
 The gap size in RTC represents a relative distance between the coordination needs and actual coordination. Since the two measurements are not necessarily comparable to each other, we normalize both measures to identify a relative ``rank'' of coordination needs and actual coordination. For example, if there is a coordination need in a build that has many dependencies, intuitively we would want a larger amount of communication around that build rather than on a build with few coordination needs. The gap size calculation identifies this mismatch.
 
 We use the weighted congruence measure to compute the gap size. For each build, we calculate the gap size between each pair with a coordination need using the lack-of-coordination matrix explained in Section \ref{sec:lack}. Because of the normalization, each gap size is a value from $1$ to $-1$, where 1 is a large gap with little or no communication, 0 is full congruence, and -1 is a gap where there is more communication than necessary to fulfill the coordination need. We take the mean of these gap sizes and use this as a variable in a logistic regression model. We also consider an alternative calculation of gap size where we do not punish extra communication and set all values of gap size less than 0 to 0.
 
-\subsubsection{Statistical Analysis Methods}
+
+\subsection{TODO Statistical Analysis Methods}
+TODO: remove mentioning of the paper research questions
+
 To answer Research Question 1, we conceptualize congruence as described in Section \ref{sec:analysis} and test our hypothesis using logistic regression.
 
 Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
@@ -435,41 +242,23 @@ The congruence values are low on average. The unweighted congruence has a mean v
 	\includegraphics[width=.3\columnwidth]{figures/hist_unweighted_err}
      \label{subfig:hist_weighted_err}
   }
-	\caption{Distribution of Unweighted Congruence Values}
+	\caption{Distribution of Congruence Values}
 	\label{fig:hist_unweighted_congruence}
-\end{figure}
-
-\begin{figure}[t]
-  \centering  
-  \subfloat[All builds]{
-	\includegraphics[width=.3\columnwidth]{figures/hist_weighted}
-     \label{subfig:hist_weighted}
-  }
-  \subfloat[OK builds]{
-    \includegraphics[width=.3\columnwidth]{figures/hist_weighted_ok}
-    \label{subfig:hist_nonweighted_ok}
-  }
-  \subfloat[Error builds]{
-	\includegraphics[width=.3\columnwidth]{figures/hist_weighted_err}
-     \label{subfig:hist_weighted_err}
-  }
-	\caption{Distribution of Weighted Congruence Values}
-	\label{fig:hist_weighted_congruence}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\begin{tabular}{l|rrrr}
- & Min & Median & Max & Mean\\\hline
+\begin{tabular}{lrrrr}
+\toprule
+ & Min & Median & Max & Mean\\\midrule
 Authors & 2 & 17 & 44 & 18.62\\
 Files & 5 & 131 & 3101 & 342.3 \\
 Change Sets & 4  & 34  & 226 & 54.2\\
 Work items & 4 & 34  & 182 & 48.3 \\
 Build date range (days) & 0  & 345  & 361 & 319.2 \\
-Unweighted cong. & 0  & 0.21  & 1 & 0.331 \\
-Weighted cong. & 0 & 0.15  & 1 & 0.196\\
-Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
-\hline
+Congruence & 0  & 0.21  & 1 & 0.331 \\
+%Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
+\bottomrule
 \end{tabular}
 \caption{Summary statistics}
 \label{tab:summary}
@@ -477,17 +266,17 @@ Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
 
 \begin{table}[t]
 \begin{center}
-\begin{tabular}{l|rrrrrr}
- & 2. & 3. & 4. & 5. & 6. & 7. \\ 
-  \hline
-   1. Weighted & 0.77 & -0.22 & -0.14 & -0.12 & 0.05 & 0.02 \\ 
-   2. Unweighted  &-- & -0.27 & -0.22 & -0.33 & 0.08 & 0.19 \\ 
-   3. Authors &  & --& 0.41 & 0.76 & 0.10 & -0.30 \\ 
-   4. Files &  &  & --& 0.37 & 0.08 & -0.20 \\ 
-   5. Change sets &  &  &  &  --& 0.02 & -0.38 \\ 
-   6. Work items  &  &  &  &  &  --& 0.04 \\ 
-   7. Build date &  &  &  &  &  & -- \\ 
-\hline
+\begin{tabular}{lrrrrr}
+\toprule
+ & 2. & 3. & 4. & 5. & 6. \\ 
+  \midrule
+   1. Congruence  & -0.27 & -0.22 & -0.33 & 0.08 & 0.19 \\ 
+   2. Authors & --& 0.41 & 0.76 & 0.10 & -0.30 \\ 
+   3. Files &  & --& 0.37 & 0.08 & -0.20 \\ 
+   4. Change sets &  &  &  --& 0.02 & -0.38 \\ 
+   5. Work items  &  &  &  &  --& 0.04 \\ 
+   6. Build date &  &  &  &  & -- \\ 
+\bottomrule
 
 \end{tabular}
 \end{center}
@@ -503,14 +292,13 @@ We observe also that the unweighted congruence model and the weighted congruence
 
 \begin{table}[t]
 \begin{center}
-\begin{tabular}{l|r|rr|rr}
-
-             & & \multicolumn{2}{c|}{Unweighted} & \multicolumn{2}{c}{Weighted} \\
-Model                  & Variables    & AIC & $R^2$                       & AIC & $R^2$                      \\ \hline
-Every interaction  & 27  & 188.6 & 0.595 & 196.7 & 0.559 \\
-Main effects only & 7   & 213.2 & 0.269 & 214.2 & 0.263 \\
-\textbf{Our model}         & \textbf{19}  & \textbf{175.8} & \textbf{0.581} & \textbf{183.4} & \textbf{0.548} \\
-\hline
+\begin{tabular}{l@{\hspace{30pt}}r@{\hspace{30pt}}rr}
+\toprule
+Model                  & Variables    & AIC & $R^2$                                  \\ \midrule
+Every interaction  & 27  & 188.6 & 0.595  \\
+Main effects only & 7   & 213.2 & 0.269 \\
+\textbf{Our model}         & \textbf{19}  & \textbf{175.8} & \textbf{0.581} \\
+\bottomrule
 \end{tabular}
 \end{center}
 \caption{Model comparison}
