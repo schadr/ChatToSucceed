@@ -288,35 +288,35 @@ Main effects only & 7   & 213.2 & 0.269 \\
 \begin{table}[t]
 \begin{center}
 \small
-\begin{tabular}{l|r@{\hspace{5pt}}r@{\hspace{-5pt}}r|r@{\hspace{5pt}}r@{\hspace{-5pt}}r}
- & \multicolumn{3}{c|}{Unweighted} & \multicolumn{3}{c}{Weighted} \\\hline
-Variable & Coef. & S.E. & \emph{p} & Coef. & S.E. & \emph{p} \\
-	\hline
-Intercept                   &  -0.5459 &   0.4663 & 0.2417 &    0.3289 &    0.4729 &   0.4867 \\
-\textbf{Congruence}              &   \textbf{6.3410} &   \textbf{1.6262} & \textbf{**0.0001} &    3.6699 &    2.3013 &   0.1108 \\
-\textbf{Authors}                     &  \textbf{-1.9759} &   \textbf{0.5310} & \textbf{**0.0002} &   \textbf{-2.0176} &    \textbf{0.5802} &   \textbf{**0.0005} \\
-\textbf{Files}                       &  \textbf{-1.0734} &   \textbf{0.4561} & \textbf{*0.0186} &   \textbf{-1.1169} &    \textbf{0.5099} &   \textbf{*0.0285} \\
-Work~items                   &  -0.1456 &   0.2355 & 0.5363 &   -0.1365 &    0.2343 &   0.5602 \\
-\textbf{Build type=I}                      &   \textbf{2.1533} &   \textbf{1.0526} & \textbf{*0.0408} &    1.2777 &    1.0172 &   0.2091 \\
-Build type=N                      &   4.6833 & 200.7587 & 0.9814 &    2.7593 &  192.5236 &   0.9886 \\
-Build date                   &  -0.6560 &   0.6709 & 0.3282 &   -0.1352 &    0.7133 &   0.8497 \\
-\textbf{Congruence * Build type=I}     &  \textbf{-9.2151} &   \textbf{2.5572} & \textbf{**0.0003} &   \textbf{-6.2748} &    \textbf{2.9664} &   \textbf{*0.0344} \\
-Congruence * Build type=N     &  -7.7308 &  91.8053 & 0.9329 &   -7.2024 &  188.1811 &   0.9695 \\
-Congruence * Build date  &  \textbf{-5.1266} &   \textbf{1.9290} & \textbf{**0.0079} &   \textbf{-5.5670} &    \textbf{1.9760} &   \textbf{**0.0048} \\
-Authors $\cdot$ Build type=I            &   1.2688 &   0.7028 & 0.0710 &    1.1852 &    0.7370 &   0.1078 \\
-Authors * Build type=N            & 105.4123 & 535.8792 & 0.8441 &  103.0155 &  521.0808 &   0.8433 \\
-Authors * Build date         &  -0.6061 &   0.3616 & 0.0937 &   -0.6004 &    0.3576 &   0.0932 \\
-Authors * Files             &   0.7663 &   0.4289 & 0.0740 &    0.4979 &    0.5232 &   0.3414 \\
-Files * Build type=I              &   1.0920 &   1.1838 & 0.3563 &    1.7042 &    1.4099 &   0.2267 \\
-Files * Build type=N              & -37.9274 & 199.2314 & 0.8490 &  -36.5156 &  192.3382 &   0.8494 \\
-\textbf{Work~items * Build date}       &   \textbf{0.8040} &   \textbf{0.3003} & \textbf{**0.0074} &    \textbf{0.8909} &    \textbf{0.3466} &   \textbf{*0.0102} \\
-\textbf{Build type=I * Build date}          &   \textbf{2.6442} &   \textbf{0.7678} & \textbf{*0.0006} &    \textbf{1.8627} &    \textbf{0.7621} &   \textbf{*0.0145} \\
-Build type=N * Build date          &  84.7252 & 344.8129 & 0.8059 &   84.3117 &  341.4988 &   0.8050 \\
-	\hline
-Model likelihood ratio & 101.92 &  & $R^2=0.581$ & 94.36 &  &	$R^2 = 0.548$ \\
-& \multicolumn{3}{c}{191 observations} & \multicolumn{3}{c}{191 observations} \\
-\multicolumn{1}{l}{ } & \multicolumn{6}{l}{\scriptsize{Build type is set to continuous}} \\
-\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{6}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
+\begin{tabular}{l@{\hspace{15pt}}rrr}
+\toprule
+Variable & Coef. & S.E. & \emph{p} \\
+	\midrule
+Intercept                   &  -0.5459 &   0.4663 & 0.2417 \\
+\textbf{Congruence}              &   \textbf{6.3410} &   \textbf{1.6262} & \textbf{**0.0001} \\
+\textbf{Authors}                     &  \textbf{-1.9759} &   \textbf{0.5310} & \textbf{**0.0002}  \\
+\textbf{Files}                       &  \textbf{-1.0734} &   \textbf{0.4561} & \textbf{*0.0186}  \\
+Work~items                   &  -0.1456 &   0.2355 & 0.5363  \\
+\textbf{Build type=I}                      &   \textbf{2.1533} &   \textbf{1.0526} & \textbf{*0.0408}  \\
+Build type=N                      &   4.6833 & 200.7587 & 0.9814  \\
+Build date                   &  -0.6560 &   0.6709 & 0.3282  \\
+\textbf{Congruence * Build type=I}     &  \textbf{-9.2151} &   \textbf{2.5572} & \textbf{**0.0003}  \\
+Congruence * Build type=N     &  -7.7308 &  91.8053 & 0.9329  \\
+\textbf{Congruence * Build date}  &  \textbf{-5.1266} &   \textbf{1.9290} & \textbf{**0.0079}  \\
+Authors $\cdot$ Build type=I            &   1.2688 &   0.7028 & 0.0710  \\
+Authors * Build type=N            & 105.4123 & 535.8792 & 0.8441  \\
+Authors * Build date         &  -0.6061 &   0.3616 & 0.0937 \\
+Authors * Files             &   0.7663 &   0.4289 & 0.0740  \\
+Files * Build type=I              &   1.0920 &   1.1838 & 0.3563  \\
+Files * Build type=N              & -37.9274 & 199.2314 & 0.8490  \\
+\textbf{Work~items * Build date}       &   \textbf{0.8040} &   \textbf{0.3003} & \textbf{**0.0074}  \\
+\textbf{Build type=I * Build date}          &   \textbf{2.6442} &   \textbf{0.7678} & \textbf{*0.0006} \\
+Build type=N * Build date          &  84.7252 & 344.8129 & 0.8059  \\
+	\bottomrule
+Model likelihood ratio & 101.92 &  & $R^2=0.581$  \\
+& \multicolumn{3}{c}{191 observations}  \\
+\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\scriptsize{Build type is set to continuous}} \\
+\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
 \end{center}
 \caption{Logistic Regression models predicting build success probability with main and interaction effects}
@@ -326,23 +326,23 @@ Model likelihood ratio & 101.92 &  & $R^2=0.581$ & 94.36 &  &	$R^2 = 0.548$ \\
 
 \begin{table}[t]
 \begin{center}
-\begin{tabular}{l|r@{\hspace{5pt}}r@{\hspace{-5pt}}r|r@{\hspace{5pt}}r@{\hspace{-5pt}}r}
- & \multicolumn{3}{c|}{Unweighted} & \multicolumn{3}{c}{Weighted} \\\hline
-Variable & Coef. & S.E. & \emph{p} & Coef. & S.E. & \emph{p} \\
-	\hline                                                                
-	Intercept                &  0.5265 & 0.3040 & 0.0833 &  1.00416 & 0.2754 & 0.0003 \\
-	Congruence               &  0.9371 & 0.6807 & 0.1686 & -0.85692 & 0.8544 & 0.3159 \\
-	\textbf{Authors}         & \textbf{-0.5702} & \textbf{0.2003} & \textbf{**0.0044} & \textbf{-0.64635} & \textbf{0.2023} & \textbf{**0.0014} \\
-	\textbf{Files}           & \textbf{-0.6398} & \textbf{0.2477} & \textbf{**0.0098} & \textbf{-0.70618} & \textbf{0.2571} & \textbf{**0.0060} \\
-	Work~items                & -0.1755 & 0.1713 & 0.3055 & -0.13229 & 0.1689 & 0.4335 \\
-	Build type=I                   &  0.1693 & 0.4269 & 0.6917 &  0.06128 & 0.4154 & 0.8827 \\
-	Build type=N                   &  0.2133 & 0.7791 & 0.7842 &  0.29418 & 0.7811 & 0.7065 \\
-	Build date               & -0.1331 & 0.1821 & 0.4649 & -0.11291 & 0.1819 & 0.5349 \\
-	\hline
-Model likelihood ratio & 40.59 &  & $R^2=0.269$ & 39.52 &  &	$R^2 = 0.263$ \\
-& \multicolumn{3}{c}{191 observations} & \multicolumn{3}{c}{191 observations} \\
-\multicolumn{1}{l}{ } & \multicolumn{6}{l}{\scriptsize{Build type is set to continuous}} \\
-\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{6}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
+\begin{tabular}{l@{\hspace{15pt}}rr r}
+\toprule
+Variable & Coef. & S.E. & \emph{p} \\
+	\midrule                                                                
+	Intercept                &  0.5265 & 0.3040 & 0.0833 \\
+	Congruence               &  0.9371 & 0.6807 & 0.1686 \\
+	\textbf{Authors}         & \textbf{-0.5702} & \textbf{0.2003} & \textbf{**0.0044}  \\
+	\textbf{Files}           & \textbf{-0.6398} & \textbf{0.2477} & \textbf{**0.0098} \\
+	Work~items                & -0.1755 & 0.1713 & 0.3055  \\
+	Build type=I                   &  0.1693 & 0.4269 & 0.6917  \\
+	Build type=N                   &  0.2133 & 0.7791 & 0.7842  \\
+	Build date               & -0.1331 & 0.1821 & 0.4649  \\
+	\bottomrule
+Model likelihood ratio & 40.59 &  & $R^2=0.269$  \\
+& \multicolumn{3}{c}{191 observations}  \\
+\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\scriptsize{Build type is set to continuous}} \\
+\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
 \end{center}
 \caption{Logistic Regression models predicting build success probability with main effects only}
@@ -515,15 +515,16 @@ Of note is the high number of comments on work items that have zero congruence. 
 
 \begin{table}[t]
 \centering
-\begin{tabular}{ll|rr|rr}
-& & \multicolumn{2}{c|}{Num. of Pairs} & \multicolumn{2}{c}{Success rate} \\
-Congruence &                                & 1     & 0   & 1 & 0 \\\hline 
+\begin{tabular}{ll@{\hspace{40pt}}rr@{\hspace{40pt}}rr}
+\toprule
+& & \multicolumn{2}{@{\hspace{-40pt}}c}{Num. of Pairs} & \multicolumn{2}{c}{Success rate} \\
+Congruence &                                & 1     & 0   & 1 & 0 \\\midrule 
 \multirow{2}{*}{No comments} 	& OK 	  & 42   & 143  &  \multirow{2}{*}{49\%} & \multirow{2}{*}{69\%}  \\
-                            	& Error   & 43    & 64   &  & \\\hline
+                            	& Error   & 43    & 64   &  & \\\midrule
 \multirow{2}{*}{Comments} 	& OK 	  & 610  & 445  & \multirow{2}{*}{68\%} & \multirow{2}{*}{69\%}  \\
-                         	& Error   & 290   & 199  &  & \\\hline
+                         	& Error   & 290   & 199  &  & \\\midrule
 \multirow{2}{*}{Total} 		& OK		  & 652 & 588 &     \multirow{2}{*}{66\%} & \multirow{2}{*}{69\%}   \\
-                       		& Error   & 333  & 263 & &\\
+                       		& Error   & 333  & 263 & &\\\bottomrule
 \end{tabular}
 \caption{Number of work items-change set pairs with comments and build success probabilities for congruence 0 and 1}
 \label{tab:changeset_commenters}
