@@ -193,7 +193,7 @@ The main difference to the original formula lies solely in our more direct appro
 \section{Analysis Methods}
 \label{sec:methodology}
 Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
-The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the amount of gaps, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
+The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the ratio between gaps and coordination needs, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
 
 We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
 
@@ -414,7 +414,7 @@ Intercept & 1.32 \\
 %  Weighted cong * Build date & 0.00 & - \\ 
    \bottomrule
 \end{tabular}
-\caption{Odds Ratio for Gapsize Models}
+\caption{Odds Ratio for Gap Ratio Models}
 \label{tab:oddsratio_gapsize}
 \end{center}
 \end{table}
@@ -423,7 +423,7 @@ Intercept & 1.32 \\
 \begin{figure}[t]
 	\centering	
 	\includegraphics[width=.5\columnwidth]{figures/boxplot_meangapsize}
-	\caption{Mean Gap Size per Build}
+	\caption{Gap Ratio per Build}
 	\label{fig:gapsizes}
 \end{figure}
 
@@ -545,7 +545,7 @@ We found that there was an interaction effect involving congruence and build typ
 The gap ratio is a representation of whether enough coordination
 occurred to fulfill multiple coordination needs. If two developers have multiple dependencies on each other, one would expect them to
 coordinate more often as well.
-We hypothesized that a small mean gap size would increase the probability of successful builds and that a large mean gap size would decrease the probability of a successful build. Instead, we found that as the mean gap size increases, the build success probability also increases (Figure \ref{fig:prob_gapsize_a}).
+We hypothesized that a small gap ratio would increase the probability of successful builds and that a large gap ratio would decrease the probability of a successful build. Instead, we found that as the mean gap size increases, the build success probability also increases (Figure \ref{fig:prob_gapsize_a}).
 
 Below we discuss the reasons for these observed results based on our knowledge of RTC.
 
