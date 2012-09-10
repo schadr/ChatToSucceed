@@ -358,7 +358,7 @@ In the next section we discuss the main effects and interactions effects that in
 The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figure~\ref{fig:unweighted_congruence_typeci_age} the effects of congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
 
 
-\begin{figure*}
+\begin{figure}[t!]
 \centering
   \subfloat[ \small{2008-01-25} ]{
     \includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q010}
@@ -380,7 +380,7 @@ The type~$\times$~congruence interaction effect, the date~$\times$~congruence in
   
 	\caption{Estimated probability of build success for \emph{congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
 	\label{fig:unweighted_congruence_typeci_age}
-\end{figure*}
+\end{figure}
 
 The congruence model (Table \ref{tab:logr}) the effect of congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. 
 For integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_unweighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_unweighted_age_typeci_q100}).
