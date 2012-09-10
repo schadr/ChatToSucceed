@@ -2,7 +2,7 @@
 \startchapter{The Approach}
 \label{chap:approach}
 In this chapter we will propose an approach to leverage the concept of socio-technical congruence to improve communication (social) interactions among developer to improve build success.
-We base this approach on the findings presented in the previous two chapter that team communication (Chapter~\ref{}) and socio-technical gaps (Chapter~\ref{}) have influence on build success.
+We base this approach on the findings presented in the previous two chapter that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2}) have influence on build success.
 
 \section{Approach to Leveraging Socio-Technical Congruence}
 The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
@@ -21,7 +21,7 @@ Our approach took five steps:
 Each network, social, technical and thus socio-technical, needs to build with a specific scope in mind.
 For example, throughout this thesis we focus on software builds.
 This focus defines the source and communication artifacts that are used to construct the social and technical networks.
-In Chapter~\ref{} Figure~\ref{} we showed how we conceptualized social network and how defining software builds as our scope we omit several artifacts related to communication from the construction of a social network for a specific build.
+In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social network and how defining software builds as our scope we omit several artifacts related to communication from the construction of a social network for a specific build.
 
 \section{Define Outcome}
 In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
@@ -35,19 +35,19 @@ In our approach we first focus on the construction of the social part of the net
 This involves identifying all communication channels that are programatically accessible in real time.
 Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
 Gathering all to the selected scope relevant communication artifacts than yields the social network.
-In Chapter~\ref{} Figure~\ref{} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
+In Chapter~\ref{chap:meth} Figure~\ref{fig:network} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
 
 \section{Construct Technical Networks}
 To complement the social networks and thus create socio-technical networks we need to produce technical networks.
 The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
 For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
-In Chapter~\ref{} we detail how we use Mylyn traces to gather information to construct technical networks.
+In Chapter~\ref{chap:actionable} we detail how we use Mylyn traces to gather information to construct technical networks.
 
 With respect to software quality it can sufficient to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
-In this case the network construction we described in Chapter~\ref{} is sufficient to later on generate actionable knowledge.
+In this case the network construction we described in Chapter~\ref{chap:meth} is sufficient to later on generate actionable knowledge.
 
 \section{Generate Insights}
-In Chapter~\ref{} we showed that gaps in socio-technical networks influence build success.
+In Chapter~\ref{chap:stc-net2} we showed that gaps in socio-technical networks influence build success.
 We take this as starting point for generating insights by breaking down socio-technical networks into triples the consists of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
 
 Since we are focusing on improving the social interactions we focus on identifying those gaps (unmet coordination needs) that are most likely to increase build success.
@@ -62,6 +62,6 @@ The approach we described builds on our work on software builds and the influenc
 Note that this approach can also be applied to identify those met coordination needs that warrant further examination, by applying the same insight generation to pairs of developer that are connected both through a technical and social dependency.
 
 The following three chapters aim at identifying the usefulness of the approach we detailed in this chapter.
-We start by first investigating whether we can using this approach generate recommendation that are statistically significant (Chapter~\ref{}).
-Following we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{}).
-Finally, in class room setting we explore whether we could generate recommendations that might have prevented builds from failing (Chapter~\ref{}).
+We start by first investigating whether we can using this approach generate recommendation that are statistically significant (Chapter~\ref{chap:stc-net}).
+Following we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{chap:talk}).
+Finally, in class room setting we explore whether we could generate recommendations that might have prevented builds from failing (Chapter~\ref{chap:actionable}).
