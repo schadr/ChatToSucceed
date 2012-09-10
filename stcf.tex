@@ -200,7 +200,7 @@ We show the relationship between a variable and the build success probability by
 We run two different logistic regression models: one using weighted congruence, and one using unweighted congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
 Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
 
-\section{TODO Results}
+\section{Results}
 \label{sec:results}
 In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
 Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_weighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
@@ -485,25 +485,6 @@ incongruent builds, and the effects of commenting behaviour on builds.
   \label{fig:weighted_congruence_workitems_age}
 \end{figure}
 
-
-\subsubsection{Commenting Behaviour by Change Set Authors}
-\label{sec:commenting}
-As congruence expects those who contribute technical work to a project to also communicate changes, we decided to examine commenting behaviour of change set contributors.
-We examine whether a work item related to a change set has a corresponding comment posted by the change set's author. We also identify if the work item/change set pair is involved in an OK build or an Error build. Note that a work item/change set pair can occur in multiple builds. We consider only comments posted before the build was started. These results are shown in Table \ref{tab:changesets_authors}.
-The build result rates does not appear to be affected by whether the change set contributor commented: 43\% of the builds resulted in error when the contributor commented, and 41\% of builds resulted in error when the contributor did not comment. A $\chi^2$ test on this table does not show a significant difference between the factors at the 0.05 threshold ($\chi^2 = 3.217$, df = 1, {p=0.073}).
-Overall, in 76\% of the change set/work item pairs, the change set contributor also posted a comment in the associated work item.
-\begin{table}[t]
-\centering
-\begin{tabular}{lrrr}
-Result & \parbox{0.715in}{\raggedright Change sets w/o comment by contributor\vspace{1pt}} & \parbox{0.715in}{\raggedright Change sets w/ comment by contributor\vspace{1pt}} & Total \\\hline 
-OK		& 1278 (14\%) 	& 3956 (43\%) 	& 5234 (57\%) 	\\
-ERR		& 908 (10\%) 	& 3076 (33\%)	& 3984 (43\%)	\\\hline
-Total 	& 2186 (24\%) 	& 7032 (76\%) 	& 9218 (100\%)	\\
-\end{tabular}
-\caption{Number of change sets in which a contributor commented in the corresponding work item}
-\label{tab:changesets_authors}
-\end{table}
-
 \subsubsection{Examining Extreme Congruence Values}
 \label{sec:extremecongruence}
 We are interested in the differences between high-congruence builds and low-congruence builds.
@@ -514,13 +495,15 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
 
 \begin{table}[t]
 \centering
-\begin{tabular}{ll|rr}
-& & \multicolumn{2}{c}{Congruence} \\\hline
-&  & 1 & 0 \\\hline 
+\begin{tabular}{llrr}
+\toprule
+& & \multicolumn{2}{c}{Congruence} \\\midrule
+&  & 1 & 0 \\\midrule
 \multirow{2}{*}{Unweighted} & OK & 26 & 30 \\
-                            & ERR & 2 & 2 \\\hline
-\multirow{2}{*}{Weighted} & OK & 6 & 30 \\
-                         & ERR & 1 & 2 \\
+                            & ERR & 2 & 2 \\%\midrule
+%\multirow{2}{*}{Weighted} & OK & 6 & 30 \\
+ %                        & ERR & 1 & 2 \\
+ \bottomrule
 \end{tabular}
 \caption{Number of Builds with Congruence Values 0 and 1}
 \label{tab:congruence_extremes}
