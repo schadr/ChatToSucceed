@@ -109,6 +109,41 @@ The final threat to the approach, which is related to the previously mentioned l
 Although the study we presented in Chapter~\ref{chap:talk} explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
+\section{FSE PAPER - Practical Implications}
+\label{sec:implications}
+Our findings have several implications for the design of collaborative systems.
+By automating the analyses presented here we can incorporate the knowledge about
+developer pairs that tend to be failure related in a real-time recommender
+system. Not only do we provide the recommendations that matter to the upcoming
+build, we also provide incentives to motivate developers to talk about their
+technical dependencies. 
+
+Such a recommender system can use project historical data to
+calculate the likelihood that an upcoming build fails given a particular
+developer pair that worked on that build without communicating to each other. In
+the case of the pair (Adam, Bart) the system may recommend that these
+developers should communicate about their technical dependencies, as there
+would be a probability
+of 91\% of failure of the next build should they not follow the
+recommendation. This probability of failure serves as mechanism to
+rank importance of a socio-technical gap and more importantly as an
+incentive to act upon.
+
+For management, such a recommender system can provide details about the
+individual developers in, and properties of, these potentially problematic
+developer pairs. Individual developers may be an explanation for the behaviour of
+the pairs we found in Rational Team Concert. This may indicate developers that are
+harder to work with or too busy to coordinate appropriately, prompting management
+to reorganize teams and workloads. This would minimize the likelihood of a build
+to fail, by removing the underlying cause of a pair to be failure related.
+Similarly, as another example from our study, most developer pairs
+consisted of developers that were part of different teams. In such
+situations management may decide to investigate reasons for coordination
+problems that include factors such as geographical or functional distance in the project.
+
+
+
+
 \section{Conclusions and Future Work}
 In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
