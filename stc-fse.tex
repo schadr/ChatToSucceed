@@ -1,6 +1,27 @@
 % !TEX root = thesis.tex
 \startchapter{Socio-Technical Congruence and Failure}
 \label{chap:stc-net}
+The first step we take towards exploring the usefulness of our approach we test whether we can generate recommendations that break patterns statistically related to build failure.
+Thus we focus on the following research question:
+
+\begin{description}
+  \item[RQ 2.1:] Can Socio-Technical-Networks be manipulated to increase build success? 
+\end{description}
+
+Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
+Thus we explore to what extend the history of a project can be used and highlight those cases where developer that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
+
+In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{}).
+Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{} (Section~\ref{}).
+Then, we go over the analysis and results we obtained in Section~\ref{} followed by a discussion of the results and their implications in Section~\ref{}.
+We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
+
+% merge first three chapters into background
+% remove constructs from methodology
+% write new conclusion
+
+\section{TODO Background}
+\subsection{TODO Motivation}
 We hypothesize that with the ever growing size of software teams the lack of
 effective coordination is the main source of integration failures.  With the
 ever growing complexity and sophistication of large software projects,
@@ -53,19 +74,7 @@ indicate, based on project historical data, which developer pairs tend to be
 failure related. Developers and management can then devise strategies to
 prevent the failure before build time. 
 
-
-The paper is organized as follows: We start with formulating our research
-questions (Section~\ref{sec:rq}) followed by putting our research into the
-perspective of related work (Section~\ref{sec:relwork}). Section~\ref{sec:data}
-covers details about our case study of IBM's Jazz team to investigate
-socio-technical coordination in relation to builds. Then
-Sections~\ref{sec:prediction} and \ref{sec:pattern} cover the actual analysis and
-their discussion. Before we concluding the paper in
-Section~\ref{sec:conclusions}, we discuss some practical implications in Section~\ref{sec:implications} and the threats to validity
-(Section~\ref{sec:threats}).
-
-
-\section{Research Questions}
+\subsection{TODO Research Questions}
 \label{sec:rq}
 Communication
 is an important mechanism for coordination in software development \cite{curtis:acm:1988,kraut:1995coordination}, especially in maintaining the awareness of changes relevant to your work. Past research showed that a high coverage of technical
@@ -111,13 +120,7 @@ confounding variables.
 
 
 
-
-
-%The answer to this question will tell us if we really can devise strategies to
-%prevent builds from failing. 
-
-
-\section{Related Work}
+\subsection{TODO Related Work}
 \label{sec:relwork}
 Our study aims on integrating work investigating team collaboration and failure prediction to produce actionable knowledge upon which developer can act.
 Several studies bear relevance with respect to different dimensions of our work:
@@ -134,8 +137,6 @@ discussions among developers and showed that communication structure has an
 influence on the build outcome.
 
 \emph{With respect to team coordination:}
-%Coordination is defined as ``integrating or linking together different parts of
-%an organization to accomplish a collective set of tasks''~\cite{vandeven1976}. 
 In
 order to manage changes and maintain quality, developers must coordinate. In
 software development, coordination is largely achieved through communicating with
@@ -145,8 +146,6 @@ something that should be nurtured not eliminated and recent
 collaborative software development environments aim to support developers'
 social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
 
-%While a failed build is not necessarily a disaster, it slows down work significantly and is considered extremely undesirable.
-%A build result thus serves as an indicator of the health of the software project up until that point in time. If the developers successfully coordinate the integration of code between the previous build and the upcoming build, then the build should succeed.
 
 Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
 used to leverage knowledge in distributed teams. Backstrom et
@@ -211,7 +210,7 @@ interdependencies. They found this combination to be a more powerful predictor
 that works for different software project and even prevails across multiple
 revisions of a project.
 
-% talk about the short coming of the failure prediction models
+
 Despite the high predictive power of the state-of-the-art prediction models, most
 of them suffer from a profound shortcoming: the knowledge provided by these
 models is not always easily actionable. In this work we lie the foundation to
@@ -219,18 +218,10 @@ the recommender system described by Schr\"oter et
 al.~\cite{schroeter:rsse:2008}. 
 %
 This recommender system compares social networks derived from technical and social dependencies over successful and failed builds to recommend changing failure related pairs of developers.
-%
-%AND WHICH\ldots A BIT MORE HERE ABOUT HOW THIS
-%RECOMMENDER SYSTEM MAY WORK BASED ON THE RESULTS OF THIS WORK (YOU CAN REPLACE
-%THE NEXT SENTENCE WITH THIS DETAIL IF SPACE IS A PROBLEM). 
-%
 This way we generate knowledge that not only tells us when a build fails but immediately helps us to provide suggestions to prevent the build from failing.
 
 
 
-
-
-%\pagebreak
 
 
 
@@ -261,7 +252,6 @@ and developers over successful (227), failed (99) and total builds (328).}
 \begin{figure}[t]
 \centering
 \includegraphics[width=.7\columnwidth]{figures/buildworkitem}
-%\vspace{-.3cm}
 \caption{Linking work items to builds using change sets.}
 \label{fig:buildtowork item}
 \end{figure}
@@ -269,7 +259,6 @@ and developers over successful (227), failed (99) and total builds (328).}
 \begin{figure}[t]
 \centering
 \includegraphics[width=.7\columnwidth]{figures/buildsn}
-%\vspace{-.3cm}
 \caption{Social network connecting developers through discussions about
 work items in a build}
 \label{fig:buildsn}
@@ -292,7 +281,7 @@ work items in a build}
 
 
 
-\section{Socio-technical coordination and builds in Jazz}
+\section{TODO Socio-technical coordination and builds in Jazz}
 \label{sec:data}
 Before we describe our approach to collect data and construct
 socio-technical networks in Jazz, we give a brief
@@ -302,7 +291,6 @@ socio-technical networks (Subsections~\ref{subsec:social}
 and~\ref{subsec:technical}).
 
 \subsection{Development and Builds in the Jazz Team}
-%\subsection{Coordination and integration in Jazz}
 The Jazz\tm\ team is a large distributed team and uses the Jazz\tm\ platform for
 development. The Jazz\tm\ development involves distributed collaboration over 16
 different sites located in the United States, Canada, and Europe. Seven sites are
@@ -336,51 +324,13 @@ subsystem developed by the team. Once a team has a stable version within the Tea
 Stream, the team publishes the change sets into the Jazz\tm\ Project Integration
 Stream. At the project level, the automated
 Jazz\tm\ integration builds the subsystems of all teams. 
-%The Jazz project-level
-%integration takes place \et{nightly}, \et{weekly}, and at the end of each
-%iteration -- \et{beta} build.
 
-%%%%%%%%%%%
-
-
-%We analyze builds created by IBM's Jazz\texttrademark\ development team.
-%The Jazz team builds on a regular basis on a nightly and weekly basis.
-%Those builds are both on a component and on a project basis.
-%
-%The Jazz team uses the software they develop the IBM Jazz\texttrademark.
-%IBM Jazz\tm\ integrates both source code control and task management.
-%Additionally you can also define build schedules as well as general development processes, such as SCRUM.
-%
-%Thus, the Jazz repository contains all the information from builds over source code changes to tasks, such as bug fixes.
-%One advantage of working with he Jazz repository is that links between builds and changes, and changes and tasks are explicit.
-%This means we know from the repository which changes contributed to a build and which changes where made to accomplish a task.
-%Using this information we can infer which tasks influenced which builds.
-%
-%The Jazz development team follows the Eclipse Way of development~\cite{frost:ieeesoftware:2007}.
-%The team was between April and July 2008 on a six week development cycle during which a set of features and bug fixes needs to be implemented.
-%Instead of extending the cycles when features or bug fixes would take longer to complete they reschedule it for the next cycle.
-%
-%Another important aspect to their process directly impacts the way they communicate or record their communication.
-%Since the Jazz development team is distributed across several sites in North America and Europe they implemented a process that enforces them to record all their communication around any task in the repository.
-%This is a best practice implemented by the former Eclipse developer to ensure that people offside do know what's going on and to enable them to contribute.
-
-% some stats about the repository and the team
 We mined the Jazz project repository between April and July 2008, and analyzed a
 total of 328 builds, out of which 99 were failed and 227 were successful.
 Table~\ref{tab:jazzbuildinfo} contains summary statistics describing the Jazz\tm\
 repository. We report different aggregations (minimum, average and maximum) of
 number of work items, change sets, and developers over all builds. 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{figure}[t]
-%\centering
-%\includegraphics[width=.9\columnwidth]{cochangedfiles}
-%%\vspace{-.3cm}
-%\caption{Conceptualization of technical relation using co-changed files.}
-%\label{fig:technicaldependency}
-%\end{figure}
 
 \begin{figure*}[t]
 \centering
@@ -408,7 +358,7 @@ Creating a socio-technical network by adding technical dependencies to a build's
 
 
 
-\subsection{Extracting Social Networks}
+\subsection{TODO Extracting Social Networks}
 \label{subsec:social}
 To model the communication between developers for a given build we construct \emph{social networks}. 
 We use the information contained in the Jazz\texttrademark\ work items for the construction. 
@@ -427,7 +377,6 @@ To create a social network for a given build we proceed in six steps:
 \item Extract change sets that are part of the build.
 \item Extract work items linked to the retrieved change sets.
 \item Extract developers commenting on a work item before the build's built time.
-%\item Retrieve developers that created the retrieved work items.
 \item Connect all developers commenting on the same work item.
 \end{enumerate}
 
@@ -436,17 +385,14 @@ from a build through a change set to a work item. From the work item we are able
 see who contributed to the work item discussion (Figure~\ref{fig:buildsn}).
 These developers become part of the social network and
 share a \emph{social edge} if they made a comment on the same work item.
-% We use the term \emph{social edge} to describe this connection between two
-% developer that commented on the same work item.
 Note that all links we use to get from a build to a developer are explicitly contained in
 the Jazz\texttrademark\ repository.
 
 
 
 
-\subsection{Constructing Socio-Technical Networks}
+\subsection{TODO Constructing Socio-Technical Networks}
 \label{subsec:technical}
-%\todo{why only change dependencies}
 Past research~\cite{nagappan:icse:2005} has shown that dynamic dependencies have the strongest influence on the software quality.
 Therefore we use these dynamic dependencies
 to construct \emph{socio-technical networks} we use the steps described below
@@ -469,22 +415,12 @@ socio-technical network that share both a technical and social edge are said to 
 a \emph{socio-technical edge}.
 
 
-
-
-
-
-
-
-
-
-
 \begin{figure}[t]
 \centering
 \subfloat[Evaluation results from the Support Vector Machine.] {
 \includegraphics[width=.5\columnwidth]{figures/precission-recall}
 \label{fig:prediction-svm}
 }
-%
 \subfloat[Evaluation results from the Logistic Regression.] {
 \includegraphics[width=.5\columnwidth]{figures/precision-recall-logreg}
 \label{fig:prediction-logreg}
@@ -509,14 +445,12 @@ extract from the constructed socio-technical networks. Each feature represents a
 connected developers in the network and the type of the edge that they are
 connected with (i.e. social, technical or socio-technical).
 
-%To evaluate those model, we take a more practical evaluation approach.
 To accomplish a more practical evaluation, we order all our social networks by the time the build they were constructed from was tested.
-Having the networks ordered according to build time we evaluate our prediction model in the following five steps:%\todo{make pictures}
+Having the networks ordered according to build time we evaluate our prediction model in the following five steps:
 
 \begin{enumerate}
 \item Get the first $n$ networks and perform a principle component analysis on the extracted features.
 \item Select the principal components that explain the most variance until 95\% of the total variance of the training set can be explained.
-%\item Determine the principal components of the first $n$ networks.
 \item Train the model using the principal components of the first $n$ networks.
 \item Test the model on network $n+1$ after transforming it to the determined principal components.
 \item Increase $n$ by 1 and repeat until $n+1$ is the size of complete data set.
@@ -571,7 +505,6 @@ the best results whereas the logistical regression serves as comparison to the
 support vector machine results as well as indicating the reliability of
 the regression analysis presented later in Section~\ref{sec:pattern}.
 
-% describe support vector machine \todo{talk about three sections of the figures}
 Figure~\ref{fig:prediction} shows the recall and precision values for the
 suport vector machine and the logistical regression models. The green downward
 pointing triangles represent the precision of the model for each iteration, note that we started training each model with at least three data points. The black circles represent the recall of a model for each
@@ -599,8 +532,7 @@ The support vector machine ended with a precision of $.68$ (median: $.67$) and a
 
 
 
-\subsection{Discussion}
-% - why did we fulfill our objective
+\subsection{TODO Discussion}
 Although the overall performance of the models is not yet practical due to low
 precision and recall, these results are interesting. On the one hand, we consider
 answering our first research question with yes: we can use developer pairs to
@@ -621,8 +553,6 @@ it indicates the rate at which we falsely report a build to fail. With a median
  can develop in the model, it also reports less than half of the failed builds
  as failed.
 
-
-% - why is the beginning so weak
 We provide some possible explanations here. In the first part of the
 Figures~\ref{fig:prediction-svm} and~\ref{fig:prediction-logreg}, we observed
 that all models perform poorly as long as they have less than 100 builds to train
@@ -631,13 +561,11 @@ developers are continually appearing in the development pairs. This means that
 prediction models need to make predictions without having enough knowledge to
 train on, thus resorting to predict the build to be the most likely outcome, to be OK.
 
-%- check peeks with respect to new developers entering the team
 A peak in the interval of 100-150 iterations occurred in both models for both recall and precision.
 Within this interval the team changed and new people joined the project and people where reallocated to work on new functionality which meant creating new dependencies and leaving old dependencies behind.
 This change in dependencies confused the model in a way that it did not perform as well.
 Both models stabilize over time with the support vector machine exhibiting a slight upward trend.
 
-% - what is the next step
 Since the goal of this research is to find a way to create actionable knowledge
 to avoid build failure, building a prediction model was the first step to show
 that developer pairs have an effect on the actual prediction. The results from
@@ -845,10 +773,8 @@ p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
 \end{equation}
 
 The coefficient is comprised of four counts: (1) pair$_{failed}$, the number of failed builds where the pair occurred; (2) total$_{failed}$, the number of failed builds; (3) pair$_{success}$, the number of successful builds where the pair occurred; (4) total$_{success}$, the number of successful builds.
-%This coefficient is normalized with the number of failed and successful builds.
 A value closer to one means that the developer pair is strongly related to build
-failure. %Additionally it describes a probability of failure likelihood that accounts for the imbalance in the data.
-
+failure.
 
 
 
@@ -1136,11 +1062,9 @@ worthwhile seeking insights about developer coordination in failed builds.
 \label{fig:builddistribution}
 \end{figure}
 
-\subsection{Discussion}
-% answered the the research question
+\subsection{TODO Discussion}
 These results show that there is a strong relationship between certain technical
 developer pairs and increased likelihood of a build failure.
-% meaning of patterns
 Out of the total of 120 technical pairs that increase the likelihood of a
 build to fail, only 23 had an existing
 corresponding socio-technical pair. Of these, none were statistically
@@ -1153,9 +1077,7 @@ that the analysis presented in this paper is able to identify the specific
 socio-technical gaps, namely the actual developer pairs where the gaps occur
 and that increase the likelihood of build failure. 
 
-% contrast of t and st patterns After investigating the pairs closer with respect
-% to team allocation, we found that most of the pairs span do not originate from
-% the same team.
+\textbf{TODO}
 Although not a goal of this paper, we sought possible explanations for the
 socio-technical gaps in this project. A preliminary analysis of developers
 membership to teams shows that most
@@ -1167,7 +1089,7 @@ work on. Although the Jazz team strongly emphasizes communication
 regardless of team boundaries, it still seems that organizational distance has
 an influence on its communication behavior.
 
-% bridge to regression - confounding variables?
+
 Further, although the analysis of technical pairs in relation to build failures
 showed that they have a negative influence on the build result, it does not take
 into account possible confounding variables. The question is if there developer pairs still effect the build outcome in the presence of confounding variables, such as number of developers involved in a build, number of work items
@@ -1186,30 +1108,12 @@ We checked for all the other technical pairs that were reported significant usin
 Moreover, the four control variables of number of developers per build, number
 of work items per build, number of change sets per build, and number of files changed per build are also significant.
 
-% explain the coefficient interpretation
-% some of the pairs are positive
-% some are negative
-% extreme magnitude
 Since we model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
 All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
  
-% about the control variables
-%As shown in Table~\ref{tab:regression} two of the four control features, number of change sets per build and number of developers contributing to a build increase the likelihood of a build succeeding.
-%On the other hand number of files changed per build and number of work items per build increase the likelihood of a build failing.
-
 In conclusion, we can answer our second research question with yes: there are
 certain technical pairs that are significantly related to build failure, and
 this happens even in the presence of possibly confounding variables. 
-
-
-
-
-
-
-
-%\input{regression-analysis}
-
-
 
 
 
@@ -1252,7 +1156,6 @@ problems that include factors such as geographical or functional distance in the
 
 \section{Threats To Validity}
 \label{sec:threats}
-%\todo{rework}
 During our study we identified two main threats. 
 One threat covers issues that arise from the underlying data we used.
 The other threat deals with possible problems from the conceptualization of
@@ -1306,7 +1209,7 @@ confident that they addressed the changes at least indirectly.
 
 
 
-\section{Conclusion}
+\section{TODO Conclusion}
 \label{sec:conclusions}
 Our study investigated the relationship between pairs of developers that share
 a technical dependency but do not communicate and build failures. We were
