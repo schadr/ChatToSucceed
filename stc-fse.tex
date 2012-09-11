@@ -20,7 +20,7 @@ We conclude this chapter with offering an answer to our research question and le
 % remove constructs from methodology
 % write new conclusion
 
-\section{TODO Background}
+\section{Background}
 In this section we discuss some background related to improving coordination among software developers.
 We start with some motivation of the problem and continue with presenting work performed by other researchers.
 
@@ -66,32 +66,15 @@ failure related. Developers and management can then devise strategies to
 prevent the failure before build time. 
 
 
-\subsection{TODO Related Work}
+\subsection{Related Work}
 \label{sec:relwork}
-Our study aims on integrating work investigating team collaboration and failure prediction to produce actionable knowledge upon which developer can act.
-Several studies bear relevance with respect to different dimensions of our work:
-
-\emph{With respect to research on software builds:}
-To the best of our knowledge the studies by Hassan et al.~\cite{hassan:ase:2006}
-and Wolf et al.~\cite{wolf:icse:2009} are the only studies that conducted
-research to predict build outcome. Hassan et al.~\cite{hassan:ase:2006} found
-that a combination of social metrics (e.g. number of authors) and technical
-metrics (e.g. number of code changes) derived from the source code repository
-yield to be best predictor. On the other hand Wolf et al.~\cite{wolf:icse:2009}
-solely used metrics that they derived from the social network created from
-discussions among developers and showed that communication structure has an
-influence on the build outcome.
-
-\emph{With respect to team coordination:}
-In
-order to manage changes and maintain quality, developers must coordinate. In
+In order to manage changes and maintain quality, developers must coordinate. In
 software development, coordination is largely achieved through communicating with
 people who depend on the work that you do \cite{kraut:1995coordination}. The
 software engineering literature is recognizing the role of communication as
 something that should be nurtured not eliminated and recent
 collaborative software development environments aim to support developers'
 social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
-
 
 Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
 used to leverage knowledge in distributed teams. Backstrom et
@@ -118,26 +101,7 @@ Ducheneaut~\cite{ducheneaut:cscw:2005} investigated the evolution of social and
 technical relationships of open source project participants to see how those
 participants become a part of the community.
 
-
-\emph{With respect to failure prediction:}
-There have been a large number of studies looking into predicting failures. For
-example, Zimmermann et al.~\cite{zimmermann:icse:2008} used
-networks constructed from interdependent binaries to predict the failure
-probability of files. They used different metrics characterizing the relationship
-binaries have to each other and found that ego centric social network measures
-are powerful failure predictors. Previous research conducted at Microsoft used
-code complexity metrics, such as cyclomatic complexity or object oriented
-metrics, that are derived from source code. Nagappan et
-al.~\cite{nagappan:icse:2006} found
-that no single source code metric was capable of being a good
-predictor over all studied Microsoft projects. Motivated by this study that
-suggested that predictions might be domain specific Schr\"oter et
-al.~\cite{schroeter:isese:2006} characterized domain of packages in the Eclipse
-project by their imports and found them to be a powerful predictor.
-
-
-\emph{With respect to failures related to team coordination:}
-More recent studies started to relate the social with the technical
+Recent studies started to relate the social with the technical
 dimensions of software development to build predictive models. Pinzger et
 al.~\cite{pinzger:fse:2008} successfully used social networks connecting
 developers via code artifacts to predict failures. Meneely et
@@ -155,18 +119,6 @@ socio-technical networks that capture developer contributions and binary
 interdependencies. They found this combination to be a more powerful predictor
 that works for different software project and even prevails across multiple
 revisions of a project.
-
-
-Despite the high predictive power of the state-of-the-art prediction models, most
-of them suffer from a profound shortcoming: the knowledge provided by these
-models is not always easily actionable. In this work we lie the foundation to
-the recommender system described by Schr\"oter et
-al.~\cite{schroeter:rsse:2008}. 
-%
-This recommender system compares social networks derived from technical and social dependencies over successful and failed builds to recommend changing failure related pairs of developers.
-This way we generate knowledge that not only tells us when a build fails but immediately helps us to provide suggestions to prevent the build from failing.
-
-
 
 
 
