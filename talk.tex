@@ -2,7 +2,7 @@
 \startchapter{Do Developers Talk about Change-Sets?}
 \label{chap:talk}
 Knowing that out approach can generate statistically significant recommendations is only one necessary step towards showing its usefulness.
-As Murphy-Hill~\cite{murphy:rsse:2010} pointed out recommendation become of little use once developer reject them.
+As Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out recommendation become of little use once developer reject them.
 Thus in this chapter we peruse the following research question:
 
 \begin{description}
@@ -21,25 +21,18 @@ Subsequently, we briefly go over the study design that is relevant to exploring 
 Then, we go over the findings we obtained in Section~\ref{} followed by some general recommender system design guidelines derived from the results and threats to validity in Section~\ref{} and Section~ref{} respectively.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
 
-\section{TODO Background}
-SOME BLURB HERE
-
-\subsection{TODO Motivation}
+\section{Background}
+%old introduction
 For all but the most trivial programs, software development today is a collaborative activity. The members of software teams must coordinate and communicate, often intensely, if their projects are to reach a satisfactory conclusion.
 Previous research has shown that communication among developers has a profound influence on several aspects of software development~\cite{hinds:cscw:2006,wolf:icse:2009}.
 
 Despite this acknowledged importance of communication in software teams, our understanding of communication behaviour is still very limited. Ko \emph{et al.}~\cite{ko:icse:2007} point out that developers often require information about the work output of their peers.  We know little about why developers act upon this requirement. What causes developers to seek information in some cases, but not in others? There are a multitude of potential factors: the closeness of their peers' work with their own, the expertise of the developers, their physical proximity, their level of workload, and even, perhaps, the time of day. By identifying which factors actually influence the likelihood that a developer will request information about the events surrounding her, we might better understand the nature of software-centric information-seeking behaviour. This increased understanding allows us to develop improved recommender systems that enable developers to coordinate their activities efficiently.
 
-For this study we decided to investigate information-seeking behaviour around changesets for the purpose of identifying guidelines that can improve the applicability and usefulness of recommender systems. A study of changesets is generic enough to be applicable in many settings, but particular enough to be informative about detailed patterns of behaviour. We report on a field study that used a mixed-methods approach (participant-observation, surveys, and interviews) to understand what technical, social, and process-based factors influence whether a developer will seek information about a changeset or not. We investigated communication in the IBM Rational Team Concert (RTC) project, which is distributed across North America, Europe, and Asia, and in which communication is linked to changeset data. The RTC project presents unique opportunities for research on communication in software teams not only because it takes place within a development environment in which a significant fraction of communication is recorded in technical artifacts, but also because the team is tasked with the goal of developing these artifacts themselves. The challenge of effective team communication is particularly present in the RTC project team. 
+% related work start
+Overall, this research builds upon the growing body of work that studies coordination and communication in software organizations, which have long been recognized as playing central roles in leading software projects to success, e.g.~\cite{kraut:1995coordination,curtis:acm:1988}.  
 
-\section{TODO Related Work}
-\label{sec:rq}
-This research builds upon the growing body of work that studies coordination and communication in software organizations, which have long been recognized as playing central roles in leading software projects to success, e.g.~\cite{kraut:1995coordination,curtis:acm:1988}.  
-
-Our research group gained the opportunity to study the IBM Rational Team Concert (RTC) development team and the software artifacts produced by this team over several years. The RTC team maintains and cross-links all of their software and process artifacts using the very tool they produce. Partly due to its distributed nature, and partly due to its open source origins, the team's emphasis on written and archivable electronic communication results in a wealth of data for analysis.
-
-Our previous investigations of the RTC project repositories revealed a significant relationship between gaps in communication structures and build success~\cite{wolf:icse:2009}. Therefore we proposed a recommendation system that allows team members to learn about who they should talk with in order to avoid build failures~\cite{schroeter:rsse:2008}. This recommendation system should focus on changesets and analyze significant differences between code dependencies and team communication structure to identify anti-patterns that the developers should attempt to break.
-The basis for this principle is derived from Conway's Law~\cite{conway:datamination:1968} and by the model of socio-technical congruence proposed by Cataldo \emph{et al.}~\cite{cataldo:cscw:2006,cataldo:esem:2008}.
+Earlier we reported on investigations of the RTC project repositories revealed a significant relationship between gaps in communication structures and build success (Chapter~\ref{} and~\ref{}). Therefore we proposed a recommendation system that allows team members to learn about who they should talk with in order to avoid build failures~\cite{schroeter:rsse:2008}. This recommendation system should focus on changesets and analyze significant differences between code dependencies and team communication structure to identify anti-patterns that the developers should attempt to break.
+The basis for this principle is derived from Conway's Law~\cite{conway:datamination:1968} and by the model of socio-technical congruence proposed by Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008}.
 The model compares the communication network to the code dependency network and derives insights with respect to productivity from the gaps between those networks.
 
 In order to build a good recommendation system, however, one needs to go beyond providing valuable information. As Murphy and Murphy-Hill show~\cite{murphy:rsse:2010}, we need developers to trust the recommender system: delivering the right recommendation at the right time is one important way to build such trust. Unfortunately, recommender systems often fall short on this front, saturating the developer with recommendations they neither need nor want, or presenting recommendations at inappropriate times. It is therefore important to know when developers actually need information, and what factors influence them to seek information. There are many potential factors that could change the likelihood that developers would want to obtain further information, and we do not have a sense, other than our intuition, to learn which factors are actually important and which are not.
@@ -47,7 +40,7 @@ In order to build a good recommendation system, however, one needs to go beyond 
 Related work has examined factors that influence communication among software developers. For instance, while APIs are intended to reduce coordination complexity among development teams, they also introduce barriers that hinder communication between teams by obscuring dependencies~\cite{souza:cscw:2004,desouza:fse:2004}.
 Software architecture, organizational structure and project age are also factors that influence communication and the awareness that developers have of each other's work~\cite{cleidson:tse:2011}. 
 Processes, in particular, are often used to influence the communication among team members to reduce information overload~\cite{fussell:cscw:1998}, and geographic distance has been shown to affect communication, but its effects vary between projects~\cite{herbsleb:icse:2001,wolf:spip:2008}.
-Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} distilled the current knowledge about communication among developers into a set of guidelines to design tools and processes that facilitate effective expertise communication.
+Nakakoji et al~\cite{nakakoji2010:rdc} distilled the current knowledge about communication among developers into a set of guidelines to design tools and processes that facilitate effective expertise communication.
 Those studies, and to our knowledge, literature in software engineering in general, only address communication on a project-wide level. However, to fully understand, and thus offer actionable knowledge to developers, we need to know what influences an individual developer's information-seeking behaviour.
 We surveyed literature to compile a list of possible information-seeking triggers spanning change-related (such as code metrics), developer-related (such as experience level) and process-related (such as peer reviews) factors.
 
