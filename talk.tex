@@ -46,32 +46,21 @@ We surveyed literature to compile a list of possible information-seeking trigger
 
 
 
-\section{TODO Study Design}
+\section{Study Design}
 \label{sec:studydesign}
-To address our research question, we complement our previous analysis of the RTC electronic repositories with rich qualitative data from interviews and observations, considering that much information on a project's lifecycle is not recorded in its repositories~\cite{aranda:icse:2009}. We focused on studying what factors cause a developer to seek information about a changeset, since changesets are the smallest units of change to a project that directly impact other developers.
+We complement our previous analysis of the RTC electronic repositories with rich qualitative data from interviews and observations, considering that much information on a project's lifecycle is not recorded in its repositories~\cite{aranda:icse:2009}. We focused on studying what factors cause a developer to seek information about a changeset, since changesets are the smallest units of change to a project that directly impact other developers.
 
-Our research question called for a mixed methods empirical study. Therefore, we collected data about the team's information-seeking behaviour from three different sources.
-First, the first author of this paper (Adrian) was embedded in a sub-team of the RTC team as a participant-observer for four months.
+Our research question calls for a mixed methods empirical study. Therefore, we collect data about the team's information-seeking behaviour from three different sources.
+First, the author of this thesis was embedded in a sub-team of the RTC team as a participant-observer for four months.
 Second, we deployed a survey with the entire development team to validate some of the findings from the observations.
 Third, we conducted interviews with the developers from one component team to obtain richer information about their communication behaviour.
 
 
-\subsection{TODO Study Setting}
-\label{sec:rtc}
-Rational Team Concert is a scalable and extensible team collaboration platform that integrates source code management, issue tracking, and planning tools. The RTC platform uses a client-server architecture, with the server acting as a central data repository.
-The team also uses RTC to develop RTC, and in this way RTC is a self-hosting project.
-This helps the RTC team become aware of issues with the product before customers.
-The project follows a large scale iterative development process that emphasizes transparency~\cite{frost:ieeesoftware:2007}.
-It defines six-week iteration cycles, which are  separated into planning, development and stabilization activities. A project management committee formulates the goals and features for each release at the beginning of each iteration, and the output of this process is assigned to the teams in the form of work items. The work items and nearly all documentation are publicly available.  
-
-The RTC development team has over 100 developers distributed across multiple sites in North America, Europe and Asia.  The RTC development team is subdivided into several teams that manage a component each, such as the source code system or the web user interface. To communicate with each other, especially across different geographical locations, the developers extensively use RTC's own issue and task management system. A particular characteristic of the RTC development environment---and one that made this study of communication behaviour around changesets possible---are explicit traceable links between work tasks, associated changesets, and developers' online comments about these tasks and changesets\footnote{Changesets in RTC are created in a developer workspace; each changeset consists of several changes to code files.}.
-
-
-\subsection{TODO Data Collection}
+\subsection{Data Collection}
 We used a mixed methods approach to answer our research question. We obtained data from three sources: participant observation, a survey, and a set of interviews with RTC team members.
 
-\subsubsection{TODO Participant-Observation}
-The first author of this paper (Adrian) joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. He was involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During his period as a participant-observer, Adrian kept a daily activity log, recording any information of relevance to the communication behaviour of his team.
+\subsubsection{Participant-Observation}
+The  author of this thesis joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. He was involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During his period as a participant-observer, Adrian kept a daily activity log, recording any information of relevance to the communication behaviour of his team.
 
 The observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, Adrian also participated in the development of a feature for the upcoming version of the product.
 
@@ -176,13 +165,13 @@ Simple code was changed\phantom{abcdefgheabcdefghe} &--- & 12.57\\%58\\   %23 ch
 %\end{table}
 \end{sidewaystable}
 
-\subsubsection{TODO Interviews}
+\subsubsection{Interviews}
 We conducted interviews with ten developers of the RTC team to inform our observational findings. The setting for the interviews was slightly unusual, and beneficial from a research perspective, since the first author's participant-observation allowed him to develop working relationships during his stay at the team, and to delve into a discussion of complex communication issues without needing to spend time understanding the basic context of the team.
 
 In the interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part in~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
 
 
-\subsubsection{TODO Survey}
+\subsubsection{Survey}
 To complement the insights we obtained from the observations and interviews, we deployed a survey with the entire RTC team at the end of our observation period. The survey was designed iteratively and piloted with a European team, and intended to collect input about which factors increase the likelihood of a developer requesting information about a changeset from the changeset author. The items we included in the survey were in the categories of code-related, developer-related and process-related items. Each category included 14 items, as shown in Table~\ref{tab:surveyfactors}. \emph{Code-change related} items describe the changeset delivered or the code that the changeset modifies or affects. \emph{Developer-related} items relate to
 the developers that delivered a changeset, the developer requesting the
 information, and their relation to each other. Finally, \emph{process-related} items relate to the development phase in effect when the changeset was delivered, and to items relating to process requirements or practices. For each of the three categories, the survey asked the developers to rank each item in the category according to how strongly it increases their likelihood of requesting information about a changeset. 
@@ -192,7 +181,7 @@ We initially formulated our list of items from an analysis of the current litera
 We deployed the survey through a web form, and invited the entire distributed RTC development team to participate. We sent a reminder one month later to increase the response rate. We obtained 36 responses to the survey; approximately a 25\% response rate.
 Of the 36 respondents, 26 are located in North America, 5 are located in Europe, and 5 are located in Asia. Furthermore, 22 of the respondents are developers, 5 team leads, 5 component leads and project management committee, and 4 respondents withheld their information.
 
-\subsection{TODO Analysis} 
+\subsection{Analysis} 
 For our data analysis, we transcribed the interviews, and then coded both the interviews and the participant-observation notes. From the codes we created categories, which we cross-referenced to the survey rankings. We used an open coding approach, during which we assigned codes to summarize incidents in sentences and paragraphs of the transcribed interviews that relate to our research question.
 
 We calculated the ranking of the survey items for each category by calculating the mean over all ranks given by developers to a survey item (see Table~\ref{tab:surveyfactors}).
