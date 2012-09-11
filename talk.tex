@@ -408,7 +408,14 @@ However, their interaction patterns seem to be similar to those of other globall
 
 \section{TODO Conclusion and Future Work}
 \label{sec:conclusions}
-Coordinating work among developers is a keystone of successfully shipping a software product~\cite{herbsleb:icse:2001,kraut:1995coordination}. To fully understand how developers coordinate, it is necessary to understand the factors that influence their communication behaviour. Among our findings, we saw that the current phase in the development process and worker experience were two  major factors that influenced whether developers communicate about a change. Tools providing information and research on coordination in software engineering should consider and incorporate our list of factors in order to help developers interact more effectively.
+We end this chapter by bringing it back to the initial research questions we set out to answer:
+\begin{description}
+  \item[RQ 2.2:] Do developer accept recommendations based on software changes to increase build success? 
+\end{description}
 
-Many recommendation systems focused on creating awareness among developers about changsets using information generated from source code. We found that developer's information seeking behavior is influenced by factors that go beyond source code. Especially information about changeset owners as well as the process consistently informs developers decisions to seek information about a changeset or not. This lead us to propose four guidelines suggesting to incorporate these non technical factors in a recommender system to improve their usability and flexibility.
-For future work, we are currently implementing a recommender system to help developers investigate changesets, and we plan to investigate the effect of implementing our proposed guidelines on the usefulness and adoption of our recommender system.
+The findings we presented in Section~\ref{} show that there are different factors that influence developer to investigate about change-sets.
+Although not directly asked for, the developer with reporting on those factors answered our research question in a positive way.
+We found that developer do talk about change-set which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
+Thus the developer answers both validated that they would accept recommendations both in the form we present them, namely per change-set submitted, as well as lending our outcome metric more credibility as they show a keen interest in build success when the date to ship the product approaches.
+
+In the next chapter we return to our path of a more direct analysis of our recommendations by showing a proof of concept that the recommendations do not only statistically relate to build outcome but that recommendation could actually prevent build failures.
