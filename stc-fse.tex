@@ -21,6 +21,9 @@ We conclude this chapter with offering an answer to our research question and le
 % write new conclusion
 
 \section{TODO Background}
+In this section we discuss some background related to improving coordination among software developers.
+We start with some motivation of the problem and continue with presenting work performed by other researchers.
+
 \subsection{Motivation}
 We hypothesize that with the ever growing size of software teams the lack of
 effective coordination is the main source of integration failures.  With the
@@ -61,51 +64,6 @@ actionable knowledge can be integrated in real-time recommender systems that
 indicate, based on project historical data, which developer pairs tend to be
 failure related. Developers and management can then devise strategies to
 prevent the failure before build time. 
-
-\subsection{TODO Research Questions}
-\label{sec:rq}
-Communication
-is an important mechanism for coordination in software development \cite{curtis:acm:1988,kraut:1995coordination}, especially in maintaining the awareness of changes relevant to your work. Past research showed that a high coverage of technical
-dependencies by social relationships correlates with higher productivity of development teams (e.g.~\cite{cataldo:cscw:2006}). 
- We hypothesize that a similar relation
-exists between this coverage and the success of software builds. 
-
-Thus
-socio-technical networks that capture information about the social and technical
-relationships between developers, should predict build failure:
-
-\begin{description}
-\item[RQ 2.1.1] Can we use information about relations (technical and social) between
-developers to predict build outcome?
-\end{description}
-
-Although valuable, having a model that predicts build outcome is often not
-enough. We seek to generate actionable knowledge upon which developer can act to
-avoid a build from failing. Past research suggests that the absence of
-communication between developers that are technically dependent leads to
-problems, such as slow down in development~\cite{cataldo:esem:2008}.
-
-
-We hypothesize that due to the high coordination needs the absence of this
-important communication also has a negative influence on build outcome. Communication problems can arise from many factors including organizational,
-social or technical reasons. Being able to pinpoint
-mismatches between technical dependencies and required communication that
-relate to build failure is even more important in a team's
-ability to devise strategies to avoid build failure. Thus, we
-investigate pairs of developers that share a technical dependency without talking
-with each other (referred to as \emph{technical pairs}), effectually investigating \textbf{RQ 2.1} \emph{Can Socio-Technical Networks be used to suggest improvements that matter?}
-
-
-\begin{description}
-\item[RQ 2.1.2] Are there technical pairs that influence the build outcome?
-\end{description}
-
-Acknowledging that build failure can be the result
-of factors other than lack of developer
-communication, e.g. the number of changes or developers in a build~\cite{hassan:ase:2006}, our
-analysis also studies the effect of technical pairs in the presence of such
-confounding variables. 
-
 
 
 \subsection{TODO Related Work}
