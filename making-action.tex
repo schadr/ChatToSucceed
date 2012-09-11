@@ -227,7 +227,7 @@ We will leave the automatization and analysis for future work.
 \section{Findings}
 In this section we present the findings from our analysis.
 
-\subsection{TODO \#133 Build Failures That Matter}
+\subsection{Build Failures That Matter}
 Throughout the feed back and communication logs received from the students show that the most important problems to the students are those build failures that prevent other teams from continuing their work.
 These issues usually happened towards the end of the sprint as this is the time the teams are integrating their code into a common code base.
 \\ \ \\
@@ -240,7 +240,6 @@ and (2) the product owner was deciding what features are of acceptable quality r
 Since most of the work preformed by the students changed core functionality or at least needed to extend the core functionality that the implementation required substantial changes to the existing code changes that often broke the old test cases.
 At the same time test cases lose in value with respect to deciding whether a feature is of acceptable quality, because the product owner is deciding on whether a feature is deployable based on a demo and manual testing.
 
-\subsection{Preventable Build Failures}
 \begin{table}[t!]
 \centering\small
 \begin{tabular}{l}
@@ -312,8 +311,14 @@ Bernards Method Trace fo Task ... \\% Timestamp \\
 \label{tab:overlappingtraces}
 \end{table}
 
+\subsection{Preventable Build Failures}
 Table~\ref{tab:overlappingtraces} shows two traces that directly link to one of the major build failures caused by merge conflicts.
 Similarly, the change-set that these two traces turn into show the issue resulting from merging.
+
+We chose this particular failed build for three reasons:
+(1) this failure occurred early on in the development and was described in most detail by the effected students,
+(2) it involves members from different student teams further illustrating issues with cross-team communication,
+and (3) it is representative for both the way we characterize technical dependencies (two developer change the same file) and it is the failure type most students complained about in their development diaries.
 
 Each trace contains a list of methods ordered by when the developer selected or edited a method.
 The two traces shown in Table~\ref{tab:overlappingtraces} only show edit events and removed redundancies when multiple subsequent edit events in the same method occurred.
