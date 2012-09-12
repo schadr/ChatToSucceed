@@ -15,11 +15,11 @@ For example, imagine two developer modifying classes that share call and data de
 This might introduce an error that could have been prevented if both developer would have discussed their work.
 Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point towards improvements in the social network by pointing out developers that should communicate.
 
-In the remainder of this chapter, we start with detailing the back ground relevant to studying coordination, its influence, and how coordination needs are identified by other researchers(Section~\ref{}).
-Next, we discuss how we calculate socio-technical congruence as well as highlight some modifications to explore to allow us to explore whether a difference in the magnitude of technical dependencies and amount of communication plays a role to possibly highlight improvements for social interactions among software developers (Section~\ref{}).
-Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{} (Section~\ref{}).
-Then, we go over the analysis and results we obtained in Section~\ref{} followed by a discussion of the results and their implications in Section~\ref{}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
+In the remainder of this chapter, we start with detailing the back ground relevant to studying coordination, its influence, and how coordination needs are identified by other researchers(Section~\ref{sec:background}).
+Next, we discuss how we calculate socio-technical congruence as well as highlight some modifications to explore to allow us to explore whether a difference in the magnitude of technical dependencies and amount of communication plays a role to possibly highlight improvements for social interactions among software developers (Section~\ref{sec:congruence}).
+Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:methodology}).
+Then, we go over the analysis and results we obtained in Section~\ref{sec:results} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
+We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:approach} (Section~\ref{sec:conclusion}).
 
 %TODOS
 % merge intro into background
@@ -147,7 +147,7 @@ Socio-technical congruence has been explored outside of the software development
 
 \section{Calculating Congruence}
 \label{sec:congruence}
-In this section new describe how we derive the socio-technical index as used by Cataldo et al~\cite{} from our technical networks by additionally giving some comparison of our approach to the original.
+In this section new describe how we derive the socio-technical index as used by Cataldo et al~\cite{cataldo:cscw:2006} from our technical networks by additionally giving some comparison of our approach to the original.
 
 \subsection{Technical Entities and Social Relationships}
 A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich2008:gaps}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
@@ -171,8 +171,8 @@ Social relationships are identified through actual coordination, which indicates
 
 \subsection{Calculating Socio-Technical Congruence}
 \label{sec:stc}
-In Chapter~\ref{} we described socio-technical networks and how we conceptualize them in this thesis.
-If we reformulate this network into the terms originally used by Cataldo et al~\cite{} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
+In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
+If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
 Thus we calcite the socio-technical congruence index as follows:
 
 \[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
