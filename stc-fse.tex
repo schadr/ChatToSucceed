@@ -11,12 +11,13 @@ Thus we focus on the following research question:
 Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
 Thus we explore to what extend the history of a project can be used and highlight those cases where developer that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
 
-In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{}).
-Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{} (Section~\ref{} and~\ref{}).
-Then, we go over the analysis and results we obtained in Section~\ref{} followed by a discussion of the results and threats to validity in Sections~\ref{} and~\ref{} respectively.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
+In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{ch8:bg}).
+Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:data} and~\ref{ch8:gaps}).
+Then, we go over the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results and threats to validity in Sections~\ref{ch8:dis} and~\ref{ch8:threat} respectively.
+We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:talk} (Section~\ref{sec:8:conclusions}).
 
 \section{Background}
+\label{ch8:bg}
 In this section we discuss some background related to improving coordination among software developers.
 We start with some motivation of the problem and continue with presenting work performed by other researchers.
 
@@ -488,6 +489,7 @@ Pair & \#successful & \#failed & $p_x$ \\
 %short discussion of the results.
 
 \section{Analysis of Socio-Technical Gaps}
+\label{ch8:gaps}
 The lack of communication between two developers that share a
 technical dependency is referred to in the literature as a
 socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
@@ -824,6 +826,7 @@ worthwhile seeking insights about developer coordination in failed builds.
 \end{figure}
 
 \section{Discussion}
+\label{ch8:dis}
 These results show that there is a strong relationship between certain technical
 developer pairs and increased likelihood of a build failure.
 Out of the total of 120 technical pairs that increase the likelihood of a
@@ -875,7 +878,7 @@ All pairs reported in Table~\ref{tab:regression} and the technical pairs that we
 
 
 \section{Threats To Validity}
-\label{sec:threats}
+\label{ch8:threat}
 During our study we identified two main threats. 
 One threat covers issues that arise from the underlying data we used.
 The other threat deals with possible problems from the conceptualization of
@@ -930,7 +933,7 @@ confident that they addressed the changes at least indirectly.
 
 
 \section{Conclusion}
-\label{sec:conclusions}
+\label{sec:8:conclusions}
 We end this chapter by bringing it back to the initial research questions we set out to answer:
 \begin{description}
   \item[RQ 2.1:] Can Socio-Technical-Networks be manipulated to increase build success? 
