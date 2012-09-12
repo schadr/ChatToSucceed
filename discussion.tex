@@ -3,11 +3,11 @@
 \label{chap:disc}
 In this chapter we will walk through the approach and discuss how the research we presented in the last three chapters (Section~\ref{ch:dis:app}).
 Following, we go over some general threats to validity.
-Then, we shortly describe how we see the implications of making such a recommender system available in Section~\ref{} and close with concluding remarks and some future work (Section~\ref{}).
+Then, we shortly describe how we see the implications of making such a recommender system available in Section~\ref{sec:implications} and close with concluding remarks and some future work (Section~\ref{ch:dis:con}).
 
 \section{Revisiting the Approach}
 \label{ch:dis:app}
-The approach we presented in Chapter~\ref{} consist of five steps:
+The approach we presented in Chapter~\ref{chap:approach} consist of five steps:
 
 \begin{enumerate}
 \item Define scope of interest.
@@ -17,16 +17,16 @@ The approach we presented in Chapter~\ref{} consist of five steps:
 \item Generate actionable insights.
 \end{enumerate}
 
-In Chapter~\ref{} we showed that communication structure of a software development team influence build success, suggesting that there is value in manipulating this structure to improve the likelihood for a successful build.
-That evidence was added to in Chapter~\ref{} where we showed that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success.
+In Chapter~\ref{chap:soc-net} we showed that communication structure of a software development team influence build success, suggesting that there is value in manipulating this structure to improve the likelihood for a successful build.
+That evidence was added to in Chapter~\ref{chap:stc-net2} where we showed that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success.
 
-In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{}.
+In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{chap:approach}.
 We defined the build as the scope together with the build outcome, success or failure, as the outcome metric that we aim at optimizing.
-Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{} in both Chapter~\ref{} and~\ref{}.
-Chapter~\ref{} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
+Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{chap:bg} in both Chapter~\ref{chap:stc-net2} and~\ref{chap:stc-net}.
+Chapter~\ref{chap:stc-net2} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
 
 The three studies we presented in Part~\ref{part3} of this thesis we  focused on the last step to \emph{generate actionable insights}.
-The study in Chapter~\ref{} showed that we are able to produce recommendations from available repository data that statistically affect build success.
+The study in Chapter~\ref{chap:stc-net} showed that we are able to produce recommendations from available repository data that statistically affect build success.
 These recommendations take the form of highlighting two developers that have a technical dependency but didn't communicate in the context of the build.
 These recommendations in the form of recommending developer to communicate would directly change the structure of the social network, which we intend in order to improve build success.
 
@@ -34,15 +34,15 @@ We decided to focus on generation recommendation enticing developer to communica
 (1) proper code changes are more difficult to suggest without a sufficient understanding of the program requiring more in-depth program analysis and 
 (2) developer need to trust the recommendation, which is easier to achieve by limiting ourselves to suggesting people that are affected by a change.
 
-In Chapter~\ref{} we explored the developer view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
-The feedback we received generally welcomed such recommendations as long as they are not seen irrelevant, corroborating Murphy and Murphy-Hill's~\cite{} point.
+In Chapter~\ref{chap:talk} we explored the developer view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
+The feedback we received generally welcomed such recommendations as long as they are not seen irrelevant, corroborating Murphy and Murphy-Hill's~\cite{murphy:rsse:2010} point.
 Developers, in fact, discuss change-set in general, but specifically towards the end of a release cycle, as each change becomes more important with respect to the stability of the overall project.
 
-Through a in class study with a number of students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing.
+Through a in class study with a number of students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing (Chapter~\ref{chap:actionable}).
 We recognize that a student project is substantially smaller in size and complexity than and industrial project such as Rational Team Concert, nevertheless, the student project was to work on an existing open source project that is used by several companies.
 Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed build to fail for less reasons and the fore making the impact of the recommendations clearer.
 
-Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (see Chapter~\ref{}).
+Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (see Chapter~\ref{chap:bg}).
 Furthermore, we showed that the approach can generate actionable insights that are acceptable to developer.
 In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
 
@@ -187,6 +187,7 @@ problems that include factors such as geographical or functional distance in the
 
 
 \section{Conclusions and Future Work}
+\label{ch:dis:con}
 In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
 The first parameter, scope, helps with constructing the socio-technical networks, with constructing the social networks being the third and constructing the technical networks being the fourth step, by supporting the selection of the best data sources.
