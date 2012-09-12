@@ -16,12 +16,13 @@ Furthermore, we also think that developers opinion of each other play a role, su
 Therefore, it is important to explore those less technical aspects of developer relationship to gain a better understanding on when to deliver a recommendation.
 
 % give chapter overview
-In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{}).
-Subsequently, we briefly go over the study design that is relevant to exploring our research question that were not mentioned in Chapter~\ref{} (Section~\ref{}).
-Then, we go over the findings we obtained in Section~\ref{} followed by some general recommender system design guidelines derived from the results and threats to validity in Section~\ref{} and Section~ref{} respectively.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{} (Section~\ref{}).
+In the remainder of this chapter, we start with detailing some related work into team coordination (Section~\ref{ch9:bg}).
+Subsequently, we briefly go over the study design that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:studydesign}).
+Then, we go over the findings we obtained in Section~\ref{sec:findings} followed by some general recommender system design guidelines derived from the results and threats to validity in Section~\ref{sec:sub:tools} and Section~\ref{sec:threats} respectively.
+We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:actionable} (Section~\ref{sec:conclusions}).
 
 \section{Background}
+\label{ch9:bg}
 %old introduction
 For all but the most trivial programs, software development today is a collaborative activity. The members of software teams must coordinate and communicate, often intensely, if their projects are to reach a satisfactory conclusion.
 Previous research has shown that communication among developers has a profound influence on several aspects of software development~\cite{hinds:cscw:2006,wolf:icse:2009}.
@@ -31,7 +32,7 @@ Despite this acknowledged importance of communication in software teams, our und
 % related work start
 Overall, this research builds upon the growing body of work that studies coordination and communication in software organizations, which have long been recognized as playing central roles in leading software projects to success, e.g.~\cite{kraut:1995coordination,curtis:acm:1988}.  
 
-Earlier we reported on investigations of the RTC project repositories revealed a significant relationship between gaps in communication structures and build success (Chapter~\ref{} and~\ref{}). Therefore we proposed a recommendation system that allows team members to learn about who they should talk with in order to avoid build failures~\cite{schroeter:rsse:2008}. This recommendation system should focus on changesets and analyze significant differences between code dependencies and team communication structure to identify anti-patterns that the developers should attempt to break.
+Earlier we reported on investigations of the RTC project repositories revealed a significant relationship between gaps in communication structures and build success (Chapter~\ref{chap:stc-net2} and~\ref{chap:stc-net}). Therefore we proposed a recommendation system that allows team members to learn about who they should talk with in order to avoid build failures~\cite{schroeter:rsse:2008}. This recommendation system should focus on changesets and analyze significant differences between code dependencies and team communication structure to identify anti-patterns that the developers should attempt to break.
 The basis for this principle is derived from Conway's Law~\cite{conway:datamination:1968} and by the model of socio-technical congruence proposed by Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008}.
 The model compares the communication network to the code dependency network and derives insights with respect to productivity from the gaps between those networks.
 
@@ -413,7 +414,7 @@ We end this chapter by bringing it back to the initial research questions we set
   \item[RQ 2.2:] Do developer accept recommendations based on software changes to increase build success? 
 \end{description}
 
-The findings we presented in Section~\ref{} show that there are different factors that influence developer to investigate about change-sets.
+The findings we presented in Section~\ref{sec:findings} show that there are different factors that influence developer to investigate about change-sets.
 Although not directly asked for, the developer with reporting on those factors answered our research question in a positive way.
 We found that developer do talk about change-set which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
 Thus the developer answers both validated that they would accept recommendations both in the form we present them, namely per change-set submitted, as well as lending our outcome metric more credibility as they show a keen interest in build success when the date to ship the product approaches.
