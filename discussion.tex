@@ -6,14 +6,9 @@ Following, we go over some general threats to validity.
 Then, we shortly describe how we see the implications of making such a recommender system available in Section~\ref{} and close with concluding remarks and some future work (Section~\ref{}).
 
 \section{Revisiting the Approach}
-\labal{ch:dis:app}
+\label{ch:dis:app}
+The approach we presented in Chapter~\ref{} consist of five steps:
 
-
-\section{Approach to Leveraging Socio-Technical Congruence}
-The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
-Since the research questions we formulated for this thesis only implicitly describe the approach, it is necessary to describe the approach to wrest actionable insights from the concept of socio-technical congruence.
-
-Our approach took five steps:
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
@@ -22,75 +17,118 @@ Our approach took five steps:
 \item Generate actionable insights.
 \end{enumerate}
 
-\paragraph{Scope} 
-Each network, social, technical and thus socio-technical, needs to build with a specific scope in mind.
-For example, throughout this thesis we used software builds a focus.
-This focus defines the source and communication artifacts that are used to construct the socio-technical networks. 
+In Chapter~\ref{} we showed that communication structure of a software development team influence build success, suggesting that there is value in manipulating this structure to improve the likelihood for a successful build.
+That evidence was added to in Chapter~\ref{} where we showed that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success.
 
-\paragraph{Outcome}
-In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
-For example, throughout this thesis we used build success, a binary variable that states whether a build is of acceptable quality.
-With an outcome measure at hand we can contrast networks to gain insights.
+In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{}.
+We defined the build as the scope together with the build outcome, success or failure, as the outcome metric that we aim at optimizing.
+Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{} in both Chapter~\ref{} and~\ref{}.
+Chapter~\ref{} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
 
-\paragraph{Social Networks}
-After the defining the scope and outcome, the next step is to construct the socio-technical networks.
-In our approach we first focus on the construction of the social part of the networks.
-This involves identifying all communication channels that are programatically accessible in real time.
-Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
-Gathering all to the selected scope relevant communication artifacts than yields the social-network.
+The three studies we presented in Part~\ref{part3} of this thesis we  focused on the last step to \emph{generate actionable insights}.
+The study in Chapter~\ref{} showed that we are able to produce recommendations from available repository data that statistically affect build success.
+These recommendations take the form of highlighting two developers that have a technical dependency but didn't communicate in the context of the build.
+These recommendations in the form of recommending developer to communicate would directly change the structure of the social network, which we intend in order to improve build success.
 
-\paragraph{Technical Networks}
-To complement the social networks and thus create socio-technical networks we need to produce technical networks.
-The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
-For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
+We decided to focus on generation recommendation enticing developer to communicate in order improve build success over recommendation that would suggest code changes changing the dependencies among developer for two reasons:
+(1) proper code changes are more difficult to suggest without a sufficient understanding of the program requiring more in-depth program analysis and 
+(2) developer need to trust the recommendation, which is easier to achieve by limiting ourselves to suggesting people that are affected by a change.
 
-\paragraph{Insights}
-In Chapter~\ref{chap:stc-net} and~\ref{chap:actionable} we showed how to generate recommendations by contrasting the networks according to their outcome metrics based on a binary outcome metric indicating whether a build failed.
-By breaking down networks, as demonstrated in Chapter~\ref{chap:stc-net} and~\ref{chap:actionable}, and correlating the different elements with the outcome metric generates insights that can be used to improve the collaboration represented by the network.
+In Chapter~\ref{} we explored the developer view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
+The feedback we received generally welcomed such recommendations as long as they are not seen irrelevant, corroborating Murphy and Murphy-Hill's~\cite{} point.
+Developers, in fact, discuss change-set in general, but specifically towards the end of a release cycle, as each change becomes more important with respect to the stability of the overall project.
 
-In the next section we add to the example given in this section that are based on the chapters in this thesis arguments to the feasibility and validity of the individual steps to ground the approach in the research we conducted in this thesis.
+Through a in class study with a number of students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing.
+We recognize that a student project is substantially smaller in size and complexity than and industrial project such as Rational Team Concert, nevertheless, the student project was to work on an existing open source project that is used by several companies.
+Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed build to fail for less reasons and the fore making the impact of the recommendations clearer.
 
-\section{Grounding the Approach}
-In this section we will discuss on how the approach described in the previous Section is grounded in the research presented in this thesis.
-We will discuss and ground the feasibility of each step of the approach in the research presented in this thesis and conclude this section with a more general remark on the evidence showing the value in the approach as a whole.
+Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (see Chapter~\ref{}).
+Furthermore, we showed that the approach can generate actionable insights that are acceptable to developer.
+In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
 
-\paragraph{Scope}
-In Chapters~\ref{chap:soc-net}-\ref{chap:stc-net} we presented work that uses a specific focus namely the build.
-Selecting a software build as the focus of building and generating insights into the socio-technical networks constructed for a given build.
-With a software build representing a high level software artifact identifying this artifact is straight forward as the studies presented in this thesis sufficiently demonstrated.
-Generally any scope that is easily captured within a software artifact such as a software change or a work item can serve as a scope used to construct and generate insight from socio-technical networks.
 
-\paragraph{Outcome}
-With our focus on software quality in the form of build success, we chose as outcome metric whether in the opinion of the developer a build was counted as success or not.
-The studies we performed and reported on in Chapters~\ref{chap:soc-net}-\ref{chap:stc-net} showed that a meaningful outcome metric can be attached to the scope of a build, which in our case is the build outcome as perceived by the developer.
-We postulate that this can be done for other scopes as well.
-Consider for instance the scope of a software change.
-The work by Slivserski et al~\cite{sliwerski:notes} showed a way to infer whether a software change can be induced a fix worthy failure and thus yielding a similar outcome metric as build success for software changes. 
-
-\paragraph{Social Networks}
-In Chapter~\ref{chap:soc-net} we reported on a study~\cite{wolf:icse:2009} using social networks related to software builds to predict build outcome.
-The construction of social networks depends mainly on the possibility of tracing communication artifacts such as work item comments to the respective build.
-In our case studies with the IBM Rational Team Concert development team as well as the course study presented in Chapter~\ref{chap:actionable} the development teams used systems that made links between software builds explicit through their issue tracking and version control systems.
-To apply this step in project that do not make these links between artifacts explicit methods proposed through the Hipicat~\cite{cubranic:tse:2005} by Cubranic et al can be used to heuristically infer links between artifacts of interest.
-
-The nature of how communication recorded electronically enables the automatic construction of social networks as soon as the communication artifacts are recorded within the respective system.
-In the case of modern issue trackers that would mean, as soon as a developer adds a comment to a work item this information can be used to complement all social networks this comment is relevant to.
-
-\paragraph{Technical Networks}
-In the beginning of this thesis in Chapter~\ref{chap:tech-net} we detailed related work that looked into leveraging technical networks to predict software failures.
-Chapter~\ref{chap:tech-net} presents work that focuses on files or binary/package level predictions and thus build technical networks around a software artifact that is hard to associate to a specific time in the project.
-Most of the research reported on resolves this by looking at a milestone level and thus declaring the milestone as the scope and relate parts of the milestone level technical network to software artifacts in whose failure-proneness is of interest.
-
-In our study described in Chapter~\ref{chap:actionable}, we showed how to use the method proposed by Blincoe et al~\cite{blincoe:cscw:2012} to construct technical networks while developer are exploring and modifying source code.
-In contrast to constructing social networks once changes to the version control are committed the work or task associated with the change has been finished.
-Thus unless the recommendations help after the actual work has been accomplished there is an inherent need to build technical networks as the code is modified for a given task.
-For example, when looking into increasing productivity generating recommendations from technical networks after the work has been accomplish is of little use.
-
-\paragraph{Insights}
-Once the social and technical networks are created the combined socio-technical networks can then be contrasted based on the outcome metric each network is associated with.
-In Chapter~\ref{chap:stc-net} and~\ref{chap:actionable} we showed how to generate insights using a binary outcome metric by decomposing the networks and measuring the correlation of the network parts with the outcome metric, thus yielding insights that can be used to directly change the social network to be more liekly to yield the desired outcome.
-
-Although we showed through the studies reported in this thesis that there is ample evidence supporting the usefulness of the approach to leverage socio-technical congruence to generate actionable knowledge, there are limitations that we discuss in the next section.
+%\section{Approach to Leveraging Socio-Technical Congruence}
+%The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
+%Since the research questions we formulated for this thesis only implicitly describe the approach, it is necessary to describe the approach to wrest actionable insights from the concept of socio-technical congruence.
+%
+%Our approach took five steps:
+%\begin{enumerate}
+%\item Define scope of interest.
+%\item Define outcome metric.
+%\item Build social networks according to the scope in real time.
+%\item Build technical networks according to the scope in real time.
+%\item Generate actionable insights.
+%\end{enumerate}
+%
+%\paragraph{Scope} 
+%Each network, social, technical and thus socio-technical, needs to build with a specific scope in mind.
+%For example, throughout this thesis we used software builds a focus.
+%This focus defines the source and communication artifacts that are used to construct the socio-technical networks. 
+%
+%\paragraph{Outcome}
+%In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
+%For example, throughout this thesis we used build success, a binary variable that states whether a build is of acceptable quality.
+%With an outcome measure at hand we can contrast networks to gain insights.
+%
+%\paragraph{Social Networks}
+%After the defining the scope and outcome, the next step is to construct the socio-technical networks.
+%In our approach we first focus on the construction of the social part of the networks.
+%This involves identifying all communication channels that are programatically accessible in real time.
+%Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
+%Gathering all to the selected scope relevant communication artifacts than yields the social-network.
+%
+%\paragraph{Technical Networks}
+%To complement the social networks and thus create socio-technical networks we need to produce technical networks.
+%The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
+%For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
+%
+%\paragraph{Insights}
+%In Chapter~\ref{chap:stc-net} and~\ref{chap:actionable} we showed how to generate recommendations by contrasting the networks according to their outcome metrics based on a binary outcome metric indicating whether a build failed.
+%By breaking down networks, as demonstrated in Chapter~\ref{chap:stc-net} and~\ref{chap:actionable}, and correlating the different elements with the outcome metric generates insights that can be used to improve the collaboration represented by the network.
+%
+%In the next section we add to the example given in this section that are based on the chapters in this thesis arguments to the feasibility and validity of the individual steps to ground the approach in the research we conducted in this thesis.
+%
+%\section{Grounding the Approach}
+%In this section we will discuss on how the approach described in the previous Section is grounded in the research presented in this thesis.
+%We will discuss and ground the feasibility of each step of the approach in the research presented in this thesis and conclude this section with a more general remark on the evidence showing the value in the approach as a whole.
+%
+%\paragraph{Scope}
+%In Chapters~\ref{chap:soc-net}-\ref{chap:stc-net} we presented work that uses a specific focus namely the build.
+%Selecting a software build as the focus of building and generating insights into the socio-technical networks constructed for a given build.
+%With a software build representing a high level software artifact identifying this artifact is straight forward as the studies presented in this thesis sufficiently demonstrated.
+%Generally any scope that is easily captured within a software artifact such as a software change or a work item can serve as a scope used to construct and generate insight from socio-technical networks.
+%
+%\paragraph{Outcome}
+%With our focus on software quality in the form of build success, we chose as outcome metric whether in the opinion of the developer a build was counted as success or not.
+%The studies we performed and reported on in Chapters~\ref{chap:soc-net}-\ref{chap:stc-net} showed that a meaningful outcome metric can be attached to the scope of a build, which in our case is the build outcome as perceived by the developer.
+%We postulate that this can be done for other scopes as well.
+%Consider for instance the scope of a software change.
+%The work by Slivserski et al~\cite{sliwerski:notes} showed a way to infer whether a software change can be induced a fix worthy failure and thus yielding a similar outcome metric as build success for software changes. 
+%
+%\paragraph{Social Networks}
+%In Chapter~\ref{chap:soc-net} we reported on a study~\cite{wolf:icse:2009} using social networks related to software builds to predict build outcome.
+%The construction of social networks depends mainly on the possibility of tracing communication artifacts such as work item comments to the respective build.
+%In our case studies with the IBM Rational Team Concert development team as well as the course study presented in Chapter~\ref{chap:actionable} the development teams used systems that made links between software builds explicit through their issue tracking and version control systems.
+%To apply this step in project that do not make these links between artifacts explicit methods proposed through the Hipicat~\cite{cubranic:tse:2005} by Cubranic et al can be used to heuristically infer links between artifacts of interest.
+%
+%The nature of how communication recorded electronically enables the automatic construction of social networks as soon as the communication artifacts are recorded within the respective system.
+%In the case of modern issue trackers that would mean, as soon as a developer adds a comment to a work item this information can be used to complement all social networks this comment is relevant to.
+%
+%\paragraph{Technical Networks}
+%In the beginning of this thesis in Chapter~\ref{chap:tech-net} we detailed related work that looked into leveraging technical networks to predict software failures.
+%Chapter~\ref{chap:tech-net} presents work that focuses on files or binary/package level predictions and thus build technical networks around a software artifact that is hard to associate to a specific time in the project.
+%Most of the research reported on resolves this by looking at a milestone level and thus declaring the milestone as the scope and relate parts of the milestone level technical network to software artifacts in whose failure-proneness is of interest.
+%
+%In our study described in Chapter~\ref{chap:actionable}, we showed how to use the method proposed by Blincoe et al~\cite{blincoe:cscw:2012} to construct technical networks while developer are exploring and modifying source code.
+%In contrast to constructing social networks once changes to the version control are committed the work or task associated with the change has been finished.
+%Thus unless the recommendations help after the actual work has been accomplished there is an inherent need to build technical networks as the code is modified for a given task.
+%For example, when looking into increasing productivity generating recommendations from technical networks after the work has been accomplish is of little use.
+%
+%\paragraph{Insights}
+%Once the social and technical networks are created the combined socio-technical networks can then be contrasted based on the outcome metric each network is associated with.
+%In Chapter~\ref{chap:stc-net} and~\ref{chap:actionable} we showed how to generate insights using a binary outcome metric by decomposing the networks and measuring the correlation of the network parts with the outcome metric, thus yielding insights that can be used to directly change the social network to be more liekly to yield the desired outcome.
+%
+%Although we showed through the studies reported in this thesis that there is ample evidence supporting the usefulness of the approach to leverage socio-technical congruence to generate actionable knowledge, there are limitations that we discuss in the next section.
 
 \section{Threats to Validity}
 Although we discussed threats to validity in each chapter that presented research that we conducted in the course of this thesis we will address the overall threat to the approach of leveraging socio-technical networks to generate actionable knowledge as described in the previous sections.
@@ -112,7 +150,7 @@ The final threat to the approach, which is related to the previously mentioned l
 Although the study we presented in Chapter~\ref{chap:talk} explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
-\section{FSE PAPER - Practical Implications}
+\section{Practical Implications}
 \label{sec:implications}
 Our findings have several implications for the design of collaborative systems.
 By automating the analyses presented here we can incorporate the knowledge about
@@ -120,17 +158,18 @@ developer pairs that tend to be failure related in a real-time recommender
 system. Not only do we provide the recommendations that matter to the upcoming
 build, we also provide incentives to motivate developers to talk about their
 technical dependencies. 
-
+%
 Such a recommender system can use project historical data to
 calculate the likelihood that an upcoming build fails given a particular
-developer pair that worked on that build without communicating to each other. In
-the case of the pair (Adam, Bart) the system may recommend that these
-developers should communicate about their technical dependencies, as there
-would be a probability
-of 91\% of failure of the next build should they not follow the
-recommendation. This probability of failure serves as mechanism to
-rank importance of a socio-technical gap and more importantly as an
-incentive to act upon.
+developer pair that worked on that build without communicating to each other.
+% In
+%the case of the pair (Adam, Bart) the system may recommend that these
+%developers should communicate about their technical dependencies, as there
+%would be a probability
+%of 91\% of failure of the next build should they not follow the
+%recommendation. This probability of failure serves as mechanism to
+%rank importance of a socio-technical gap and more importantly as an
+%incentive to act upon.
 
 For management, such a recommender system can provide details about the
 individual developers in, and properties of, these potentially problematic
