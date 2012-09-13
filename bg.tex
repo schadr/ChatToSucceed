@@ -1,31 +1,29 @@
 % !TEX root = thesis.tex
 \startchapter{Background}
 \label{chap:bg}
-In this chapter we provide an overview over the challenge that we described in the introduction and how other work tried partially or in full to address these challenges.
-%Note that we will not go into great detail of the individual steps that we undertook in this thesis as we discuss related work in the appropriate chapter.
-Thus we will discuss three areas: (1) the research on software builds, (2) the research around the concept of socio-technical congruence, and (3) recommender systems in software engineering.
+In this chapter we provide an overview of the challenges that we described in the introduction and how other work tried partially or in full to address these challenges.
+Thus we will discuss three areas: (1) the research on software builds, (2) the research around the concept of socio-technical congruence, (3) failure prediction in software engineering, and (4) recommender systems in software engineering.
 
 \section{Build Outcome}
 Although software builds are important to delivering a software product as the final product is just the latest acceptable build, research in software builds focuses mainly on products and process that support the build process.
-Software product supporting builds often intend to speed up the build process and the execution of all test cases to obtain an assessment of the quality of the build~\cite{maraia:book:2005}.
-Similarly process that focus on supporting software builds are predominantly dealing with issues of obtaining all required code changes from the different development teams and integrating this code into a final build as fast as possible without introducing additional issues.
+Software products supporting builds often intend to speed up the build process and the execution of all test cases to obtain an assessment of the quality of the build~\cite{maraia:book:2005}.
+Similarly processes that focus on supporting software builds are predominantly dealing with issues of obtaining all required code changes from the different development teams and integrating this code into a final build as fast as possible without introducing additional issues.
 
-The issues that arises once the actual process of creating the build after all code has been submitted to the build being created with all automated tests being executed, as methodologies such as continuous integration not only enable but demand~\cite{duvall:book:2007}, is to gain an idea of whether a build will fail or succeed.
-If a project reaches a certain size, specifically the test suite, the build process can take several hours.
-To determine whether developers will need to stay to fix the software when the development is advancing towards a planned release date is critical as release dates are often linked to money either in the form fines or product sales.
+The issues that shifts into focus once the actual process of creating the build is thoroughly optimized is to gain an idea of whether a build will fail or succeed.
+If a project reaches a certain size, meaning the test suite grows considerably in size, the build process can take several hours just to run the whole test suite.
+To determine whether developers need to stay in order to apply quick fixes such that the product can be shipped or handed over to a team starting heir work in a different time zone becomes important.
 
 Research that aimed at discerning the success of a build leverages existing research on defect prediction to build a tree classifier to predict build outcome.
-Hassan et al~\cite{hassan:ase:2006} found that these classifiers work with the time of the month and week being strong predictors of build success.
-Note that we omitted the only two other studies to the best of our knowledge exploring predicting quality of software builds that we will discuss in greeter detail later as we consider them part of this thesis.
+Hassan et al~\cite{hassan:ase:2006} found that time of the month and week are strong predictors of build success.
+Note that we omitted the only two other studies to the best of our knowledge exploring predicting builds success because they form part of this thesis.
 
 \section{Socio-Technical Congruence}
 As mentioned earlier this thesis explores to what extent can we leverage the concept of socio-technical congruence. 
-Before we start discussion the work that has been done with respect to using the concept of socio-technical congruence to analyze software development teams and their performance, we explain the socio-technical congruence concept and in different ways it was implemented so far.
-We close this section by discussion the next step we are going to take with respect to concept.
+Before we start discussion the work that has been done with respect to using the concept of socio-technical congruence to analyze software development teams and their performance, we explain the socio-technical congruence concept.
 
 \subsection{Socio-Technical Congruence Definitions}
 The literature exploring and using the concept of socio-technical congruence often relies on two interconnected definitions of socio-technical congruence.
-Originally as first defined by Cataldo et al~\cite{cataldo:cscw:2006} socio-technical congruence was a single metric describing how much of the work dependencies between developers are covered by the communication between those developers.
+Originally defined by Cataldo et al~\cite{cataldo:cscw:2006} socio-technical congruence was a single metric describing how much of the work dependencies between developers are covered by the communication between those developers.
 But the interest in socio-technical congruence took a broader view and instead of focusing on the metric the focus shifted to the underlying construct conceptualizing the different connections among developers.
 Following we discuss the two commonly used approached to infer socio-technical dependencies among developers, starting with the traditional definition initially presented by Cataldo et al~\cite{cataldo:cscw:2006} followed by a more network centric definition.
 
@@ -37,7 +35,6 @@ Thus two matrices need to be inferred from a data set: (1) task assignment matri
 The task assignment matrix dimension is the number of developers times the number of tasks.
 Each entry in the matrix denotes whether a given developer is assigned to a given task, note that this notation allows for more than one developer to be assigned to a task as well as one developer being assigned to multiple tasks.
 This information is inferred from task management systems such as BugZilla\footnote{\url{http://www.bugzilla.org}} or Jira\footnote{\url{http://www.atlassian.com/software/jira}} that show who is assigned to work on a given task.
-Thus constructing the task assignment matrix together with identifying developer and task is straight forward when a task management is available.
 
 \paragraph{Task Dependency Matrix}
 The task dependency matrix dimension is the number of tasks times the number of tasks with each row and column representing all tasks.
@@ -45,7 +42,7 @@ Each entry in the task dependency matrix indicated whether two tasks have a depe
 The task dependency matrix is populated by identifying the code written to finish a task and infer dependencies among the various code changes implementing different tasks.
 For example, Cataldo et al~\cite{cataldo:cscw:2006} defined two tasks to be dependent if the associated changes modify the same file. 
 
-\begin{figure}[ht]
+\begin{figure}[t!]
 \centering
 \[
 \left(
@@ -88,7 +85,6 @@ For example, Cataldo et al~\cite{cataldo:cscw:2006} defined two tasks to be depe
 \label{chap:3:fig:example:stc:cataldo}
 \end{figure}
 The final calculation of the technical dependency among developer follows the formula presented below:
-
 \begin{equation}
 \label{eq:stc:cataldo}
 \text{Task Assignment} \times \text{Task Dependency} \times \text{Task Assignment}^{\text{T}} = \text{Coordination Needs}
@@ -99,7 +95,7 @@ Following the formula presented in Equation~\ref{eq:stc:cataldo}, we multiply th
 For instance developer Adam and Eve have a resulting dependency because they are both assigned to tasks that have a dependency in the task dependency matrix. 
 This resulting matrix is also referred to as the coordination needs matrix.
 
-The technical dependency matrix obtained through the matrix multiplication described, needs to be contrasted with the actual coordination that happened in the project.
+The technical dependency matrix obtained through the matrix multiplication described needs to be contrasted with the actual coordination that happened in the project.
 For this purpose Cataldo et a~\cite{cataldo:cscw:2006} proposed to create a matrix recording whether two developers coordinate their work.
 Communication is often~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008,wolf:icse:2009} used as a proxy for coordination, such as emails or posting comments on task discussions in issue management systems.
 The congruence metric itself is the ratio between developers that have both a technical dependency and did coordinate over the number of developers that have a technical dependency.
@@ -114,9 +110,9 @@ This is possible since changes to a software system are usually recorded in a so
 Thus research~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} working with the socio-technical congruence concept with a social network view contrast social and technical networks.
 
 \paragraph{Technical Networks}
-In Cataldo et al's~\cite{cataldo:cscw:2006} formulation of technical dependencies he is constructing them by multiplying the task assignment and task dependency matrix.
+In Cataldo et al's~\cite{cataldo:cscw:2006} formulation of technical dependencies they construct them by multiplying the task assignment and task dependency matrix.
 Since the task dependency matrix is inferred from the overlap in code modifications, say both tasks are accomplished by modifying the same source code files, the technical dependencies among developers can be directly inferred from a software repository.
-This more direct approach enables for the construction of technical networks, connecting developers through the dependencies of the changes they made to a software project, enables us to construct technical networks without the need of accessing a task management system.
+This more direct approach enables the construction of technical networks, connecting developers through the dependencies of the changes they made to a software project, without the need of accessing a task management system.
 
 \paragraph{Social Networks}
 The social network representation of the ongoing communication is exactly the same as the actual coordination matrix as described by Cataldo et al's~\cite{cataldo:cscw:2006} as the matrix is in effect a way to represent a network (also known as adjacency matrix).
@@ -124,27 +120,21 @@ The social network representation of the ongoing communication is exactly the sa
 The technical difficulties in this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less governed by processes demanding naming conventions of account names~\cite{schroeter:isese:2006}.
 
 \subsection{Socio-Technical Congruence and Performance}
-Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} stating that any product developed by an organization will inevitably mirror the organization's communication structure.
-From this starting point Cataldo et al~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated whether the lack of this mirror relates to changes in productivity and the overlap of the communication among developers and the technical dependencies of their work.
+Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} states that any product developed by an organization will inevitably mirror the organization's communication structure.
+From this starting point Cataldo et al~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated whether the lack of this mirror relates to changes in productivity by investigating the overlap of communication among developers and their technical dependencies.
 The communication among developers represents the organizational communication structure whereas the technical dependencies between the work each developer represents the products organization.
-The idea is that if the communication structure completely contains the work dependencies among developers, that developer will be able to accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
+If the communication structure completely contains the work dependencies among developers, that developer will be able to accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
 For example, a developer can better accomplish her task if she is talking directly to co-workers that need to modify related code to avoid failures or because someone can help her understand the impact the code she is about to modify better.
 
-The main performance criteria research investigated to measure the effect of socio-technical congruence is the time it takes to complete a task.
-For this purpose Cataldo et al~\cite{cataldo:cscw:2006} measures the congruence on a task basis and correlating congruence metric drived from the overlap of the social and technical network with the time it took to resolve the task.
-Overall Cataldo et al~\cite{cataldo:cscw:2006} found and were confirmed by other studies~\cite{valetto:msr:2007,ehrlich:stc:2008} that there is a statistically significant relation between the amount of congruence and a tasks resolution time.
-
-%Considering that the main issue with the productivity is the longer way of communication through intermediates in contrast to the direct way lends itself to open the question of whether congruence can predict software quality.
-%The rational is that the additional complication in communication might introduce errors into the system due to awareness.
-%Meneely et al~\cite{meneely:fse:2008} showed that socio-technical networks can be used to predict software failures whereas Kwan et al~\cite{kwan:tse:2011} found that the congruence metric statistically relates to build success.
-%In both cases, software quality and productivity there are some additional steps that need to be taken to fully leverage the concept of socio-technical congruence.
+The main performance criteria research investigated to measure the effect of socio-technical congruence is task completion time.
+For this purpose Cataldo et al~\cite{cataldo:cscw:2006} measures the congruence on a task basis and correlating congruence metric derived from the overlap of the social and technical network with the time it took to resolve the task.
+Overall Cataldo et al~\cite{cataldo:cscw:2006} found, and were confirmed by other studies~\cite{valetto:msr:2007,ehrlich:stc:2008}, that there is a statistically significant relation between the amount of congruence and a tasks resolution time.
 
 
 
 \section{Source Code and Failure}
 Technical dependencies that are used in the work of Cataldo et al~\cite{cataldo:cscw:2006} where studies before in the relation to software failures.
 Because we are investigating how to improve communication among software developers following their technical dependencies among each other we give an overview over work that involves work on source code that directly or indirectly indicates technical dependencies. 
-
 
 \subsection{Software Metrics}
 \label{chap:6:measure}
@@ -161,7 +151,7 @@ Both metrics have been found to exhibit a medium to strong correlation across va
 In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
 Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
 
-The first study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
+A study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
 Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
 
 Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multiple source code metrics, other studies the relation ship of particular metrics with defect density.
@@ -179,18 +169,14 @@ This means, using those metrics as predictors adjusted to one project usually of
 
 
 \subsubsection{Change Complexity Metrics}
-Besides measuring the complexity of the source code artifacts, measuring the complexity of the development of those code artifacts can also indicate at dependencies across artifacts.
 During the evolution or maintenance of a project files are continuously edited to extend or improve the exiting project.
-These changes implicitly change the dependencies to other software artifacts by changing call and data dependencies and thus construct and measure an implicit software artifact network.
-Furthermore, changing files can create dependencies among the owner of the modified or affected and thus construct a technical network.
-
 Software artifact modifications are seldomly equally distributed across the project time and the artifacts related to a project.
 Thus, software artifact changes lend themselves to be studies in relation to software quality.
 The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005,moser:icse:2008,cataldo:icse:2011}.
 
 The next logical step after investigating the amount of change is to characterize the complexity of the changes made to a software artifact. 
 These churn metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
-To take it one step further compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
+Compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
 Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
 
 Similarly to the code complexity metrics, change complexity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
@@ -200,7 +186,7 @@ Similarly to the code complexity metrics, change complexity metrics are also not
 \label{chap:6:sub:oom}
 Object oriented metrics are taking into account more language specific constructs that in the case of object oriented programming are often describing the relationship between object, such as inheritance depth.
 Besides measuring the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
-Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
+Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} and they showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
 %
 Direct measures of object relationship, such as inheritance depth~\cite{chidamber:tse:1994}, sub-classing~\cite{chidamber:tse:1994} and object coupling~\cite{chidamber:tse:1994}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
 
@@ -217,21 +203,18 @@ Using more course grained dependency on the module level, or in other words coun
 Another dependency metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schroeter:isese:2006,dualaekoko:esem:2009}.
 
 Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependencies between source code artifacts can be inferred using change information.
-Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the information about co-chaning files, that are files that are frequently changed togehter in the same change-set, to determine how dangerous it can be to not change those files together.
-Zimmermann et al's work originally was intended to recommend with files to additionally change to an original software change  found that violating those co-change dependencies can lead to software failure.
-Build on that work D'Ambros et al used the amount of those violations to build a prediction model that is able to predict defect likelihood for a file in a given project release. 
+Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the information about co-changing files, files that are frequently changed together in the same change-set, to determine how dangerous it can be not to change those files together.
+Zimmermann et al's work originally was intended to recommend which files to additionally change to an original software change found that violating those co-change dependencies can lead to software failure.
 
 
 \subsection{Artifact Networks}
 \label{chap:6:an}
-This Section serves the purpose of exploring the existing work done on failure prediction that consciously leverages networks that are built from linked software artifacts.
-
-Using dependencies within a product one can construct a network of software artifacts that share dependencies among each other.
+Using dependencies within a product one can construct a network of software artifacts that are connected via those dependencies.
 Artifacts that have direct dependencies are sometimes in the case of source code referred to as code peers.
 One interesting property of code peers is that in case a code peer exhibits a defect it increases the likelihood that the code artifact whose peer contains a defect has a higher likelihood to contain a defect by itself~\cite{nguyen:icse:2010}.
 
-From this notion of a code peer and the influence a code peer or more generally an artifact peer can have on the quality of an artifact, analyzing these network with respect to an artifact and it surrounding artifacts.
-In a first study Zimmermann et al~\cite{zimmermann:icse:2008} studied data and call dependency measures a single artifact has to its dependent artifacts and found it to be a good predictor for software defects.
+From the notion of a code peer and its influence on other peers, can the idea of analyzing these network with respect to an artifact and it surrounding artifacts be derived.
+In a first study Zimmermann et al~\cite{zimmermann:icse:2008} analyzed data and call dependency measures a single artifact has to its dependent artifacts and found it to be a good predictor for software defects.
 
 In a follow up study Zimmermann et al~\cite{zimmermann:esem:2009} extended the influence of an artifacts peer by not solely focusing on an artifacts dependencies to its peers but taking into account the dependencies among an artifacts peers.
 This enables the application of network measures and social-network measures to characterize this ego network constructed around a singe software artifacts.
@@ -240,10 +223,10 @@ As it turn out, the predictive power of such a network can be more powerful than
 \subsection{Technical Networks}
 \label{chap:6:tn}
 To go from artifact network to technical network developers can be included in the already existing artifact network and thus be represented as a kind of artifact~\cite{pinzger:fse:2008}.
-These two mode networks can be used to do the same analysis that Zimmermann et al~\cite{zimmermann:esem:2009,zimmermann:icse:2008} performed by focusing on the software artifacts to predict the failure likelihood of each.
+These two mode networks can be used for the same analysis that Zimmermann et al~\cite{zimmermann:esem:2009,zimmermann:icse:2008} performed by focusing on the software artifacts to predict the failure likelihood of each.
 
-Meneely et al~\cite{meneely:fse:2008} uses networks that consist of developers that within a given release modified the same file, which matches our definition of connecting developer as soon as artifacts they are related to are connected.
-These networks, or rather social network measure extracted from these networks, are able to predict whether a file contain a failure.
+Meneely et al~\cite{meneely:fse:2008} uses networks that consist of developers that within a given release modified the same file.
+These networks, or rather social network measure extracted from these networks, are able to predict whether a file contains a failure.
 
 
 
@@ -255,41 +238,38 @@ These networks, or rather social network measure extracted from these networks, 
 
 \section{Recommendations in Software Engineering}
 In the software engineering community knowledge extracted from software repositories are usually brought to developers in the form or recommender systems.
-Several recommender systems derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968}, which later was confirmed by Cataldo et al~\cite{cataldo:cscw:2006}, provide additional awareness to improve coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
-In the following we describe five such awareness systems, we are aware that this list is not exhaustive. 
+Several recommender systems derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} provide additional awareness to improve coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
+In the following we describe five such awareness systems.
+We are aware that this list is not exhaustive. 
 Nonetheless, we think this list presents a reasonable overview of awareness systems proposed by software engineering researchers.
 
 % ariadne
-Ariadne~\cite{trainer2005:ariadne} provides awareness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting when following call dependencies.
+\emph{Ariadne}~\cite{trainer2005:ariadne} provides awareness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting when following call dependencies.
 This allows a developer to see which developer she might need to coordinate her work with to not negatively impact the code of other developers that are using the code she is modifying.
-%
+
 % palantir
-Palantir~\cite{sarma:cscw:2002} complements the dependencies among developer by providing the reverse awareness, namely, showing a developer what source code they are currently accessing in their workspace is affected by code changes submitted by co-workers.
+\emph{Palantir}~\cite{sarma:cscw:2002} complements the dependencies among developer by providing the reverse awareness, namely, showing a developer what source code they are currently accessing in their workspace is affected by code changes submitted by co-workers.
 For example, Palantir indicates which source code files have been changed in the mean time by other developer that are present in the developer current work space and thus might hint at possible merge conflicts.
 
 % tesseract
-Tesseract~\cite{sarma:icse:2009} extends the concept of showing code dependencies among developers by fostering awareness through visualizing task and developer centric socio-technical networks, which would extend the technical networks directly and indirectly shown in Ariadne and Palantir by a social component.
+\emph{Tesseract}~\cite{sarma:icse:2009} extends the concept of showing code dependencies among developers by fostering awareness through visualizing task and developer centric socio-technical networks, which would extend the networks directly and indirectly shown in Ariadne and Palantir by a social component.
 A task centric socio-technical networks is build from all developers and source code changes that are related through code dependencies or task discussions to a specific task.
 These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what social, technical, or socio-technical relationships she has with her colleagues.
 
 % proxi scentia
 Ariadne, Plantir, and Tesseract suffer from the issue that they cannot provide real time feedback on changes in the technical networks, as they can only record changes made to source code as developer commit complete changes to the source code repository. 
-Proxiscentia~\cite{borici:chase:2012} address this issue by implementing an apporach proposed by Blincoe et al~\cite{blincoe:cscw:2012} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
+\emph{Proxiscentia}~\cite{borici:chase:2012} address this issue by implementing an approach proposed by Blincoe et al~\cite{blincoe:cscw:2012} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
 This enables a developer to be forewarned of changes that are made to related code as for example Palantir relies on or would enable Ariadne to take into account newly create source call dependencies as a developer is modifying code calling methods that are currently modified by another developer.
 
 % Ensemble
-Ensemble~\cite{xiang:rsse:2008} provides a constant stream of events consisting of modifications to artifacts that are related to the stream owner.
-If developer Adam posts a comment on a task owned by developer Eve, then Eve's stream of events would contain an event showing that Adam commented on her task.
+\emph{Ensemble}~\cite{xiang:rsse:2008} provides a constant stream of events consisting of modifications to artifacts that are related to the stream owner.
+If developer Adam posts a comment on a task owned by developer Eve, then Eve's stream would contain an event showing that Adam commented on her task.
 Similarly, the stream of a developer also contains information about relevant code modifications that overlap or potentially interact with code he or she previously modified.
 
-% code book
-% hipicat
-%Other systems such as HipikaT~\cite{cubranic:tse:2005} and Codebook~\cite{begel:icse:2010} provide a way to search and thus pull information about relationships between code artifacts and developer based on various sources such as emails, task managements systems, code repositories, or any other electronically accessible development repository.
-%In contrast to as system such as Essemble, search based systems will not flood developers with a large amount of notifications that are of little interest to developer, yet at the same time search based systems will not be able to notify developer if something of great importance that require immediate attention, such as a build that was meant as a release candidate failed.
 
 Overall all these recommender systems provide awareness of who might be worth to interact with.
 None of those systems are aiming at a concrete goal to accomplish other than achieving awareness.
-We think that a focus is needed, such as on awareness with respect to dependences that are relevant for build success.
+We think that a focus is needed, such as on awareness with respect to dependencies that are relevant for build success.
 Without such a focus the information that a developer needs to survey can quickly take up to much precious development time and may lead a developer to abandon those systems as they are taking up more time than they save.
 
 
@@ -306,23 +286,18 @@ Because of the concept being based on networks it is possible to manipulate the 
 There are two steps that need to be taken:
 (1) identify the parts of the network that need to be changed
 and (2) devise strategies to change the social network in a timely fashion.
-%A socio-technical network can be changed by encouraging communication or remove or add technical dependencies among developers.
-%As changing technical dependencies often means re-factorings or even major changes in the software architecture and as such changes are usually economically discouraged as clients rarely want to pay for non feature for, hence, we focus on adjusting the social dimension of socio-technical coordination.
-%
-%
-%
-%
 In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
 On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
 Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
 
 Any socio-technical network can be manipulated in two ways: (1) changing the technical dependencies among developer by refactoring or architectural changes to make them unnecessary and (2) by engaging developer in discussions about their recent work and therefore creating a coordination edge in the socio-technical network.
-Since many product aren't developed from scratch and because architectural changes once development has been going on for a number of months are costly and time consuming~\cite{vangurp:jss:2002}, we aim at generating recommendations to change the actual coordination to improve the socio-technical network where it matters.
+Since many product are not developed from scratch and because architectural changes once development has been going on for a number of months are costly and time consuming~\cite{vangurp:jss:2002}, we aim at generating recommendations to change the actual coordination to improve the socio-technical network where it matters.
 Therefore, as a first step we need to assess if the actual communication structure among software developers has an influence on build success to lay the basis for manipulating the actual coordination to increase build success.
 As a follow up step, we need to explore the relationship between socio-technical networks and build success.
 Especially we are interested in the relationship in whether missing actual coordination in the face of a coordination needs is related to build success.
 
-We start in the second part of this thesis with investigating the influence of communication among team members in the form of the communication structure as represented by social networks on build success followed by investigating if the gaps between developers as highlighted by socio-technical networks and the socio-technical networks themselves can be brought into relation with build success.
+We start in the second part of this thesis with investigating the influence of communication among team members in the form of the communication structure represented by social networks on build success.
+Next, we investigate if gaps (unfilled coordination needs) between developers as highlighted by socio-technical networks and the socio-technical networks themselves can be brought into relation with build success.
 Therefore Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
 
 \begin{description}
@@ -333,8 +308,8 @@ Therefore Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the fol
 Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs, with build success, while knowing that communication alone has an effect on build success we formulate an approach to leverage socio-technical networks in Chapter~\ref{chap:approach}.
 The third and final part of this thesis focuses on evaluating this approach in three ways:
 (1) gathering general statistical evidence of parts of the network and build success to foster recommendations,
-(2) the acceptance of such recommendation of developers,
-and (3) a proof of concepts that the recommendation can prevent failures.
+(2) exploring the acceptance of such recommendation by developers,
+and (3) a proof of concepts that the recommendation could prevent failures.
 Hence, the first three chapters of the third part of this thesis are guided by the following three research questions:
 
 \begin{description}
