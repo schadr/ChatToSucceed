@@ -1,3 +1,4 @@
+% !TEX root = thesis.tex
 \startfirstchapter{Introduction}
 The software industry often visible through some of their biggest companies such as Microsoft, Google, IBM, Dell, Apple, Oracle, and SAP represents several hundred billion US Dollars a year. 
 For example the software industry in USA in 2002 was producing according to the US Census a total revenue of 103.7 billion USD\footnote{http://www.census.gov/prod/ec02/ec0251i06.pdf last visited May 10th, 2012}.
@@ -18,17 +19,17 @@ For example, on the human side, the organizational distance between developer is
 
 Yet, to truly be able to optimize the software engineering process a more holistic view is needed that marries both the technical and social aspects.
 One such way to marry those two aspects that as Conway stated are influencing each other~\cite{conway:datamination:1968} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{cataldo:cscw:2006}.
-They proposed to overlay social and technical networks to get an overview of a projects social and technical interdependencies and derive insight through the miss-match between those two networks.
+They proposed to overlay networks contracted from social (who communicates with whom) and technical (whose code depends on whose source code) dependencies to get an overview of a projects social and technical interdependencies and derive insight through the miss-match between those two networks.
 
-To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical networks is covered by the social network.
-This directly follows from Conway's observations~\cite{conway:datamination:1968} that describe the need for the communication structure of any given organization to follow the underlying technical constructs.
+To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
+This directly follows from Conway's observations~\cite{conway:datamination:1968} that describe the observation that the communication structure of any given organization to dictate the underlying technical depdenencies.
 In software engineering that roughly translates into the idea that the communication flow within software teams need to follow the module dependencies described by the software architecture. 
  
 This idea shows great promise in applying to software repositories such as versioning archives and issue trackers or other recorded communication.
-Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the cover of the social network over the technical network is, the better productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009}.
-With the ability to extract useful socio-technical measure from archives in an automated fashion enables a wide spread application to any software project that captures development data electronically.
+Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the satisfaction of the technical dependencies with social interaction is, the better productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009}.
+With the ability to extract useful socio-technical measures from archives in an automated fashion enables a wide spread application to any software project that captures development data electronically.
 
-However, there are four major issue with the concept of socio-technical congruence as it is currently used:
+However, there are four major issues with the concept of socio-technical congruence as it is currently used:
 \begin{itemize}
 \item The socio-technical congruence measure itself does not give much indication with respect to how to improve the over all situation other than to suggest people to talk to each other in case they share a technical dependency. 
 \item The idea of achieving high congruence is based on the notion that it is important to communicate along all technical dependencies, which does not need to hold true.
@@ -84,11 +85,10 @@ Instead of using the outcome metric traditionally associated with socio-technica
 Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific on as it is the case with pre- and post-release failures, we think build success is fundamental in creating a product that can be shipped to a customer.
 Often a successful build indicates that not only all test cases deemed important pass, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
 Hence, build success is of utmost importance to a business as it forms the very product the business hopes to sell.
-
-Therefore the two guiding research questions we peruse in this thesis to investigate whether socio-technical congruence can be used to increase software quality are:
+Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase software quality are:
 \begin{description}
 \item[RQ 1:] Does Socio-Technical Congruence influence build success?
-\item[RQ 2:] Can Socio-Technical Networks be used to recommend improvements?
+\item[RQ 2:] Can Socio-Technical Networks be used to recommend improvements in software quality?
 \end{description}
 
 % methodology overview
