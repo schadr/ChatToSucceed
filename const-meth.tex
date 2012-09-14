@@ -1,7 +1,7 @@
 % !TEX root = thesis.tex
 \startchapter{Methodology and Constructs}
 \label{chap:meth}
-Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we go over the overall roadmap for this thesis (Section~\ref{c5:sec:roadmap}) and some common definitions (Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that are necessary to clarify for the remainder of the thesis.
+Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we present the overall roadmap for this thesis (Section~\ref{c5:sec:roadmap}) and some common definitions (Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that we use for the remainder of the thesis.
 Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{c5:sec:datacollection}) as well as our analysis methods used (Section~\ref{c5:sec:analysis}).
 
 \begin{figure}[t]
@@ -13,7 +13,7 @@ Furthermore, we also will discuss the general approach to the data collection me
 
 \section{Methodology Roadmap}
 \label{c5:sec:roadmap}
-In this section we will discuss what methods we apply to answer the research questions presented in Chapter~\ref{chap:bg}.
+In this section we discuss the methods we apply to answer the research questions presented in Chapter~\ref{chap:bg}.
 Figure~\ref{fig:roadmap} depicts the relationship between the research questions and the contribution of this thesis, an approach to improve social interactions among developers.
 Research questions~1.1 and~1.2 discussed in Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2} motivate the approach.
 Research questions~2.1 and~2.3 (Chapters~\ref{chap:stc-net} and~\ref{chap:actionable}) explore whether socio-technical networks can be used to form recommendations that can prevent build failures, whereas research question~2.2 inquires in Chapter~\ref{chap:talk} whether such recommendations are acceptable by developers.
@@ -24,16 +24,16 @@ The thesis goal is to device an approach that is able to improve the social inte
 As a first step we need to establish if the communication among software developers has an influence on the build success.
 
 %Data Source
-We have access to the development repositories used by the IBM Rational Team Concert development team giving us access to their source code management systems, communication repositories in the form of work item discussions, and their build results.
-All these artifacts are linked together in such a way that we can trace from the build result, which changes  went into the build and which work items a change is meant to implement.
+We have access to the development repositories used by the IBM Rational Team Concert development team such as source code management systems, communication repositories in the form of work item discussions, and their build results.
+All these artifacts are linked together in a way that we can trace from the build result which changes went into the build and which work items a change is meant to implement.
 
 %Methods
 Using this information we can construct social networks from all the work items that can be via changes related to builds.
-These network are then described using social network metric and feed into machine learning algorithms to predict whether a build based on these metrics is more likely to fail or succeed.
+These network are then described using social network metric and fed into machine learning algorithms to predict whether a build based on these metrics is more likely to fail or succeed.
 
 %Expected results
 Via this machine learning approach we want to establish a connection between a builds social network and its outcome. 
-If we are able to predict the build outcome more accurately than by simply guessing using the likelihood for a build failure we showed that there is a statistical relationship between build outcome and social networks.
+If we are able to predict the build outcome more accurately than by simply guessing, using the likelihood for a build failure, we demonstrated that there is a statistical relationship between build outcome and social networks.
 Thus, this result form the first evidence that manipulating the social network might yield positive impact on build success.
 
 \subsection{Research Question 1.2}
@@ -41,7 +41,7 @@ Thus, this result form the first evidence that manipulating the social network m
 Knowing that a social network can influence the success of the corresponding build leaves the question open as to how that networks should be manipulated to improve the likelihood of a build to succeed.
 Therefore, we explore the relationship between socio-technical networks generally and gaps within that networks, with a gap being formed by two developers that share a technical dependencies but did not communicate about work related to the build of interest, and build success.
 %Data Source
-Similarly to the previous research question, we base the analysis on the same data set, as it allows us to directly infer technical relationships among developers related to a software build from the changes submitted to the source code management tool and which we used previously to infer the work items developers used to communicate among each other about the build.
+Similarly to the previous research question, we base the analysis on the same data set, as it allows us to directly infer technical relationships among developers related to a software build from the changes submitted to the source code management tool, which we used previously to infer the work items developers used to communicate among each other about the build.
 
 %Methods
 Since the socio-technical networks can have two semantically different edges connecting two developer within a network (technical dependencies and communication among developers) we refrain from using social network metrics as they assume only one mode of connection among nodes within a network.
@@ -67,11 +67,11 @@ We expect to find a number of gaps that when mitigated increase the likelihood o
 %Motivation
 Before exploring the in more detail if the recommendation hold actual value with preventing build failures, we explore if developer would welcome recommendations with respect to changes.
 %Data Source
-Therefor, we joined the development effort of one of the Rational Team Concert as participant observer to get an insight into how the actual developer communicate during their day to day work.
+Therefore, we joined the development effort of one of the Rational Team Concert as participant observer to get an insight into how the actual developer communicate during their day to day work.
 
 %Methods
-We complement these observations with follow up interviews to gain a better understanding of the team dynamics and their discussion topics, since as a project newcomer our work is limited to more basic tasks in contrast to higher level decision making.
-To extend out reach beyond the local team we deployed a questionnaire with the product team at large to gain a better understanding whether the recommendations we would supply can easily be integrated in their typical discussions with fellow developers.
+We complement these observations with followup interviews to gain a better understanding of the team dynamics and their discussion topics, since as a project newcomer our work is limited to more basic tasks in contrast to higher level decision making.
+To extend our reach beyond the local team we deployed a questionnaire with the product team at large to gain a better understanding whether the recommendations we would supply can easily be integrated in their typical discussions with fellow developers.
 
 %Expected results
 This study should give us a better understanding of whether developer are discussing individual changes, thus justifying the appropriateness of the level of recommendations, as well as with general suggestions on when and how to supply such recommendations as developer are not always interested in individual changes even if they pose a threat to build success.
@@ -82,19 +82,20 @@ We conclude our evaluation of our proposed approach with  a proof of concept in 
 As root cause analysis of failures can be very tedious and due to the various reasons a build can fail that are not necessarily due to software changes we depart from studying the development of Rational Team Concert and observe students extending an open source project.
 
 %Data Source
-This different setting allows us to ask the study participants to use tool we developed to collect more fine grained data on their development efforts, such as when they edited which parts of the source code, in addition to access to the actual source code repositories such as source code management, issue tracking, email, and text chat sessions.
-Furthermore, we ask them to answer regular questionnaires and keep a development diary that are meant to collect information on issues that the students encounter during the course and are especially related to their development effort.
+This different setting allows us to ask the study participants to use tools we developed to collect more fine grained data on their development efforts, such as when they edited which parts of the source code.
+Additionally, we have access to the actual source code repositories such as source code management, issue tracking, email, and text chat sessions.
+Furthermore, we ask the students to answer regular questionnaires and keep a development diary that are meant to collect information on issues that the students encounter during the course and are especially related to their development effort.
 
 %Methods
 Analyzing the collected data from the questionnaires and development diaries is done manually, by reading and annotating the different responses and entries to uncover build issues that were important to the students.
-Knowing the build issues we select the most severe in terms on the number of reports and trace them to the actually root cause if possible by identifying the code changes that causes them (if applicable) and continuing to analyze the offending changes and identifying corresponding communication.
+Knowing the build issues the students encountered, we select the most severe in terms on the number of reports and trace them to the actually root cause if possible by identifying the code changes that causes them (if applicable) and continuing to analyze the offending changes and identifying corresponding communication.
 
 %Expected results
-We expect to find one or more representative example of build issues that the students encounter during the course that can be resolved using recommendations based on information that is available before the students actually incorporate their modifications in to the source code repository of the project.
+We expect to find one representative example of build issues that the students encounter during the course that can be resolved using recommendations based on information that is available before the students actually incorporate their modifications in to the source code repository of the project.
 
 \section{Definitions}
 \label{c5:sec:definitions}
-We sill start with defining three constructs that we are heavily relying upon: (1) Work Item's being a complete unit of work, (2) Change-set being the technical work submitted by a developer, and (3) builds referring to a testable product.
+We start with defining three constructs that we are heavily relying upon: (1) Work Item's being a complete unit of work, (2) Change-set being the technical work submitted by a developer, and (3) builds referring to a testable product.
 
 \subsection{Work Item}
 A \emph{Work Item} is a unit of work that can be assigned to a single developer.
@@ -102,7 +103,7 @@ A unit of work can span anything from being a bug-report, reported by either the
 \emph{Work Item}s can be hierarchically organized to show the work break-down from high-level requests to manageable pieces.
 Still one project team member is responsible for a work item to be completed, the sub work items that it is broken-down to do not necessarily need to be assigned to the owner of the parent work item.
 
-For instance, in the case of the IBM Rational Team Concert the development team creates story items to describe larger functionality from the user point of view and assigns depending on the complexity and implication of the story.
+For instance, in the case of the IBM Rational Team Concert the development team creates story items to describe larger functionality from the user point of view and assigns them depending on the complexity and implication of the story.
 The owner of the story then either breaks down the story into multiple stories or tasks which are again assigned to team members according to their complexity and implications.
 Once the work item level is sufficiently low the developer assigned to it can make the necessary modification to the project to accomplish the work detailed in the work item.
 
@@ -113,7 +114,7 @@ A \emph{Work Item} is a defined and assignable unit of work.
 \end{note} 
 
 \subsection{Change-Set}
-A \emph{Change-Set} is a set of source code changes applied to a number of source code entities, with an entity being the artifact that a developer would change to add to, modify, or delete from the current product. 
+A \emph{Change-Set} is a set of source code changes applied to a number of source code files, with a file being the artifact that a developer would change to add to, modify, or delete from the current product. 
 The developer that applied those changes to the product bundles them into one or multiple change-set.
 For example, in the Eclipse project\footnote{\url{http://www.eclipse.org}} the developers use CVS\footnote{\url{http://www.nongnu.org/cvs}} as their version control system to manage changes to the Eclipse IDE.
 A developer will check out her current version of the repository and started editing, creating and deleting files in order to fulfill a work item she is currently working on.
@@ -134,8 +135,8 @@ To create a build a team gathers all the changes implementing work items that ar
 The amount of work items and their respective changes included in a build will gradually increase over time because more work will be finished as the project progresses.
 
 In the case of the IBM Rational Team Concert development team, they create builds on a frequent basis to test the product as a whole to look for integration issues. 
-The team also subscribes to the philosophy to use their own products as intensely as possible themselves and thus try to bring each build to a level that it can be used for development.
-This intense use enables the team to spot issues that are still within the product and better asses the severity of those found issues.
+The team also subscribes to the philosophy to use their own products themselves and thus try to bring each build to a level that it can be used for development.
+This intense use enables the team to spot issues that are still within the product and enables them to asses the severity of those found issues.
 
 \begin{note}
 \begin{mydef}
@@ -155,11 +156,10 @@ From the definitions introduced previously we can derive the three central const
 \label{fig:network}
 \end{center}
 \end{figure}
-To illustrate our approach to construct social networks we go through the example to help solve team collaboration problems, by following the example of a failed build (Figure~\ref{fig:network}). 
+To illustrate our approach to construct social networks we go through of a failed build illustrated in Figure~\ref{fig:network}. 
 A social network is represented as a graph that consist of nodes connected by edges. 
 In our approach, the nodes represent people and edges represent task-related communication between these people.
 
-Let us start with a high level description of how we conceptualize and construct social networks for software teams. 
 The approach is repository and tool independent and can be applied to any repositories that provide information about people, tasks, technical artifacts, and communication. 
 This include work, issue, or change management repositories, such as Bugzilla or IBM Rational Team Concert; or source code management systems, such as CVS or IBM Rational Team Concert; or even communication repositories such as email archives.
 
@@ -200,7 +200,7 @@ Note that this sections draws heavily from our work done in collaboration with T
 
 % some preamble as in the previous subsection
 Building technical networks follows a very similar approach as we described for building social networks.
-In fact, the technical network is a social network whose only main distinction from the social network described earlier lies in the way edges between nodes are created.
+In fact, the technical network is a social network whose main distinction from the social network described earlier lies in the way edges between nodes are created.
 We derive the name of technical network from the way we link developer with each other, namely if they are modifying related source code artifacts.
 As in the previous network construction, the construction of the technical network is based on three components:
 
@@ -217,14 +217,14 @@ For example Alfred as shown in Figure~\ref{fig:addtechnicaledge} modified File$_
 \item[Software Artifact Relation] describe the relation between developer in the technical networks.
 These relationship can be defined in several different ways.
 For example, in Figure~\ref{fig:addtechnicaledge} Alfred and Bob are related through a technical relationship because they modified the same file.
-Note, that we are mostly interested in relationship between artifacts that are effected by changes.
+Note, that we are mostly interested in relationships between artifacts that are effected by changes.
 \end{description}
 
 % Example as shown in the picture
-Constructing social networks therefor follow three steps: (1) we gather all the change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
+Constructing technical networks therefore follow three steps: (1) we gather all the change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
 For example, after we selected the set of change-sets of interest we define the change-sets themselves as the source code artifact and identify the owners of those artifacts.
 Then we infer the relationship between those source code artifacts by relating all change-sets that changes the same source code file.
-And as Figure~\ref{fig:addtechnicaledge} shows this means in the case for Alfred and Bob that they are connected because both own a change-set each that modifies a common file.
+And as Figure~\ref{fig:addtechnicaledge} shows this means in the case for Alfred and Bob that they are connected because both own a change-set that modifies the same file.
 
 \subsection{Socio-Technical Network}
 \begin{figure}[t!]
@@ -262,7 +262,7 @@ Hence constructing a socio-technical network requires the following four steps:
 \begin{enumerate}
 \item\textbf{Selecting the Focus} used for the socio-technical network represents the glue that binds the social and technical network into a socio-techncial network. 
 This focus also referred to as filter in our earlier publication~\cite{wolf:ieee:2009}, determines the content of the networks.
-One example we will use in this thesis for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
+One example we use in this thesis for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
 \item\textbf{Constructing the Social Network} follows the description above with the focus determining the work items that are selected to generate the nodes from the work item participants and the edges from the communication among the participants through a work item.
 \item\textbf{Constructing the Technical Network} follows the description of constructing technical networks above with the focus determining the change-sets being used to determine and connect developers in the network.
 \item\textbf{Combining Networks} is the final step that overlays the networks by unifying the set of developers in both networks.
@@ -272,7 +272,7 @@ Thus a pair of developers can be directly connected with each other through two 
 % describe the example in the figure
 Figure~\ref{fig:construct-stc} shows an example on how we in our studies of the IBM Rational Team Concert development team used to create socio-technical networks.
 In the first step (Figure~\ref{fig:construct-focus}) we set the focus to be a software build which allows us via the change-sets that made it into the build to infer what work items are also represented in said build, by following the link between a change-set and a work item.
-Given the focus, constructing the social network can be constructed using the work items that can be linked to the software build (Figure~\ref{fig:construct-sn}).
+Given the focus, the social network can be constructed using the work items that can be linked to the software build (Figure~\ref{fig:construct-sn}).
 Similarly the construction of the technical network relies on the change-sets that went into a build. 
 To actually infer edges between developer, we relying on co-changed files within a build as an indicator of work dependency (Figure~\ref{fig:construct-tn}).
 Finally, the two networks are combined and yield the socio-technical network shown in Figure~\ref{fig:construct-combine}.
@@ -285,36 +285,32 @@ In contrast to gain a more in-depth understanding on how developers actually wor
 
 \subsection{Repository Mining}
 Software development usually uses a number of tools to manage information electronically such as version archives and issue trackers.
-Those software repositories can be the version control archives tracking changes made to the software system, they also can be issue or task management software to keep track of issues that need to be resolved and features that need to be implemented.
-Additionally, those software repositories can also contain digital communication such as forum and email discussions or log of IRC\footnote{\url{http://en.wikipedia.org/wiki/Internet_Relay_Chat} last visited June 8th, 2012} or instant messenger chats.
+Additionally to storing source code and tasks/issues, those software repositories can also contain digital communication such as forum and email discussions or log of IRC\footnote{\url{http://en.wikipedia.org/wiki/Internet_Relay_Chat} last visited June 8th, 2012} or instant messenger chats.
 
-Those repositories can grow to considerable sizes depending on the projects live span and intensity. 
+Repositories can grow to considerable sizes depending on the projects live span and intensity. 
 Therefore, it is often infeasible to manually review the history for a whole project and it is necessary to employ data-mining techniques to be able to analyze trends.
 Although this approach is limited in helping to gain a deeper understanding of the intricacies of a development project, it nevertheless is invaluable to place in-depth results in the bigger picture of the project.
-Furthermore, data mining approaches are one way to easily feedback value to the development team without burdening any individual developer with diverting time to other non automatic data collecting instruments.
+Furthermore, data mining approaches are one way to easily give back value to the development team without burdening any individual developer with diverting time to other non automatic data collecting instruments.
 This is an important point as one goal of this thesis is to explore the ability of the concept of socio-technical congruence to generate actionable recommendations.
-In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make them useless.
+In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make the system useless.
 
 We extract information from three different types of repositories: (1) version control, (2) task management, and (3) build engine.
 The version control supplies us with the knowledge on how developers are connected through their technical work.
 The task management supplies us with the information on who communicated with whom with respect to a work item.
 And lastly the build engine supplies us with the focus to construct socio-technical networks.
 
-In order to derive socio-technical network we will need to link the different artifact types.
+In order to derive socio-technical network we need to link the different artifact types.
 Within IBM Rational Team Concert as illustrated in Figure~\ref{fig:construct-focus} work items are linked to change-sets and change-sets are linked to builds, therefore, establishing the connections needed to construct socio-technical networks with a build as focus.
 Similarly these links can be inferred as proposed by Cubranic et al~\cite{cubranic:tse:2005} from repositories that are missing the capabilities of creating formalized links.
-
-Note, we will provide more detailed in the respective studies on how we employed repository mining techniques.
 
 \subsection{Surveys}
 To complement the insights we obtained from mining repositories we use surveys.
 Surveys are designed iteratively and piloted before deployment, and intended to collect input to enrich and clarify information obtained from the software repositories. 
 With each survey we try to minimize the time each developer needs to spend completing them, which usually limits ourselves to focus on closed questions offering prepared answers.
-We constrain ourselves in this way to minimize the distraction to each individual developer and thus to increase the response rate.
+We constrain ourselves in this way to minimize the distraction to each individual developer and thus increase the response rate.
 
-Our surveys are deployed through web services to make the collections more convenient to each developer as they are spending most of their times working at a computer enabling them to fill in the survey at their earliest convenience instead of keeping track of a paper version that might not easily be returned, especially considering that the development teams we are collaborating with are distributed across different continents.
-
-Note, we will discuss the actual surveys we employed during our studies in the respective chapters as well as the target population, the population size, and the response rate.
+Our surveys are deployed through web services to make the collections more convenient to each developer as they are spending most of their times working at a computer enabling them to fill in the survey at their earliest convenience.
+Keeping track of a paper version is more cumbersome as they might not easily be returned, especially considering that the development teams we are collaborating with are distributed across different continents.
 
 
 \subsection{Observations}
@@ -328,7 +324,7 @@ Being a participant observer has a multitude of advantages:
 \begin{itemize}
 \item\textbf{Reciprocity.} By participating in the actual development we can provide value to the development team from the very beginning.
 This, in turn, motivates the developers to give us the time we need to conduct other parts of the study, like surveys and interviews.
-\item\textbf{Learning the Vocabulary.} Each development project has its own project vocabulary~\cite{espinosa2007:team_knowledge} in order to efficeively and cleary communicate. 
+\item\textbf{Learning the Vocabulary.} Each development project has its own project vocabulary~\cite{espinosa2007:team_knowledge} in order to effectively and clearly communicate. 
 Understanding this vocabulary as an outside is not necessarily easy but very important to make sense of comments and answers supplied in interview and survey and of course to better interpret observations made such as of discussions among developers.
 \item\textbf{Understanding the Context.} For example, in one study our observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. 
 % something about the context helping
@@ -337,13 +333,13 @@ Because of this closeness of our observation period to a major release we observ
 Although it is easy to ascertain when the next major release of the product is, the effect this has on the developer besides a change in the process is harder to gauge.
 Being part of the development effort hows more clearly how developer react to the change in process and better understand their struggles.
 
-\item\textbf{Asking more Meaningful Questions.} Having better understanding of the project and how it affects the individual developer as well as understand the vocabulary they use helps with phrasing better questions.
+\item\textbf{Asking more Meaningful Questions.} A better understanding of the project and how it affects the individual developer as well as understand the vocabulary they use helps with phrasing better questions.
 Better in the sense of both more meaningful to the developer and in the sense of understandability because they can be phrased using the project vocabulary.
 \end{itemize}
 
 Besides gaining a better understanding of some easily missed or miss-understood intricacies, working together with the developer establishes a trust relationship~\cite{letherbridge:ese2005}.
 This trust helps to mitigate observation biases that are introduced by just observing as well as makes developers more forthcoming during interviews and surveys~\cite{letherbridge:ese2005}.
-As you notices it is hard to separate the different data collection methods that involve human interaction, therefore we think combining these data collection methods in the right order can greatly enhance the data collected.
+It is difficult to separate the different data collection methods that involve human interaction, therefore we think combining these data collection methods in the right order can greatly enhance the quality of the collected data.
 
 
 \subsection{Interviews}
@@ -371,22 +367,22 @@ It is therefore necessary that the interviewer has a good understanding of the p
 % talk about the time of the interviews
 We tried to minimize the interruption to project members as much as possible therefore we limited the time we require for each interview as much as possible.
 Most interviews are aimed of taking 30 minutes with a 30 minute overflow in case a participant is willing to continue the interview.
-Furthermore, we gave the work of the interviewee the priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
+Furthermore, we gave the work of the interviewee priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
 
 \section{Analysis Methods}
 \label{c5:sec:analysis}
-We use two types of anlysis techniques to make sense of the data: (1) statistical analysis methods help to assess and extract insights from large quantitative data sets that would be very tedious to analyze by reading through them, and (2) theory building approaches such as grounded theory to make sense of qualitative data.
-Both approaches can be well combined to address different research questions as well as be used triangulate and verify insights.
+We use two types of analysis techniques to make sense of the data: (1) statistical analysis methods help to assess and extract insights from large quantitative data sets that would be very tedious to analyze by reading through them, and (2) theory building approaches such as grounded theory to make sense of qualitative data.
+Both approaches can be combined to address different research questions as well as be used triangulate and verify insights.
 
 \subsection{Statistical Analysis}
-Making sense of large data, that is data that is to big to explore manually, makes use of statistical methods to extrapolate trends that are not due to chance but are particular to the data set at hand.
+Making sense of large data, that is data that is to big to explore manually, makes use of statistical methods to extrapolate trends necessary.
 We apply three different types of statistical analysis techniques: (1) Hypothesis testing to infer if two populations are different with respect to a defined attribute, (2) Correlation testing to infer if two populations follow a similar trend, and (3) Prediction analysis to ascertain if the combination of factors can predict a certain outcome as well as the strength of individual factors in the presence of other factors. 
 
 \paragraph{Hypothesis Tests} are used to determine the likelihood that a set of samples are different based on a combination of attributes of those data samples.
 
 \begin{itemize}
 \item\textbf{Wilcoxon rank-sum test} is a non-parametric test to determine the difference between two data sets with respect to a rank-able attribute.
-Hence, this test can be applied to data attributes that are consist of ordered, interval or continues data.
+Hence, this test can be applied to data attributes that consist of ordered, interval or continues data.
 
 \item\textbf{Kruskal-Wallis test} tests whether a group of samples is drawn from the same distribution.
 Since the Kruskal-Wallis test is an extension to the Wilcoxon rank-sum test for more than two sample it operates on ordered data.
@@ -402,7 +398,7 @@ A typical threshold used in research to reject a null hypothesis is the 5\% leve
 When performing multiple hypothesis test the likelihood that one of the accepted tests is falsely accepted increases, therefore the p-value needs to be adjusted.
 \end{itemize}
 
-Since we cannont make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
+Since we cannot make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
 
 
 \paragraph{Correlation Tests} help with determining if two data sets follow a similar trend or in other words whether there exists a relationship between two data sets.
@@ -424,7 +420,7 @@ Similarly to the hypotheses test we also opt for the most robust non-parametric 
 
 \paragraph{Prediction Analysis} deals with using prediction models to assess the relationship between a set of data attributes with respect to a variable of interest.
 Classification or regression deal with approximating the class or the value associated with a data point using a given set of attributes describing the data point.
-Analysing the prediction model can yield insights into the strength of the effect an attribute or the set of attribute has on the prediction model.
+Analyzing the prediction model can yield insights into the strength of the effect an attribute or the set of attribute has on the prediction model.
 \begin{itemize}
 \item\textbf{Regression Analysis} is often used to assess the effect of a single attribute in the presence of other attributes with respect to the amount of information it provides to make the prediction.
 Models that only use linear combinations of their attributes, such as logistic regression or linear regression, are easier to interpret with respect to the weight these models assign to the individual attributes.
@@ -432,7 +428,6 @@ Thus they can be used the infer the importance of an attribute with respect to t
 \item\textbf{Prediction Models} are used when the interest lies more with the quality of predictions that can be gained with respect to a set of attributes rather than exploring the importance of each attribute to the predictive model.
 This enables the use of more complex models where the influence of a single attribute is more difficult to assess.
 \end{itemize}
-Note, we explain the actual model and their assessment in the appropriate chapter that uses these methods.
 
 
 \subsection{Grounded Theory}
@@ -449,7 +444,6 @@ Thus concepts help reduce the amount of items that need to be handled to build h
 Thus theories are the result of a grounded theory approach that are generated from collected observations.
 \end{enumerate}
 
-Note, we detail how we applied grounded theory in the different parts of this thesis when it becomes relevant.
 
 
 
