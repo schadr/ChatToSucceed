@@ -171,6 +171,28 @@ In our study however, since the changes to
 source code files we use to extract technical dependencies are attached to workitem discussion, we are
 confident that they addressed the changes at least indirectly.
 
+\subsection{cscw - Threats to Validity}
+\label{sec:threats}
+Our survey asked the developers to rank a pre-defined list of items in
+terms of the influence they may have on their information-seeking behaviour.
+In doing so, we attempted to reach a compromise between the survey length and
+survey response rate. 
+This bias poses a threat to our findings due to the possibility that we were missing important items.
+We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
+
+We had the chance to interview ten developers, which represent a fraction of the development team at large. These ten developers were all located at the same site. As a result of this, our interview data could be biased and unrepresentative of the RTC team at large.
+However, we are confident that this threat is minor, due to the mix of developers we interviewed, including novices, senior developers, and team members that had been part of the group since its beginning.
+Furthermore, triangulation with our observations and survey responses increases our confidence in our findings.
+However, we plan to interview team members from other locations to minimize the cultural (national and local corporate culture) bias that might have been introduced by focusing the interviews on one location. 
+
+Our data come exclusively from the IBM RTC development team, and the extent to which our results are valid for other companies is not clear without replications. 
+The RTC development team has more than one hundred members, it interacts with a number of customers, and it is in the process of integrating its product with others.
+These are all forces that shape communication dynamics. 
+However, their interaction patterns seem to be similar to those of other globally distributed teams that need to synchronize work across multiple time zones.
+
+
+
+
 
 
 
@@ -256,6 +278,47 @@ With the results of this analysis, we are confident that our prediction model is
 practically useful, even if it does not consider the complete communication of a
 build. Thus, developers and managers have time to react on build failure
 predictions before the actual build fails.
+
+\subsection{cscw - Recommender System Design Guidelines}
+\label{sec:sub:tools}
+Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems supporting information-seeking in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji \emph{et al.} guidelines:
+
+
+\textbf{Guideline \#1}: \emph{Recommender systems should adjust to the development mode.}
+Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
+%
+When in normal iteration mode, developers act upon planned work and can therefore anticipate the information they need, but in endgame mode, developers react to unplanned incoming work, such as bug reports or requests for code reviews. 
+
+Many tools, such as Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008} provide information and recommendations in a fixed way. 
+Codebook enables developers to discover other developers whose code is related.
+In contrast,  Ensemble provides a constant stream of potentially relevant events for each developer.
+In the Codebook case, this might lead to extra overhead in endgame mode when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
+
+To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
+
+\textbf{Guideline \#2}: \emph{Recommender systems should account for perceived knowledge of other developers.}
+Our second and third findings unveiled factors that trigger developers to seek information about a changeset that are not related to its code. 
+Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the changeset owner.
+
+Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
+This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
+
+But because developers often look beyond source code and perform an additional step, namely considering the changeset owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
+Recommender systems might report issues that are of less importance due to the substantial experience of the changeset owner.
+
+Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
+
+
+\textbf{Guideline \#3}: \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
+We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of changesets. 
+
+In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
+
+\textbf{Guideline \#4}: \emph{Recommender systems should account for business goals.}
+Our last finding points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
+Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
+
+To support developers in focusing on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
 
 
 
