@@ -76,10 +76,33 @@ We presented in Chapter~\ref{chap:talk} a study that explored if the recommendat
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
 
+\section{icse - Threats to validity}
+We conceptualized communication based on comments on work items. Besides
+that, the Jazz team communicates via email, chat, web-based information and
+face-to-face meetings. Based on our observations and conversations with the Jazz
+team, we are certain that comments are mostly used to communicate about work
+items. Since they are work item-specific and immediately available.
+
+For the network construction, we assumed that every developer commenting
+on or subscribed to a work item reads all comments of that work item. This
+assumption might not always be correct. By manual inspection of a selected number
+of work items, we found that developers who commented on a work item are aware of
+the other comments, confirming our assumption.
+
+Due to storage problems the Jazz teams erased some build results. In the case of
+nightly builds we expected 90 builds (according to project duration) but found
+only 15. This might affect our results but we argue that due to our richness of
+data the general trend is still preserved. Hence we expect that our findings
+would be supported by the complete data, too.
+
+Our results are only valid for the Jazz project and can not be generalized to
+any software development project. Additional studies on different projects
+using Jazz could be conducted to confirm our results.
 
 
 
-\section{Practical Implications}
+\section{Contributions through Empirical Studies}
+\section{fse - Practical Implications}
 \label{sec:implications}
 Our findings have several implications for the design of collaborative systems.
 By automating the analyses presented here we can incorporate the knowledge about
@@ -104,10 +127,64 @@ consisted of developers that were part of different teams. In such
 situations management may decide to investigate reasons for coordination
 problems that include factors such as geographical or functional distance in the project.
 
+\subsection{icse - Practical implications}
+\label{subsec:practicalimpl}
+Our model can be used by Jazz teams to assess the quality of their current
+communication in relation to the result of their upcoming integration. If a team
+is currently working on a component and an integration build is planned in the
+near future, the measures of the current communication in the team can be
+provided as input to our prediction model and the model will predict whether the
+build will fail with a precision shown in Table~\ref{tab:PredictionResultTable}.
+For example, if team P is working towards a build and our model predicts that the
+structure of its current communication leads to a failed build, the team can have
+a 76\% (see Table~\ref{tab:PredictionResultTable}) confidence that the build is
+going to fail. This information can be used by developers in monitoring their
+team communication behavior, or by management in decisions with respect to
+adjusting collaborative tools or processes towards improving the integration.
+
+In our analysis we used the complete communication of the build related time
+interval as input for the model to predict the build result. In
+Figure~\ref{fig:ReducedCommunicationInput}, this is the time interval from $t_0$
+to $t_1$ for $Build~N$. This time interval might not be appropriate for practical
+applications in which the build process takes only a view minutes, as $t_1$ is
+immediately before the build starts. Predicting the build result has no value for
+the developers when they have no time left to react on a build failure prediction
+and they can simply run the build instead of predicting the result. For long
+builds that last several days, the prediction at $t_1$ is still practical
+relevant. Developers might delay the build to perform reactive changes on the
+failure prediction.
+
+In an additional analysis we investigated the prediction recall and precision by
+only considering the communication of reduced time intervals as input for our
+model. For each build N result, we trained our model with the complete
+communication of all build results except the one from N, and predicted the
+result N by only considering the first 25\%, 50\% and 75\% of the communication
+as input for the prediction model (see
+Figure~\ref{fig:ReducedCommunicationInput}).
+
+We only show the precision and recall of the prediction for the 25\% time range
+in Table~\ref{tab:Prediction25PResultTable}, as they are already high enough for
+practical use. We observe that the model has almost the same predictive power as
+the model considering the complete time range of the build. A possible
+explanation is the involvement of work items in many builds. That means that the
+task completion time of a work item is longer than the time interval of a build
+and task related change sets and communication occurs in multiple builds. When a
+developer delivers a change set in the first 25\% of the build related time
+interval and the change set is associated to a work item that has already been
+discussed, the complete past communication is included. Including the past
+communication is valid, as our prediction model learns from the communication
+history. In Jazz, a work item is in average included in 5.17 builds (min=1,
+median=3, max=57), which provides a possible explanation for having valuable
+prediction results even early in the build related time interval.
+
+With the results of this analysis, we are confident that our prediction model is
+practically useful, even if it does not consider the complete communication of a
+build. Thus, developers and managers have time to react on build failure
+predictions before the actual build fails.
 
 
 
-\section{Conclusions and Future Work}
+\subsection{Conclusions and Future Work}
 \label{ch:dis:con}
 In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.

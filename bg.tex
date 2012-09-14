@@ -274,7 +274,184 @@ Without such a focus the information that a developer needs to survey can quickl
 
 
 
+\section{icse - Background}
+\label{ch5:bg}
+Before we start exploring the research question using data we obtained from the Rational Team Concert Team, we discuss related work investigating the relationship between team communication with respect to software integration issues as well as software quality and thus further motivating the value in investigating the relationship between communication and build success.
 
+\subsection{Motivation}
+Communication problems can lead to coordination and integration failures in work
+teams (e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew,souza:cscw:2004}). This
+situation is further exacerbated in large and distributed teams, where effective
+communication and activity awareness of related but remote project members are
+problematic, yet key to anticipate and resolve coordination problems early
+(e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew}).
+
+We strive to contribute to the growing body of research into the role of
+communication structures in determining coordination ease~\cite{hinds:cscw:2006} and
+success~\cite{hossain:cscw:2006}. Although there has been some research on the
+relationship between communication and coordination in work teams, research in
+software engineering is very limited. The study of the Enron email corpus found
+that central communicators exhibit a better ability to
+coordinate~\cite{hossain:cscw:2006} and R\&D teams with dense communication
+structures are associated with more coordination problems~\cite{hinds:cscw:2006}. In
+open source software development, developers that are active in email
+communication have also been found to be most active in open source
+development~\cite{bird:msr:2006}. In software engineering research, however it is
+unclear whether there are specific communication behaviors that enable effective
+coordination. Moreover, we are missing a precise conceptualization and objective
+measure of what successful communication in relation to project success is.
+
+Complementary to previous research that is largely qualitative
+\cite{herbsleb2003:speed,Holmstrom:2006gd} and which gathered information about
+occurrences of communication problems through project reviews and subjective
+ratings of project success, we use objective measures in studying the
+relationship between communication structures and coordination success. Past
+research has also largely investigated communication and coordination only in
+relation to entire projects. There is little systematic software engineering
+research in objectively examining the outcome of coordination (successful or
+failed) and assessing communication characteristics that lead to coordination
+failures. In this work we investigate the relationship between communication
+structures and coordination outcome at a finer level of detail. We study
+instances of coordination during the integration of code in large and distributed
+software teams, in relation to their associated communication structures. By
+communication structure we refer to the topology of the communication network
+that was involved in the tasks that lead to a software build. We use social
+network analysis measures such as density and centrality to obtain measurable
+characteristics of the communication structure.
+
+
+\subsection{Communication, Coordination and Integration}
+\label{sec:RelatedCommunication}
+The relationship between communication, coordination and project outcome has been
+studied for a long time in the area of computer-supported cooperative work. More
+recently the domain of software and distributed software development showed
+increased interest as well.
+
+Communication plays an important role in work groups with high coordination needs
+and the quality of communication has been found as determinant of project
+success~\cite{curtis:acm:1988,kraut:1995coordination}. The dynamic nature
+of work dependencies in software development makes collaboration highly
+volatile~\cite{Cataldo:2007hb}, consequently affecting a teams ability to
+effectively communicate and coordinate. Additional difficulties emerge in
+distributed teams, where team membership and work dependencies become even more
+invisible~\cite{damian:icgse:2007}. Moreover, team communication patterns are
+significantly affected by distance~\cite{hinds:cscw:2006}. Maintaining
+awareness~\cite{sarma:2006icgse} becomes even more difficult when developers work
+in geographically remote environments; communication structures that include key
+contact people at each site are effective coordination strategies when
+maintaining personal cross-site relationships is challenging~\cite{hinds:cscw:2006}.
+
+With respect to the role of effective coordination in project success, early
+studies indicate the issues that software development teams face in large
+projects~\cite{curtis:acm:1988}. A study by Herbsleb et
+al.~\cite{Herbsleb:1999ew} showed that Conway's law is also applicable for the
+coordination within development teams, supporting the influence of coordination
+on software projects. Kraut et al.~\cite{kraut:1995coordination} showed that
+software projects are greatly influenced by the quality of coordination of
+development teams. More recently a theory of coordination has been proposed and
+accounts for the influence of coordination on different project metrics such as
+rework and defects~\cite{Herbsleb:2006vn}.
+
+
+The importance of communication in successful coordination is also well
+documented and makes the study of communication structures important. For
+example, Fussell et al.~\cite{fussell:cscw:1998} found that communication amount and
+tactics were linked to the ability of effectively coordinate in work groups. In
+software development, others showed that communication problems lead to problems
+during the activity of subsystem
+integration~\cite{Grinter:1999geography,deSouza2004:thwarts_collaboration}. Coordination
+conceptualized via communication has also been studied more generally in relation
+to project success: factors such as ``harmony''~\cite{Souder:1988jpim},
+communication structure~\cite{Robin:1990jpim}, and communication
+frequency~\cite{Griffin:1992ms} were related to project success.
+
+The difficulty in studying failed integration in relation to communication lies
+in capturing and quantifying information about communication in teams that have a
+well-defined coordination goal but dynamic patterns of interaction. In our work
+we use the Jazz project data, which captures communication of project
+participants. This enables us to study the structure of the communication
+networks emerged around code integrations, both at individual teams of the
+project and within the entire project.
+
+\subsection{Can communication predict failure?}
+\label{sec:ResearchQuestions}
+In order to examine the communication involved in the coordination necessary
+during subsystem integrations, we draw on social network analysis methods. Social
+network analysis has often been deployed to study communication networks of work
+teams. Using social network analysis has the major advantage that we can draw
+from its extensive knowledge of analysis and implications with respect to social,
+communication, and knowledge management
+processes~\cite{Burt:1995vo,Freeman:1979rl}. Griffin and
+Hauser~\cite{Griffin:1992ms} investigated social networks in manufacturing teams.
+They found that a higher connectivity between engineering and marketing increases
+the likelihood of a successful product. Similarly, Reagans and
+Zuckerman~\cite{RayReagans:2001os} related higher perceived outcomes to denser
+communication networks in a study of research and development teams.
+
+Communication structure in particular -- the topology of a communication network
+-- has been studied in relation to coordination
+(e.g.~\cite{hossain:cscw:2006,hinds:cscw:2006}) and a number of common measures of
+communication structure include network density, centrality and structural
+holes~\cite{Wasserman:1994sq,Freeman:1979rl}.
+
+Density, as a measure of the extent to which all members in a team are
+connected to one another, reflects the ability to distribute
+knowledge~\cite{Rulke:2000ys}. Density has been studied, for example, in relation
+to coordination ease~\cite{hinds:cscw:2006}, coordination
+capability~\cite{hossain:cscw:2006} and enhanced group
+identification~\cite{RayReagans:2001os}.
+
+
+Centrality measures indicate importance or prominence of actors in a
+social network. The most commonly used centrality measures include degree and
+betweenness centrality having different social implication. Centrality measures
+have been used to characterize and compare different communication networks
+constructed from email correspondence of W3C (WWW consortium) collaborating
+working groups developing new technical standards and architectures for the
+web~\cite{Gloor:2003cikm}. Similarly, Hossain et al.~\cite{hossain:cscw:2006}
+explored the correlation between centrality in email-based communication networks
+and coordination, and found betweenness to be the best measure for coordination.
+\emph{Betweenness} is a measure of the extent to which a team member is
+positioned on the shortest path in between other two members. People in between
+are considered to be ``actors in the middle'' and to have more ``interpersonal
+influence'' in the
+network(e.g.~\cite{Gloor:2003cikm,zimmermann:icse:2008,hossain:cscw:2006}).
+
+The structural holes measures are concerned with the degree to which there
+are missing links in between nodes and with the notion of redundancy in
+networks~\cite{Burt:1995vo}. At the node level, structural holes are gaps between
+nodes in a social network. At the network level, people on either side of the
+hole have access to different flows of information~\cite{Hargadon:1997asq},
+indicating that there is a diversity of information flow in the network.
+Structural holes have been used to measure social capital in relation to the
+performance of academic collaborators (e.g.~\cite{Brambila:PICMET2007}).
+
+To further our investigation into the role played by communication in
+predicting integration failure, we go one step further and investigate whether
+the different communication structure measures can be combined into a prediction
+model that indicates whether an integration will fail.
+
+Past research on failure prediction was not able to find a single code or code
+churn metric predicting
+failures~\cite{nagappan:icse:2006,basili:1996tse,denaro:2002seke}, though the
+combination of those measurements became a strong predictor
+(e.g.~\cite{mockus:2000bell}). This leads us to believe that even if we do not
+find a single communication structure measure that predicts integration outcome,
+it is useful to combine the communication network measures -- as a reflection of
+the communication structure of a team -- into a predictive model and study its
+predictive power.
+
+Most prediction models in software engineering to date mainly leverage source
+code related data and focus on predicting failing software components or failure
+inducing changes
+(e.g.~\cite{bell:2005tse,schroeter:isese:2006,zimmermann:icse:2008,kim:2008tse}).
+Only few studies, such as Hassan and Zhang~\cite{hassan:ase:2006}, stepped away
+from predicting component failures and used statistical classifiers to predict
+integration outcome. Recently, we can observe a trend towards leveraging
+developer networks, created upon code related dependencies, to predict component
+failures~\cite{pinzger:fse:2008,meneely:fse:2008}. In our work, we focus on the
+team coordination as given by their communication instead of source code, and
+similar to Hassan and Zhang predict integration outcome.
 
 
 \section{Next Steps/Research Questions}
