@@ -1,34 +1,29 @@
 % !TEX root = thesis.tex
 \startchapter{Communication and Failure}
 \label{chap:soc-net}
-% start with introducing the start of the thesis
 We open our investigation of how to modify the social relationships among software developers, represented by the communication between them, with searching for a relationship between communication and build success.
 This will form the basis and justification for an approach that we will describe in a later chapter to allow us to manipulate the social interactions among developers.
-% state research question
 Thus this chapter explores our first research question
 \begin{description}
 \item[RQ 1.1] Do Social Networks from repositories influence build success?
 \end{description}
 
-Anecdotally a connection between communication among developer and any sort of software quality including software builds makes intuitively sense.
+A connection between communication among developer and any sort of software quality including software builds makes intuitively sense.
 For example, any non trivial software project consists of several interdependent modules and with the growing size and number of modules the work of more than one software developer is required to finish the project within a certain time constraint often mandated by a customer.
 Now due to the interdependence of the software modules developer assigned either to the same or to interdependent module need to coordinate their work.
 This coordination is in the most part accomplished through communication, which can take any form from a face-to-face discussion to electronically asynchronous messages such as email.
 Coupled with the fact that communication is inherently ambiguous and can often lead to misunderstandings, errors based on such misunderstandings may be introduces into the source code.
 Thus, we are confident that there exists  a connection between developer communication and build success.
 
-% give chapter overview
 In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{ch5:bg}).
-Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:Methodology}).
-Then, we go over the analysis and results we obtained in Section~\ref{sec:AnalysisResults} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
+Subsequently, we describe the methodology that is relevant to exploring our research question (Section~\ref{sec:Methodology}).
+Then, we present our the analysis and results we obtained in Section~\ref{sec:AnalysisResults} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:stc-net2} (Section~\ref{sec:conclusion}).
 
-%- methodology chapter
-%  TODO cut constructs
 
 \section{Background}
 \label{ch5:bg}
-Before we start with exploring the research question using data we obtained from the Rational Team Concert Team, we discuss related work investigating the relationship between team communication with respect to software integration issues as well as software quality and thus further motivating the value in investigating the relationship between communication and build success.
+Before we start exploring the research question using data we obtained from the Rational Team Concert Team, we discuss related work investigating the relationship between team communication with respect to software integration issues as well as software quality and thus further motivating the value in investigating the relationship between communication and build success.
 
 \subsection{Motivation}
 Communication problems can lead to coordination and integration failures in work
@@ -38,7 +33,7 @@ communication and activity awareness of related but remote project members are
 problematic, yet key to anticipate and resolve coordination problems early
 (e.g.~\cite{Grinter:1999geography,Herbsleb:1999ew}).
 
-Besides exploring the research question in the context of creating an approach to improve communication among software developer, we strive to contribute to the growing body of research into the role of
+We strive to contribute to the growing body of research into the role of
 communication structures in determining coordination ease~\cite{hinds:cscw:2006} and
 success~\cite{hossain:cscw:2006}. Although there has been some research on the
 relationship between communication and coordination in work teams, research in
@@ -74,7 +69,6 @@ characteristics of the communication structure.
 
 \subsection{Communication, Coordination and Integration}
 \label{sec:RelatedCommunication}
-
 The relationship between communication, coordination and project outcome has been
 studied for a long time in the area of computer-supported cooperative work. More
 recently the domain of software and distributed software development showed
@@ -236,66 +230,6 @@ and development effort. We thus treated all \texttt{WARNING}s as \ok s to clearl
 separate between failed and successful builds in our conceptualization of
 coordination outcome.
 
-%\subsection{Communication measures}
-%To investigate the communication of contributors involved in an integration
-%build, we study the characteristics of the \emph{communication network} for each
-%build. In order to construct this network, we examine the content of the
-%\et{Change Set}s associated with the build. Whenever an integration is executed,
-%the change sets contain information on all changes made after the previous build,
-%and the work items associated with the changes. By identifying the contributors
-%who commented on these work items, we conceptualize communication among
-%contributors coordinating for the build by their commenting behavior.
-%
-%
-%\begin{figure}[t]
-%\begin{center}
-%\includegraphics[width=\columnwidth]{figures/BuildResultNetworks3}
-%%\caption{Illustrates the construction of communication networks in time, based on
-%%build results of a stream.}
-%\caption{Communication networks construction example for a failed Build N.}
-%\label{fig:NetworkConstructionExample}
-%\end{center}
-%\end{figure}
-%
-%We use the example in Figure~\ref{fig:NetworkConstructionExample} to explain the
-%construction of communication networks. For a $Build~N$, the change sets made in
-%the time range $t_0$ to $t_1$ are used to construct the $Build~N~Network$, which
-%represents the communication that leads to $Build~N$. To construct the
-%\emph{communication network} for a build we consider that:
-%
-%\begin{enumerate}
-%  \item the \emph{nodes} represent the contributors involved in the build or 
-% its communication as follows:
-%  \begin{enumerate}
-%    \item committers of change sets involved in the build, as they have a
-%    direct impact on the build result
-%    \item creators, commenters, and subscribers on the work items associated with
-%    change sets, as they communicated on the build related tasks
-%  \end{enumerate}
-%  \item the \emph{directed connections} represent communication flow
-%  from contributor $c_i$ to $c_j$, communicating about a common set of
-%  work items that we name $WIs$ if:
-%  \begin{enumerate}
-%    \item $c_i$ is creator of or commenter on $WIs$ and provides
-%    information that is read by $c_j$
-%    \item $c_j$ is commenter or subscriber of any work items $WIs$ (assuming
-%    that $c_j$ reads all comments of $c_i$)
-%  \end{enumerate}
-%\end{enumerate}
-%
-%For Build N in Figure~\ref{fig:NetworkConstructionExample} contributors $c_1$,
-%$c_2$, $c_3$, and $c_4$ delivered change sets to the stream in the time range $t_0$
-%to $t_1$. Thus, they are added to the associated Build N Network. To connect the
-%contributors in the network, we explore the work items $w_1$ and $w_2$ as they
-%are associated with the delivered change sets. The contributors $c_1$ and $c_2$
-%commented on $w_1$. As we assume that $c_2$ reads all comments of the work items
-%he comments on, we create a directed connection from $c_1$ to $c_2$, representing
-%the communication flow. Vice versa, we create a directed connection from $c_2$
-%and $c_1$. As $c_2$ is only subscribed to work item $w_2$ and did not add any
-%comments, we only create directed connections from $c_3$ and $c_4$ to $c_2$, as
-%those contributors commented on $w_2$. The resulting communication-based social
-%network Build N network represents the communication related to the development
-%that leads to the failed $Build~N$.
 
 \subsection{Communication network measures}
 To characterize the communication structure represented by the constructed social
@@ -306,9 +240,6 @@ networks), while others relate to complete networks. As we are interested in
 analysing the characteristics of complete communication networks associated to
 integration builds, we normalize and use appropriate formulas to measure the
 complete communication networks instead of measuring the individual nodes.
-
-% The following three subsections describe the formulas and give an example for
-% each of the measures we included in our analysis.
 
 \subsubsection{Density}
 Density is calculated as the percentage of the existing connections to all
@@ -327,16 +258,10 @@ centrality measures for the ego networks are:
   \item The \emph{Out-Degree} of a node $c$ is the
   number of its outgoing connections $C_{oD}(c)$. E.g. $C_{oD}(c_1)=2$ in 
   Figure~\ref{fig:CentralityExample}.
-% In our communication networks, the Out-Degree of a contributor $c$ in our is
-% the number of other developers that read work items (AGAIN \ldots ``READ'' WORK
-% ITEMS\ldots) and comments created by C.
   
   \item The \emph{In-Degree} of a node $c$ is the
   number of it s incoming connections $C_{iD}(c)$. E.g.$C_{iD}(c_1)=1$ 
   in Figure~\ref{fig:CentralityExample}.
-% In our case, the In-Degree of a developer C in our communication network is the
-% number of other developers from which the developer C read work items and
-% comments.
   
   \item The \emph{InOut-Degree} of a node $c$ is the sum of its In-Degree and
   Out-Degree $C_{ioD}(c)$. E.g. $C_{ioD}(c_1)=3$
@@ -358,8 +283,7 @@ by~\cite{Gloor:2003cikm,hinds:cscw:2006}.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=.6\columnwidth]{figures/CentralityExample}
-\vspace{-10pt}
+\includegraphics[width=.4\columnwidth]{figures/CentralityExample}
 \caption{Example of a directed network to illustrate our social
 analysis measures.}
 \label{fig:CentralityExample}
@@ -670,13 +594,13 @@ values are equally high.
 
 
 \section{Threats to validity}
-We conceptualized \emph{communication} based on comments on work items. Besides
+We conceptualized communication based on comments on work items. Besides
 that, the Jazz team communicates via email, chat, web-based information and
 face-to-face meetings. Based on our observations and conversations with the Jazz
 team, we are certain that comments are mostly used to communicate about work
 items. Since they are work item-specific and immediately available.
 
-For the \emph{network construction}, we assumed that every developer commenting
+For the network construction, we assumed that every developer commenting
 on or subscribed to a work item reads all comments of that work item. This
 assumption might not always be correct. By manual inspection of a selected number
 of work items, we found that developers who commented on a work item are aware of
@@ -717,7 +641,6 @@ significantly differentiated between failed and successful builds at the
 team-level and project-level. Therefore none of these individual communication
 structure measures could be used to predict integration build results.
 
-
 In addition to the communication related measures, we also examined whether the
 technical measures we computed when constructing the communication networks --
 the number of change sets, contributors, and work items -- have an impact on the
@@ -728,10 +651,6 @@ of code changes relates to more build failures. But in our study these single
 measures did not significantly differentiate between successful and failed build
 results. However, additional technical measures that were used by Nagappan might
 be good predictors in Jazz as well.
-
-%Thus, the communication structures seem to be more important and
-%can cope with task complexity and size.
-
 
 The second contribution of this work is the predictive model that uses measures
 of communication structures to predict build results. Interestingly, the
@@ -761,15 +680,6 @@ data.}
 \label{fig:ReducedCommunicationInput}
 \end{center}
 \end{figure}
-
-
-
-%\textbf{SVM} & & & & & & & & &  \\
-%Error Recall & 55\% & 50\% & 62\% & 83\% & 48\% & 57\% & 56\% & 91\% & 92\% & 79\% \\
-%Error Precision & 73\% & 73\% & 94\% & 80\% & 45\% & 66\% & 50\% & 71\% & 86\% & 67\% \\
-%OK Recall & 89\% & 91\% & 97\% & 80\% & 25\% & 77\% & 17\% & 0\% & 33\% & 0\% \\
-%OK Precision & 79\% & 78\% & 77\% & 83\% & 27\% & 70\% & 20\% & 0\% & 50\% & 0\% \\
-%\hline
 
 \begin{table}[t]
 \small
@@ -859,7 +769,7 @@ We end this chapter by bringing it back to the initial research questions we set
 \end{description}
 
 The result we presented in Section~\ref{sec:AnalysisResults} show that our predictions, though not highly accurate, outperform random guesses.
-Therefore, we conclude that with recall of 55\% to 75\% and precision of 50\% to 76\%, depending on the development team, that communication indeed has a statistical influence on build success.
+Therefore, we conclude that with recall of 55\% to 75\% and precision of 50\% to 76\%, depending on the development team, that communication indeed influences build success.
 
 This finding opens the research avenue of investigating whether the manipulation of communication among software developers can yield positive results with respect to build success.
 This leads us to the next research question that we want to search for places within the social networks that we should manipulate to stimulate build success.
