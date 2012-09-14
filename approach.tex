@@ -1,14 +1,14 @@
 % !TEX root = thesis.tex
 \startchapter{The Approach}
 \label{chap:approach}
-In this chapter we will propose an approach to leverage the concept of socio-technical congruence to improve communication (social) interactions among developer to improve build success.
+In this chapter we propose an approach to leverage the concept of socio-technical congruence to improve communication (social) interactions among developer to improve build success.
 We base this approach on the findings presented in the previous two chapter that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2}) have influence on build success.
 
 \section{Approach to Leveraging Socio-Technical Congruence}
 The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
 Since the research questions we formulated for this thesis only implicitly describe the approach, it is necessary to describe the approach to wrest actionable insights from the concept of socio-technical congruence.
 
-Our approach took five steps:
+Our approach encompasses five steps:
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
@@ -18,20 +18,19 @@ Our approach took five steps:
 \end{enumerate}
 
 \section{Define Scope} 
-Each network, social, technical and thus socio-technical, needs to build with a specific scope in mind.
+Each network, social, technical and thus socio-technical, needs to be built with a specific scope in mind.
 For example, throughout this thesis we focus on software builds.
 This focus defines the source and communication artifacts that are used to construct the social and technical networks.
-In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social network and how defining software builds as our scope we omit several artifacts related to communication from the construction of a social network for a specific build.
+In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social networks and how defining software builds let us select communication artifacts for the construction of a social network for a specific build.
 
 \section{Define Outcome}
 In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
 For example, in this thesis we are interested in build success, a binary variable that states whether a build is of acceptable quality.
 With an outcome measure at hand we can contrast networks to gain insights.
-Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the chosen scope.
+Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the scope.
 
 \section{Construct Social Networks}
 After the defining the scope and outcome, the next step is to construct the socio-technical networks.
-In our approach we first focus on the construction of the social part of the networks.
 This involves identifying all communication channels that are programatically accessible in real time.
 Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
 Gathering all to the selected scope relevant communication artifacts than yields the social network.
@@ -43,7 +42,7 @@ The main issues is not to rely on information that is only available after the w
 For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
 In Chapter~\ref{chap:actionable} we detail how we use Mylyn traces to gather information to construct technical networks.
 
-With respect to software quality it can sufficient to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
+With respect to software quality it suffices to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
 In this case the network construction we described in Chapter~\ref{chap:meth} is sufficient to later on generate actionable knowledge.
 
 \section{Generate Insights}
@@ -63,5 +62,5 @@ Note that this approach can also be applied to identify those met coordination n
 
 The following three chapters aim at identifying the usefulness of the approach we detailed in this chapter.
 We start by first investigating whether we can using this approach generate recommendation that are statistically significant (Chapter~\ref{chap:stc-net}).
-Following we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{chap:talk}).
+Following, we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{chap:talk}).
 Finally, in class room setting we explore whether we could generate recommendations that might have prevented builds from failing (Chapter~\ref{chap:actionable}).
