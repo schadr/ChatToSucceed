@@ -547,10 +547,6 @@ If two individuals have a coordination need, but do not coordinate, then there i
 
 What socio-technical congruence offers is an approach to measure the coordination quality~\cite{cataldo:cscw:2006}. We can use this measurement to identify the effect of socio-technical coordination on software build quality.
 
-
-
-
-
 \subsection{Effects of Socio-technical Congruence}
 Current research suggests that attaining a high level of socio-technical congruence is beneficial to an organization.
 Evidence shows that higher congruence leads to faster completion of modification requests~\cite{cataldo:cscw:2006}. 
@@ -565,6 +561,107 @@ the social and the technical dimensions. Communication is believed to help peopl
 For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in the context of software development using different representations of actual coordination, including geographical proximity, IRC communication, and issue-tracking comments; these factors correlate with the resolution time of modification requests. There are also variations in the way technical dependencies can be handled. Cataldo et al.~\cite{cataldo:esem:2008} used differing ways to measure architectural dependencies and found that the congruence values computed using a ``files changed together'' dependency are more reliable than call graph dependencies~\cite{deSouza2004:thwarts_collaboration}. Gokpinar, et al \cite{gokpinar2010} applied a congruence technique and discovered that a higher coordination deficit leads to a larger number of filed incident reports, implying reduced quality.
 
 Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
+
+\section{fse - Background}
+\label{ch8:bg}
+In this section we discuss some background related to improving coordination among software developers.
+We start with some motivation of the problem and continue with presenting work performed by other researchers.
+
+\subsection{Motivation}
+We hypothesize that with the ever growing size of software teams the lack of
+effective coordination is the main source of integration failures.  With the
+ever growing complexity and sophistication of large software projects,
+error-free integrations are not only important but difficult to achieve. The
+development work that precedes integrations involves significant coordination of
+developers that work in teams and need to rely on the code of others and its
+stability. But often code is everything but stable, further contributing to
+developers' need to coordinate to keep up with code changes that impact their work. This problem is
+amplified in software builds where an entire team needs to integrate their work
+and on which the development of new features depends. Not only do
+failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
+software developers~\cite{holck2004}.
+
+Despite their importance, keeping integrations builds error-free can be a very time consuming
+process. A lightweight approach that can determine whether the build contains
+failures before invoking the build process is thus very valuable to developers.
+This lightweight approach could determine a builds outcome in minutes rather than hours or days. Having a faster way to
+assess the quality of a build helps developers to continue working with newest
+builds while being aware of its quality. Previous
+research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
+suits. Although this research
+reaches a high degree of accuracy in their predictions, knowing that a
+build will fail does not necessarily help developers to actually prevent
+the build from failing.
+The goal of this research is to find a way to create actionable knowledge that
+developers can act upon to avoid
+integration failure.
+
+Maintaining proper communication and awareness of work others perform is
+important in any kind of project. Specifically in software engineering many studies found
+that factors such as geographical and organizational distance have an impact on
+communication and even effect software quality~\cite{nagappan:icse:2008}. In our
+study we uncover the existence of pairs of
+developers, that, if technically dependent in a build but not discussing their
+dependencies, have a negative influence on the success on builds. This
+actionable knowledge can be integrated in real-time recommender systems that
+indicate, based on project historical data, which developer pairs tend to be
+failure related. Developers and management can then devise strategies to
+prevent the failure before build time. 
+
+
+\subsection{Related Work}
+\label{sec:relwork}
+In order to manage changes and maintain quality, developers must coordinate. In
+software development, coordination is largely achieved through communicating with
+people who depend on the work that you do \cite{kraut:1995coordination}. The
+software engineering literature is recognizing the role of communication as
+something that should be nurtured not eliminated and recent
+collaborative software development environments aim to support developers'
+social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
+
+Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
+used to leverage knowledge in distributed teams. Backstrom et
+al.~\cite{backstrom:kdd:2006} took a more general approach and investigated the
+evolution of large social networks and the information they hold. Chung et
+al.~\cite{chung:cpr:07} reported in recent work about behavior of individuals
+while performing knowledge intensive tasks. There have been a number of studies
+that investigated communication structures to identify good
+coordination practices
+(e.g.~\cite{hinds:cscw:2006,hossain:cscw:2006,bird:fse:2008,hinds:hicss:2008}). In contrast to studies of the general development process, Marczak studied social
+networks to identify best practices for requirements management
+processes~\cite{marczak:re:2008}.
+
+Inspired by Conways Law~\cite{conway:datamination:1968}, Cataldo et
+al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} formulated a coefficient that
+measures the alignment of the social and technical networks defining the term of
+socio-technical congruence. They observed that higher socio-technical congruence
+leads to higher developer
+productivity~\cite{cataldo:cscw:2006,cataldo:esem:2008}. Others used this
+notion and coefficient to further investigate the effect of congruence
+(e.g.~\cite{valetto:msr:2007}). Prior to Cataldo et
+al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} proposal,
+Ducheneaut~\cite{ducheneaut:cscw:2005} investigated the evolution of social and
+technical relationships of open source project participants to see how those
+participants become a part of the community.
+
+Recent studies started to relate the social with the technical
+dimensions of software development to build predictive models. Pinzger et
+al.~\cite{pinzger:fse:2008} successfully used social networks connecting
+developers via code artifacts to predict failures. Meneely et
+al.~\cite{meneely:fse:2008} used similar networks but excluded the code artifacts
+and connected the developers directly. Two studies at Microsoft looked into the
+geographical~\cite{bird:acm:2009} and organizational~\cite{nagappan:icse:2008}
+distance between people that worked on the same binary and the relation to the
+failure proneness of said binary. They found that the organizational distance is
+a very powerful predictor of failure proneness of binaries whereas the
+investigation of geographical distance has little to no effect. A recent
+study~\cite{bird:issre:2009} combines the work of Pinzger et
+al.~\cite{pinzger:fse:2008} and
+Zimmermann~\cite{zimmermann:icse:2008} by creating
+socio-technical networks that capture developer contributions and binary
+interdependencies. They found this combination to be a more powerful predictor
+that works for different software project and even prevails across multiple
+revisions of a project.
 
 
 

@@ -16,152 +16,6 @@ Subsequently, we briefly go over the methodology that is relevant to exploring o
 Then, we go over the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results and threats to validity in Sections~\ref{ch8:dis} and~\ref{ch8:threat} respectively.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:talk} (Section~\ref{sec:8:conclusions}).
 
-\section{Background}
-\label{ch8:bg}
-In this section we discuss some background related to improving coordination among software developers.
-We start with some motivation of the problem and continue with presenting work performed by other researchers.
-
-\subsection{Motivation}
-We hypothesize that with the ever growing size of software teams the lack of
-effective coordination is the main source of integration failures.  With the
-ever growing complexity and sophistication of large software projects,
-error-free integrations are not only important but difficult to achieve. The
-development work that precedes integrations involves significant coordination of
-developers that work in teams and need to rely on the code of others and its
-stability. But often code is everything but stable, further contributing to
-developers' need to coordinate to keep up with code changes that impact their work. This problem is
-amplified in software builds where an entire team needs to integrate their work
-and on which the development of new features depends. Not only do
-failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
-software developers~\cite{holck2004}.
-
-Despite their importance, keeping integrations builds error-free can be a very time consuming
-process. A lightweight approach that can determine whether the build contains
-failures before invoking the build process is thus very valuable to developers.
-This lightweight approach could determine a builds outcome in minutes rather than hours or days. Having a faster way to
-assess the quality of a build helps developers to continue working with newest
-builds while being aware of its quality. Previous
-research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
-suits. Although this research
-reaches a high degree of accuracy in their predictions, knowing that a
-build will fail does not necessarily help developers to actually prevent
-the build from failing.
-The goal of this research is to find a way to create actionable knowledge that
-developers can act upon to avoid
-integration failure.
-
-Maintaining proper communication and awareness of work others perform is
-important in any kind of project. Specifically in software engineering many studies found
-that factors such as geographical and organizational distance have an impact on
-communication and even effect software quality~\cite{nagappan:icse:2008}. In our
-study we uncover the existence of pairs of
-developers, that, if technically dependent in a build but not discussing their
-dependencies, have a negative influence on the success on builds. This
-actionable knowledge can be integrated in real-time recommender systems that
-indicate, based on project historical data, which developer pairs tend to be
-failure related. Developers and management can then devise strategies to
-prevent the failure before build time. 
-
-
-\subsection{Related Work}
-\label{sec:relwork}
-In order to manage changes and maintain quality, developers must coordinate. In
-software development, coordination is largely achieved through communicating with
-people who depend on the work that you do \cite{kraut:1995coordination}. The
-software engineering literature is recognizing the role of communication as
-something that should be nurtured not eliminated and recent
-collaborative software development environments aim to support developers'
-social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
-
-Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
-used to leverage knowledge in distributed teams. Backstrom et
-al.~\cite{backstrom:kdd:2006} took a more general approach and investigated the
-evolution of large social networks and the information they hold. Chung et
-al.~\cite{chung:cpr:07} reported in recent work about behavior of individuals
-while performing knowledge intensive tasks. There have been a number of studies
-that investigated communication structures to identify good
-coordination practices
-(e.g.~\cite{hinds:cscw:2006,hossain:cscw:2006,bird:fse:2008,hinds:hicss:2008}). In contrast to studies of the general development process, Marczak studied social
-networks to identify best practices for requirements management
-processes~\cite{marczak:re:2008}.
-
-Inspired by Conways Law~\cite{conway:datamination:1968}, Cataldo et
-al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} formulated a coefficient that
-measures the alignment of the social and technical networks defining the term of
-socio-technical congruence. They observed that higher socio-technical congruence
-leads to higher developer
-productivity~\cite{cataldo:cscw:2006,cataldo:esem:2008}. Others used this
-notion and coefficient to further investigate the effect of congruence
-(e.g.~\cite{valetto:msr:2007}). Prior to Cataldo et
-al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} proposal,
-Ducheneaut~\cite{ducheneaut:cscw:2005} investigated the evolution of social and
-technical relationships of open source project participants to see how those
-participants become a part of the community.
-
-Recent studies started to relate the social with the technical
-dimensions of software development to build predictive models. Pinzger et
-al.~\cite{pinzger:fse:2008} successfully used social networks connecting
-developers via code artifacts to predict failures. Meneely et
-al.~\cite{meneely:fse:2008} used similar networks but excluded the code artifacts
-and connected the developers directly. Two studies at Microsoft looked into the
-geographical~\cite{bird:acm:2009} and organizational~\cite{nagappan:icse:2008}
-distance between people that worked on the same binary and the relation to the
-failure proneness of said binary. They found that the organizational distance is
-a very powerful predictor of failure proneness of binaries whereas the
-investigation of geographical distance has little to no effect. A recent
-study~\cite{bird:issre:2009} combines the work of Pinzger et
-al.~\cite{pinzger:fse:2008} and
-Zimmermann~\cite{zimmermann:icse:2008} by creating
-socio-technical networks that capture developer contributions and binary
-interdependencies. They found this combination to be a more powerful predictor
-that works for different software project and even prevails across multiple
-revisions of a project.
-
-
-
-
-%\begin{table}[t]
-%\centering
-%\begin{tabular}{rrccc}
-%\toprule
-%& & Successful & Failed & Total\\
-%\midrule
-%&min &1&1&1\\
-%\#work items & avg  & 16.68&26.52&19.63\\
-%& max & 111&109&111\\
-%\midrule
-%& min & 1&1&1\\
-%\#change sets & avg  & 26.71&46.27&32.57\\
-%& max & 227&194&227\\
-%\midrule
-%& min & 1&1&1\\
-%\#Developers & avg  & 19.62&28&22.16\\
-%& max &64&71&71\\
-%\bottomrule
-%\end{tabular}
-%\caption{Statistics on Rational Team Concert data: change sets, work items, 
-%and developers over successful (227), failed (99) and total builds (328).}
-%\label{tab:jazzbuildinfo}
-%\end{table}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{Socio-technical coordination}
 \label{sec:data}
@@ -177,173 +31,9 @@ Following the approach we build our socio-technical networks according to the ap
 As our scope we select the software build and as outcome metric whether a build failed or succeeded.
 We construct the social and technical networks from the Rational Team Concert data as outline in Chapter~\ref{chap:bg}.
 
-%\begin{figure}[t]
-%\centering
-%\subfloat[Evaluation results from the Support Vector Machine.] {
-%\includegraphics[width=.5\columnwidth]{figures/precission-recall}
-%\label{fig:prediction-svm}
-%}
-%\subfloat[Evaluation results from the Logistic Regression.] {
-%\includegraphics[width=.5\columnwidth]{figures/precision-recall-logreg}
-%\label{fig:prediction-logreg}
-%}
-%\caption{Plotting the precision (green downward pointing triangles) and recall (black hollow circles) of the support vector machine (left) and the logistic regression (right).}
-%\label{fig:prediction}
-%\end{figure}
-
-%\section{Build Failure Prediction}
-%\label{sec:prediction}
-%To answer our first research question, we build a predictive model that uses the
-%constructed socio-technical networks as input to predict whether a build succeeds
-%or fails. Since we are interested in the practical application of this model we
-%diverge from the standard evaluation tactic and use a more practical relevant
-%approach. After we present the results of our prediction model we discuss their
-%implications.
-%
-%\subsection{Model Evaluation}
-%We train several prediction models, such as logistic regression, support vector
-%machines, decision trees, and a bayesian classifiers, using features we
-%extract from the constructed socio-technical networks. Each feature represents a pair of
-%connected developers in the network and the type of the edge that they are
-%connected with (i.e. social, technical or socio-technical).
-%
-%To accomplish a more practical evaluation, we order all our social networks by the time the build they were constructed from was tested.
-%Having the networks ordered according to build time we evaluate our prediction model in the following five steps:
-%
-%\begin{enumerate}
-%\item Get the first $n$ networks and perform a principle component analysis on the extracted features.
-%\item Select the principal components that explain the most variance until 95\% of the total variance of the training set can be explained.
-%\item Train the model using the principal components of the first $n$ networks.
-%\item Test the model on network $n+1$ after transforming it to the determined principal components.
-%\item Increase $n$ by 1 and repeat until $n+1$ is the size of complete data set.
-%\end{enumerate}
-%
-%This evaluation technique is meant to simulate the actual usage of the prediction model.
-%In software practice builds come in one by one.
-%This means that whenever a build has been verified the model can be extended using the social network from the newest build for training. 
-%This method of evaluation is closer to the actual usage in the field than
-%random splits or cross validation.
-%
-%We used two coefficients to assess the models quality at any given time: recall (Eq.~\ref{eq:recall}) and precision (Eq.~\ref{eq:precision}).
-%The recall of a model describes the percentage of how many failed builds where predicted correctly.
-%This translates into the formula:
-%
-%\begin{equation}
-%\label{eq:recall}
-%\text{recall}=\frac{\text{Correctly \emph{as failed} Predicted Builds}}{\text{All Failed Builds}}
-%\end{equation}
-%
-%Precision on the other hand describes the percentage of how many of the \emph{as failed} predicted builds are actually failed builds. Thus we can express precision using the following formula:
-%
-%\begin{equation}
-%\label{eq:precision}
-%\text{precision}=\frac{\text{Correctly \emph{as failed} Predicted Builds}}{\text{All \emph{as failed} Predicted Builds}}
-%\end{equation}
-%
-%Both recall and precision lie in the interval from 0 to 1, with 1 being best and 0 being worst.
-%We compute the recall and precision for each iteration by accumulating the prediction results of all previous prediction results.
-%For example if we went through 20 iterations we create a contingency table from the predicted results for the last 20 builds.
-%Each prediction can have one of four outcomes: (1) correctly predicted \emph{as failed}, (2) correctly predicted as succeeded, (3) falsely predicted \emph{as failed}, and (4) falsely predicted as succeeded.
-%Adding those numbers till the most recent prediction enables us to compute precision and recall.
-%
-%
-%The current standard evaluation for failure prediction models in software engineering is to take the data set and generate a number of random splits (e.g.~\cite{zimmermann:icse:2008,schroeter:isese:2006,nagappan:icse:2008}).
-%A random split partitions the data into a training and a testing data set, where the model is trained with the training data and then evaluated using the testing set.
-%Other also used cross validation which creates $n$ partitions and tests with each partition while training with the remaining $n-1$ partitions (e.g.~\cite{wolf:icse:2009}).
-%
-%Although random splits and cross validation allow for a random combination, they completely ignore the explicit order.
-%This leads to the problem that random splits and cross validation allow features that might emerge later and should not have been available to be used for training.
-%For example, if a developer joins the project after it started, she cannot have been present in any of the networks previous to her date of joining the project.
-%This means that the model at first cannot use any information about her connections to others.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-%
-%\subsection{Results}
-%Of the prediction models we evaluated, we present the results for the support
-%vector machine and the logistical regression. The support vector machine produced
-%the best results whereas the logistical regression serves as comparison to the
-%support vector machine results as well as indicating the reliability of
-%the regression analysis presented later in Section~\ref{sec:pattern}.
-%
-%Figure~\ref{fig:prediction} shows the recall and precision values for the
-%support vector machine and the logistical regression models. The green downward
-%pointing triangles represent the precision of the model for each iteration, note that we started training each model with at least three data points. The black circles represent the recall of a model for each
-%iteration.
-%
-%Both Subfigures in Figure~\ref{fig:prediction} can be divided into three
-%sections. The first section is comprised of the first 70-80 iterations where,
-%by a manual investigation, we observe that the support vector machine predicts almost everything to be successful in contrast to the unstable logistic regression.
-%
-%The middle section is characterized by a peek efficiency between 100 and 150
-%iterations in both prediction models. Before that peak both models under-perform, where the support vector machine suffers more than the logistic regression from a small data set.
-%
-%In the last segment after 150-180 iteration the precision and recall values
-%stabilize over both models. In contrast to the logistic regression the support vector machine obtains a higher precision and a lower recall with a slight upward trend.
-%The support vector machine ended with a precision of $.68$ (median: $.67$) and a recall of $.49$ (median: $.45$) whereas the logistic regression obtained a precision and recall value of $.43$ (median: $.45$) and $.67$ (median: $.67$) respectively.
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%\subsection{TODO Discussion}
-%Although the overall performance of the models is not yet practical due to low
-%precision and recall, these results are interesting. On the one hand, we consider
-%answering our first research question with yes: we can use developer pairs to
-%predict build failure. We consider the model to be sufficient because we, as Wolf
-%et al.~\cite{wolf:icse:2009}, outperform a random guess which would have
-%resulted in both recall and precision of less than $.33$, which is the percentage of failed
-%builds. To our knowledge there have been only two studies that focused on
-%predicting build outcomes: by Hassan et al.~\cite{hassan:ase:2006} and by Wolf et
-%al.~\cite{wolf:icse:2009}. Our approach places itself between the results of both
-%studies with our study being better than results obtained by Wolf et
-%al.~\cite{wolf:icse:2009} but being worse than Hassans et
-%al.~\cite{hassan:ase:2006} approach.
-%
-%Despite of outperforming the random guess the precision of our models is of concern because
-%it indicates the rate at which we falsely report a build to fail. With a median
-% precision of $.67$, every third of the \emph{as failed} build predicted by the support
-% vector machine would be a false positive. Besides the low trust a developer
-% can develop in the model, it also reports less than half of the failed builds
-% as failed.
-%
-%We provide some possible explanations here. In the first part of the
-%Figures~\ref{fig:prediction-svm} and~\ref{fig:prediction-logreg}, we observed
-%that all models perform poorly as long as they have less than 100 builds to train
-%on. After investigating the first 100 builds we found that new
-%developers are continually appearing in the development pairs. This means that
-%prediction models need to make predictions without having enough knowledge to
-%train on, thus resorting to predict the build to be the most likely outcome, to be OK.
-%
-%A peak in the interval of 100-150 iterations occurred in both models for both recall and precision.
-%Within this interval the team changed and new people joined the project and people where reallocated to work on new functionality which meant creating new dependencies and leaving old dependencies behind.
-%This change in dependencies confused the model in a way that it did not perform as well.
-%Both models stabilize over time with the support vector machine exhibiting a slight upward trend.
-%
-%Since the goal of this research is to find a way to create actionable knowledge
-%to avoid build failure, building a prediction model was the first step to show
-%that developer pairs have an effect on the actual prediction. The results from
-%the prediction models is first evidence that developer relationships have an
-%influence on the build. Next we continue with perusing our second research
-%question that examined the relationship between particular developer
-%pairs (i.e. technical pairs) and build results. This will help us
-%investigate how we might prevent builds from failing by changing the
-%nature of developer relations in these pairs.
-
-
-
-
 
 \begin{table}[t]
-\centering%\vspace{1cm}
+\centering
 \begin{tabular}{rcc}
 \toprule
  & successful & failed  \\
@@ -352,7 +42,6 @@ We construct the social and technical networks from the Rational Team Concert da
 $\neg$ (Adam, Bart) & 224 & 86\\
 \midrule
 total&227&99\\\bottomrule
-%User3493, User2943 & 3 & 13
 \end{tabular}
 \caption{Contingency table for technical pair (Adam, Bart) in relation to build
 success or failure}
@@ -361,10 +50,9 @@ success or failure}
 
 
 
-%\addtocounter{table}{1}
+
 \begin{table}[t]
 \centering
-%\subfloat[Twenty most frequent \emph{technical pairs} that are failure-related.]{
 \begin{tabular}{@{\hspace{.2cm}}ccc@{\hspace{.75cm}}c@{\hspace{.2cm}}}
 \toprule
 Pair & \#successful & \#failed & $p_x$\\
@@ -478,15 +166,6 @@ Pair & \#successful & \#failed & $p_x$ \\
 \end{table}
 %\addtocounter{table}{-1}
 
-
-
-
-% \section{Pattern Analysis}
-%\section{Which Pairs Induce Failure?}
-%\label{sec:pattern}
-%In this section we answer evaluate the last step of our approach to see whether we can generate recommendations that bear a statistical relationship to build failure.
-%Thus, we first explain our analysis approach followed by the results obtained and a
-%short discussion of the results.
 
 \section{Analysis of Socio-Technical Gaps}
 \label{ch8:gaps}
@@ -872,64 +551,6 @@ of work items per build, number of change sets per build, and number of files ch
 Since we model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
 All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
  
-
-
-
-
-
-\section{Threats To Validity}
-\label{ch8:threat}
-During our study we identified two main threats. 
-One threat covers issues that arise from the underlying data we used.
-The other threat deals with possible problems from the conceptualization of
-constructs in our study.
-
-\subsection{Data}
-We performed all our analysis on one set of data, the Rational Team Concert
-repository. This limits the generalizability of our findings, due to the fact
-that we only made the observations within one project. The  
-project size and the project properties -- incorporating open
-source practices such as open development and encouraging community involvement
--- make us believe that our findings still hold value.
-
-Furthermore we only investigated three months of the project's lifetime. This
-might lead to smaller significance of our results. However, since the three
-months are directly before a major release of the project, this dataset contains
-the most viable data for our analysis. In those three months a lack of necessary
-coordination is the most harmful to the project.
-
-Another threat that is inevitable in studies of software engineers is
-the possible lack of recorded communication. This and the possibility of people
-coordinating without communicating, such as reading each others source
-code~\cite{bolici:stc:2009}, are mitigated in Rational Team Concert by its development process.
-The Rational Team Concert team's development process demands that the developers
-coordinate using workitem discussion. 
-
-
-\subsection{Conceptualization}
-Our conceptualization of the three edges we use to construct the
-socio-technical networks might introduce inaccuracy in our findings.
-First, social edges are extracted from workitem discussions. We assumed that
-every developer commenting on or subscribed to a work item reads all comments of that
-work item. This assumption might not always be correct. By manual inspection of
-a selected number of work items, however, we found that developers who
-commented on a work item are aware of the other comments, confirming our assumption.
-
-Second, the technical edges are not problematic by themselves, but they are not
-complete, since there are more technical relationships between developers that
-can be examined. For example, two developers can be connected if one developer
-changes someone else's code. This however does not invalidate our findings, it
-just suggests that there is room for improvement, which we should address
-next.
-
-Third, socio-technical edges on the other hand may suffer from the combination of
-social and technical edges. For example, it is not necessarily true that the
-discussion of  two developers in a technical dependency is always about their
-technical dependency. 
-In our study however, since the changes to
-source code files we use to extract technical dependencies are attached to workitem discussion, we are
-confident that they addressed the changes at least indirectly.
-
 
 
 \section{Conclusion}

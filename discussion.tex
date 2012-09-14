@@ -118,6 +118,60 @@ Another threat to validity is that our data does not cover every build executed 
 
 Finally, this study is a single case study and the results are not generalizable, nor can they be directly compared to existing studies due to the differences in the projects under examination. However, we believe that this study advances the theoretical and the empirical examination of socio-technical congruence, and raises a number of questions that are worthwhile for future study.
 
+\subsection{fse -Threats To Validity}
+\label{ch8:threat}
+During our study we identified two main threats. 
+One threat covers issues that arise from the underlying data we used.
+The other threat deals with possible problems from the conceptualization of
+constructs in our study.
+
+\subsubsection{Data}
+We performed all our analysis on one set of data, the Rational Team Concert
+repository. This limits the generalizability of our findings, due to the fact
+that we only made the observations within one project. The  
+project size and the project properties -- incorporating open
+source practices such as open development and encouraging community involvement
+-- make us believe that our findings still hold value.
+
+Furthermore we only investigated three months of the project's lifetime. This
+might lead to smaller significance of our results. However, since the three
+months are directly before a major release of the project, this dataset contains
+the most viable data for our analysis. In those three months a lack of necessary
+coordination is the most harmful to the project.
+
+Another threat that is inevitable in studies of software engineers is
+the possible lack of recorded communication. This and the possibility of people
+coordinating without communicating, such as reading each others source
+code~\cite{bolici:stc:2009}, are mitigated in Rational Team Concert by its development process.
+The Rational Team Concert team's development process demands that the developers
+coordinate using workitem discussion. 
+
+
+\subsubsection{Conceptualization}
+Our conceptualization of the three edges we use to construct the
+socio-technical networks might introduce inaccuracy in our findings.
+First, social edges are extracted from workitem discussions. We assumed that
+every developer commenting on or subscribed to a work item reads all comments of that
+work item. This assumption might not always be correct. By manual inspection of
+a selected number of work items, however, we found that developers who
+commented on a work item are aware of the other comments, confirming our assumption.
+
+Second, the technical edges are not problematic by themselves, but they are not
+complete, since there are more technical relationships between developers that
+can be examined. For example, two developers can be connected if one developer
+changes someone else's code. This however does not invalidate our findings, it
+just suggests that there is room for improvement, which we should address
+next.
+
+Third, socio-technical edges on the other hand may suffer from the combination of
+social and technical edges. For example, it is not necessarily true that the
+discussion of  two developers in a technical dependency is always about their
+technical dependency. 
+In our study however, since the changes to
+source code files we use to extract technical dependencies are attached to workitem discussion, we are
+confident that they addressed the changes at least indirectly.
+
+
 
 
 
