@@ -2,31 +2,23 @@
 \startchapter{Socio-Technical Congruence and Failure}
 \label{chap:stc-net2}
 Knowing that social networks have an effect on build success opens the next question as to how or more precisely which parts of the social network should be changed to increase the likelihood for a build to succeed.
-For this reason we turn to the concept of socio-technical congruence as it reveals postulates that developer should communicate once their work intersects.
+For this reason we turn to the concept of socio-technical congruence as it postulates that developer should communicate once their work intersects.
 Thus in this section we explore the effect of socio-technical networks on build success:
 
 \begin{description}
   \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
 \end{description}
 
-% the idea
-Although socio-technical congruence has only been studies in connection with productivity intuitively there should be a conniption to software quality such as build success.
+Although socio-technical congruence has only been studies in connection with productivity intuitively there should be a connection to software quality such as build success.
 For example, imagine two developer modifying classes that share call and data dependencies and one developer making changes that violate certain assumptions the other developer relies on when using the modified code.
 This might introduce an error that could have been prevented if both developer would have discussed their work.
 Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point towards improvements in the social network by pointing out developers that should communicate.
 
-In the remainder of this chapter, we start with detailing the back ground relevant to studying coordination, its influence, and how coordination needs are identified by other researchers(Section~\ref{sec:background}).
+In the remainder of this chapter, we start with detailing the back ground relevant to studying coordination, its influence, and how coordination needs are identified by other researchers (Section~\ref{sec:background}).
 Next, we discuss how we calculate socio-technical congruence as well as highlight some modifications to explore to allow us to explore whether a difference in the magnitude of technical dependencies and amount of communication plays a role to possibly highlight improvements for social interactions among software developers (Section~\ref{sec:congruence}).
 Subsequently, we briefly go over the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:methodology}).
 Then, we go over the analysis and results we obtained in Section~\ref{sec:results} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:approach} (Section~\ref{sec:conclusion}).
-
-%TODOS
-% merge intro into background
-% remove research objective section
-% adjust methodology/remove stuff
-%
-% TAKE OUT WEIGHTS
 
 
 \section{Background}
@@ -150,7 +142,7 @@ Socio-technical congruence has been explored outside of the software development
 In this section new describe how we derive the socio-technical index as used by Cataldo et al~\cite{cataldo:cscw:2006} from our technical networks by additionally giving some comparison of our approach to the original.
 
 \subsection{Technical Entities and Social Relationships}
-A \textbf{technical entity} is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich:stc:2008}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
+A technical entity is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich:stc:2008}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
 
 At the core of socio-technical congruence is the concept of a technical dependency. A technical dependency is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
 
@@ -203,7 +195,7 @@ Because we were concerned about possible interactions affecting our results, we 
 \section{Results}
 \label{sec:results}
 In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
-Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_weighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
+Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_unweighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
 
 The congruence values are low on average. The unweighted congruence has a mean value of 0.331, and the weighted measure has a mean value of 0.196, meaning that about one-third and one-fifth of the coordination needs are satisfied by actual coordination, respectively. Over 75\% of the builds have a weighted congruence value of less than 0.25.
 
@@ -622,8 +614,8 @@ We end this chapter by bringing it back to the initial research question we set 
   \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
 \end{description}
 
-We conducted two investigations: (1) the investigation the influence of the socio-technical congruence index on build success and (2) the investigation of gaps as within the socio-technical networks.
+We conducted two investigations: (1) the investigation the influence of the socio-technical congruence index on build success and (2) the investigation of gaps uncovered by socio-technical networks and their influence on build success.
 Both avenues of investigations showed that they expose an influence on build success even in the presence of other measures of build size.
 
-These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
+These findings, especially that gaps within socio-technical networks influence build success, opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
 Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
