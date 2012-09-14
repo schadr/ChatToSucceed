@@ -453,6 +453,127 @@ failures~\cite{pinzger:fse:2008,meneely:fse:2008}. In our work, we focus on the
 team coordination as given by their communication instead of source code, and
 similar to Hassan and Zhang predict integration outcome.
 
+\section{tse - Background}
+\label{sec:background}
+Before we start with exploring the research question using data we obtained from the Ration Team Concert Team, we discuss related work investigating socio-technical congruence as well how the subject of team coordination has been approach by other researchers.
+
+\subsection{Motivation}
+Coordinating the efforts of individuals working together in a team is
+necessary to build software systems. The complexity of current systems require contributions
+from tens or hundreds of people who may span multiple offices, cities, or even continents.
+To build such systems, we need to ensure that the team is not only capable of
+developing components of a system, but also has the governance to be able to integrate the
+interdependent parts into a whole.
+
+We describe a case study of socio-technical coordination and its effect on software builds in the IBM
+Rational Team Concert (RTC) software product.
+Our approach to investigating coordination is to examine the
+alignment between the technical dimension of work and the social relationships
+between team members. This alignment is called socio-technical
+congruence~\cite{cataldo:cscw:2006}. High socio-technical congruence
+has been shown to be a predictor of coordination success
+\cite{cataldo:cscw:2006,ehrlich:stc:2008}.
+The mismatches between the social and technical dimensions, or gaps,
+also have been observed as increasing resolution times for software activities.
+The objective of this study is to investigate the effects of socio-technical congruence on high-coordination software development activities during a project.
+
+We seek to discover the relationship that congruence has on the probability that a regularly-scheduled software build will be successful.marczak:re:2008
+We conduct a case study of a large software project at IBM.  A build result, which can be \emph{error} or \emph{OK}, indicates the relative health of the project up to that build. To
+measure socio-technical congruence we apply two different measures: a
+previously-published congruence approach \cite{cataldo:cscw:2006},
+and a weighted congruence approach that provides details about the size of a
+gap between two individuals~\cite{kwan2009:weighted}. We
+also examine RTC's processes and tools to identify any
+explanations of the relationship between congruence and builds that
+we find.
+
+
+\subsection{The Need for Coordination}
+Software is extremely complex because of the sheer number of dependencies~\cite{sawyer2004:teams}.
+Large software projects have a large number of components that interoperate with one another.
+The difficulty arises when changes must be made to the software, because a change in one component of the software often requires changes in dependent components~\cite{desouza:2008}. Because a single person's knowledge of a system is specialized as well as limited, that person often is unable to make the appropriate modifications in dependent components when a component is changed.
+
+Coordination is defined as ``integrating or linking together different parts of an organization to accomplish a collective set of tasks''~\cite{vandeven1976}. In order to manage changes and maintain quality, developers must coordinate, and in software development, coordination is largely achieved by communicating with people who depend on the work that you do \cite{kraut:1995coordination}.
+
+A successful software build can be viewed as the outcome of good coordination because the build requires the correct compilation of multiple, dependent files of source code.
+A failed build, on the other hand, demotivates software developers \cite{holck2004,damian:icgse:2007} and destabilizes the product \cite{cusumano1997}.
+While a failed build is not necessarily a disaster, it slows down work significantly while developers scramble to repair the issues.
+A build result thus serves as an indicator of the health of the software project up until that point in time.
+
+Thus, a developer should coordinate closely with individuals whose technical dependencies affect his work in order to effectively build software. This brings forth the idea of aligning the technical structure and the social interactions \cite{herbsleb2007:fose}, leading us to the foundation of socio-technical congruence.
+
+\subsection{Coordination in Software Teams}
+Research in software-engineering coordination has examined interactions among
+software developers \cite{carter2004,marczak:re:2008}, how they acquire
+knowledge \cite{ehrlich:icgse:2006,nakakoji2010:rdc}, and
+how they cope with issues including geographical
+separation~\cite{espinosa2007:team_knowledge,herbsleb2003:speed}.
+The ability to coordinate has
+been shown as an influential factor in customer satisfaction \cite{kraut:1995coordination} and  improves the capability to produce quality work~\cite{faraj2000}.
+
+
+Software developers spend much of their time
+communicating~\cite{perry94}. Because developers face
+problems when integrating different components from heterogeneous environments~\cite{redmiles2007:continuous},
+developers engage in direct or indirect
+communication, either to coordinate their activities, or to acquire knowledge of
+a particular aspect of the software ~\cite{nakakoji2010:rdc}.
+Herbsleb, et al. examined the influence of coordination on integrating software
+modules through interviews~\cite{herbsleb1999:architectures}, and found that
+processes, as well as the willingness to communicate directly, helped teams
+integrate software. De Souza, et al.~\cite{desouza2007:awarenessnetwork} found that implicit
+communication is important to avoid collaboration breakdowns and delays. Ko, et al.~\cite{ko:icse:2007} found that developers were identified as the main source of knowledge about code issues.
+Wolf, et al.~~\cite{wolf:icse:2009} used properties of social networks to predict the outcome of integrating the software parts within teams.
+This prior work establishes the fact that developers communicate heavily about technical matters.
+
+Coordinating software teams becomes more difficult as the distance between people increases \cite{herbsleb:icse:2001}.
+Studies of Microsoft~\cite{bird2009:dds_quality,nagappan:icse:2008}
+show that distance between people that work together on a
+program determine the program's failure proneness.
+Differences in time zones can affect the number of defects in software projects \cite{cataldo2009:quality}.
+
+Although distance has been identified as a challenge, advances in collaborative
+development environments are enabling people to overcome challenges of distance.
+One study of early RTC development
+shows that the task completion time is not as strongly affected by distance as in previous studies~\cite{Nguyen:2008Distance}. Technology that empowers distributed collaboration include topic recommendations~\cite{carter2004} and instant messaging~\cite{niinimaki2008}. Processes are adapting to the fast pace of software development: the Eclipse way~\cite{frost:ieeesoftware:2007} emphasizes placing milestones at fixed intervals and community involvement.
+
+
+\subsection{Socio-technical Congruence}
+Socio-technical congruence is defined as the match between the coordination needs established by the technical domain and the actual coordination activities carried out by project members. Socio-technical congruence in software engineering was brought to attention by Cataldo, et al.~\cite{cataldo:cscw:2006}, though the concept has been explored in engineering \cite{browning2001} and management science \cite{henderson1990}. A coordination need indicates that two persons should be coordinating based on the technical dependencies on the project. A coordination need is determined by analysing the assignments of people to a technical entity such as a source code module, and the technical dependencies among the technical entities.
+Socio-technical congruence states that if there is a coordination need between two people, these people should be coordinating.
+For example, if two people work on different, but dependent components of the project, then those persons should be coordinating with each other.
+
+If two individuals have a coordination need, but do not coordinate, then there is a gap between these two individuals. A gap suggests the existence of a coordination problem. One of the goals of socio-technical congruence is to minimize the number of gaps, either by maintaining good coordination between individuals who have a coordination need, or by reducing the number of technical dependencies in the project and therefore reducing the coordination needs~\cite{sarma2008:measuring_stc}.
+
+What socio-technical congruence offers is an approach to measure the coordination quality~\cite{cataldo:cscw:2006}. We can use this measurement to identify the effect of socio-technical coordination on software build quality.
+
+
+
+
+
+\subsection{Effects of Socio-technical Congruence}
+Current research suggests that attaining a high level of socio-technical congruence is beneficial to an organization.
+Evidence shows that higher congruence leads to faster completion of modification requests~\cite{cataldo:cscw:2006}. 
+The presence of gaps increases the number of code changes \cite{ehrlich:stc:2008}, and a lack of coordination connections across system and organizational boundaries have a negative effect on performance~\cite{sosa2004:manage}.
+
+Socio-technical gaps have been found to be an issue not only because they lower
+the congruence and thus lower productivity~\cite{cataldo:cscw:2006}, but because they are especially problematic in the context of distributed development~\cite{ehrlich:stc:2008}. Thus, researchers have proposed remedial actions when socio-technical congruence gaps are discovered~\cite{valetto2007:value}. 
+Examples of actions include closing a gap by augmenting coordination and eliminating the gap by refactoring software.
+
+The usefulness of socio-technical congruence depends on the conceptualizations of
+the social and the technical dimensions. Communication is believed to help people coordinate. However, it is not the only way to describe the social dimension. 
+For instance, Cataldo et al.~\cite{cataldo:cscw:2006} evaluated congruence in the context of software development using different representations of actual coordination, including geographical proximity, IRC communication, and issue-tracking comments; these factors correlate with the resolution time of modification requests. There are also variations in the way technical dependencies can be handled. Cataldo et al.~\cite{cataldo:esem:2008} used differing ways to measure architectural dependencies and found that the congruence values computed using a ``files changed together'' dependency are more reliable than call graph dependencies~\cite{deSouza2004:thwarts_collaboration}. Gokpinar, et al \cite{gokpinar2010} applied a congruence technique and discovered that a higher coordination deficit leads to a larger number of filed incident reports, implying reduced quality.
+
+Socio-technical congruence has been explored outside of the software development field, particularly in engineering and management disciplines \cite{henderson1990,sosa2004:manage,gokpinar2010,sosa2008}. Sosa \cite{sosa2008} described a formal technique to compute socio-technical congruence and identified ``potentially unattended technical interactions'', which are technical dependencies in modules that are not monitored. Gokpinar \cite{gokpinar2010}, independently of our work, developed a weighted socio-technical congruence technique that he applies to the automotive industry.
+
+
+
+
+
+
+
+
+
 
 \section{Next Steps/Research Questions}
 The concept of socio-technical congruence shows potential to help make software development more efficient.

@@ -76,7 +76,7 @@ We presented in Chapter~\ref{chap:talk} a study that explored if the recommendat
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
 
-\section{icse - Threats to validity}
+\subsection{icse - Threats to validity}
 We conceptualized communication based on comments on work items. Besides
 that, the Jazz team communicates via email, chat, web-based information and
 face-to-face meetings. Based on our observations and conversations with the Jazz
@@ -98,6 +98,27 @@ would be supported by the complete data, too.
 Our results are only valid for the Jazz project and can not be generalized to
 any software development project. Additional studies on different projects
 using Jazz could be conducted to confirm our results.
+
+\subsection{tse - Threats to Validity}
+\label{sec:threats}
+Socio-technical congruence can be difficult to compare between studies. Conceptualizations, such as technical dependencies and actual coordination, vary from project to project. Some project-specific conceptualizations we used are the build as a measure of success, the fact that only files that are touched by more than one individual qualified as having dependencies on each other, and the work item comments connecting people in a clique.
+Because of the context-sensitive nature of socio-technical congruence, especially with respect to the construction of communication and dependencies, it is difficult to apply socio-technical congruence as a benchmark for coordination. Having an understanding of the context of the project is extremely important when interpreting results obtained from socio-technical congruence calculations.
+
+Our coordination needs are likely overestimated due to the modular nature of RTC.
+As we are studying a distributed project that follows a transparent development process, RTC uses a modular design \cite{maccormack2006} and a change in a file in a change set may not necessarily be dependent on other changes within the same file. 
+We observed evidence in our study that the dependencies among change sets as well as the attached work items may not be as strong as we have originally believed.
+
+Our conceptualization of actual coordination underestimates the amount of communication that truly occurs in the project. 
+We relied on repository data in RTC and were unable to conceptualize forms of communication such as instant messenger, phone calls, and face-to-face interactions.
+Due to geographical distance and time zone differences, the RTC team's primary mode of collaboration is the work item comment system, but we made a number of assumptions about commenting behaviour.
+
+First, we assume that everyone involved in the work item reads every comment. Second, we do not take into consideration any additional coordination that may occur from a silent onlooker reading the comments. We believe intuitively that the first effect is greater than the second.
+
+Another threat to validity is that our data does not cover every build executed in the lifetime of RTC. RTC does not keep a full archive of build results, and as a consequence, we do not have a full population from which to draw data from. The threats are particularly high for early data points. The large confidence intervals in some of the builds, namely nightly builds, reflect this lack of data, thus we hesitate to draw conclusions based on early builds and nightly builds.
+
+Finally, this study is a single case study and the results are not generalizable, nor can they be directly compared to existing studies due to the differences in the projects under examination. However, we believe that this study advances the theoretical and the empirical examination of socio-technical congruence, and raises a number of questions that are worthwhile for future study.
+
+
 
 
 
