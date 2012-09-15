@@ -47,182 +47,10 @@ Furthermore, we showed that the approach can generate actionable insights that a
 In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
 
 
-\section{Threats to Validity}
-Although we discussed threats to validity in each chapter that presented research that we conducted in the course of this thesis we  address the overall threat to the approach of leveraging socio-technical networks to generate actionable knowledge as described in the previous sections.
-
-% limited number of studies
-\paragraph{External Validity}
-In this thesis we the studies we presented draw information from observational studies and studies relying on the same development repository.
-Although this limits the generalizability of the findings presented as well as the validity of the inferred approach, we think that the approach still holds merit as the studies that lay the foundation for the validity of generating insights in real time are derived from and industrial project comprising more than one hundred developers at a large software corporation.
-This in-depth relationship created by working together with the IBM Rational Team Concert development team limits the amount of data available for the studies we presented but this in-depth relationship enables us to better interpret the collected data as well as gain a deeper understanding of the organization and their processes and how they influence the data.
-In the case of the in class study, we aimed to minimize the conclusions we drew to only serve as a feasibility study to demonstrate that technical networks can be constructed in real time as well as give some evidence that potential recommendations could have prevented build failures from occurring.
-
-\paragraph{Construct Validity}
-In this thesis we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions as well as relied on technical dependences inferred from developers changing the same source code file.
-Both constructs are used by the software engineering research community in several studies.
-Nevertheless, both the social and technical dependency characterizations come with the danger that they do not necessary measure social or technical dependencies of relevance or might as well miss existing dependencies.
-This leads to the threat that our inferences made based on the data might be due to inconsistencies such as meaningless communication among developers or file changes that are not technical in nature.
-Given that we use data that was generate by highly disciplined professionals or by students that we monitored, and thus were able to intervene in case they strayed from following the development process properly, we are confident that the data available for analysis is of high quality.
-
-\paragraph{Internal Validity}
-% never traced found patterns to issues/rellied on statistical analysis
-Chapters~\ref{chap:stc-net2} and~\ref{chap:stc-net} demonstrated that constructing the socio-technical networks is feasible and in Chapter~\ref{chap:stc-net} we showed that there is a statistical relationship between the network configuration and build success that can be used to generate recommendations.
-One issue that we will need to address in future work is showing a definite link between the insights presented in Chapter~\ref{chap:stc-net} and the actual build failures and to what extend the recommendations actually can prevent build failures from happening.
-To mitigate this threat we showed some initial evidence of tracing a failed build back to its original failure source and showed that the failure could have been prevented with the socio-technical information available at the point in time when the error was introduced into the code base.
-
-% approach not tested in the field
-The final threat to the approach, which is related to the previously mentioned lack of tracing the basis of the recommendations back to actual build failures, is that we did not test it in the field to see how the recommendation affect the development process.
-We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
-Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
-
-
-\subsection{icse - Threats to validity}
-We conceptualized communication based on comments on work items. Besides
-that, the Jazz team communicates via email, chat, web-based information and
-face-to-face meetings. Based on our observations and conversations with the Jazz
-team, we are certain that comments are mostly used to communicate about work
-items. Since they are work item-specific and immediately available.
-
-For the network construction, we assumed that every developer commenting
-on or subscribed to a work item reads all comments of that work item. This
-assumption might not always be correct. By manual inspection of a selected number
-of work items, we found that developers who commented on a work item are aware of
-the other comments, confirming our assumption.
-
-Due to storage problems the Jazz teams erased some build results. In the case of
-nightly builds we expected 90 builds (according to project duration) but found
-only 15. This might affect our results but we argue that due to our richness of
-data the general trend is still preserved. Hence we expect that our findings
-would be supported by the complete data, too.
-
-Our results are only valid for the Jazz project and can not be generalized to
-any software development project. Additional studies on different projects
-using Jazz could be conducted to confirm our results.
-
-\subsection{tse - Threats to Validity}
-\label{sec:threats}
-Socio-technical congruence can be difficult to compare between studies. Conceptualizations, such as technical dependencies and actual coordination, vary from project to project. Some project-specific conceptualizations we used are the build as a measure of success, the fact that only files that are touched by more than one individual qualified as having dependencies on each other, and the work item comments connecting people in a clique.
-Because of the context-sensitive nature of socio-technical congruence, especially with respect to the construction of communication and dependencies, it is difficult to apply socio-technical congruence as a benchmark for coordination. Having an understanding of the context of the project is extremely important when interpreting results obtained from socio-technical congruence calculations.
-
-Our coordination needs are likely overestimated due to the modular nature of RTC.
-As we are studying a distributed project that follows a transparent development process, RTC uses a modular design \cite{maccormack2006} and a change in a file in a change set may not necessarily be dependent on other changes within the same file. 
-We observed evidence in our study that the dependencies among change sets as well as the attached work items may not be as strong as we have originally believed.
-
-Our conceptualization of actual coordination underestimates the amount of communication that truly occurs in the project. 
-We relied on repository data in RTC and were unable to conceptualize forms of communication such as instant messenger, phone calls, and face-to-face interactions.
-Due to geographical distance and time zone differences, the RTC team's primary mode of collaboration is the work item comment system, but we made a number of assumptions about commenting behaviour.
-
-First, we assume that everyone involved in the work item reads every comment. Second, we do not take into consideration any additional coordination that may occur from a silent onlooker reading the comments. We believe intuitively that the first effect is greater than the second.
-
-Another threat to validity is that our data does not cover every build executed in the lifetime of RTC. RTC does not keep a full archive of build results, and as a consequence, we do not have a full population from which to draw data from. The threats are particularly high for early data points. The large confidence intervals in some of the builds, namely nightly builds, reflect this lack of data, thus we hesitate to draw conclusions based on early builds and nightly builds.
-
-Finally, this study is a single case study and the results are not generalizable, nor can they be directly compared to existing studies due to the differences in the projects under examination. However, we believe that this study advances the theoretical and the empirical examination of socio-technical congruence, and raises a number of questions that are worthwhile for future study.
-
-\subsection{fse -Threats To Validity}
-\label{ch8:threat}
-During our study we identified two main threats. 
-One threat covers issues that arise from the underlying data we used.
-The other threat deals with possible problems from the conceptualization of
-constructs in our study.
-
-\subsubsection{Data}
-We performed all our analysis on one set of data, the Rational Team Concert
-repository. This limits the generalizability of our findings, due to the fact
-that we only made the observations within one project. The  
-project size and the project properties -- incorporating open
-source practices such as open development and encouraging community involvement
--- make us believe that our findings still hold value.
-
-Furthermore we only investigated three months of the project's lifetime. This
-might lead to smaller significance of our results. However, since the three
-months are directly before a major release of the project, this dataset contains
-the most viable data for our analysis. In those three months a lack of necessary
-coordination is the most harmful to the project.
-
-Another threat that is inevitable in studies of software engineers is
-the possible lack of recorded communication. This and the possibility of people
-coordinating without communicating, such as reading each others source
-code~\cite{bolici:stc:2009}, are mitigated in Rational Team Concert by its development process.
-The Rational Team Concert team's development process demands that the developers
-coordinate using workitem discussion. 
-
-
-\subsubsection{Conceptualization}
-Our conceptualization of the three edges we use to construct the
-socio-technical networks might introduce inaccuracy in our findings.
-First, social edges are extracted from workitem discussions. We assumed that
-every developer commenting on or subscribed to a work item reads all comments of that
-work item. This assumption might not always be correct. By manual inspection of
-a selected number of work items, however, we found that developers who
-commented on a work item are aware of the other comments, confirming our assumption.
-
-Second, the technical edges are not problematic by themselves, but they are not
-complete, since there are more technical relationships between developers that
-can be examined. For example, two developers can be connected if one developer
-changes someone else's code. This however does not invalidate our findings, it
-just suggests that there is room for improvement, which we should address
-next.
-
-Third, socio-technical edges on the other hand may suffer from the combination of
-social and technical edges. For example, it is not necessarily true that the
-discussion of  two developers in a technical dependency is always about their
-technical dependency. 
-In our study however, since the changes to
-source code files we use to extract technical dependencies are attached to workitem discussion, we are
-confident that they addressed the changes at least indirectly.
-
-\subsection{cscw - Threats to Validity}
-\label{sec:threats}
-Our survey asked the developers to rank a pre-defined list of items in
-terms of the influence they may have on their information-seeking behaviour.
-In doing so, we attempted to reach a compromise between the survey length and
-survey response rate. 
-This bias poses a threat to our findings due to the possibility that we were missing important items.
-We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
-
-We had the chance to interview ten developers, which represent a fraction of the development team at large. These ten developers were all located at the same site. As a result of this, our interview data could be biased and unrepresentative of the RTC team at large.
-However, we are confident that this threat is minor, due to the mix of developers we interviewed, including novices, senior developers, and team members that had been part of the group since its beginning.
-Furthermore, triangulation with our observations and survey responses increases our confidence in our findings.
-However, we plan to interview team members from other locations to minimize the cultural (national and local corporate culture) bias that might have been introduced by focusing the interviews on one location. 
-
-Our data come exclusively from the IBM RTC development team, and the extent to which our results are valid for other companies is not clear without replications. 
-The RTC development team has more than one hundred members, it interacts with a number of customers, and it is in the process of integrating its product with others.
-These are all forces that shape communication dynamics. 
-However, their interaction patterns seem to be similar to those of other globally distributed teams that need to synchronize work across multiple time zones.
-
-
-
-
-
-
-
-
 
 \section{Contributions through Empirical Studies}
-\section{fse - Practical Implications}
-\label{sec:implications}
-Our findings have several implications for the design of collaborative systems.
-By automating the analyses presented here we can incorporate the knowledge about
-developer pairs that tend to be failure related in a real-time recommender
-system. Not only do we provide the recommendations that matter to the upcoming
-build, we also provide incentives to motivate developers to talk about their
-technical dependencies. 
-%
-Such a recommender system can use project historical data to
-calculate the likelihood that an upcoming build fails given a particular
-developer pair that worked on that build without communicating to each other.
-
-For management, such a recommender system can provide details about the
-individual developers in, and properties of, these potentially problematic
-developer pairs. Individual developers may be an explanation for the behaviour of
-the pairs we found in Rational Team Concert. This may indicate developers that are
-harder to work with or too busy to coordinate appropriately, prompting management
-to reorganize teams and workloads. This would minimize the likelihood of a build
-to fail, by removing the underlying cause of a pair to be failure related.
-Similarly, as another example from our study, most developer pairs
-consisted of developers that were part of different teams. In such
-situations management may decide to investigate reasons for coordination
-problems that include factors such as geographical or functional distance in the project.
+In this section we highlight the research contribution of the individual studies we reported on through this thesis.
+Note each study was conducted to answer one research question.
 
 \subsection{icse - Practical implications}
 \label{subsec:practicalimpl}
@@ -279,6 +107,33 @@ practically useful, even if it does not consider the complete communication of a
 build. Thus, developers and managers have time to react on build failure
 predictions before the actual build fails.
 
+\subsection{tse - practical implications}
+
+\subsection{fse - Practical Implications}
+\label{sec:implications}
+Our findings have several implications for the design of collaborative systems.
+By automating the analyses presented here we can incorporate the knowledge about
+developer pairs that tend to be failure related in a real-time recommender
+system. Not only do we provide the recommendations that matter to the upcoming
+build, we also provide incentives to motivate developers to talk about their
+technical dependencies. 
+%
+Such a recommender system can use project historical data to
+calculate the likelihood that an upcoming build fails given a particular
+developer pair that worked on that build without communicating to each other.
+
+For management, such a recommender system can provide details about the
+individual developers in, and properties of, these potentially problematic
+developer pairs. Individual developers may be an explanation for the behaviour of
+the pairs we found in Rational Team Concert. This may indicate developers that are
+harder to work with or too busy to coordinate appropriately, prompting management
+to reorganize teams and workloads. This would minimize the likelihood of a build
+to fail, by removing the underlying cause of a pair to be failure related.
+Similarly, as another example from our study, most developer pairs
+consisted of developers that were part of different teams. In such
+situations management may decide to investigate reasons for coordination
+problems that include factors such as geographical or functional distance in the project.
+
 \subsection{cscw - Recommender System Design Guidelines}
 \label{sec:sub:tools}
 Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems supporting information-seeking in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji \emph{et al.} guidelines:
@@ -319,6 +174,66 @@ Our last finding points to internal conflicts within teams and among developers 
 Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
 
 To support developers in focusing on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
+
+
+\subsection{gsd - Practical Implications}
+
+
+
+\section{Threats to Validity}
+Although we discussed threats to validity in each chapter that presented research that we conducted in the course of this thesis we  address the overall threat to the approach of leveraging socio-technical networks to generate actionable knowledge as described in the previous sections.
+
+% limited number of studies
+\paragraph{External Validity}
+In this thesis we the studies we presented draw information from observational studies (Chapter~\ref{} and~\ref{}) and studies relying on development repositories (Chapter~\ref{},~\ref{},~\ref{}, and~\ref{}).
+Although this limits the generalizability of the findings presented as well as the validity of the inferred approach, we think that the approach still holds merit as the studies that lay the foundation for the validity of generating insights in real time are derived from and industrial project comprising more than one hundred developers at a large software corporation.
+This in-depth relationship created by working together with the IBM Rational Team Concert development team limits the amount of data available for the studies we presented but this in-depth relationship enables us to better interpret the collected data as well as gain a deeper understanding of the organization and their processes and how they influence the data.
+In the case of the in class study, we aimed to minimize the conclusions we drew to only serve as a feasibility study to demonstrate that technical networks can be constructed in real time as well as give some evidence that potential recommendations could have prevented build failures from occurring.
+
+In our close relationship with the IBM Rational Team Concert team we had the chance to interview ten developers, which represent a fraction of the development team at large. These ten developers were all located at the same site. As a result of this, our interview data could be biased and unrepresentative of the RTC team at large.
+However, we are confident that this threat is minor, due to the mix of developers we interviewed, including novices, senior developers, and team members that had been part of the group since its beginning.
+Furthermore, triangulation with our observations and survey responses increases our confidence in our findings.
+
+\paragraph{Construct Validity}
+In this thesis we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions as well as relied on technical dependences inferred from developers changing the same source code file.
+Both constructs are used by the software engineering research community in several studies.
+Nevertheless, both the social and technical dependency characterizations come with the danger that they do not necessary measure social or technical dependencies of relevance or might as well miss existing dependencies.
+This leads to the threat that our inferences made based on the data might be due to inconsistencies such as meaningless communication among developers or file changes that are not technical in nature.
+Given that we use data that was generate by highly disciplined professionals or by students that we monitored, and thus were able to intervene in case they strayed from following the development process properly, we are confident that the data available for analysis is of high quality.
+
+\paragraph{Internal Validity}
+% never traced found patterns to issues/rellied on statistical analysis
+Chapters~\ref{chap:stc-net2} and~\ref{chap:stc-net} demonstrated that constructing the socio-technical networks is feasible and in Chapter~\ref{chap:stc-net} we showed that there is a statistical relationship between the network configuration and build success that can be used to generate recommendations.
+One issue that we will need to address in future work is showing a definite link between the insights presented in Chapter~\ref{chap:stc-net} and the actual build failures and to what extend the recommendations actually can prevent build failures from happening. 
+To mitigate this threat we showed some initial evidence of tracing a failed build back to its original failure source and showed that the failure could have been prevented with the socio-technical information available at the point in time when the error was introduced into the code base.
+
+We conceptualized communication based on comments on work items. Besides
+that, the Jazz team communicates via email, chat, web-based information and
+face-to-face meetings. Based on our observations and conversations with the Jazz
+team, we are certain that comments are mostly used to communicate about work
+items. Since they are work item-specific and immediately available.
+
+Due to storage problems the Jazz teams erased some build results. In the case of
+nightly builds we expected 90 builds (according to project duration) but found
+only 15. This might affect our results but we argue that due to our richness of
+data the general trend is still preserved. Hence we expect that our findings
+would be supported by the complete data, too.
+
+Another threat to the approach, which is related to the previously mentioned lack of tracing the basis of the recommendations back to actual build failures, is that we did not test it in the field to see how the recommendation affect the development process.
+We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
+Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
+
+The surveys we deployed in our qualitative studies (Chapter~\ref{} and~\ref{}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
+This bias poses a threat to our findings due to the possibility that we were missing important items.
+We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
+
+
+
+
+
+
+
+
 
 
 
