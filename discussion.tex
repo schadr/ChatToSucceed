@@ -7,6 +7,9 @@ Then, we shortly describe how we see the implications of making such a recommend
 
 \section{Revisiting the Approach}
 \label{ch:dis:app}
+We derived this approach through two case studies that investigate the usefulness of social and socio-technical networks with respect to supporting developers improve software quality (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
+We detailed the approach in Chapter~\ref{chap:approach} and conducted a study to see if the approach can generate statistically relevant recommendations in Chapter~\ref{chap:soc-net}.
+The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well as if these recommendations could be produced in real time and potentially prevent issues from arising.
 The approach we presented in Chapter~\ref{chap:approach} consist of five steps:
 
 \begin{enumerate}
@@ -49,12 +52,15 @@ In a final study involving students from two countries we found evidence that we
 
 
 \section{Contributions through Empirical Studies}
-In this section we highlight the research contribution of the individual studies we reported on through this thesis.
-Note each study was conducted to answer one research question.
+Each study by itself contributed the the overall body of knowledge besides furthering the goal of the thesis to lay the foundations of a recommendations system leveraging the construct of socio-technical congruence.
+With our first study we gave empirical evidence of communication among software developers influencing software quality.
+Although by itself not surprising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the first study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
 
-\subsection{icse - Practical implications}
+
+\subsection{Using Build Success as Communication Quality Indicator}
 \label{subsec:practicalimpl}
-Our model can be used by Jazz teams to assess the quality of their current
+We started our investigation by exploring whether there exists a relationship between build success and communication by using prediction models (Chapter~\ref{}).
+Our models can be used by Jazz teams to assess the quality of their current
 communication in relation to the result of their upcoming integration. If a team
 is currently working on a component and an integration build is planned in the
 near future, the measures of the current communication in the team can be
@@ -62,55 +68,30 @@ provided as input to our prediction model and the model will predict whether the
 build will fail with a precision shown in Table~\ref{tab:PredictionResultTable}.
 For example, if team P is working towards a build and our model predicts that the
 structure of its current communication leads to a failed build, the team can have
-a 76\% (see Table~\ref{tab:PredictionResultTable}) confidence that the build is
+a 76\% (see Chapter~\ref{} Table~\ref{tab:PredictionResultTable}) confidence that the build is
 going to fail. This information can be used by developers in monitoring their
-team communication behavior, or by management in decisions with respect to
+team communication behaviour, or by management in decisions with respect to
 adjusting collaborative tools or processes towards improving the integration.
 
-In our analysis we used the complete communication of the build related time
-interval as input for the model to predict the build result. In
-Figure~\ref{fig:ReducedCommunicationInput}, this is the time interval from $t_0$
-to $t_1$ for $Build~N$. This time interval might not be appropriate for practical
-applications in which the build process takes only a view minutes, as $t_1$ is
-immediately before the build starts. Predicting the build result has no value for
-the developers when they have no time left to react on a build failure prediction
-and they can simply run the build instead of predicting the result. For long
-builds that last several days, the prediction at $t_1$ is still practical
-relevant. Developers might delay the build to perform reactive changes on the
-failure prediction.
-
-In an additional analysis we investigated the prediction recall and precision by
-only considering the communication of reduced time intervals as input for our
-model. For each build N result, we trained our model with the complete
-communication of all build results except the one from N, and predicted the
-result N by only considering the first 25\%, 50\% and 75\% of the communication
-as input for the prediction model (see
-Figure~\ref{fig:ReducedCommunicationInput}).
-
-We only show the precision and recall of the prediction for the 25\% time range
-in Table~\ref{tab:Prediction25PResultTable}, as they are already high enough for
-practical use. We observe that the model has almost the same predictive power as
-the model considering the complete time range of the build. A possible
-explanation is the involvement of work items in many builds. That means that the
-task completion time of a work item is longer than the time interval of a build
-and task related change sets and communication occurs in multiple builds. When a
-developer delivers a change set in the first 25\% of the build related time
-interval and the change set is associated to a work item that has already been
-discussed, the complete past communication is included. Including the past
-communication is valid, as our prediction model learns from the communication
-history. In Jazz, a work item is in average included in 5.17 builds (min=1,
-median=3, max=57), which provides a possible explanation for having valuable
-prediction results even early in the build related time interval.
-
-With the results of this analysis, we are confident that our prediction model is
-practically useful, even if it does not consider the complete communication of a
-build. Thus, developers and managers have time to react on build failure
-predictions before the actual build fails.
-
 \subsection{tse - practical implications}
+% stc and build success
+The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
+This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
+Backed up by findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
+As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:soc-net} that it actually predicts build failures with varying accuracy depending on the type of build.
 
 \subsection{fse - Practical Implications}
 \label{sec:implications}
+% failure inducing pairs
+Being able to predict whether a build fails already helps developer to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
+To that purpose we would need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
+We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success.
+This evidence can be used to recommend action before the build is commenced in the sense that developer can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
+
+
+
+
+
 Our findings have several implications for the design of collaborative systems.
 By automating the analyses presented here we can incorporate the knowledge about
 developer pairs that tend to be failure related in a real-time recommender
@@ -136,8 +117,16 @@ problems that include factors such as geographical or functional distance in the
 
 \subsection{cscw - Recommender System Design Guidelines}
 \label{sec:sub:tools}
-Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems supporting information-seeking in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji \emph{et al.} guidelines:
+% talk or not to talk
+Recommendations to manipulate the socio-technical network to improve the odds of a successful build is a good start, however the developers that need to follow these recommendations need to accepts them first.
+It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
+For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
 
+
+
+
+
+Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems supporting information-seeking in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji \emph{et al.} guidelines:
 
 \textbf{Guideline \#1}: \emph{Recommender systems should adjust to the development mode.}
 Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
@@ -177,7 +166,10 @@ To support developers in focusing on business goals, systems supporting the info
 
 
 \subsection{gsd - Practical Implications}
-
+% leveraging stc in real time
+Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild.
+The final peace detailed in Chapter~\ref{chap:actionable} was to show the feasibility of generating the recommendations at the right time.
+Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 
 \section{Threats to Validity}
@@ -243,36 +235,6 @@ In this thesis we illustrated an approach to leverage the concept of social-tech
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
 The first parameter scope helps with constructing the social networks (the third step) and constructing the technical networks (the fourth step) by supporting the selection of the best data sources.
 The outcome metric guides the analysis to produce actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
-
-We derived this approach through two case studies that investigate the usefulness of social and socio-technical networks with respect to supporting developers improve software quality (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
-We detailed the approach in Chapter~\ref{chap:approach} and conducted a study to see if the approach can generate statistically relevant recommendations in Chapter~\ref{chap:sec-net}.
-The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well as if these recommendations could be produced in real time and potentially prevent issues from arising.
-
-Each study by itself contributed the the overall body of knowledge besides furthering the goal of the thesis to lay the foundations of a recommendations system leveraging the construct of socio-technical congruence.
-With our first study we gave empirical evidence of communication among software developers influencing software quality.
-Although by itself not surprising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the first study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
-
-% stc and build success
-The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
-This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
-Backed up by findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
-As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:soc-net} that it actually predicts build failures with varying accuracy depending on the type of build.
-
-% failure inducing pairs
-Being able to predict whether a build fails already helps developer to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
-To that purpose we would need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
-We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success.
-This evidence can be used to recommend action before the build is commenced in the sense that developer can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
-
-% talk or not to talk
-Recommendations to manipulate the socio-technical network to improve the odds of a successful build is a good start, however the developers that need to follow these recommendations need to accepts them first.
-It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
-For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
-
-% leveraging stc in real time
-Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild.
-The final peace detailed in Chapter~\ref{chap:actionable} was to show the feasibility of generating the recommendations at the right time.
-Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 % future work
 The work presented in this thesis lend it self to several obvious venues of future work, such as building and testing the recommendation system with several software development teams to study its impact.

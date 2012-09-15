@@ -465,39 +465,6 @@ would achieve a recall and precision of 50\%. In our case, our model reached an
 \error\ recall of 62\% for team F, where as a guess would have yield only
 $24/55=.44=$ 44\% (see Table~\ref{tab:DescriptiveStats}).
 
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=\columnwidth]{figures/ReducedCommunicationInput}
-\caption{Predicting Build N Result with different reduced communication
-data.}
-\label{fig:ReducedCommunicationInput}
-\end{center}
-\end{figure}
-
-\begin{table}[t]
-\small
-\begin{center}
-%{\small
-\begin{tabular}{ r@{\hspace{15pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{15pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c}
-\toprule
-& \multicolumn{5}{ c@{\hspace{15pt}}}{Team Level Builds} &
-\multicolumn{3}{c}{Project Level Builds} \\
-%\textbf{Naive Bayes} & & & & & & & \\
-& B & C & F & P & W & nightly & weekly & beta 	 \\
-\midrule
-\error\ Recall & .63 & .69 & .62 & .62 & .68 & 1 & .45 & .85 \\ 
-\error\ Precision & .43 & .46 & .68 & .75 & .64 & .75 & .83 & .92 \\ 
-\ok\ Recall & .60 & .59 & .77 & .80 & .50 & .50 & .75 & .67 \\ 
-\ok\ Precision & .77 & .79 & .73 & .69 & .55 & 1 & .33 & .50 \\  
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{Recall and precision results only including first 25\% of the
-communication.}
-\label{tab:Prediction25PResultTable}
-\end{table}
-
-
 \section{Conclusion}
 \label{sec:conclusion}
 We end this chapter by bringing it back to the initial research questions we set out to answer:
