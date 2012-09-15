@@ -81,7 +81,7 @@ Backed up by findings in the research area of socio-technical congruence we hypo
 As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:soc-net} that it actually predicts build failures with varying accuracy depending on the type of build.
 Thus not meeting coordination needs as demanded by technical dependencies among software developers has a negative effect on build success.
 
-\subsection{fse - Practical Implications}
+\subsection{Developers That Induce Build Failures}
 \label{sec:implications}
 % failure inducing pairs
 Being able to predict whether a build fails already helps developer to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
@@ -89,17 +89,12 @@ To that purpose we would need to influence the socio-technical network such that
 We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success.
 This evidence can be used to recommend action before the build is commenced in the sense that developer can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
 
-
-
-
-
-Our findings have several implications for the design of collaborative systems.
+Thus, our findings have several implications for the design of collaborative systems.
 By automating the analyses presented here we can incorporate the knowledge about
 developer pairs that tend to be failure related in a real-time recommender
 system. Not only do we provide the recommendations that matter to the upcoming
 build, we also provide incentives to motivate developers to talk about their
 technical dependencies. 
-%
 Such a recommender system can use project historical data to
 calculate the likelihood that an upcoming build fails given a particular
 developer pair that worked on that build without communicating to each other.
@@ -116,20 +111,16 @@ consisted of developers that were part of different teams. In such
 situations management may decide to investigate reasons for coordination
 problems that include factors such as geographical or functional distance in the project.
 
-\subsection{cscw - Recommender System Design Guidelines}
+\subsection{Recommender System Design Guidelines}
 \label{sec:sub:tools}
 % talk or not to talk
-Recommendations to manipulate the socio-technical network to improve the odds of a successful build is a good start, however the developers that need to follow these recommendations need to accepts them first.
+In our first qualitative study (Chapter~\ref{}) we explored whether developers would accept recommendations produced by our approach.
 It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
 For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
 
-
-
-
-
 Nakakoji \emph{et al.}~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems supporting information-seeking in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji \emph{et al.} guidelines:
 
-\textbf{Guideline \#1}: \emph{Recommender systems should adjust to the development mode.}
+\paragraph{Guideline \#1} \emph{Recommender systems should adjust to the development mode.}
 Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
 %
 When in normal iteration mode, developers act upon planned work and can therefore anticipate the information they need, but in endgame mode, developers react to unplanned incoming work, such as bug reports or requests for code reviews. 
@@ -141,7 +132,7 @@ In the Codebook case, this might lead to extra overhead in endgame mode when dev
 
 To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
-\textbf{Guideline \#2}: \emph{Recommender systems should account for perceived knowledge of other developers.}
+\paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
 Our second and third findings unveiled factors that trigger developers to seek information about a changeset that are not related to its code. 
 Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the changeset owner.
 
@@ -154,22 +145,22 @@ Recommender systems might report issues that are of less importance due to the s
 Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
 
 
-\textbf{Guideline \#3}: \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
+\paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
 We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of changesets. 
 
 In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
 
-\textbf{Guideline \#4}: \emph{Recommender systems should account for business goals.}
+\paragraph{Guideline \#4} \emph{Recommender systems should account for business goals.}
 Our last finding points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
 Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
 
 To support developers in focusing on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
 
 
-\subsection{gsd - Practical Implications}
+\subsection{STC in real time}
 % leveraging stc in real time
 Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild.
-The final peace detailed in Chapter~\ref{chap:actionable} was to show the feasibility of generating the recommendations at the right time.
+In our last study detailed in Chapter~\ref{chap:actionable} we showed the feasibility of generating recommendations at the right time, by gathering data to generate socio-technical congruence in real time.
 Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 
