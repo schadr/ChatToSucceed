@@ -1,8 +1,8 @@
 % !TEX root = thesis.tex
 \startchapter{Proof of Concept: Can we generate useful recommendations?}
 \label{chap:actionable}
-In this chapter we present the last piece of evidence in the line of exploring the usefulness of our approach presented in Chapter~\ref{chap:bg}.
-We show in a case study approach that we can actually generate recommendation to prevent build failures when it actually matters.
+In this chapter we present the last piece of evidence in the line of exploring the usefulness of our approach presented in Chapter~\ref{chap:approach}.
+We show in a case study approach that we can actually generate recommendations to prevent build failures when it actually matters.
 Thus, this chapter explores the following research question:
 
 \begin{description}
@@ -15,14 +15,14 @@ Thus we explore in this chapter not only whether the recommendation if given in 
 In the remainder of this chapter, %we start with detailing the background as to how we can generate recommendations in ``real time'' (Section~\ref{ch10:bg}).
 %Subsequently, 
 we describe the course setting in Section~\ref{ch10:setting}.
-Next, we describe our methodology that we thought to specific to be mentioned in Chapter~\ref{chap:meth} in Section~\ref{ch10:meth}.
+Next, we describe our methodology in Section~\ref{ch10:meth}.
 Then, we go over the analysis and results we obtained in Section~\ref{ch10:ana} and Section~\ref{ch10:findings}, respectively, followed by a discussion of the results in Sections~\ref{ch10:dis}.
 We conclude this chapter with offering an answer to our research question (Section~\ref{ch10:con}).
 
 
 \section{A Course on Globally Distributed Software Development}
 \label{ch10:setting}
-We conduct a case study together with students taking a class in globally distributed software development as the basis for exploring our final research question for several reasons:
+We conduct a case study of the collaboration of students in a project students taking a class in globally distributed software development as the basis for exploring our final research question for several reasons:
 \begin{itemize}
 \item Control over a project infrastructure that supports data collection.
 \item The distribution of the course across countries ensures a minimum at electronically recordable and mineable communication data being generated.
@@ -159,7 +159,8 @@ For our study we collect six types of data:
 \item Mylyn events gathered using our custom build Eclipse plug-in.
 \end{itemize}
 
-Although we are not necessarily interested in constructing social networks for this part of the study but rather we are concerned whether it is possible to prevent build failures given a certain set of collectable data, we need access to as much communication data as possible not only as a means to see what kind of problems arose and whether they were of any importance to the developers.
+Although we are not necessarily interested in constructing social networks for this part of the study but rather we are concerned whether it is possible to prevent build failures given a certain set of collectable data, we need access to as much communication data as possible not only as a means to see what kind of problems arose but also as to whether they were of any importance to the developers.
+
 For example, are build failures a problem for the developers and as such are all build failure equal.
 Knowing which build failure are actually problematic to the developers lets us focus on those instances that matter.
 
@@ -191,9 +192,11 @@ We analyze data collected during the course in six steps, starting from identify
 \paragraph{Identifying build issues.}
 To find build issues that are truly build issues to the developer and not only reported as failed due to failing test cases that were meant to fail, we code the communication recorded in the irc channels, work item and email discussion, and the developer diaries with respect to problems experienced in the project.
 From those coded problems we select all problems related to building the software.
+The students mentioned three build in greater detail in their development diaries.
 
 \paragraph{Identifying the actual failed build.}
 After we identified from all the recorded communication what failed builds are truly failures, we identify those builds as they are shown in the Jenkins logs.
+The Jenkins log showed that the students submitted a total of 103 build requests of which 47 produced builds with failures. 
 These builds show what went wrong as well as what changes are new to those builds that potentially broke it.
 
 \paragraph{Identify code changes.}
