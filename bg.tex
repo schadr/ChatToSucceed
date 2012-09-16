@@ -1,18 +1,19 @@
 % !TEX root = thesis.tex
 \startchapter{Background}
 \label{chap:bg}
-In this chapter we provide an overview of the challenges that we described in the introduction and how other work tried partially or in full to address these challenges.
-Thus we will discuss three areas: (1) the research on software builds, (2) the research around the concept of socio-technical congruence, (3) failure prediction in software engineering, and (4) recommender systems in software engineering.
+In this chapter we provide an overview of three areas that are relevant to the research conducted with this thesis: (1) the research on software builds, (2) the research around the concept of socio-technical congruence, (3) failure prediction in software engineering, and (4) recommender systems in software engineering.
 
 \section{Build Outcome}
 Although software builds are important to delivering a software product as the final product is just the latest acceptable build, research in software builds focuses mainly on products and process that support the build process.
 Software products supporting builds often intend to speed up the build process and the execution of all test cases to obtain an assessment of the quality of the build~\cite{maraia:book:2005}.
-Similarly processes that focus on supporting software builds are predominantly dealing with issues of obtaining all required code changes from the different development teams and integrating this code into a final build as fast as possible without introducing additional issues.
+Similarly, processes that focus on supporting software builds are predominantly dealing with issues of obtaining all required code changes from the different development teams and integrating this code into a final build as fast as possible without introducing additional issues.
 
-The issues that shifts into focus once the actual process of creating the build is thoroughly optimized is to gain an idea of whether a build will fail or succeed.
+The issue that shifts into focus once the actual process of creating the build is thoroughly optimized is to gain an idea of whether a build will fail or succeed.
 If a project reaches a certain size, meaning the test suite grows considerably in size, the build process can take several hours just to run the whole test suite.
 To determine whether developers need to stay in order to apply quick fixes such that the product can be shipped or handed over to a team starting heir work in a different time zone becomes important.
 
+Following we review literature with respect to coordination and integration, where builds are one form of integration (Section~\ref{sec:RelatedCommunication}.
+We compliment that review with research conducted in the field of predicting failures using communication as one goal in this thesis is to improve communication among software developer with respect to build success a measure of software quality.
 
 \subsection{Communication, Coordination and Integration}
 \label{sec:RelatedCommunication}
@@ -45,7 +46,6 @@ software projects are greatly influenced by the quality of coordination of
 development teams. More recently a theory of coordination has been proposed and
 accounts for the influence of coordination on different project metrics such as
 rework and defects~\cite{Herbsleb:2006vn}.
-
 
 The importance of communication in successful coordination is also well
 documented and makes the study of communication structures important. For
@@ -95,7 +95,6 @@ to coordination ease~\cite{hinds:cscw:2006}, coordination
 capability~\cite{hossain:cscw:2006} and enhanced group
 identification~\cite{RayReagans:2001os}.
 
-
 Centrality measures indicate importance or prominence of actors in a
 social network. The most commonly used centrality measures include degree and
 betweenness centrality having different social implication. Centrality measures
@@ -129,15 +128,16 @@ Most prediction models in software engineering to date mainly leverage source
 code related data and focus on predicting failing software components or failure
 inducing changes
 (e.g.~\cite{bell:2005tse,schroeter:isese:2006,zimmermann:icse:2008,kim:2008tse}).
-Only few studies, such as Hassan and Zhang~\cite{hassan:ase:2006}, stepped away
+And only few studies, such as Hassan and Zhang~\cite{hassan:ase:2006}, stepped away
 from predicting component failures and used statistical classifiers to predict
 integration outcome.
-
+In this thesis we want to extend the body of knowledge surrounding prediction models using communication data or focusing on build outcome by investigating how to improve communication among software developers to prevent build failures.
 
 
 
 \section{Coordination in Software Engineering Teams}
-TODO - needs blurb
+In the previous Section~\ref{sec:RelatedCommunication} we highlighted the connection between coordination and interaction.
+In this section we extend this review by discussing work about coordination in software teams, as it is important to understand the coordination in teams to be able to manipulate it to influence build outcome.
 
 \subsection{The Need for Coordination}
 Software is extremely complex because of the sheer number of dependencies~\cite{sawyer2004:teams}.
@@ -187,15 +187,14 @@ Although distance has been identified as a challenge, advances in collaborative
 development environments are enabling people to overcome challenges of distance.
 One study of early RTC development
 shows that the task completion time is not as strongly affected by distance as in previous studies~\cite{Nguyen:2008Distance}. Technology that empowers distributed collaboration include topic recommendations~\cite{carter2004} and instant messaging~\cite{niinimaki2008}. Processes are adapting to the fast pace of software development: the Eclipse way~\cite{frost:ieeesoftware:2007} emphasizes placing milestones at fixed intervals and community involvement.
-
-
+These new processes lie the Eclipse way that focus on frequent milestones lends more importance to software builds warranting more support by research as we conduct it in this thesis.
 
 
 
 
 \section{Socio-Technical Congruence}
 As mentioned earlier this thesis explores to what extent can we leverage the concept of socio-technical congruence. 
-Before we start discussion the work that has been done with respect to using the concept of socio-technical congruence to analyze software development teams and their performance, we explain the socio-technical congruence concept.
+Before we discuss the work that conducted with respect to using the concept of socio-technical congruence to analyze software development teams and their performance, we explain the socio-technical congruence concept.
 
 \subsection{Socio-Technical Congruence Definitions}
 The literature exploring and using the concept of socio-technical congruence often relies on two interconnected definitions of socio-technical congruence.
@@ -307,79 +306,80 @@ For this purpose Cataldo et al~\cite{cataldo:cscw:2006} measures the congruence 
 Overall Cataldo et al~\cite{cataldo:cscw:2006} found, and were confirmed by other studies~\cite{valetto:msr:2007,ehrlich:stc:2008}, that there is a statistically significant relation between the amount of congruence and a tasks resolution time.
 
 
-\section{Source Code and Failure}
+\section{Networks and Failure}
 Technical dependencies that are used in the work of Cataldo et al~\cite{cataldo:cscw:2006} where studies before in the relation to software failures.
 Because we are investigating how to improve communication among software developers following their technical dependencies among each other we give an overview over work that involves work on source code that directly or indirectly indicates technical dependencies. 
 
-\subsection{Software Metrics}
-\label{chap:6:measure}
-We break down software metrics into three categories:
-(1) code complexity metrics that measure the interdependencies between low level software artifacts,
-(2) object oriented metrics often measure very localized aspects or the class interdependencies,
-and (3) metrics that measure code interdependencies such as function fan in and fan out.
-
-\subsubsection{Code Complexity Metrics}
-Defect prediction heavily uses metrics the describe code to predict defect proneness of files and other levels of software artifacts.
+%\subsection{Software Metrics}
+%\label{chap:6:measure}
 %
-The two most common complexity metrics used are Lines of Code in a software artifact and Mc Cabe's complexity metric~\cite{mccabe:ieee:1976}.
-Both metrics have been found to exhibit a medium to strong correlation across various software projects.
-In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
-Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
-
-A study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
-Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
-
-Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multiple source code metrics, other studies the relation ship of particular metrics with defect density.
-For instance, Koru et al~\cite{koru:promise:2005} conducted an in-depth analysis of the relation between the number of lines of code within a file and the relationship to defect density.
-Size not only is a defect predictor in many forms, e.g., average function size or file size, but the size of components also determines how well other predictors can work on it.
-
-In 2005 one year before Nagappan et al published their study on the relation of code metrics to defect density, Nikora et al~\cite{nikora:metrics:2005} discussed the use of graph measures used on the control flow graph.
-In the light of Mc Cabe's complexity metric that gives one value to the overall control flow graph within a software artifact, Nikora et al characterize the control flow graph using graph measures.
-
-Complexity and size metrics are often used as a control variable to ensure that newly found metrics are not simply a new representation of size or complexity and actually add more predictive power to already known metrics.
-Hence, there is ample evidence that lines of code~\cite{shihab:esem:2010,arisholm:isese:2006,jiang:promise:2008,knab:msr:2006,zhang:icsm:2009} and Mc Cabe's complexity~\cite{nagappan:icse:2006,shihab:fse:2011,zimmermann:fse:2009,jiang:promise:2008,zimmermann:promise:2007} have a moderate correlation to software defects on a file level.
-
-Despite their moderate usefulness complexity measures as we know them so far especially lines of code and Mc Cabe's complexity metric do not generalize across projects.
-This means, using those metrics as predictors adjusted to one project usually offers poor predictions when applied to another~\cite{zimmermann:fse:2009}. 
-
-
-\subsubsection{Change Complexity Metrics}
-During the evolution or maintenance of a project files are continuously edited to extend or improve the exiting project.
-Software artifact modifications are seldomly equally distributed across the project time and the artifacts related to a project.
-Thus, software artifact changes lend themselves to be studies in relation to software quality.
-The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005,moser:icse:2008,cataldo:icse:2011}.
-
-The next logical step after investigating the amount of change is to characterize the complexity of the changes made to a software artifact. 
-These churn metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
-Compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
-Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
-
-Similarly to the code complexity metrics, change complexity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
-
-
-\subsubsection{Object Oriented Metrics}
-\label{chap:6:sub:oom}
-Object oriented metrics are taking into account more language specific constructs that in the case of object oriented programming are often describing the relationship between object, such as inheritance depth.
-Besides measuring the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
-Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} and they showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
+%We break down software metrics into three categories:
+%(1) code complexity metrics that measure the interdependencies between low level software artifacts,
+%(2) object oriented metrics often measure very localized aspects or the class interdependencies,
+%and (3) metrics that measure code interdependencies such as function fan in and fan out.
 %
-Direct measures of object relationship, such as inheritance depth~\cite{chidamber:tse:1994}, sub-classing~\cite{chidamber:tse:1994} and object coupling~\cite{chidamber:tse:1994}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
-
-
-
-\subsubsection{Dependency Metrics}
-\label{chap:6:sub:depmet}
-Besides the three types of metrics discussed that measure complexity of code and in the case of object oriented metrics sometimes actual dependencies between software artifacts.
-Metrics such as fan-in and fan-out~\cite{henry:tse:1981} of methods are directly measuring the dependencies between software artifacts.
-
-Counting the number of dependencies either through metrics such as fan-in or fan-out or straight up counting call dependencies between software artifacts already yield moderate failure predictors~\cite{cataldo:icse:2011,nagappan:icse:2006,arisholm:isese:2006,knab:msr:2006,shin:msr:2009}.
-Note that although most of the object oriented metrics we mentioned in the previous section (Section~\ref{chap:6:sub:oom}) are also dependency metrics we will not reiterate them in this section. 
-Using more course grained dependency on the module level, or in other words counting dependencies across module boundaries, can also yield good failure predictors~\cite{jiang:promise:2008}.
-Another dependency metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schroeter:isese:2006,dualaekoko:esem:2009}.
-
-Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependencies between source code artifacts can be inferred using change information.
-Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the information about co-changing files, files that are frequently changed together in the same change-set, to determine how dangerous it can be not to change those files together.
-Zimmermann et al's work originally was intended to recommend which files to additionally change to an original software change found that violating those co-change dependencies can lead to software failure.
+%\subsubsection{Code Complexity Metrics}
+%Defect prediction heavily uses metrics the describe code to predict defect proneness of files and other levels of software artifacts.
+%%
+%The two most common complexity metrics used are Lines of Code in a software artifact and Mc Cabe's complexity metric~\cite{mccabe:ieee:1976}.
+%Both metrics have been found to exhibit a medium to strong correlation across various software projects.
+%In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
+%Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
+%
+%A study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al~\cite{nagappan:icse:2006} at Microsoft.
+%Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
+%
+%Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multiple source code metrics, other studies the relation ship of particular metrics with defect density.
+%For instance, Koru et al~\cite{koru:promise:2005} conducted an in-depth analysis of the relation between the number of lines of code within a file and the relationship to defect density.
+%Size not only is a defect predictor in many forms, e.g., average function size or file size, but the size of components also determines how well other predictors can work on it.
+%
+%In 2005 one year before Nagappan et al published their study on the relation of code metrics to defect density, Nikora et al~\cite{nikora:metrics:2005} discussed the use of graph measures used on the control flow graph.
+%In the light of Mc Cabe's complexity metric that gives one value to the overall control flow graph within a software artifact, Nikora et al characterize the control flow graph using graph measures.
+%
+%Complexity and size metrics are often used as a control variable to ensure that newly found metrics are not simply a new representation of size or complexity and actually add more predictive power to already known metrics.
+%Hence, there is ample evidence that lines of code~\cite{shihab:esem:2010,arisholm:isese:2006,jiang:promise:2008,knab:msr:2006,zhang:icsm:2009} and Mc Cabe's complexity~\cite{nagappan:icse:2006,shihab:fse:2011,zimmermann:fse:2009,jiang:promise:2008,zimmermann:promise:2007} have a moderate correlation to software defects on a file level.
+%
+%Despite their moderate usefulness complexity measures as we know them so far especially lines of code and Mc Cabe's complexity metric do not generalize across projects.
+%This means, using those metrics as predictors adjusted to one project usually offers poor predictions when applied to another~\cite{zimmermann:fse:2009}. 
+%
+%
+%\subsubsection{Change Complexity Metrics}
+%During the evolution or maintenance of a project files are continuously edited to extend or improve the exiting project.
+%Software artifact modifications are seldomly equally distributed across the project time and the artifacts related to a project.
+%Thus, software artifact changes lend themselves to be studies in relation to software quality.
+%The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005,moser:icse:2008,cataldo:icse:2011}.
+%
+%The next logical step after investigating the amount of change is to characterize the complexity of the changes made to a software artifact. 
+%These churn metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
+%Compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
+%Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
+%
+%Similarly to the code complexity metrics, change complexity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
+%
+%
+%\subsubsection{Object Oriented Metrics}
+%\label{chap:6:sub:oom}
+%Object oriented metrics are taking into account more language specific constructs that in the case of object oriented programming are often describing the relationship between object, such as inheritance depth.
+%Besides measuring the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
+%Method counts have been used by Nagappan et al~\cite{nagappan:icse:2006} and Arisholm et al~\cite{arisholm:isese:2006} and they showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
+%%
+%Direct measures of object relationship, such as inheritance depth~\cite{chidamber:tse:1994}, sub-classing~\cite{chidamber:tse:1994} and object coupling~\cite{chidamber:tse:1994}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
+%
+%
+%
+%\subsubsection{Dependency Metrics}
+%\label{chap:6:sub:depmet}
+%Besides the three types of metrics discussed that measure complexity of code and in the case of object oriented metrics sometimes actual dependencies between software artifacts.
+%Metrics such as fan-in and fan-out~\cite{henry:tse:1981} of methods are directly measuring the dependencies between software artifacts.
+%
+%Counting the number of dependencies either through metrics such as fan-in or fan-out or straight up counting call dependencies between software artifacts already yield moderate failure predictors~\cite{cataldo:icse:2011,nagappan:icse:2006,arisholm:isese:2006,knab:msr:2006,shin:msr:2009}.
+%Note that although most of the object oriented metrics we mentioned in the previous section (Section~\ref{chap:6:sub:oom}) are also dependency metrics we will not reiterate them in this section. 
+%Using more course grained dependency on the module level, or in other words counting dependencies across module boundaries, can also yield good failure predictors~\cite{jiang:promise:2008}.
+%Another dependency metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schroeter:isese:2006,dualaekoko:esem:2009}.
+%
+%Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependencies between source code artifacts can be inferred using change information.
+%Zimmermann et al~\cite{zimmermann:icse:2004} and D'Ambros et al~\cite{dambros:wcre:2009} used the information about co-changing files, files that are frequently changed together in the same change-set, to determine how dangerous it can be not to change those files together.
+%Zimmermann et al's work originally was intended to recommend which files to additionally change to an original software change found that violating those co-change dependencies can lead to software failure.
 
 
 \subsection{Artifact Networks}
@@ -402,6 +402,8 @@ These two mode networks can be used for the same analysis that Zimmermann et al~
 
 Meneely et al~\cite{meneely:fse:2008} uses networks that consist of developers that within a given release modified the same file.
 These networks, or rather social network measure extracted from these networks, are able to predict whether a file contains a failure.
+While technical networks are powerful failure predictors, they are only able to point to source code files that are more likely to fail in the field and thus should be more tests.
+
 
 
 
@@ -449,9 +451,9 @@ The concept of socio-technical congruence lends itself to improve software devel
 Because of the concept being based on networks it is possible to manipulate the networks.
 
 There are two steps that need to be taken:
-(1) identify the parts of the network that need to be changed
+(1) identify the parts of the social network that need to be changed
 and (2) devise strategies to change the social network in a timely fashion.
-In case of failure prevention the current way socio-technical congruence is constructed might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
+In case of failure prevention the current way socio-technical congruence is conceptualized might be sufficient in that it is enough to compute after a task has been completed to assess the quality of the submitted code.
 On the other hand, to contribute to the improvement of productivity we cannot afford to use networks constructed from submitted work as the work that we want to speed up has already been submitted.
 Even though in the case of software quality it is sufficient to assess the work done to accomplish a task, providing earlier feedback is advantageous as it allows developer to intervene early on and spend less time on correct errors later on.
 
@@ -461,7 +463,7 @@ Therefore, as a first step we need to assess if the actual communication structu
 As a follow up step, we need to explore the relationship between socio-technical networks and build success.
 Especially we are interested in the relationship in whether missing actual coordination in the face of a coordination needs is related to build success.
 
-We start in the second part of this thesis with investigating the influence of communication among team members in the form of the communication structure represented by social networks on build success.
+We start in the second part of this thesis with investigating the influence of communication among team members in the form social networks on build success.
 Next, we investigate if gaps (unfilled coordination needs) between developers as highlighted by socio-technical networks and the socio-technical networks themselves can be brought into relation with build success.
 Therefore Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
 
@@ -474,16 +476,16 @@ Having found a relationship between socio-technical networks, especially gaps be
 The third and final part of this thesis focuses on evaluating this approach in three ways:
 (1) gathering general statistical evidence of parts of the network and build success to foster recommendations,
 (2) exploring the acceptance of such recommendation by developers,
-and (3) a proof of concepts that the recommendation could prevent failures.
+and (3) a proof of concept that the recommendation could prevent failures.
 Hence, the first three chapters of the third part of this thesis are guided by the following three research questions:
 
 \begin{description}
   \item[RQ 2.1:] Can Socio-Technical Networks be manipulated to increase build success? (Chapter~\ref{chap:stc-net})
-  \item[RQ 2.2:] Do developer accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})
-  \item[RQ 2.3:] Can recommendation actually prevent build failures? (Chapter~\ref{chap:actionable})
+  \item[RQ 2.2:] Do developers accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})
+  \item[RQ 2.3:] Can recommendations actually prevent build failures? (Chapter~\ref{chap:actionable})
 \end{description}
 
-In the following discussion Chapter~\ref{chap:disc} we will highlight how our findings from these three research questions support the approach we detailed in Chapter~\ref{chap:approach}.
+In the following discussion (Chapter~\ref{chap:disc}) we will highlight how our findings from these three research questions support the approach we detailed in Chapter~\ref{chap:approach}.
 
 
 
