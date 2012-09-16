@@ -1,17 +1,17 @@
 % !TEX root = thesis.tex
 \startfirstchapter{Introduction}
-The software industry often visible through some of their biggest companies such as Microsoft, Google, IBM, Dell, Apple, Oracle, and SAP represent several hundred billion US Dollars of profit a year. 
+The software industry often visible through some of big companies such as Microsoft, Google, IBM, Dell, Apple, Oracle, and SAP represent several hundred billion US Dollars of profit a year. 
 For example the software industry in USA in 2002 was producing according to the US Census a total revenue of 103.7 billion USD\footnote{http://www.census.gov/prod/ec02/ec0251i06.pdf last visited May 10th, 2012}.
 As many engineering companies those companies in the software industry strive to optimize their engineering processes to produce software of higher quality in less time.
 
 Software engineering researchers all over the world have dedicated countless hours to improve the way software is developed.
-Several fields some not directly aimed at increasing productivity such as developing better programming languages~\cite{conf:prog:lang}, smarter compilers~\cite{cong:comp:constr}, and better education in algorithms and data structures~\cite{conf:sigcse} contribute indirectly.
+Several fields some not directly aimed at increasing productivity such as developing better programming languages~\cite{conf:prog:lang}, smarter compilers~\cite{cong:comp:constr}, and better educationial methods to teach algorithms and data structures~\cite{conf:sigcse} contribute indirectly.
 Other fields are more directly interested in productivity, among them are research in software processes~\cite{conf:icssp}, effort estimation~\cite{molkken:isese:2003,boehm:analse:2000}, and software failure prediction~\cite{conf:promise}.
 
 The vast body of knowledge accumulated to improve the software engineering process is strongly biased towards analyzing the technical side: supporting coding activities (e.g.~\cite{bassil:iwpc:2001,mens:tse:2004}) and analyzing source code to improve quality~\cite{zimmermann:oopsla:2005,nagappan:icse:2006}. 
 Since producing source code is the main objective of software developer optimizing the coding aspect~\cite{bassil:iwpc:2001,mens:tse:2004} as well as analyzing the produced code for issues~\cite{nagappan:icse:2005,schroeter:isese:2006} lies at hand.
 
-Others have focused on the people that produce the code. Studying their behavior around coding activities~\cite{latoza:icse:2006} how they communicate~\cite{ko:icse:2007,gopal:2002:comacm} and how their relations relate to productivity~\cite{gopal:2002:comacm} and quality~\cite{abreu:iwpse:2009,wolf:icse:2009}.
+Others have focused on the people that produce the code. Studying their behaviour around coding activities~\cite{latoza:icse:2006}, how they communicate~\cite{ko:icse:2007,gopal:2002:comacm}, and how developer relations relate to productivity~\cite{gopal:2002:comacm} and quality~\cite{abreu:iwpse:2009,wolf:icse:2009}.
 As in the former case there is much merit in focusing on the developer in the end she implements the features a software consists of and she inevitably introduces errors to the code base.
 
 Both avenues, studying the human aspect and studying the technical aspect, yielded many useful results.
@@ -23,10 +23,10 @@ They proposed to overlay networks constructed from social (who communicates with
 
 To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
 This directly follows from Conway's observations~\cite{conway:datamination:1968} that the communication structure of any given organization dictate the underlying technical dependencies.
-In software engineering that roughly translates into the idea that the communication flow within software teams need to follow the module dependencies described by the software architecture. 
+In software engineering that roughly translates into the idea that the communication flow within software teams need to match the module dependencies described by the software architecture. 
  
-This idea shows great promise in applying to software repositories such as versioning archives and issue trackers or other recorded communication.
-Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the satisfaction of the technical dependencies with social interaction is, the better productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009}.
+This idea shows great promise when applying it to software repositories such as versioning archives and issue trackers or other recorded communication.
+Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the satisfaction of the technical dependencies with social interaction is, the higher productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009} becomes.
 The ability to extract useful socio-technical measures from archives in an automated fashion enables the application to any software project that captures development data electronically.
 
 However, we see three major issues with the concept of socio-technical congruence as it is currently used:
@@ -47,29 +47,29 @@ We are not solely referring to the ability of  developers to read environment tr
 % item 4
 To fully leverage the concept of socio-technical congruence it is important to act on it.
 The current concept is only shown to relate to performance and quality post-mortem.
-To truly unlock the potential of the socio-technical congruence concept it needs to be extended such that it can make on demand recommendations to improve congruence between the social and technical relations.
+To truly unlock the potential of the socio-technical congruence concept it needs to be extended such that it can make on demand recommendations to improve congruence.
 
 % how do we address the issues
 With this thesis we intend to address these issues in two ways:
 \begin{description}
 % item 3
 \item[What technical dependencies need to be met with communication?] 
-Although to recommend every developer to talk to every other developer about their work seems to be the easiest solution to gaining a perfect socio-technical congruence index, as mentioned earlier, it could decrease productivity due to the heavy overhead caused by  constant communication.
-To address this issue we not only seek out which technical dependencies exist among developers, but we go one step further and try to find those technical dependencies when not accompanied by communication are the most harmful to the project.
+Although to recommend every developer to talk to every other developer about their work seems to be the easiest solution to gaining perfect socio-technical congruence coverage, as mentioned earlier, it could decrease productivity due to the heavy overhead caused by  constant communication.
+To address this issue we seek out which technical dependencies exist among developers and we go one step further and try to find those technical dependencies when not accompanied by communication are the most harmful to the project.
 
 Instead of focusing on recommending changes to the source code to remove technical dependencies we focus on improving the communication among developers.
-Because changes to the technical dependencies would imply partly to re-architect the product, which is both time intensive and risky with respect to introducing unforeseeable complication, and thus economically undesirable.
+Because changes to the technical dependencies would partly imply to re-architect the product, both time intensive and risky, we focus on optimizing the social interactions among developers.
 Additionally as customers rarely derive any tangible benefits from re-architecting a product, there is little willingness to pay for this type of work.
 
 % item 4
 \item[How to make socio-technical congruence actionable?] Although socio-technical congruence can be continuously computed and the previously mentioned strategies can be applied in real time, they all take a more project centred perspective.
 To support developers to engage in communication when necessary they need to be informed of potential issues with respect to socio-technical congruence as they arise.
-Building on the concept of proximity proposed by Blincoe et al~\cite{blincoe:cscw:2012}, we studies in depth the development interactions of a student project and the relation between issues and their fine grained real-time code dependencies.
+Building on the concept of proximity proposed by Blincoe et al~\cite{blincoe:cscw:2012}, we study in depth the development interactions of a large student project at the University of Victoria, Canada, and Aalto University, Finland, and the relation between issues and their fine grained real-time code dependencies.
 \end{description}
 
 As Murphy et al~\cite{murphy:rsse:2010} pointed out, users of automated recommendation systems need to trust the system otherwise they will ignore it.
-This is especially true when continuously reporting information to developers and trying to steer them into another direction.
-Therefore, we investigate what the daily focus of developer is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence might bear fruit.
+This is especially true when continuously reporting information to developers and trying to steer them into a specific direction.
+Therefore, we investigate what the daily focus of developers is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence might bear fruit.
 
 % some of the findings as a teaser
 Socio-technical congruence forms a great basis to leverage several digitally recorded data treasures to generate useful and actionable information.
@@ -77,15 +77,15 @@ Patterns of developer pairs showed that there are developers when not talking to
 Furthermore, we found in a student project that certain issues experienced during development can be traced back to code dependencies that could have been detected in real time.
 
 % the two top level research questions
-To complement the research that has studied the relationship between socio-technical congruence and performance, we focus on build outcome as a metric for software quality.
-Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one, as for instance it is the case with pre- and post-release failures.
+To complement the research that studied the relationship between socio-technical congruence and performance, we focus on build outcome as a metric for software quality.
+Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one.
 Nonetheless,  build success is fundamental in creating a product that can be shipped to a customer.
 Often a successful build indicates that not only all test cases deemed important passed, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
 Hence, build success is of utmost importance to a business as it forms the very product the business hopes to sell.
 Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
 \begin{description}
 \item[RQ 1:] Does Socio-Technical Congruence influence build success?
-\item[RQ 2:] Can Socio-Technical Networks can be leverage to generate recommendations to improve build success?
+\item[RQ 2:] Can Socio-Technical Networks be leverage to generate recommendations to improve build success?
 \end{description}
 
 % methodology overview
@@ -96,7 +96,7 @@ To find statistically relevant recommendations we employ data mining techniques,
 
 
 \section{Thesis Contribution}
-This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around of coordination in software development teams.
+This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around coordination in software development teams.
 
 \subsection{Approach}
 % contribution(s)
@@ -107,8 +107,8 @@ This step-wise approach includes five steps:
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
-\item Build social networks according.
-\item Build technical networks according.
+\item Build social networks.
+\item Build technical networks.
 \item Generate actionable insights.
 \end{enumerate}
 
@@ -117,22 +117,22 @@ For example, we found instances where developers that share a technical dependen
 
 
 \subsection{Empirical Findings}
-The studies we conducted in order to motivate and appraise the approach each yielded their separate research findings extending the body of knowledge about coordination in software development teams.
+The studies we conducted in order to motivate and appraise the approach each yielded their separate research findings extending the body of knowledge of coordination in software development teams.
 We motivated the approach to improve interactions among software developers by studying the affect of communication structures on build success (Chapter~\ref{chap:soc-net}) and complemented that finding with an investigation of coordination gaps highlighted by technical dependencies among software developers on build success (Chapter~\ref{chap:stc-net2}).
 
 Investigating the usefulness of the approach yielded several findings with respect to team coordination.
 We showed in a direct approach to investigate the statistical relevance of recommendations and found the existence of pairs of developer with an unmet need to coordinate that negatively influence build success (Chapter~\ref{chap:stc-net}).
-Following the observation by Murphy et al~\cite{murphy:rsse:2010} we work together with a professional soft ware development team and showed that the level and content of our recommendation is acceptable to developers (Chapter~\ref{chap:talk}).
+Following the observation by Murphy et al~\cite{murphy:rsse:2010} we worked together with a professional software development team and showed that the level and content of our recommendation is acceptable to developers (Chapter~\ref{chap:talk}).
 In the last study we provided a proof of concept showing the usefulness of our approach by tracing a build failure to an issue that our recommendations could have prevented, thus corroborating research studying the influence of coordination in software integration (Chapter~\ref{chap:actionable}).
 
 \section{Thesis Overview}
 This thesis is divided into three parts.
-In part one we start motivate the more detailed research by reviewing related work in Chapter~\ref{chap:bg}.
-We delve into presenting our overarching methodology with explanations of frequently used constructs and analysis methods in Chapter~\ref{chap:meth} followed by presenting IBM Rational Team Concert (RTC) as well as some key factors of the development team as much of our research was conducted in collaboration with the RTC development team (Chapter~\ref{chap:rtc}).
+In part one we motivate our research by reviewing related work in Chapter~\ref{chap:bg}.
+We delve into presenting our overarching methodology with explanations of frequently used constructs and analysis methods in Chapter~\ref{chap:meth} followed by presenting IBM Rational Team Concert (RTC) as well as some key factors of the development team (Chapter~\ref{chap:rtc}).
 
 Part two presents two studies (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) that build the foundation for our approach, which we formulate in Chapter~\ref{chap:approach}, by investigating the relationship between social networks and build success and socio-technical networks, specifically unmet coordination needs, and build success.
 
-Knowing that the social network might lend itself to manipulations with positive affects with respect to build success as informed by the respective socio-technical network, we study the development history of the IBM Rational Team Concert development team for recurring patterns of developer pairs that do not coordinate and their statistical relationship to build success (Chapter~\ref{chap:stc-net}).
+Knowing that the social network might lend itself to manipulations with positive affects with respect to build success, we study the development history of the IBM Rational Team Concert development team for recurring patterns of developer pairs that do not coordinate and their statistical relationship to build success (Chapter~\ref{chap:stc-net}).
 We continue by presenting a study in Chapter~\ref{chap:talk} investigating whether the recommendations resulting from those patterns are of use to developers and when the best time to present such recommendations is.
 Before concluding this thesis with discussing how our approach to leverage socio-technical congruence (Chapter~\ref{chap:disc}) is supported by the evidence uncovered through our studies, we present a study in Chapter~\ref{chap:actionable} which showed evidence that 
 recommendations that our approach can generate could have prevented build failures.
