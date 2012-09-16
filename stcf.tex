@@ -32,7 +32,7 @@ At the core of socio-technical congruence is the concept of a technical dependen
 \begin{placeholder}[t]
 \begin{itemize}
 \item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
-\item Source code modules changed together in a change set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
+\item Source code modules changed together in a change-set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
 \item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
 \item Tasks that depend on other tasks \cite{wolf:ieee:2009}
 \end{itemize}
@@ -106,7 +106,7 @@ The congruence values are low on average with a mean value of 0.331 meaning that
  & Min & Median & Max & Mean\\\midrule
 Authors & 2 & 17 & 44 & 18.62\\
 Files & 5 & 131 & 3101 & 342.3 \\
-Change Sets & 4  & 34  & 226 & 54.2\\
+change-sets & 4  & 34  & 226 & 54.2\\
 Work items & 4 & 34  & 182 & 48.3 \\
 Build date range (days) & 0  & 345  & 361 & 319.2 \\
 Congruence & 0  & 0.21  & 1 & 0.331 \\
@@ -126,7 +126,7 @@ Congruence & 0  & 0.21  & 1 & 0.331 \\
    1. Congruence  & -0.27 & -0.22 & -0.33 & 0.08 & 0.19 \\ 
    2. Authors & --& 0.41 & 0.76 & 0.10 & -0.30 \\ 
    3. Files &  & --& 0.37 & 0.08 & -0.20 \\ 
-   4. Change sets &  &  &  --& 0.02 & -0.38 \\ 
+   4. change-sets &  &  &  --& 0.02 & -0.38 \\ 
    5. Work items  &  &  &  &  --& 0.04 \\ 
    6. Build date &  &  &  &  & -- \\ 
 \bottomrule
@@ -137,7 +137,7 @@ Congruence & 0  & 0.21  & 1 & 0.331 \\
 \label{tab:pairwise}
 \end{table}
 
-We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change set, and thus there is at least as many change sets as authors per build.
+We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change-sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change-sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change-set, and thus there is at least as many change-sets as authors per build.
 
 To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. We present our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
 
@@ -381,7 +381,7 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
 \label{tab:congruence_extremes}
 \end{table}
 
-To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme congruence values. Our results are shown in Table \ref{tab:change-set_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
+To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change-set pairs in builds with extreme congruence values. Our results are shown in Table \ref{tab:change-set_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
 
 Of note is the high number of comments on work items that have zero congruence. This indicates that individuals who have no technical relationship to the work item are commenting on the work item.
 
@@ -398,7 +398,7 @@ Congruence &                                & 1     & 0   & 1 & 0 \\\midrule
 \multirow{2}{*}{Total} 		& OK		  & 652 & 588 &     \multirow{2}{*}{66\%} & \multirow{2}{*}{69\%}   \\
                        		& Error   & 333  & 263 & &\\\bottomrule
 \end{tabular}
-\caption{Number of work items-change set pairs with comments and build success probabilities for congruence 0 and 1}
+\caption{Number of work items-change-set pairs with comments and build success probabilities for congruence 0 and 1}
 \label{tab:change-set_commenters}
 \end{table}
 
@@ -440,7 +440,7 @@ However, explicit coordination has a cost. There is evidence that involving too 
 
 \subsubsection{RTC is a Shared Workspace}
 The RTC client software helps a developer acquire and maintain \emph{environmental awareness} of what is going on in the project by providing access to a shared workspace. Much of the work is centred around the RTC technical entities, which include plans, source code, work items, and comments.
-RTC's awareness mechanisms feature a developer-centred dashboard that reports changes to the workspace, built-in traceability, user notifications, regularly-generated reports, and an optional web browser interface. For example, when a change set is created, it is attached to a work item, thus ensuring that people who are involved with the work item receive notification of this change set. These automatic notifications cut down the amount of explicit communication and allow people to coordinate implicitly.
+RTC's awareness mechanisms feature a developer-centred dashboard that reports changes to the workspace, built-in traceability, user notifications, regularly-generated reports, and an optional web browser interface. For example, when a change-set is created, it is attached to a work item, thus ensuring that people who are involved with the work item receive notification of this change-set. These automatic notifications cut down the amount of explicit communication and allow people to coordinate implicitly.
 
 Coordinating using the workspace is well-known in the computer-supported cooperative work domain \cite{schmidt1996}. Open-source developers, in particular, coordinate around source code~\cite{bolici:stc:2009} and mailing lists \cite{gutwin2004:awareness,mockus2002:opensource} because there is little opportunity for face-to-face interaction. RTC shares many characteristics with open-source development, such as a distributed team and a transparent development process.
 
