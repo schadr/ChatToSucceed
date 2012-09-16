@@ -77,7 +77,7 @@ Patterns of developer pairs showed that there are developers when not talking to
 Furthermore, we found in a student project that certain issues experienced during development can be traced back to code dependencies that could have been detected in real time.
 
 % the two top level research questions
-Instead of using the outcome metric traditionally associated with socio-technical congruence, performance, we focus on build outcome as a metric for software quality.
+To complement the research that has studied the relationship between socio-technical congruence and performance, we focus on build outcome as a metric for software quality.
 Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one, as for instance it is the case with pre- and post-release failures.
 Nonetheless,  build success is fundamental in creating a product that can be shipped to a customer.
 Often a successful build indicates that not only all test cases deemed important passed, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
@@ -85,7 +85,7 @@ Hence, build success is of utmost importance to a business as it forms the very 
 Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
 \begin{description}
 \item[RQ 1:] Does Socio-Technical Congruence influence build success?
-\item[RQ 2:] Can Socio-Technical Networks can be leverage to generate recommendations to improveme build success?
+\item[RQ 2:] Can Socio-Technical Networks can be leverage to generate recommendations to improve build success?
 \end{description}
 
 % methodology overview
@@ -96,12 +96,12 @@ To find statistically relevant recommendations we employ data mining techniques,
 
 
 \section{Thesis Contribution}
-This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapaters~\ref{} and~\ref{}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around of coordination in software development teams.
+This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapters~\ref{} and~\ref{}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around of coordination in software development teams.
 
 \subsection{Approach}
 % contribution(s)
-The contribution of this thesis lies showing that socio-technical congruence can be used to create preventative recommendation and that developer are generally accepting of recommendations of the form as well as in formulating a step-wise approach to derive such recommendations.
-This stepwise approach select a proper scope and outcome metric that through data mining techniques such as frequent pattern mining.
+The first contribution of this thesis lies in showing that socio-technical congruence can be used to create recommendations to prevent build failures by improving the social interactions among software developers.
+Therefore we formulated a stepwise approach that selects a proper scope and outcome metric that through data mining techniques such as frequent pattern mining of socio-technical networks can generate insights to improve the collaboration (social interactions) among software developers.
 
 This step-wise approach includes five steps:
 \begin{enumerate}
@@ -112,7 +112,7 @@ This step-wise approach includes five steps:
 \item Generate actionable insights.
 \end{enumerate}
 
-This approach enables us to provide developers with recommendations point them to engage in communication with other developer they share technical dependencies with.
+This approach enables us to provide developers with recommendations that point them to engage in communication with other developer they share technical dependencies with.
 For example, we found instances where developers that share a technical dependency but did not communicate can increase the likelihood of a build failure to more than 80\%.
 
 
@@ -127,10 +127,10 @@ In the last study we provided a proof of concept showing the usefulness of our a
 
 \section{Thesis Overview}
 This thesis is divided into three parts.
-In part one we start motivate the more detailed research by going over related work in Chapter~\ref{chap:bg}.
-Before we delve into presenting our overarching methodology with explanations of frequently used constructs and analysis methods in Chapter~\ref{chap:meth}, we will present IBM Rational Team Concert (RTC) as well as some key factors of the development team as much of our research was done in collaboration with the RTC development team (Chapter~\ref{chap:rtc}).
+In part one we start motivate the more detailed research by reviewing related work in Chapter~\ref{chap:bg}.
+We delve into presenting our overarching methodology with explanations of frequently used constructs and analysis methods in Chapter~\ref{chap:meth} followed by presenting IBM Rational Team Concert (RTC) as well as some key factors of the development team as much of our research was conducted in collaboration with the RTC development team (Chapter~\ref{chap:rtc}).
 
-Part two is comprised of Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2} that build the foundation for our approach, which we formulate in Chapter~\ref{chap:approach}, by investigating the relationship between social networks and build success and socio-technical networks, specifically gaps, and build success.
+Part two presents two studies (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) that build the foundation for our approach, which we formulate in Chapter~\ref{chap:approach}, by investigating the relationship between social networks and build success and socio-technical networks, specifically unmet coordination needs, and build success.
 
 Knowing that the social network might lend itself to manipulations with positive affects with respect to build success as informed by the respective socio-technical network, we study the development history of the IBM Rational Team Concert development team for recurring patterns of developer pairs that do not coordinate and their statistical relationship to build success (Chapter~\ref{chap:stc-net}).
 We continue by presenting a study in Chapter~\ref{chap:talk} investigating whether the recommendations resulting from those patterns are of use to developers and when the best time to present such recommendations is.
