@@ -1,7 +1,7 @@
 % !TEX root = thesis.tex
 \startchapter{Socio-Technical Congruence and Failure}
 \label{chap:stc-net}
-The first step we take towards exploring the usefulness of our approach is to test whether we can generate recommendations that break patterns statistically related to build failure.
+The first step we take towards exploring the usefulness of our approach is to test whether we can generate recommendations that break patterns related to build failure.
 Thus we focus on the following research question:
 
 \begin{description}
@@ -9,11 +9,10 @@ Thus we focus on the following research question:
 \end{description}
 
 Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
-Thus we explore to what extend the history of a project can be used and highlight those cases where developer that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
+Thus we explore to what extend the history of a project can be used to highlight those cases where developer that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
 
-In the remainder of this chapter, we start with detailing the back ground relevant to studying communication in relationship to software builds or to integration issues in software development in a broader sense (Section~\ref{ch8:bg}).
-Subsequently, we briefly go over the methodology that is relevant to exploring our research question (Section~\ref{sec:data} and~\ref{ch8:gaps}).
-Then, we go over the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results and threats to validity in Sections~\ref{ch8:dis} and~\ref{ch8:threat} respectively.
+In this chapter, we start by briefly presenting the methodology that is relevant to exploring our research question (Section~\ref{sec:data} and~\ref{ch8:gaps}).
+Then, we present the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results and threats to validity in Sections~\ref{ch8:dis} and~\ref{ch8:threat} respectively.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:talk} (Section~\ref{sec:8:conclusions}).
 
 
@@ -176,9 +175,8 @@ unmet coordination need) in socio-technical networks. We refer to these pairs of
 developers as \emph{technical pairs} (there is a gap), and to those that do
 share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}. 
 
-To answer our second research question, we analyze the
-technical pairs in relation to build
-failure. Our analysis proceeds in four steps:
+We analyze the technical pairs in relation to build failure. 
+Our analysis proceeds in four steps:
 
 \begin{enumerate}
 \item Identify all technical pairs from the socio-technical networks.
