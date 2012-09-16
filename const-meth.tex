@@ -163,6 +163,7 @@ A \emph{Build} is a to some extend executable version of the product that includ
 \section{Constructs}
 \label{c5:sec:constructs}
 From the definitions introduced previously we can derive the three central constructs we work with in this thesis: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
+These constructs are important for the three chapters that are mining the right repository provided by the Rational Team Concert development team (Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}).
 
 \subsection{Social Network}
 \begin{figure}[t!]
@@ -318,6 +319,7 @@ And lastly the build engine supplies us with the focus to construct socio-techni
 In order to derive socio-technical network we need to link the different artifact types.
 Within IBM Rational Team Concert as illustrated in Figure~\ref{fig:construct-focus} work items are linked to change-sets and change-sets are linked to builds, therefore, establishing the connections needed to construct socio-technical networks with a build as focus.
 Similarly these links can be inferred as proposed by Cubranic et al~\cite{cubranic:tse:2005} from repositories that are missing the capabilities of creating formalized links.
+We used repository mining techniques in Chapter~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net} to explore the rich repositories provided by the IBM Rational Team Concert team.
 
 \subsection{Surveys}
 To complement the insights we obtained from mining repositories we use surveys.
@@ -327,6 +329,8 @@ We constrain ourselves in this way to minimize the distraction to each individua
 
 Our surveys are deployed through web services to make the collections more convenient to each developer as they are spending most of their times working at a computer enabling them to fill in the survey at their earliest convenience.
 Keeping track of a paper version is more cumbersome as they might not easily be returned, especially considering that the development teams we are collaborating with are distributed across different continents.
+
+We both deployed surveys working with the Rational Team Concert development team (Chapter~\ref{chap:talk}) and when working with students working on a large course project at the University of Victoria, Canada, and Aalto University, Finland (Chapter~\ref{chap:actionable}).
 
 
 \subsection{Observations}
@@ -356,7 +360,7 @@ Better in the sense of both more meaningful to the developer and in the sense of
 Besides gaining a better understanding of some easily missed or miss-understood intricacies, working together with the developer establishes a trust relationship~\cite{letherbridge:ese2005}.
 This trust helps to mitigate observation biases that are introduced by just observing as well as makes developers more forthcoming during interviews and surveys~\cite{letherbridge:ese2005}.
 It is difficult to separate the different data collection methods that involve human interaction, therefore we think combining these data collection methods in the right order can greatly enhance the quality of the collected data.
-
+We were able to join the Rational Team Concert development team as a participant observer mainly due to the convincing argument that we take the place of an intern, thus, contributing to their development effort (Chapter~\ref{chap:talk})
 
 \subsection{Interviews}
 To further enhance our understanding on how developers view the situation and further make sense of survey responses as well as results from mining repositories and our observations, we employed interviews.
@@ -384,82 +388,7 @@ It is therefore necessary that the interviewer has a good understanding of the p
 We tried to minimize the interruption to project members as much as possible therefore we limited the time we require for each interview as much as possible.
 Most interviews are aimed of taking 30 minutes with a 30 minute overflow in case a participant is willing to continue the interview.
 Furthermore, we gave the work of the interviewee priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
-
-\section{Analysis Methods}
-\label{c5:sec:analysis}
-We use two types of analysis techniques to make sense of the data: (1) statistical analysis methods help to assess and extract insights from large quantitative data sets that would be very tedious to analyze by reading through them, and (2) theory building approaches such as grounded theory to make sense of qualitative data.
-Both approaches can be combined to address different research questions as well as be used triangulate and verify insights.
-
-\subsection{Statistical Analysis}
-Making sense of large data, that is data that is to big to explore manually, makes use of statistical methods to extrapolate trends necessary.
-We apply three different types of statistical analysis techniques: (1) Hypothesis testing to infer if two populations are different with respect to a defined attribute, (2) Correlation testing to infer if two populations follow a similar trend, and (3) Prediction analysis to ascertain if the combination of factors can predict a certain outcome as well as the strength of individual factors in the presence of other factors. 
-
-\paragraph{Hypothesis Tests} are used to determine the likelihood that a set of samples are different based on a combination of attributes of those data samples.
-
-\begin{itemize}
-\item\textbf{Wilcoxon rank-sum test} is a non-parametric test to determine the difference between two data sets with respect to a rank-able attribute.
-Hence, this test can be applied to data attributes that consist of ordered, interval or continues data.
-
-\item\textbf{Kruskal-Wallis test} tests whether a group of samples is drawn from the same distribution.
-Since the Kruskal-Wallis test is an extension to the Wilcoxon rank-sum test for more than two sample it operates on ordered data.
-The result of the Kruskal-Wallis tests shows if there is at least one data set that stands out and thus requires the use of the Wilcoxon rank-sum test to determine which data sets differ from each other.
-
-\item\textbf{Fisher's exact/$\chi^2$-test} allow to assess if a set of nominal attribute can distinguish two data sets. 
-The major difference between the Fisher's exact value test and the $\chi^2$-test lie with the exactness of the tests.
-The Fisher's exact value test gives a more accurate p-value whereas the $\chi^2$-test only approximates the p-value, but Fisher's exact value test becomes computationally infeasible for large attribute sets.
-
-\item\textbf{P-Value adjustment} is not a hypothesis test but is frequently necessary when many tests are preformed.
-The p-value represents the likelihood that the null hypothesis cannot be rejected.
-A typical threshold used in research to reject a null hypothesis is the 5\% level, which means that we are with a likelihood of 5\% wrong to reject the hypothesis.
-When performing multiple hypothesis test the likelihood that one of the accepted tests is falsely accepted increases, therefore the p-value needs to be adjusted.
-\end{itemize}
-
-Since we cannot make any assumptions about the underlying distribution of our data sample we opt for using non-parametric hypothesis tests.
-
-
-\paragraph{Correlation Tests} help with determining if two data sets follow a similar trend or in other words whether there exists a relationship between two data sets.
-We are mostly looking for linear relationships among random variables as they give an easier to interpret relationship.
-
-\begin{itemize}
-\item\textbf{Pearson} correlation coefficient is testing two data sets, where the data points in each data set can be paired, whether a linear relationship exists between the two data sets.
-This correlation coefficient is able to identify positive and negative relations but not the actual slope of the linear relation ship.
-
-\item\textbf{Spearman} correlation coefficient is performing a Pearson correlation on the rank of the data sets values instead of the real values.
-Therefore the Spearman rank correlation coefficient is able to be used on ordinal data as well as interval and continuous data. 
-
-\item\textbf{Kendal's Tau} correlation coefficient is like the Spearman correlation coefficient a non-parametric correlation coefficient.
-The advantage of Kendal's Tau is that it is more robust to tied ranks.
-Tied ranks happen if two values in a data set are the same.
-\end{itemize}
-
-Similarly to the hypotheses test we also opt for the most robust non-parametric test, because our data sets often contains duplicate entries with respect to the correlated variables as well as does not follow necessarily a normal distribution.
-
-\paragraph{Prediction Analysis} deals with using prediction models to assess the relationship between a set of data attributes with respect to a variable of interest.
-Classification or regression deal with approximating the class or the value associated with a data point using a given set of attributes describing the data point.
-Analyzing the prediction model can yield insights into the strength of the effect an attribute or the set of attribute has on the prediction model.
-\begin{itemize}
-\item\textbf{Regression Analysis} is often used to assess the effect of a single attribute in the presence of other attributes with respect to the amount of information it provides to make the prediction.
-Models that only use linear combinations of their attributes, such as logistic regression or linear regression, are easier to interpret with respect to the weight these models assign to the individual attributes.
-Thus they can be used the infer the importance of an attribute with respect to the models predictive power.
-\item\textbf{Prediction Models} are used when the interest lies more with the quality of predictions that can be gained with respect to a set of attributes rather than exploring the importance of each attribute to the predictive model.
-This enables the use of more complex models where the influence of a single attribute is more difficult to assess.
-\end{itemize}
-
-
-%\subsection{Grounded Theory}
-%To extract information and findings from quantitative data such as interviews and observations we employ a grounded theory approach.
-%Grounded theory roughly follows 4 steps~\cite{strauss:sage:1994}:
-% 
-%\begin{enumerate}
-%\item\textbf{Coding} describes the act of applying labels to the observations made.
-%These label are supposed to describe as small an instance as possible and cover as much of the made observations and recorded interview statements as possible.
-%\item\textbf{Concepts} group labels that are similarly to their meaning.
-%Thus concepts help reduce the amount of items that need to be handled to build higher-level categories to support theories.
-%\item\textbf{Categories} group Concepts into units that can be used to build theories.
-%\item\textbf{Theories} are explanations for Categories.
-%Thus theories are the result of a grounded theory approach that are generated from collected observations.
-%\end{enumerate}
-
+This was especially valuable with a professional development team such as the IBM Rational Team Concert development team, as we joined their development effort when they were nearing a major milestone (Chapter~\ref{chap:talk}).
 
 
 
