@@ -72,16 +72,15 @@ The two main variables we are interested in are as aforementioned the socio-tech
 
 We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
 
-We run two different logistic regression models: one using weighted congruence, and one using unweighted congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
+We run a logistic regression models for congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
 Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
 
 \section{Results}
 \label{sec:results}
 In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
-Figure \ref{fig:hist_unweighted_congruence} displays histograms for unweighted congruence, and Figure \ref{fig:hist_unweighted_congruence} shows histograms for weighted congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only. There are some minor differences between unweighted and weighted congruence values; weighted congruence, for instance, largely reduces the number of ``fully'' congruent situations where congruence is 1.
+Figure \ref{fig:hist_unweighted_congruence} displays histograms for congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only.
 
-The congruence values are low on average. The unweighted congruence has a mean value of 0.331, and the weighted measure has a mean value of 0.196, meaning that about one-third and one-fifth of the coordination needs are satisfied by actual coordination, respectively. Over 75\% of the builds have a weighted congruence value of less than 0.25.
-
+The congruence values are low on average with a mean value of 0.331 meaning that about one-third of the coordination needs are satisfied by actual coordination.
 \begin{figure}[t]
   \centering
   \subfloat[All builds]{
@@ -224,7 +223,7 @@ Model likelihood ratio & 40.59 &  & $R^2=0.269$  \\
 \label{tab:logr_maineffects}
 \end{table}
 
-The result of logistic regression indicates that the following effects are significant for both unweighted and weighted congruence models: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence. We also identify unweighted congruence as a significant main effects in the unweighted congruence model (see Table~\ref{tab:logr}).
+The result of logistic regression indicates that the following effects are significant: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence.
 
 In the next section we discuss the main effects and interactions effects that involve congruence affecting build probability. We discuss the effects of the non-congruence effects, including the authors, files, work~items~$\times$~date interaction effect and the date~$\times$~nightly~build effect in Section \ref{sec:otherfactors}.
 
@@ -264,7 +263,7 @@ The effect of congruence is totally opposite for continuous builds and integrati
 
 \subsection{Effect of Gap Ratio on Build Result}
 \label{sec:gapsizeresult}
-We build logistic regression models based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs) . In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous weighted congruence logistic regression in Table \ref{tab:logr}.
+We build a logistic regression model based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs) . In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous congruence logistic regression in Table \ref{tab:logr}.
 
 The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap size is large, the build success probability increases.
 
@@ -365,26 +364,24 @@ incongruent builds, and the effects of commenting behaviour on builds.
 We are interested in the differences between high-congruence builds and low-congruence builds.
 We further this investigation by looking at builds that have extreme values of congruence: zero, where absolutely no coordination needs are satisfied with communication, and one, where every coordination need is satisfied with communication.
 We chose to investigate the extreme cases to see if there were differences in the way people coordinated in fully-congruent builds, and in incongruent builds.
-Table \ref{tab:congruence_extremes} shows the number of OK and error builds that occurred when congruence was equal to one, and equal to zero. The weighted builds with full congruence are a subset of the unweighted builds with full congruence.
+Table \ref{tab:congruence_extremes} shows the number of OK and error builds that occurred when congruence was equal to one, and equal to zero. 
 
 
 \begin{table}[t]
 \centering
-\begin{tabular}{llrr}
+\begin{tabular}{lrr}
 \toprule
-& & \multicolumn{2}{c}{Congruence} \\\midrule
-&  & 1 & 0 \\\midrule
-\multirow{2}{*}{Unweighted} & OK & 26 & 30 \\
-                            & ERR & 2 & 2 \\%\midrule
-%\multirow{2}{*}{Weighted} & OK & 6 & 30 \\
- %                        & ERR & 1 & 2 \\
+& \multicolumn{2}{c}{Congruence} \\\midrule
+& 1 & 0 \\\midrule
+  OK & 26 & 30 \\
+                             ERR & 2 & 2 \\
  \bottomrule
 \end{tabular}
 \caption{Number of Builds with Congruence Values 0 and 1}
 \label{tab:congruence_extremes}
 \end{table}
 
-To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme unweighted congruence values. Our results are shown in Table \ref{tab:changeset_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
+To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme congruence values. Our results are shown in Table \ref{tab:changeset_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
 
 Of note is the high number of comments on work items that have zero congruence. This indicates that individuals who have no technical relationship to the work item are commenting on the work item.
 
@@ -411,11 +408,11 @@ We manually inspected the work items with extreme amounts of congruence, reading
 \section{Discussion}
 \label{sec:discussion}
 The concepts illustrated in Conway's Law, as well as previous empirical work on socio-technical congruence lead us to expect that team members must coordinate according to coordination needs suggested by technical dependencies in order to build software effectively.
-In this case study, we applied socio-technical congruence to study coordination and its relationship to build success probability in RTC. We applied a modified weighted congruence measurement to study also how the size of a coordination gap affects build success probability, and investigated what social and technical factors in RTC affect congruence and builds.
+In this case study, we applied socio-technical congruence to study coordination and its relationship to build success probability in RTC. 
 
 Overall, we found that the average congruence across builds was very low---only 20--30\% of the coordination needs in the project were fulfilled with actual coordination. Even in the cases where there is zero congruence, the build result was an OK build in over 90\% of the observed cases.
 
-We found that there was an interaction effect involving congruence and build type on build success probabilities (Section \ref{sec:congruenceinteractions}). For continuous builds, increasing congruence improves the chance of build success in continuous builds and can actually decrease build success probability in integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}). High unweighted congruence significantly improves continuous build success probability, and both unweighted and weighted congruence significantly reduce integration build success probability.
+We found that there was an interaction effect involving congruence and build type on build success probabilities (Section \ref{sec:congruenceinteractions}). For continuous builds, increasing congruence improves the chance of build success in continuous builds and can actually decrease build success probability in integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}). Congruence significantly reduce integration build success probability.
 
 The gap ratio is a representation of whether enough coordination
 occurred to fulfill multiple coordination needs. If two developers have multiple dependencies on each other, one would expect them to
@@ -429,10 +426,9 @@ The overall congruence for the majority of builds is low: over 75\% of
 builds have a congruence of less than 0.25 (Section \ref{sec:congruence_effect_build_result}).
 Despite low congruence, the RTC team is able to successfully build its software in many situations.
 
-When we examined extreme congruence values, we observed 85\% build success probability when weighted congruence is 1 and 93\% build success when weighted congruence is 0 (Section \ref{sec:extremecongruence}).
-If socio-technical congruence is a measure of coordination quality in software, and builds rely on coordination quality to be successful, then there must be reasons why builds can succeed even when the congruence is zero.
 
-First, because RTC is a highly-distributed project, the product under development uses a modular design \cite{maccormack2006} and thus is affected less by dependencies. Second, team members in RTC do not conduct all of their coordination through \emph{explicit communication} even though work item inspection and discussion with developers indicate that the RTC corporate culture focuses on the work item as their base for communication. Rather, they use the \emph{shared workspace} that incorporates cues from the environment and from peers in order to address technical issues. Both of these effects may contribute to congruence being lower than expected.
+If socio-technical congruence is a measure of coordination quality in software, and builds rely on coordination quality to be successful, then there must be reasons why builds can succeed even when the congruence is zero.
+Because RTC is a highly-distributed project, the product under development uses a modular design \cite{maccormack2006} and thus is affected less by dependencies. Second, team members in RTC do not conduct all of their coordination through \emph{explicit communication} even though work item inspection and discussion with developers indicate that the RTC corporate culture focuses on the work item as their base for communication. Rather, they use the \emph{shared workspace} that incorporates cues from the environment and from peers in order to address technical issues. Both of these effects may contribute to congruence being lower than expected.
 
 \subsubsection{RTC supports Explicit Communication}
 The RTC team members use the RTC environment extensively to communicate with each other. We were informed that RTC team members rarely use private email, and our inspection of the mailing list reveals that its primary purpose is for announcements such as server outages rather than for discussing technical work.
@@ -440,7 +436,7 @@ The RTC team members use the RTC environment extensively to communicate with eac
 This leaves the RTC work item comment system and instant messaging as methods for communication, as well as the phone and internal face-to-face meetings.
 We learned that while face-to-face interaction is efficient for solving local issues, it does not benefit remote teams, and the RTC team as a whole encourages every team member to record face-to-face discussions as comments for the purpose of archiving and sharing information.
 
-However, explicit coordination has a cost. There is evidence that involving too many authors in the same build also reduces the build success when using a weighted congruence conceptualization (Figure \ref{subfig:prob_weighted_authors_age_q100}); the effect for unweighted congruence is similar. The overhead required to coordinate many people may interfere with the ability of the team to build the project successfully, suggesting that there is a limit before a developer is overloaded with information.
+However, explicit coordination has a cost. There is evidence that involving too many authors in the same build also reduces the build success (Figure \ref{subfig:prob_weighted_authors_age_q100}). The overhead required to coordinate many people may interfere with the ability of the team to build the project successfully, suggesting that there is a limit before a developer is overloaded with information.
 
 \subsubsection{RTC is a Shared Workspace}
 The RTC client software helps a developer acquire and maintain \emph{environmental awareness} of what is going on in the project by providing access to a shared workspace. Much of the work is centred around the RTC technical entities, which include plans, source code, work items, and comments.
