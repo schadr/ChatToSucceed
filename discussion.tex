@@ -134,20 +134,20 @@ In the Codebook case, this might lead to extra overhead in endgame mode when dev
 To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
 \paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
-Our second and third findings unveiled factors that trigger developers to seek information about a changeset that are not related to its code. 
-Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the changeset owner.
+Our second and third findings unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
+Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
 
 Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
 This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
 
-But because developers often look beyond source code and perform an additional step, namely considering the changeset owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
-Recommender systems might report issues that are of less importance due to the substantial experience of the changeset owner.
+But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
+Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
 
 Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
 
 
 \paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
-We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of changesets. 
+We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
 
 In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
 

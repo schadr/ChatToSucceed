@@ -381,7 +381,7 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
 \label{tab:congruence_extremes}
 \end{table}
 
-To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme congruence values. Our results are shown in Table \ref{tab:changeset_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
+To determine if the presence of commenting affected the builds, we examined the number of comments on work item--change set pairs in builds with extreme congruence values. Our results are shown in Table \ref{tab:change-set_commenters}. Build success probabilities improve with respect to builds that have no comments, though work items with no comments are in the minority.
 
 Of note is the high number of comments on work items that have zero congruence. This indicates that individuals who have no technical relationship to the work item are commenting on the work item.
 
@@ -399,7 +399,7 @@ Congruence &                                & 1     & 0   & 1 & 0 \\\midrule
                        		& Error   & 333  & 263 & &\\\bottomrule
 \end{tabular}
 \caption{Number of work items-change set pairs with comments and build success probabilities for congruence 0 and 1}
-\label{tab:changeset_commenters}
+\label{tab:change-set_commenters}
 \end{table}
 
 We manually inspected the work items with extreme amounts of congruence, reading the comments for any differences in the content discussed. Unfortunately, there were no obvious qualities between comments made in a build with a congruence of zero, and comments made in a build with a congruence of one. In both builds, individuals discussed technical implementation details, provided updates to colleagues, or requested assistance from colleagues. We are unable to discover root causes of failure without a deeper examination of the technical changes and more knowledge of the RTC context.

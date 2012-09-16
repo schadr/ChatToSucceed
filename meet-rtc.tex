@@ -19,7 +19,7 @@ It comprises four major functionalities that bear relevance to this thesis:
 
 \subfloat[A change-set that is attached to a work item.]{\label{subfig:csa}\includegraphics[width=.6\textwidth]{figures/meet-rtc.tex/change-after-set}}
 \caption{From having created local changes over adding them to the remote workspace to attaching it to a work item.}
-\label{fig:changeset}
+\label{fig:change-set}
 \end{figure}
 
 The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{http://www.nongnu.org/cvs} and SVN\footnote{http://subversion.tigris.org/}.
@@ -29,7 +29,7 @@ These branches or in RTC terminology streams can contribute their changes in the
 With this the main difference between the RTC source code management system and a distributed source code management systems such as GIT lies with all the repositories or streams being present on one single machine as opposed to many different machines.
 Even branching and sharing of changes to the source code work similarly to distributed version control systems as they can be freely moved in-between workspaces, in-between streams, and between streams and work spaces.
 
-For example Figure~\ref{fig:changeset} presents a typical work flow after a unit of work has been finished and needs to finalized.
+For example Figure~\ref{fig:change-set} presents a typical work flow after a unit of work has been finished and needs to finalized.
 A developer would gather all the changes that are only available on her local machine (Figure~\ref{subfig:csb}) and combine them into a change-set (Figure~\ref{subfig:cs}) that is at that point made available on her remote workspace.
 After ideally linking that change-set to the task it is meant to resolve (Figure~\ref{subfig:csa}) the developer can deliver the change-set to the team stream to make it available to the whole team.
 
@@ -173,7 +173,7 @@ In contrast to team leads, developer are focusing on their daily implementation 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/findingProcess2}
-\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. Changeset-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
+\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. change-set-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
 \label{IterationsFig1}
 \end{figure}
 
