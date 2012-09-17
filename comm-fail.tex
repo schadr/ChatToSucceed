@@ -2,21 +2,21 @@
 \startchapter{Communication and Failure}
 \label{chap:soc-net}
 We open our investigation of how to modify the social relationships among software developers, represented by the communication between them, with searching for a relationship between communication and build success.
-This will form the basis and justification for an approach that we will describe in a later chapter to allow us to manipulate the social interactions among developers.
-Thus this chapter explores our first research question
+This forms the basis and justification for an approach that we describe in a later chapter to allow us to manipulate the social interactions among developers.
+Thus this chapter explores our first research question:
 \begin{description}
 \item[RQ 1.1] Do Social Networks influence build success?
 \end{description}
 
-A connection between communication among developer and any sort of software quality including software builds makes intuitively sense.
+A connection between communication among developers and any sort of software quality including software builds makes intuitively sense.
 For example, any non trivial software project consists of several interdependent modules and with the growing size and number of modules the work of more than one software developer is required to finish the project within a certain time constraint often mandated by a customer.
-Now due to the interdependence of the software modules developer assigned either to the same or to interdependent module need to coordinate their work.
+Now due to the interdependence of the software modules developers assigned either to the same or to interdependent modules need to coordinate their work.
 This coordination is in the most part accomplished through communication, which can take any form from a face-to-face discussion to electronically asynchronous messages such as email.
 Coupled with the fact that communication is inherently ambiguous and can often lead to misunderstandings, errors based on such misunderstandings may be introduces into the source code.
 Thus, we are confident that there exists  a connection between developer communication and build success.
 
 In this chapter, we start with describing the methodology that is relevant to exploring our research question (Section~\ref{sec:Methodology}).
-Then, we present our the analysis and results we obtained in Section~\ref{sec:AnalysisResults} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
+Then, we present our analysis and results we obtained in Section~\ref{sec:AnalysisResults} followed by a discussion of the results in Section~\ref{sec:discussion}.
 We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:stc-net2} (Section~\ref{sec:conclusion}).
 
 
@@ -26,7 +26,7 @@ To address our research question we analyze data from a large software
 development project IBM Rational Team Concert which we described in created detail in Chapter~\ref{chap:rtc}.
 
 \subsection{Coordination outcome measure}
-In our study we conceptualize the coordination outcome by the \et{Build Result},
+In our study we conceptualize the coordination outcome by the Build Result,
 which is regarded as a coordination success indicator in Jazz and can be \error,
 \texttt{WARNING} or \ok. We analyze build results to examine the integration
 outcomes in relation to the communication necessary for the coordination of the
@@ -70,7 +70,7 @@ centrality measures for the ego networks are:
   Figure~\ref{fig:CentralityExample}.
   
   \item The \emph{In-Degree} of a node $c$ is the
-  number of it s incoming connections $C_{iD}(c)$. E.g.$C_{iD}(c_1)=1$ 
+  number of it s incoming connections $C_{iD}(c)$. For example $C_{iD}(c_1)=1$ 
   in Figure~\ref{fig:CentralityExample}.
   
   \item The \emph{InOut-Degree} of a node $c$ is the sum of its In-Degree and
@@ -168,15 +168,15 @@ artifacts included build results, teams, change sets, work items, contributors,
 and comments. We imported the resulting data into a relational database
 management system to handle the data more efficiently.
 
-We extracted a total of 1288 build results, 13020 change sets, 25713 work item
+We extracted a total of 1288 build results, 13020 change sets, 25713 work items
 and 71019 comments. Out of a total of 47 Jazz teams, 24 had integration builds.
 The build results we extracted were created during the time range from
 November~5, 2007 to February~26, 2008.
 
-Next, we had to make a decision for which builds and associated communication to
+Next, we had to make a decision which builds and associated communication to
 analyze. Our selection criteria was that we analyze a number of build results
 that is large enough for statistical tests and include both \ok\ and \error\
-builds. Some teams used the building process for testing puroses only and created
+builds. Some teams used the building process for testing purposes only and created
 just a view build results, while others had either only \ok\ or only \error\
 build results. Predicting build results for a team that only produced \error\
 builds in the past, will most likely yield an \error, since no communication
@@ -296,8 +296,8 @@ build. We explicitly exclude the technical descriptive measures such as
 \#Contributors, \#Change Sets and the \#Work Items from the model in order to
 focus on the effect of communication on build failure prediction. We validate the
 model for each set of team-level and project-level networks separately by
-training a Bayesian classifier~\cite{Hastie:2003ys} and using the \emph{leave one
-out cross validation} method~\cite{Hastie:2003ys}.
+training a Bayesian classifier~\cite{Hastie:2003ys} and using the leave one
+out cross validation method~\cite{Hastie:2003ys}.
 
 For example, to predict the build result N of team F's 55 build results, we train
 a Bayesian classifier with all other 54 build results and their communication
@@ -403,20 +403,6 @@ values are equally high.
 
 \section{Discussion}
 \label{sec:discussion}
-As far as we know, our study is one of the first to investigate communication
-structures at the level of integration builds. This is a finer-grain level of
-analysis than that of current studies in the literature, which found that
-coordination failures are due to communication problems. By conceptualizing
-coordination failure as a failed integration result, we studied the role of
-communication structures in successful coordination. In
-Section~\ref{subsec:commaspred} we discuss our contribution which is two-fold:
-(1) while communication structure measures can not individually predict failed
-builds, (2) a set of communication structure measures can be combined into a
-model that predicts failed integration builds. Subsequently, we discuss practical
-implications of our work in Subsection~\ref{subsec:practicalimpl}.
-
-\subsection{Communication as predictor for integration failure}
-\label{subsec:commaspred}
 In our analysis we examined the relationship between integration builds and
 measures of the related communication structure. We found that none of the single
 communication structure measures (density, centrality or structure hole measures)
