@@ -2,7 +2,7 @@
 \startchapter{Socio-Technical Congruence and Failure}
 \label{chap:stc-net2}
 Knowing that social networks have an effect on build success opens the next question as to how or more precisely which parts of the social network should be changed to increase the likelihood for a build to succeed.
-For this reason we turn to the concept of socio-technical congruence as it postulates that developer should communicate once their work intersects.
+For this reason we turn to the concept of socio-technical congruence as it postulates that developers should communicate once their work intersects.
 Thus in this section we explore the effect of socio-technical networks on build success:
 
 \begin{description}
@@ -12,40 +12,40 @@ Thus in this section we explore the effect of socio-technical networks on build 
 Although socio-technical congruence has only been studied in connection with productivity intuitively there should be a connection to software quality such as build success.
 For example, imagine two developer modifying classes that share call and data dependencies and one developer making changes that violate certain assumptions the other developer relies on when using the modified code.
 This might introduce an error that could have been prevented if both developer would have discussed their work.
-Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point towards improvements in the social network by pointing out developers that should communicate.
+Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point developers towards improvements in the social network by pointing out developers that should communicate.
 
-In this chapter, we start with discussing how we calculate socio-technical congruence as well as highlight some modifications to explore to allow us to explore whether a difference in the magnitude of technical dependencies and amount of communication plays a role to possibly highlight improvements for social interactions among software developers (Section~\ref{sec:congruence}).
-Subsequently, we briefly discuss the methodology that is relevant to exploring our research question that were not mentioned in Chapter~\ref{chap:meth} (Section~\ref{sec:methodology}).
-Then, we present the analysis and results we obtained in Section~\ref{sec:results} followed by a discussion of the results and their implications in Section~\ref{sec:discussion}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:approach} (Section~\ref{sec:conclusion}).
+In this chapter, we start with discussing how we calculate socio-technical congruence (Section~\ref{sec:congruence}).
+Subsequently, we briefly discuss the methodology that is relevant to exploring our research question (Section~\ref{sec:methodology}).
+Then, we present the analysis and results we obtained in Section~\ref{sec:results} followed by a discussion of the results in Section~\ref{sec:discussion}.
+We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:conclusion}).
 
 
 \section{Calculating Congruence}
 \label{sec:congruence}
-In this section new describe how we derive the socio-technical index as used by Cataldo et al~\cite{cataldo:cscw:2006} from our technical networks by additionally giving some comparison of our approach to the original.
-
-\subsection{Technical Entities and Social Relationships}
-A technical entity is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich:stc:2008}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
-
-At the core of socio-technical congruence is the concept of a technical dependency. A technical dependency is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
-
-\begin{placeholder}[t]
-\begin{itemize}
-\item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
-\item Source code modules changed together in a change-set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
-\item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
-\item Tasks that depend on other tasks \cite{wolf:ieee:2009}
-\end{itemize}
-\caption{Examples of technical dependencies}
-\label{ph:technicalunits}
-\end{placeholder}
-
-A coordination need is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
-
-Social relationships are identified through actual coordination, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
-
-\subsection{Calculating Socio-Technical Congruence}
-\label{sec:stc}
+%In this section we describe how we derive the socio-technical index as used by Cataldo et al~\cite{cataldo:cscw:2006} from our technical networks by additionally giving some comparison of our approach to the original.
+%
+%\subsection{Technical Entities and Social Relationships}
+%A technical entity is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich:stc:2008}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
+%
+%At the core of socio-technical congruence is the concept of a technical dependency. A technical dependency is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
+%
+%\begin{placeholder}[t]
+%\begin{itemize}
+%\item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
+%\item Source code modules changed together in a change-set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
+%\item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
+%\item Tasks that depend on other tasks \cite{wolf:ieee:2009}
+%\end{itemize}
+%\caption{Examples of technical dependencies}
+%\label{ph:technicalunits}
+%\end{placeholder}
+%
+%A coordination need is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
+%
+%Social relationships are identified through actual coordination, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
+%
+%\subsection{Calculating Socio-Technical Congruence}
+%\label{sec:stc}
 In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
 If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
 Thus we calcite the socio-technical congruence index as follows:
@@ -263,9 +263,9 @@ The effect of congruence is totally opposite for continuous builds and integrati
 
 \subsection{Effect of Gap Ratio on Build Result}
 \label{sec:gapsizeresult}
-We build a logistic regression model based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs) . In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous congruence logistic regression in Table \ref{tab:logr}.
+We build a logistic regression model based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs). In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous congruence logistic regression in Table \ref{tab:logr}.
 
-The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap size is large, the build success probability increases.
+The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap is large, the build success probability increases.
 
 \begin{table}[t]
 \begin{center}
@@ -417,7 +417,7 @@ We found that there was an interaction effect involving congruence and build typ
 The gap ratio is a representation of whether enough coordination
 occurred to fulfill multiple coordination needs. If two developers have multiple dependencies on each other, one would expect them to
 coordinate more often as well.
-We hypothesized that a small gap ratio would increase the probability of successful builds and that a large gap ratio would decrease the probability of a successful build. Instead, we found that as the mean gap size increases, the build success probability also increases (Figure \ref{fig:prob_gapsize_a}).
+We hypothesized that a small gap ratio would increase the probability of successful builds and that a large gap ratio would decrease the probability of a successful build. Instead, we found that as the mean gap increases, the build success probability also increases (Figure \ref{fig:prob_gapsize_a}).
 
 Below we discuss the reasons for these observed results based on our knowledge of RTC.
 
@@ -475,7 +475,7 @@ We end this chapter by bringing it back to the initial research question we set 
 \end{description}
 
 We conducted two investigations: (1) the investigation the influence of the socio-technical congruence index on build success and (2) the investigation of gaps uncovered by socio-technical networks and their influence on build success.
-Both avenues of investigations showed that they expose an influence on build success even in the presence of other measures of build size.
+Both avenues of investigations showed that they expose an influence on build success.
 
-These findings, especially that gaps within socio-technical networks influence build success, opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
+These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
 Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
