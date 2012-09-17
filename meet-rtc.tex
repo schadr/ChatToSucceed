@@ -7,7 +7,7 @@ We begin with introducing the product and its functionalities before we describe
 
 \section{The IBM Rational Team Concert Product}
 IBM Rational Team Concert (RTC) is a server client application meant to support software development.
-It comprises four major functionalities that bear relevance to this thesis:
+It is comprised of four major functionalities that bear relevance to this thesis:
 (1) source control management that is based on similar principles as GIT\footnote{http://GIT-scm.com/} and mercurial\footnote{http://mercurial.selenic.com/}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
 
 \subsection{Source Control}
@@ -23,13 +23,13 @@ It comprises four major functionalities that bear relevance to this thesis:
 \end{figure}
 
 The source control system provided by Rational Team Concert is server based similarly to traditional version control systems such as CVS\footnote{http://www.nongnu.org/cvs} and SVN\footnote{http://subversion.tigris.org/}.
-Yet, each developer has their own workspaces similarly to a local GIT or mercurial repository, which a developer is working on.
+Yet, each developer has their own workspaces similarly to a local GIT or mercurial repository.
 These branches or in RTC terminology streams can contribute their changes in the form of change-sets to other streams shared by teams or can be exchanged between workspaces.
 
 With this the main difference between the RTC source code management system and a distributed source code management systems such as GIT lies with all the repositories or streams being present on one single machine as opposed to many different machines.
 Even branching and sharing of changes to the source code work similarly to distributed version control systems as they can be freely moved in-between workspaces, in-between streams, and between streams and work spaces.
 
-For example Figure~\ref{fig:change-set} presents a typical work flow after a unit of work has been finished and needs to finalized.
+For example Figure~\ref{fig:change-set} presents a typical work flow after a unit of work has been finished and needs to be finalized.
 A developer would gather all the changes that are only available on her local machine (Figure~\ref{subfig:csb}) and combine them into a change-set (Figure~\ref{subfig:cs}) that is at that point made available on her remote workspace.
 After ideally linking that change-set to the task it is meant to resolve (Figure~\ref{subfig:csa}) the developer can deliver the change-set to the team stream to make it available to the whole team.
 
@@ -42,11 +42,11 @@ After ideally linking that change-set to the task it is meant to resolve (Figure
 \caption{Workitems as shown by the different RTC UI's.}
 \label{fig:wi}
 \end{figure}
-The work items component serves two functions: (1) it allows for customer interaction as it allows a customer or user to file feature requests and file bug reports and (2) it allows developers to manage their work by creating tasks as well as discuss and document thoughts about a defined unit of work.
-These work items are basically an extension to bug reports as filed to a bugzilla instance\footnote{http://www.bugzilla.org/}, since they serve more purposes than capturing bug reports and feature requests.
+The work item component serves two functions: (1) it allows for customer interaction as it allows a customer or user to file feature requests and file bug reports and (2) it allows developers to manage their work by creating tasks as well as discuss and document thoughts about a defined unit of work.
+These work items are basically an extension to bug reports as filed to a Bugzilla\footnote{http://www.bugzilla.org/}, since they serve more purposes than capturing bug reports and feature requests.
 
 Developers have the ability to link work items into logical units and build hierarchies of work items to structure their work.
-Furthermore, work items allow tracking meta information, such as time estimates, severity, and priority, and on top of that lends itself to be customized with self defined fields on a project configuration level.
+Furthermore, work items allow tracking meta information, such as time estimates, severity, and priority, and on top of that lends themselves to be customized with self defined fields on a project configuration level.
 For example in Figure~\ref{fig:wi} we see the work item view from within Eclipse (Figure~\ref{subfig:wieclipse}) and through the web (Figure~\ref{subfig:wiweb}).
 Both representations show links to other work items in the Quick Information pane as well as links to other artifacts such as change-sets.
 
@@ -92,10 +92,10 @@ By itself it does not offer any capabilities to the user, but it enables each co
 This allows the developer to both manually link artifacts with each other and define queries that cross reference multiple repositories.
 Figure~\ref{fig:rtctopology} shows the three layers of the RTC product.
 At the top is the user that interacts with the application servers, ranging from source control over planing to work item management.
-These application run on a common plat form on the bottom also referred to as the Jazz Foundation server which runs onto a database instance.
+These application run on a common platform on the bottom also referred to as the Jazz Foundation server which runs onto a database instance.
 
 For example, a developer is working on implementing a work item and create changes to the code base that he bundles into a change-set.
-Before she submits the change-set resolving the work items she links that change-set to the work item.
+Before she submits the change-set resolving the work item she links that change-set to the work item.
 This enables her colleagues to easily accept the change-set into their workspaces to both review and test them.
 Once the work item is resolved, the plan and the burn-down charts update to reflect this change visible to anyone with access to the plan and charts.
 
@@ -133,16 +133,16 @@ Range of Developer per Location & & 7 & 24 & 14.8\\
 \end{center}
 \end{figure}
 
-The Jazz team is a large distributed team and uses the Jazz platform for development. 
-The Jazz development involves distributed collaboration over 16 different sites located in the United States, Canada, and Europe. 
-Seven sites are active in Jazz development and testing. 
+The Rational Team Concert team is a large distributed team and uses the Rational Team Cocert for development. 
+The Rational Team Concert development involves distributed collaboration over 16 different sites located in the United States, Canada, and Europe. 
+Seven sites are active in RTC development and testing. 
 There are 151 active contributors working in 47 teams at these locations, where contributors belong to multiple teams. 
-Each team is responsible for developing a subsystem or component of Jazz.
+Each team is responsible for developing a subsystem or component of RTC.
 The team size ranges from 1 to 20 and has an average of 5.7 members. 
 The number of developers per geographical site ranges from 7 to 24 and is 14.8 in average.
 Table~\ref{tab:teamstats} summarizes the mentioned team statistics.
 
-The teams are organized into larger component based teams as well as subcomponent and cross-component (or functional teams).
+The teams are organized into larger component based teams as well as subcomponent and cross-component teams.
 A developer can be part of multiple teams but usually is only part of one component teams.
 Most teams are located in one location with some satellite members in different locations.
 
@@ -152,14 +152,21 @@ The more experiences project members take leading roles ranging from teams leads
 \begin{description}
 \item[Team Leads] are still involved with daily development activities and usually have more development experience especially with the sub-component their team is developing and maintaining.
 Additionally, team leads are both the first contact person when cross component issues arise that need to be discussed with other teams.
-Note, that this is for the initiation in of the cross team collaboration and to communicate the severity and the need for the other team to re-prioritize their work items.
+Note, that this is for the initiation of the cross team collaboration and to communicate the severity and the need for the other team to re-prioritize their work items.
 \item[Component Leads] work together with multiple team leads and are responsible for the implementation of larger components such as the source code management component and do less development work than team leads.
 \item[Council Members] deal with component crossing issues, such as architectural or process related issues.
 They decide how components interact as well as what changes need to implemented to fulfill certain feature requests on a higher level.
 Furthermore, council members also discuss how feasible the implementation of features with respect to the existing architecture is.
 \end{description}
-Of course there are still ``regular'' software developers that are less involved in cross-component issues unless when they are part of a cross-component teams to implement a feature that is similar across several components.
-In contrast to team leads, developer are focusing on their daily implementation work and interact with other developers mainly to resolve issues of expertise seeking or fixing blocking issues.
+Of course there are still ``regular'' software developers that are less involved in cross-component issues unless they are part of a cross-component teams to implement a feature that is similar across several components.
+In contrast to team leads, developers focus on their daily implementation work and interact with other developers mainly to resolve issues.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/findingProcess2}
+\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. change-set-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
+\label{IterationsFig1}
+\end{figure}
 
 \subsection{The Process}
 \begin{figure}[t]
@@ -170,12 +177,7 @@ In contrast to team leads, developer are focusing on their daily implementation 
 \end{center}
 \end{figure}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/findingProcess2}
-\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. change-set-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
-\label{IterationsFig1}
-\end{figure}
+
 
 The IBM Rational Team Concert development team follows an agile development methodology and high community involvement.
 In short they are following the Eclipse Way of Development process describe by Frost~\cite{frost:ieeesoftware:2007}.
