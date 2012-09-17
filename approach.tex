@@ -1,19 +1,19 @@
 % !TEX root = thesis.tex
 \startchapter{The Approach}
 \label{chap:approach}
-In this chapter we propose an approach to leverage the concept of socio-technical congruence to improve communication (social) interactions among developer to improve build success.
-We base this approach on the findings presented in the previous two chapters that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2}) have influence on build success.
+In this chapter we propose an approach to leverage the concept of socio-technical congruence to improve communication (social interactions) among developers to improve build success.
+We base this approach on the findings presented in the previous two chapters that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2})  influence build success.
 
 \section{Approach to Leveraging Socio-Technical Congruence}
-The main contribution of this thesis lies with the implicitly described approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
-Since the research questions we formulated for this thesis only implicitly describe the approach, it is necessary to describe the approach to wrest actionable insights from the concept of socio-technical congruence.
+The main contribution of this thesis lies with the approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
+Thus, we derived the following approach from the first two research questions:
 
 Our approach encompasses five steps:
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
-\item Build social networks according.
-\item Build technical networks according.
+\item Build social networks.
+\item Build technical networks.
 \item Generate actionable insights.
 \end{enumerate}
 
@@ -30,24 +30,24 @@ With an outcome measure at hand we can contrast networks to gain insights.
 Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the scope.
 
 \section{Construct Social Networks}
-After the defining the scope and outcome, the next step is to construct the socio-technical networks.
+After  defining the scope and outcome, the next step is to construct the social networks.
 This involves identifying all communication channels that are programatically accessible in real time.
 Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
-Gathering all to the selected scope relevant communication artifacts than yields the social network.
+Gathering all to the selected scope relevant communication artifacts than yields a social network.
 In Chapter~\ref{chap:meth} Figure~\ref{fig:network} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
 
 \section{Construct Technical Networks}
 To complement the social networks and thus create socio-technical networks we need to produce technical networks.
 The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
 For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
-In Chapter~\ref{chap:actionable} we detail how we use Mylyn traces to gather information to construct technical networks.
-
+%In Chapter~\ref{chap:actionable} we detail how we use Mylyn traces to gather information to construct technical networks.
+%
 With respect to software quality it suffices to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
-In this case the network construction we described in Chapter~\ref{chap:meth} is sufficient to later on generate actionable knowledge.
+%In this case the network construction we described in Chapter~\ref{chap:meth} is sufficient to later on generate actionable knowledge.
 
 \section{Generate Insights}
 In Chapter~\ref{chap:stc-net2} we showed that gaps in socio-technical networks influence build success.
-We take this as starting point for generating insights by breaking down socio-technical networks into triples the consists of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
+We take this as starting point for generating insights by breaking down socio-technical networks into triples that consist of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
 
 Since we are focusing on improving the social interactions we focus on identifying those gaps (unmet coordination needs) that are most likely to increase build success.
 For this purpose we split those triples derived from all socio-technical networks into two groups, those triples that originate from a socio-technical network of a failed build and those that originate from a socio-technical network of a successful build.
