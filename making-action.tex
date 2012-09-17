@@ -2,7 +2,7 @@
 \startchapter{Proof of Concept: Can we generate useful recommendations?}
 \label{chap:actionable}
 In this chapter we present the last piece of evidence in the line of exploring the usefulness of our approach presented in Chapter~\ref{chap:approach}.
-We show in a case study approach that we can actually generate recommendations to prevent build failures when it actually matters.
+We show with a case study that we can actually generate recommendations to prevent build failures when it actually matters.
 Thus, this chapter explores the following research question:
 
 \begin{description}
@@ -22,7 +22,7 @@ We conclude this chapter with offering an answer to our research question (Secti
 
 \section{A Course on Globally Distributed Software Development}
 \label{ch10:setting}
-We conduct a case study of the collaboration of students in a project students taking a class in globally distributed software development as the basis for exploring our final research question for several reasons:
+We conduct a case study of the collaboration of students in a project students taking a class in globally distributed software development taught at the University of Victoria, Canada, and Aalto University, Finland, as the basis for exploring our final research question for several reasons:
 \begin{itemize}
 \item Control over a project infrastructure that supports data collection.
 \item The distribution of the course across countries ensures a minimum at electronically recordable and mineable communication data being generated.
@@ -31,7 +31,7 @@ We conduct a case study of the collaboration of students in a project students t
 \end{itemize}
 
 One key to explore our research question is to collect data to analyze.
-In a course project we are able to choose and instrument the infrastructure used by the students to actively develop software and thus possible gain more insight or at least miss less data than in most industrial settings that rarely focus on collecting data for analysis.
+In a course project we are able to choose and instrument the infrastructure used by the students to actively develop software and thus possibly gain more insight or at least miss less data than in most industrial settings that rarely focus on collecting data for analysis.
 This especially allows us to establish traceability links between artifacts that are often missing and need to be inferred using semi-accurate heuristics.
 
 Furthermore, the distributed nature of the project makes synchronous non-text based communication more difficult and thus increasing the use of text based asynchronous, and therefore recorded, communication.
@@ -68,22 +68,22 @@ Through a feedback loop we can change the data collection to accommodate the nee
 %Team A = 4 +17+ 64+ 50+ 44+ 47+ 19+ 21+ 51+ 22+ 43+ 42+ 7 +2+ 3+ 1+ 3
 
 \subsection{Course Details}
-The globally distributed software development course taught at both the University of Victoria, Canada, and Altoo University, Finland, aims at teaching students how to develop software in a distributed setting.
-In this particular course student teams where forced to deal with the issues that come with a distributed team in an extreme way since both West Coast Canada and Finland are separated by a time difference of 11 hours minimizing the time all team members are awake.
+The globally distributed software development course taught at both the University of Victoria, Canada, and Aalto University, Finland, aims at teaching students how to develop software in a distributed setting.
+In this particular course student teams where forced to deal with the issues that come with a distributed team in an extreme way since both West Coast Canada and Finland are separated by a time difference of eleven hours minimizing the time all team members are awake.
 This both necessitates and motivates the students to apply lessons learned in the class room.
 
 The course on globally distributed software development took place starting in October 2011 and ended in April 2012.
-With the Finnish students starting in October 2011 and the Canadian students joining the development effort in Januaray 2012.
+With the Finnish students starting in October 2011 and the Canadian students joining the development effort in January 2012.
 This further allowed the students to engage in remote collaboration as the Finish students represent the experts on the system the teams are working on and will need to guide their Canadian teammates in getting used to the projects layout and functions.
 
 Table~\ref{tab:gsd:desc:stats} shows some descriptive statistics about the development effort the students undertook.
 The 18 student developers together committed a total of 1383 change-sets while creating 103 builds.
-We can see that some teams subscribed to the frequent build mentality more than others as for example Team B and C build substantially less often than Team A over the same time window.
+We can see that some teams subscribed to the frequent build mentality more than others as for example Team B and C created builds substantially less often than Team A over the same time window.
 
 Besides developing a software product the Canadian students also have regular classes.
 During a regular class the students participate in a seminar style setting that requires each student to read a set of papers.
 These papers are discussed on the course blog with respect to implications of the findings detailed in the papers on how these findings may apply to their current development experience.
-Every two weeks the seminar style class is interrupted for a project wide meeting to bring together all the teams including the Finish team members, to show case their progress and to plan the next steps for the following two weeks.
+Every two weeks the seminar style class is interrupted for a project wide meeting to bring together all the teams including the Finnish team members, to show case their progress and to plan the next steps for the following two weeks.
 
 The students filled out a survey every other week giving feedback on the class, the development process, and the use of different tools for communication and development.
 Besides this bi-weekly survey the students also had the chance to talk to the course instructors as well as the teaching assistant to issue concerns and make suggestion on how to improve the course for the students as well as issues they see with the quality of the collected or non-collected data.
@@ -92,13 +92,13 @@ Besides this bi-weekly survey the students also had the chance to talk to the co
 As described earlier each development team consists of both students from Canada and Finland.
 There are three teams with each team consisting of four students from Canada and two students from Finland.
 
-In addition to the three teams we also have a product owner that came up with the idea of the product, that we will describe in greater detail in Subsection~\ref{chap:make:subset:devproject}.
+In addition to the three teams we also have a product owner that came up with the idea of the product, that we describe in greater detail in Subsection~\ref{chap:make:subset:devproject}.
 The product owner is located in Finland and is responsible for prioritizing the different features that he wants to be implemented.
 Moreover, he negotiates with the teams what items they should aim for within a given two week span. 
 
 To coordinate the work across teams, one Finish student has become the scrum master or de-facto project manager.
 He is both the most experienced developer and has the most knowledge about the projects as he is using the product within his own company.
-Some of his responsibilities entail facilitating coordination across teams,  setting up meeting between team members, and structuring the biweekly project meeting.
+Some of his responsibilities entail facilitating coordination across teams,  setting up meetings between teams, and structuring the biweekly project meeting.
 He also takes care of scoping out development tools to use and ensures that everyone is up to speed with issues arising from other teams that may implicate their work.
 
 \subsection{Development Project}
@@ -107,7 +107,7 @@ The students in this course are extending the agile-planning tool Agilefant\foot
 Agilefant combines task creation, task management, and planning into one tool that allows to schedule different tasks for different sprints, with a sprint being a time period that is meant to implement a fixed set of tasks.
 Furthermore, tasks can be organized hierarchically and be of different types, such as user stories or bug reports.
  
-As mentioned previously, this product was conceived by the product owner and has since been developed by students participating in cap-stone projects at Altoo University, Finland.
+As mentioned previously, this product was conceived by the product owner and has since been developed by students participating in cap-stone projects at Aalto University, Finland.
 The tool itself is open source and available for anyone to download, install, and extend as they see fit.
 
 Besides being a student driven project it found a number of users in industry.
@@ -115,7 +115,7 @@ Due to the development being mainly undertaken in the cap-stone projects that ar
 Nevertheless, the stability of its core feature and light weight approach made it popular among small and mid-sized companies for planning their development projects.
 
 \subsection{Development Process}
-The project follows a scrum process~\footnote{http://en.wikipedia.org/wiki/Scrum\_(development)} and thus development progresses in small sprints working of a common backlog.
+The project follows a scrum process\footnote{http://en.wikipedia.org/wiki/Scrum\_(development)} and thus development progresses in small sprints working of a common backlog.
 A sprint, in the case of our project, is defined to be two weeks long starting with a planning session and ending in a retrospective.
 The planning sessions and retrospectives take place between two sprints at the same day starting with the retrospective followed by the planning for the next sprint.
 
@@ -123,14 +123,14 @@ The planning sessions and retrospectives take place between two sprints at the s
 The source code is managed using GIT\footnote{http://git-scm.com/} and is available on github.com\footnote{https://github.com}.
 Although Agilefant or github.com issues can be used for task management both are missing important features, github.com is missing the planning capabilities of a full agile planning tool and Agilefant is missing the ability to discuss work items.
 Therefore, we use IBM Rational Team Concert for the planning of sprints and tracking of work items.
-An additional advantage of IBM Rational Team Concert it is integrating with Eclipse the main development environment, which also integrates with git. 
+An additional advantage of IBM Rational Team Concert is that  it integrates with Eclipse the main development environment, which also integrates with GIT. 
 
 Besides using discussions on work items, the students also use email and irc for communication.
 To ensure that everyone has the same knowledge students are encouraged to summarize their email and irc discussion in work item discussion.
 For group meetings especially the planning and retrospective session we provided the student with separate rooms and internet access to use google hangout for video chatting and screen sharing when discussing their group individual sprint plans.
-For the project meeting after each sprint to demo their accomplishment to the development team at large, we provided conferences room with multiple microphones and screens to simultaneously show a number of remote participants as well as screen sharing sessions. 
+For the project meeting after each sprint to demo their accomplishment to the development team at large, we provided a conference room with multiple microphones and screens to simultaneously show a number of remote participants as well as screen sharing sessions. 
 
-To further support the development process the students set up a Jenkins an open source web-based build system.
+To further support the development process the students set up a Jenkins instance an open source web-based build system.
 This build system allows for continuous testing and thus help the students to get a better understanding of their progress with respect to implementing their tasks for a given sprint.
 
 \section{Methodology}
@@ -139,11 +139,11 @@ This build system allows for continuous testing and thus help the students to ge
 \label{chap:making:subset:proximity}
 In order to be able to explore the possibility of recommending improvements with respect to the socio-technical networks, we need to be able to intervene before the majority of work has been done.
 The main issue with creating real time socio-technical networks lies with constructing technical networks as they are only known once a developer submits her changes to a repository.
-On the other hand social-networks can be more readily constructed in real time because in order to communicate, at least electronically, will yield a trace for each bit of communication traveling from one person to the other and thus allow to extend a social network with each new instance of communication.
+On the other hand social-networks can be more readily constructed in real time because in order to communicate, at least electronically, yields a trace for each bit of communication traveling from one person to the other and thus allows to extend a social network with each new instance of communication.
 
 To gain a similarly effective way to construct technical network we build upon the work of Blincoe et al~\cite{blincoe:cscw:2012}, who proposed a measure called proximity using Mylyn~\cite{kersten:aosd:2005} traces to infer real time developer dependencies.
 Mylyn is an Eclipse plug-in that records edits and selects within source code files.
-These event show which artifacts have been modified and selected thus allow the partial construction of a technical network based on ownership information of the modified, selected, and implicated source code artifacts.
+These events show which artifacts were modified and selected thus allowing the partial construction of a technical network based on ownership information of the modified, selected, and implicated source code artifacts.
 
 In order to record this information in real time in a central repository we developed a plug-in that is capturing events recorded by Mylyn, connecting them to the current task a developer is working on, and submitting this information to a central server. 
 To encourage students further to install this plug-in, we also provided a visualization of the current proximity of a developer to any other developer given her current task in a visualization plug-in called ProxiScentia~\cite{borici:chase:2012}.
@@ -156,13 +156,13 @@ For our study we collect six types of data:
 \item Log of the build engine indicating failed and successful builds.
 \item Documentation and diaries created by students during the course.
 \item Surveys and questionnaires completed by students throughout the course. 
-\item Mylyn events gathered using our custom build Eclipse plug-in.
+\item Mylyn events gathered using our custom built Eclipse plug-in.
 \end{itemize}
 
 Although we are not necessarily interested in constructing social networks for this part of the study but rather we are concerned whether it is possible to prevent build failures given a certain set of collectable data, we need access to as much communication data as possible not only as a means to see what kind of problems arose but also as to whether they were of any importance to the developers.
-
-For example, are build failures a problem for the developers and as such are all build failure equal.
-Knowing which build failure are actually problematic to the developers lets us focus on those instances that matter.
+%
+For example, are build failures a problem for the developers and as such are all build failures equal.
+Knowing which build failures are actually problematic to the developers lets us focus on those instances that matter.
 
 To further the investigation into the issues reported by the developers we make use of the version control systems.
 In our case these are several GIT repositories hosted on github.com.
@@ -178,7 +178,7 @@ Finally, as mentioned in the previous Subsection~\ref{chap:making:subset:proximi
 
 \subsection{Analysis}
 \label{ch10:ana}
-We analyze data collected during the course in six steps, starting from identifying issues of interested to showing how recommendations based on our approach could have avoided these build failures:
+We analyze data collected during the course in six steps, starting from identifying issues of interest to showing how recommendations based on our approach could have avoided these build failures:
 
 \begin{enumerate}
 \item Identify build issues mentioned by the developers.
@@ -186,13 +186,13 @@ We analyze data collected during the course in six steps, starting from identify
 \item Identify the code changes that contributed to the build failure.
 \item Check if the recorded code interactions could have predicted the build failure.
 \item Check if the relation between the code changes could have predicted the build failure.
-\item Check if using the social-network help findings the right people to include in order to resolve the issue.
+\item Check if using the social-network helps to finding the right people to include in order to resolve the issue.
 \end{enumerate}
 
 \paragraph{Identifying build issues.}
-To find build issues that are truly build issues to the developer and not only reported as failed due to failing test cases that were meant to fail, we code the communication recorded in the irc channels, work item and email discussion, and the developer diaries with respect to problems experienced in the project.
+To find build issues that are truly build issues to the developer and not only reported as failed due to failing test cases that were meant to fail, we code the communication recorded in the irc channels, work item and email discussions, and the developer diaries with respect to problems experienced in the project.
 From those coded problems we select all problems related to building the software.
-The students mentioned three build in greater detail in their development diaries.
+The students mentioned three builds in greater detail in their development diaries and chat sessions.
 
 \paragraph{Identifying the actual failed build.}
 After we identified from all the recorded communication what failed builds are truly failures, we identify those builds as they are shown in the Jenkins logs.
@@ -203,16 +203,17 @@ These builds show what went wrong as well as what changes are new to those build
 For each actual failed build, we infer which change-sets were newly added to the code base between the previous build and the failed build.
 From a change-set we can determine the task worked on, as we require every student to annotate each submitted change-set with the work item id the change-set was meant to implement.
 
-\paragraph{Check code interactions}
-After we identified the change-sets that were newly added to a build allows us to identify the developers that worked on the same source code files.
+\paragraph{Check code interactions.}
+After we identified the change-sets that were newly added to a build we can identify the developers that worked on the same source code files.
 
 \paragraph{Check change relations.}
-Knowing both, the change-set as well as the interaction traces that where involved in the failed build, we can contrast and overlay those change-sets as well as code interactions to see if the path of different developers overlap in a way that let us predict the issues the students reported on.
+Knowing both, the change-set as well as the interaction traces that where involved in the failed builds, we can contrast and overlay those change-sets as well as code interactions to see if the path of different developers overlap in a way that let us predict the issues the students reported on.
 
-\paragraph{Check social network}
-In case we observe that the code traces that we collected could have predicted the issue, we look for cues in the communication media for the resolution of the issues, to see whether the developers knew that share a technical dependency expressed in those code traces were aware of this dependency.
+\paragraph{Check social network.}
+In case we observe that the code traces that we collected could have predicted the issue, we look for cues in the communication media for the resolution of the issues, to see whether the developers knew they share a technical dependency expressed in those code traces.
 Finding a relation between the code interactions and the ongoing communication during the implementation contrasted with the communication needed to resolve the issue create by the change-set is the key to building a useful recommendation.
 
+\ \\
 Instead of analyzing each build failure that is important to the developers, we focus on finding one build that let us trace the error back to the code interactions.
 Moreover, it shows a connection between the code interactions and the communication needed to resolve the build issue.
 
@@ -221,17 +222,17 @@ Moreover, it shows a connection between the code interactions and the communicat
 In this section we present the findings from our analysis.
 
 \subsection{Build Failures That Matter}
-Throughout the feedback and communication logs received from the students show that the most important problems to the students are those build failures that prevent other teams from continuing their work.
+Throughout the feedback and communication logs received from the students we observe that the most important problems to the students are those build failures that prevent other teams from continuing their work.
 These issues usually happened towards the end of the sprint as this is the time the teams are integrating their code into a common code base.
 \\ \ \\
 \indent\emph{``Unexpected problems when merging the old code in, had to overload a couple methods [...]  and create some new code to mesh it together.  Eventually fixed with a decent solution.''} - student comment
 \\ \ \\
 \indent On the other hand, most failed builds are of less interest to the students for two reasons: 
-(1) test got outdated as the core functionality of the product changed considerably 
+(1) tests became outdated as the core functionality of the product changed considerably 
 and (2) the product owner was deciding what features are of acceptable quality regardless of the test case results.
 
-Since most of the work preformed by the students changed or extended core functionality lead old test cases started to fail.
-This lead to test cases to lose in value with respect to deciding whether a feature is of acceptable quality and because the product owner is deciding on whether a feature is deployable based on a demo and manual testing.
+Since most of the work preformed by the students changed or extended core functionality old test cases started to fail.
+This and because the product owner is deciding on whether a feature is deployable based on a demo and manual testing lead test cases to lose in value with respect to deciding whether a feature is of acceptable quality.
 
 \begin{table}[t!]
 \centering\small
@@ -315,8 +316,7 @@ and (3) it is representative for both the way we characterize technical dependen
 
 Each trace contains a list of methods ordered by when the developer selected or edited a method.
 The two traces shown in Table~\ref{tab:overlappingtraces} only show edit events and removed redundancies when multiple subsequent edit events in the same method occurred.
-We can see that the two traces, which each belong to a different developer working on different tasks.
-Furthermore, the two traces overlap by both editing a common function \emph{ProjectBusinessImpl.java-retrieveLeafStories-QStoryFilters} (emphasis added in the Table), which turned out to be the offending function that causes the build to fail.
+The two traces overlap by both editing a common function \emph{ProjectBusinessImpl.java-retrieveLeafStories-QStoryFilters} (emphasis added in the Table), which turned out to be the offending function that causes the build to fail.
 
 Note that the traces in Table~\ref{tab:overlappingtraces} were recorded during the same sprint but shifted in time.
 Furthermore, the owners of the two traces and thus change-sets belong to different teams whose work is supposed to be integrated towards the end of the sprint.
@@ -326,10 +326,10 @@ We saw that most of the build failures that are of high relevance to the develop
 Although when such a build failed communication among team members spikes, it is confined to the team that merges their code last and thus experiences the build failure once they merged their code.
 Thus, the communication that is ongoing in order to resolve the build issues does not necessarily include the people that could have helped to prevent the build from failing.
 
-Nevertheless, the recordings and communication after the merge conflict had been resolved gives a better picture of the people involved.
-After the issue had been resolved the team fixing the issue issued the concern in the following retrospective and sprint planing as well as contacted the respective team.
+Nevertheless, the recordings and communication after the merge conflict was resolved gives a better picture of the people involved.
+After the issue was resolved the team fixing the issue issued the concern in the following retrospective and sprint planing as well as contacted the respective team.
 From the communication it became apparent that the issue could have been prevented if the authors of the conflicting change-set would have known about each others change.
-Using our approach given the data we collected from the developer traces we could have provided a recommendation would have prevented the build failure by making the developers aware of their overlapping work.
+Using our approach and given the data we collected from the developer traces we could have provided a recommendation that would have prevented the build failure by making the developers aware of their overlapping work.
 
 \section{Discussion}
 \label{ch10:dis}
@@ -337,11 +337,6 @@ In this chapter we set out to answer the question whether it is possible to make
 We found that the methods proposed by Blincoe et al~\cite{blincoe:cscw:2012} gathering real time code interactions using Mylyn to make the post-mortem analysis performed in the traditional socio-technical congruence context~\cite{kersten:aosd:2005} actionable is useful to provide real time recommendations.
 Although we did not show the usefulness of using Blincoe et al~\cite{blincoe:cscw:2012} approach by implementing a recommender system leveraging the data, nonetheless, the data is in place and shows promise to resolve certain issues before they become problematic.
 The students course showed that there is a link between the build failures that stems from technical dependencies that can be inferred while developers are working to implement their work items.
-
-Although the study was conducted in a student course as opposed to an industrial setting, we used an existing open source project that is used in industry as project for the students to work on.
-Together with the use of state of the art tooling and agile methodology as well as co-op supplemented programming experience of the students made this project very much alike a professional development project.
-Another threat to the validity of our study lies within the focus on finding a single instance which could have been prevented to our recommendation framework.
-Although this severely limits the generalizability, especially in the light of the build failures being due to merge conflicts, we think that as a proof of concept this one instance is sufficient and with a more detailed conceptualization of technical dependencies more intricate build failures can be prevented.
 
 \section{Conclusions}
 \label{ch10:con}
