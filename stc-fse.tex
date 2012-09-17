@@ -9,26 +9,26 @@ Thus we focus on the following research question:
 \end{description}
 
 Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
-Thus we explore to what extend the history of a project can be used to highlight those cases where developer that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
+Thus we explore to what extend the history of a project can be used to highlight those cases where developers that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
 
 In this chapter, we start by briefly presenting the methodology that is relevant to exploring our research question (Section~\ref{sec:data} and~\ref{ch8:gaps}).
 Then, we present the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results Sections~\ref{ch8:dis}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:talk} (Section~\ref{sec:8:conclusions}).
+We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:8:conclusions}).
 
 
 \section{Socio-technical coordination}
 \label{sec:data}
-Following the approach we build our socio-technical networks according to the approach outlined in Chapter~\ref{chap:approach}:
+We build our socio-technical networks according to the approach outlined in Chapter~\ref{chap:approach}:
 
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
-\item Build social networks according to the scope in real time.
-\item Build technical networks according to the scope in real time.
+\item Build social networks.
+\item Build technical networks.
 \end{enumerate}
 
 As our scope we select the software build and as outcome metric whether a build failed or succeeded.
-We construct the social and technical networks from the Rational Team Concert data as outline in Chapter~\ref{chap:bg}.
+We construct the social and technical networks from the Rational Team Concert development team repository as outline in Chapter~\ref{chap:bg}.
 
 
 \begin{table}[t]
@@ -447,7 +447,7 @@ Feature & Coefficient & p-value & \\
 %
 \bottomrule
 \end{tabular}
-\caption{Logistic regression only showing the technical pairs from Table~\ref{tab:badtechpairs}, the intercept, and the confounding variables, the model reaches an AIC of 7006 with all shown features being significant at $\alpha=0.001$ level (indicated by ***).}
+\caption{Logistic regression only showing the technical pairs from Table~\ref{tab:badtechpairs}, the intercept, and the confounding variables, the model reaches an AIC of 706 with all shown features being significant at $\alpha=0.001$ level (indicated by ***).}
 \label{tab:regression}
 \end{table}
 
@@ -520,7 +520,7 @@ and that increase the likelihood of build failure.
 
 A preliminary analysis of developers membership to teams shows that most
 of the technical pairs related to build failure consist of developer belonging to
-different teams. Naggappan et al.~\cite{nagappan:icse:2008} found that using the
+different teams. Naggappan et al~\cite{nagappan:icse:2008} found that using the
 organizational distance between people predicts failures. They reasoned that this
 is due to the lack of awareness what people separated by organizational distance
 work on. Although the Rational Team Concert team strongly emphasizes communication
@@ -560,6 +560,6 @@ We end this chapter by bringing it back to the initial research question we set 
 
 The results we presented in Section~\ref{ch:fse:result2} show that there are developer pairs with unmet coordination needs that negatively influence build success.
 Furthermore, we showed that the corresponding developer pair that fulfills its coordination need is less likely to be associated with build failure and thus theoretically decreasing the likelihood of build failure.
-To put it in perspective if any of twenty most harmful patterns is present in a build the build had at least an 74\% chance to fail.
+To put it in perspective if any of the twenty most harmful patterns is present in a build the build had at least an 74\% chance to fail.
 
-Besides the technical side of the approach to generate statistically relevant recommendations as Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out, developers need to accept such recommendation for them to be ultimately useful.
+Besides the technical side of the approach to generate statistically relevant recommendations as Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out developers need to accept such recommendation for them to be ultimately useful.
