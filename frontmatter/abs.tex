@@ -10,19 +10,13 @@
 \textbf{ABSTRACT}
 \end{center}
 Efficient coordination among software developers is one key aspect in producing high quality software on time and on budget.
-Many factors such as team distribution or the structure of the organization developing the software can increase the level of difficulty to coordinate smoothly.
+Many factors such as team distribution or the structure of the organization developing the software can increase the level of difficulty in coordination.
 However, the problem runs deeper, it is often unclear which developers should coordinate their work.
 
-In this thesis we propose to leverage the concept of socio-technical congruence (which contrasts coordination needs with actual coordination) to improve the social interactions among developers by suggesting developers who they should talk to.
-We characterize the quality for social interactions by the build outcome of the builds the social interactions are related to.
+In this thesis we propose to leverage the concept of socio-technical congruence (which contrasts coordination needs with actual coordination) to improve the social interactions among developers 
+by developing an approach and its implementation into a recommender system that identifies relevant coordinatiors.
+Our unit of analysis is the integration build whose outcome represents the quality of coordination.
+We developed and applied and Approach in a number of case studies of the IBM Rational Team Concert development team as well as a large student project at the University of Victoria, Canada, and Aalto University, Finland.
 
-By closely collaborating with the IBM Rational Team Concert development team we derived an approach that allows us to generate recommendations that bring developers together to prevent build failures.
-Furthermore, in the process of motivating and exploring this approach, we extended the knowledge around collaboration in software teams.
-For example, we found that the structure of team coordination influences build success and further corroborated this finding by showing that unmet coordination needs have a negative influence on build success.
-
-%The concept of socio-technical congruence, when studies as the match between actual coordination among a development team and the coordination needs represented by source code dependencies in a system, shows a correlation with productivity.
-%More interestingly, the concept of socio-technical congruence suggests areas where developers can improve their social interactions.
-%
-%In this thesis we leverage the concept of socio-technical congruence to generate actionable knowledge, we demonstrate two ways to generate actionable knowledge: (1) shifting the focus from increasing productivity to that of software quality, where providing recommendation after a developer completed a task to remedy residual issues is acceptable and (2) by building on work presented by Blincoe et al~\cite{blincoe:cscw:2012} to gather information through tools such as Mylyn~\cite{kersten:aosd:2005} to approximate coordination needs in real time.
-%
-%We synthesized our findings, that there exists patterns that significantly and substantially correlate with build failures, in a step wise approach to extract actionable knowledge that helps in building socio-technical networks as well as generating actionable knowledge from them.
+Each software product is just the last integration build before the product was released thus ensuring a failure free build is of utmost importance to industry.
+While developing an approach to improve coordination among software developers, we uncovered that unmet coordination needs as well as the communication structure in a team significantly influence build outcome.
