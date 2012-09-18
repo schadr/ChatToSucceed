@@ -21,6 +21,37 @@ Yet, to truly be able to optimize the software engineering process a more holist
 One such way to marry those two aspects that as Conway stated are influencing each other~\cite{conway:datamination:1968} is to use the concept of socio-technical congruence in software engineering first formalized by Cataldo et al~\cite{cataldo:cscw:2006}.
 They proposed to overlay networks constructed from social (who communicates with whom) and technical (whose code depends on whose source code) dependencies to get an overview of a projects social and technical interdependencies and derive insight through the miss-match between those two networks.
 
+%%%%%%%%%%
+%%%%%%%%%%
+% removed stuff here
+%%%%%%%%%%
+%%%%%%%%%%
+
+
+% some of the findings as a teaser
+Socio-technical congruence forms a great basis to leverage several digitally recorded data treasures to generate useful and actionable information.
+Patterns of developer pairs showed that there are developers when not talking to each other yet sharing a technical dependency harmed the quality of the project, yet most of those pairs are not statistically related to quality.
+Furthermore, we found in a student project that certain issues experienced during development can be traced back to code dependencies that could have been detected in real time.
+
+% the two top level research questions
+To complement the research that studied the relationship between socio-technical congruence and performance, we focus on build outcome as a metric for software quality.
+Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one.
+Nonetheless,  build success is fundamental in creating a product that can be shipped to a customer.
+Often a successful build indicates that not only all test cases deemed important passed, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
+Hence, build success is of utmost importance to a business as it forms the very product the business hopes to sell.
+Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
+\begin{description}
+\item[RQ 1:] Does Socio-Technical Congruence influence build success?
+\item[RQ 2:] Can Socio-Technical Networks be leverage to generate recommendations to improve build success?
+\end{description}
+
+% methodology overview
+We are using a mixed methods approach to explore these two research questions.
+For \textbf{RQ~1} we employ data mining techniques by studying the artifacts such as task discussions and source code changes of a large industrial software project.
+The second research question (\textbf{RQ~2}) requires both quantitative and qualitative analysis methods.
+To find statistically relevant recommendations we employ data mining techniques, but to explore the usefulness and acceptance of such recommendations we make use of questionnaires, interviews, and observational studies.
+
+\section{Problem Statement}
 To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
 This directly follows from Conway's observations~\cite{conway:datamination:1968} that the communication structure of any given organization dictate the underlying technical dependencies.
 In software engineering that roughly translates into the idea that the communication flow within software teams need to match the module dependencies described by the software architecture. 
@@ -49,6 +80,8 @@ To fully leverage the concept of socio-technical congruence it is important to a
 The current concept is only shown to relate to performance and quality post-mortem.
 To truly unlock the potential of the socio-technical congruence concept it needs to be extended such that it can make on demand recommendations to improve congruence.
 
+
+\section{Thesis Focus}
 % how do we address the issues
 With this thesis we intend to address these issues in two ways:
 \begin{description}
@@ -70,31 +103,6 @@ Building on the concept of proximity proposed by Blincoe et al~\cite{blincoe:csc
 As Murphy et al~\cite{murphy:rsse:2010} pointed out, users of automated recommendation systems need to trust the system otherwise they will ignore it.
 This is especially true when continuously reporting information to developers and trying to steer them into a specific direction.
 Therefore, we investigate what the daily focus of developers is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence might bear fruit.
-
-% some of the findings as a teaser
-Socio-technical congruence forms a great basis to leverage several digitally recorded data treasures to generate useful and actionable information.
-Patterns of developer pairs showed that there are developers when not talking to each other yet sharing a technical dependency harmed the quality of the project, yet most of those pairs are not statistically related to quality.
-Furthermore, we found in a student project that certain issues experienced during development can be traced back to code dependencies that could have been detected in real time.
-
-% the two top level research questions
-To complement the research that studied the relationship between socio-technical congruence and performance, we focus on build outcome as a metric for software quality.
-Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one.
-Nonetheless,  build success is fundamental in creating a product that can be shipped to a customer.
-Often a successful build indicates that not only all test cases deemed important passed, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
-Hence, build success is of utmost importance to a business as it forms the very product the business hopes to sell.
-Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
-\begin{description}
-\item[RQ 1:] Does Socio-Technical Congruence influence build success?
-\item[RQ 2:] Can Socio-Technical Networks be leverage to generate recommendations to improve build success?
-\end{description}
-
-% methodology overview
-We are using a mixed methods approach to explore these two research questions.
-For \textbf{RQ~1} we employ data mining techniques by studying the artifacts such as task discussions and source code changes of a large industrial software project.
-The second research question (\textbf{RQ~2}) requires both quantitative and qualitative analysis methods.
-To find statistically relevant recommendations we employ data mining techniques, but to explore the usefulness and acceptance of such recommendations we make use of questionnaires, interviews, and observational studies.
-
-
 \section{Thesis Contribution}
 This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around coordination in software development teams.
 
