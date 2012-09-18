@@ -52,7 +52,7 @@ The second research question (\textbf{RQ~2}) requires both quantitative and qual
 To find statistically relevant recommendations we employ data mining techniques, but to explore the usefulness and acceptance of such recommendations we make use of questionnaires, interviews, and observational studies.
 
 \section{Problem Statement}
-To be more precise, socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
+Socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
 This directly follows from Conway's observations~\cite{conway:datamination:1968} that the communication structure of any given organization dictate the underlying technical dependencies.
 In software engineering that roughly translates into the idea that the communication flow within software teams need to match the module dependencies described by the software architecture. 
  
@@ -83,7 +83,7 @@ To truly unlock the potential of the socio-technical congruence concept it needs
 
 \section{Thesis Focus}
 % how do we address the issues
-With this thesis we intend to address these issues in two ways:
+In this thesis we focus on addressing the aforementioned issues in two ways:
 \begin{description}
 % item 3
 \item[What technical dependencies need to be met with communication?] 
@@ -100,18 +100,25 @@ To support developers to engage in communication when necessary they need to be 
 Building on the concept of proximity proposed by Blincoe et al~\cite{blincoe:cscw:2012}, we study in depth the development interactions of a large student project at the University of Victoria, Canada, and Aalto University, Finland, and the relation between issues and their fine grained real-time code dependencies.
 \end{description}
 
-As Murphy et al~\cite{murphy:rsse:2010} pointed out, users of automated recommendation systems need to trust the system otherwise they will ignore it.
+Furthermore, as Murphy et al~\cite{murphy:rsse:2010} pointed out, users of automated recommendation systems need to trust the system otherwise they will ignore it.
 This is especially true when continuously reporting information to developers and trying to steer them into a specific direction.
 Therefore, we investigate what the daily focus of developers is when it comes to communication to gauge if the level of recommendation provided by most methods derived or related to socio-technical congruence might bear fruit.
+
+
+
+
 \section{Thesis Contribution}
-This thesis has two major contributions: (1) we formulated an approach to improve social interactions among software developers inspired by the concept of socio-technical congruence and further motivated by two empirical studies we undertook (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}) and (2) by motivating and appraising the proposed approach we created several insights extending the body of knowledge around coordination in software development teams.
+This thesis has two major contributions: (1) an approach to improve social interactions among software developers that leverages the concept of socio-technical congruence and (2)
+coordination both in terms of structure and absence negatively influences build success.
 
 \subsection{Approach}
 % contribution(s)
 The first contribution of this thesis lies in showing that socio-technical congruence can be used to create recommendations to prevent build failures by improving the social interactions among software developers.
-Therefore we formulated a stepwise approach that selects a proper scope and outcome metric that through data mining techniques such as frequent pattern mining of socio-technical networks can generate insights to improve the collaboration (social interactions) among software developers.
+We derived the approach presented in Chapter~\ref{chap:approach} through two case studies that showed that social and socio-technical networks predict build outcome (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
+In a follow up study we demonstrated that we can generate relevant recommendations that exhibit a strong influence on build success (Chapter~\ref{chap:soc-net}).
+In the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} we demonstrated the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well as if these recommendations could be produced in real time and potentially prevent issues from arising.
+The approach we presented in Chapter~\ref{chap:approach} consists of five steps:
 
-This step-wise approach includes five steps:
 \begin{enumerate}
 \item Define scope of interest.
 \item Define outcome metric.
@@ -128,10 +135,12 @@ For example, we found instances where developers that share a technical dependen
 The studies we conducted in order to motivate and appraise the approach each yielded their separate research findings extending the body of knowledge of coordination in software development teams.
 We motivated the approach to improve interactions among software developers by studying the affect of communication structures on build success (Chapter~\ref{chap:soc-net}) and complemented that finding with an investigation of coordination gaps highlighted by technical dependencies among software developers on build success (Chapter~\ref{chap:stc-net2}).
 
-Investigating the usefulness of the approach yielded several findings with respect to team coordination.
-We showed in a direct approach to investigate the statistical relevance of recommendations and found the existence of pairs of developer with an unmet need to coordinate that negatively influence build success (Chapter~\ref{chap:stc-net}).
-Following the observation by Murphy et al~\cite{murphy:rsse:2010} we worked together with a professional software development team and showed that the level and content of our recommendation is acceptable to developers (Chapter~\ref{chap:talk}).
-In the last study we provided a proof of concept showing the usefulness of our approach by tracing a build failure to an issue that our recommendations could have prevented, thus corroborating research studying the influence of coordination in software integration (Chapter~\ref{chap:actionable}).
+We conducted a total of five studies in the course of this thesis with each study yielding its own insights.
+The first study, we, to the best of our knowledge, were the first to show a definitive relationship between coordination structure of a development team and build outcome (Chapter~\ref{chap:soc-net}).
+We further corroborated this evidence by showing that unmet co-ordination needs have a negative effect on build outcome as well (Chapter~\ref{chap:stc-net2}).
+Then, we presented evidence that specific unmet coordination needs that reoccur over time have a high change of inducing a build failure (Chapter~\ref{chap:stc-net}).
+While investigating whether developers would accept recommendations produced by our approach we found that the development process influences how concert developers are about individual changes (Chapter~\ref{chap:talk}).
+Finally, in a case study of a large student project at the University of Victoria, Canada, and Aalto University, Finland, we showed that data needed to compute socio-technical network can be collected in real time while a developer is editing her source code (Chapter~\ref{chap:actionable}).
 
 \section{Thesis Overview}
 This thesis is divided into three parts.
