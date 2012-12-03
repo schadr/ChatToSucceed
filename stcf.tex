@@ -3,21 +3,21 @@
 \label{chap:stc-net2}
 Knowing that social networks have an effect on build success opens the next question as to how or more precisely which parts of the social network should be changed to increase the likelihood for a build to succeed.
 For this reason we turn to the concept of socio-technical congruence as it postulates that developers should communicate once their work intersects.
-Thus in this section we explore the effect of socio-technical networks on build success:
+Thus in this section we explore the effect of socio-technical networks on build success bt answering the following research question:
 
 \begin{description}
   \item[RQ 1.2:] Does Socio-Technical Networks influence build success?
 \end{description}
 
 Although socio-technical congruence has only been studied in connection with productivity intuitively there should be a connection to software quality such as build success.
-For example, imagine two developer modifying classes that share call and data dependencies and one developer making changes that violate certain assumptions the other developer relies on when using the modified code.
-This might introduce an error that could have been prevented if both developer would have discussed their work.
+For example, imagine two developers modifying classes that share call and data dependencies and one developer making changes that violate certain assumptions the other developer relies on when using the modified code.
+This might introduce an error that could have been prevented if both developers would have discussed their work.
 Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point developers towards improvements in the social network by pointing out developers that should communicate.
 
-In this chapter, we start with discussing how we calculate socio-technical congruence (Section~\ref{sec:congruence}).
-Subsequently, we briefly discuss the methodology that is relevant to exploring our research question (Section~\ref{sec:methodology}).
+In this chapter, we start discussing how we calculate socio-technical congruence (cf. Section~\ref{sec:congruence}).
+Subsequently, we briefly discuss the methodology that is relevant to exploring our research question (cf. Section~\ref{sec:methodology}).
 Then, we present the analysis and results we obtained in Section~\ref{sec:results} followed by a discussion of the results in Section~\ref{sec:discussion}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:conclusion}).
+We conclude this chapter offering an answer to our research question and leading into the subsequent chapter (cf. Section~\ref{sec:conclusion}).
 
 
 \section{Calculating Congruence}
@@ -47,12 +47,12 @@ We conclude this chapter with offering an answer to our research question and le
 %\subsection{Calculating Socio-Technical Congruence}
 %\label{sec:stc}
 In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
-If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
-Thus we calcite the socio-technical congruence index as follows:
+If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix C and the social network in matrix representation is the actual coordination matrix A.
+Thus we compute the socio-technical congruence index as follows:
 
-\[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
+\[ \text{congruence} = \frac{\text{Diff(C, A)}}  {|\text{C}|} \]
 
-The main difference to the original formula lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
+The main difference to the calculation proposed by Cataldo et al~\cite{cataldo:cscw:2006} lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
 
 \begin{placeholder}[t]
 \begin{itemize}
@@ -101,6 +101,8 @@ The congruence values are low on average with a mean value of 0.331 meaning that
 
 \begin{table}[t]
 \centering
+\caption{Summary statistics}
+\label{tab:pairwise}
 \begin{tabular}{lrrrr}
 \toprule
  & Min & Median & Max & Mean\\\midrule
@@ -113,12 +115,12 @@ Congruence & 0  & 0.21  & 1 & 0.331 \\
 %Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
 \bottomrule
 \end{tabular}
-\caption{Summary statistics}
 \label{tab:summary}
 \end{table}
 
 \begin{table}[t]
 \begin{center}
+\caption{Pairwise Correlation of Variables per Build}
 \begin{tabular}{lrrrrr}
 \toprule
  & 2. & 3. & 4. & 5. & 6. \\ 
@@ -130,19 +132,17 @@ Congruence & 0  & 0.21  & 1 & 0.331 \\
    5. Work items  &  &  &  &  --& 0.04 \\ 
    6. Build date &  &  &  &  & -- \\ 
 \bottomrule
-
 \end{tabular}
 \end{center}
-\caption{Pairwise Correlation of Variables per Build}
-\label{tab:pairwise}
 \end{table}
 
-We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change-sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change-sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change-set, and thus there is at least as many change-sets as authors per build.
+We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change-sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (cf. Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change-sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change-set, and thus there is at least as many change-sets as authors per build.
 
 To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. We present our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
 
 \begin{table}[t]
 \begin{center}
+\caption{Model comparison}
 \begin{tabular}{l@{\hspace{30pt}}r@{\hspace{30pt}}rr}
 \toprule
 Model                  & Variables    & AIC & $R^2$                                  \\ \midrule
@@ -152,7 +152,6 @@ Main effects only & 7   & 213.2 & 0.269 \\
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{Model comparison}
 \label{tab:models}
 \end{table}
 
@@ -160,6 +159,7 @@ Main effects only & 7   & 213.2 & 0.269 \\
 \label{sec:congruence_effect_build_result}
 
 \begin{table}[t]
+\caption{Logistic Regression models predicting build success probability with main and interaction effects}
 \begin{center}
 \small
 \begin{tabular}{l@{\hspace{15pt}}rrr}
@@ -193,13 +193,13 @@ Model likelihood ratio & 101.92 &  & $R^2=0.581$  \\
 \multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
 \end{center}
-\caption{Logistic Regression models predicting build success probability with main and interaction effects}
 \label{tab:logr}
 \end{table}
 
 
 \begin{table}[t]
 \begin{center}
+\caption{Logistic Regression models predicting build success probability with main effects only}
 \begin{tabular}{l@{\hspace{15pt}}rr r}
 \toprule
 Variable & Coef. & S.E. & \emph{p} \\
@@ -219,7 +219,6 @@ Model likelihood ratio & 40.59 &  & $R^2=0.269$  \\
 \multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
 \end{center}
-\caption{Logistic Regression models predicting build success probability with main effects only}
 \label{tab:logr_maineffects}
 \end{table}
 
@@ -229,7 +228,7 @@ In the next section we discuss the main effects and interactions effects that in
 
 \subsubsection{Effects of interactions involving congruence}
 \label{sec:congruenceinteractions}
-The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figure~\ref{fig:unweighted_congruence_typeci_age} the effects of congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
+The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (cf. Table \ref{tab:logr}). We plot in Figure~\ref{fig:unweighted_congruence_typeci_age} the effects of congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
 
 
 \begin{figure}[t!]
@@ -256,8 +255,8 @@ The type~$\times$~congruence interaction effect, the date~$\times$~congruence in
 	\label{fig:unweighted_congruence_typeci_age}
 \end{figure}
 
-The congruence model (Table \ref{tab:logr}) the effect of congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. 
-For integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_unweighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_unweighted_age_typeci_q100}).
+The congruence model (cf. Table \ref{tab:logr}) the effect of congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. 
+For integration builds (cf. Figures \ref{fig:unweighted_congruence_typeci_age}), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_unweighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (cf. Figure \ref{subfig:prob_unweighted_age_typeci_q100}).
 The effect of congruence is totally opposite for continuous builds and integration builds. Based on Figure \ref{subfig:prob_unweighted_age_typeci_q100}, increasing congruence significantly improves the continuous build success rate. However, increasing congruence significantly decreases the integration build success rate.
 
 
@@ -265,10 +264,11 @@ The effect of congruence is totally opposite for continuous builds and integrati
 \label{sec:gapsizeresult}
 We build a logistic regression model based on the model in Table \ref{tab:logr} using the gap ratio measurement (percentage of unmet coordination needs). In the interest of saving space, we report only the odds ratio. We retain every significant interaction from our previous congruence logistic regression in Table \ref{tab:logr}.
 
-The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap is large, the build success probability increases.
+The effect of gap ratio on build result is significant (cf. Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (cf. Figure \ref{fig:prob_gapsize_a}). This means that if the gap is large, the build success probability increases.
 
 \begin{table}[t]
 \begin{center}
+\caption{Odds Ratio for Gap Ratio Models}
 \begin{tabular}{lrr}
   \toprule
  & Model\\ 
@@ -288,7 +288,6 @@ Intercept & 1.32 \\
 %  Weighted cong * Build date & 0.00 & - \\ 
    \bottomrule
 \end{tabular}
-\caption{Odds Ratio for Gap Ratio Models}
 \label{tab:oddsratio_gapsize}
 \end{center}
 \end{table}
@@ -313,19 +312,19 @@ Intercept & 1.32 \\
 
 \subsection{Social and Technical Factors in RTC Affecting Build Success and Congruence}
 \label{sec:otherfactors}
-In light of our results, we examine not only the number of work~items~$\times$~date significant interaction found in Section \ref{sec:congruence_effect_build_result}, but different social and technical factors that may affect congruence
+In light of our results, we examined not only the number of work~items~$\times$~date significant interaction found in Section \ref{sec:congruence_effect_build_result}, but different social and technical factors that may affect congruence
 and build success probability to find explanations for the interactions between socio-technical congruence and build success probability in RTC.
-Specifically, we examine the effect of build date on work items, coordination around fully-congruent builds and
+Specifically, we examined the effect of build date on work items, coordination around fully-congruent builds and
 incongruent builds, and the effects of commenting behaviour on builds.
 
 \subsubsection{Other Effects on Build Success}
 \label{sec:effectauthors}
 \begin{description}
-\item[Authors] As the number of authors involved in a build increases, the probability that the build succeeds decreases. The build probability is significantly lowered after more than 15 authors are involved in the build (Figure \ref{subfig:prob_weighted_authors_age_q100}). When over 30 authors are involved in the build, the estimated build success probability falls under 10\%.
+\item[Authors] As the number of authors involved in a build increases, the probability that the build succeeds decreases. The build probability is significantly lowered after more than 15 authors are involved in the build (cf. Figure \ref{subfig:prob_weighted_authors_age_q100}). When over 30 authors are involved in the build, the estimated build success probability falls under 10\%.
 
-\item[Files] As the number of files involved in a build increases, the probability that the build will succeed decreases (Figure \ref{subfig:prob_weighted_files_age_q100}).
+\item[Files] As the number of files involved in a build increases, the probability that the build will succeed decreases (cf. Figure \ref{subfig:prob_weighted_files_age_q100}).
 
-\item[Build Date and Work items] The work~items~$\times$~date interaction is significant. Early in the project, as the number of work items increases, the probability of build success decreases (Figure \ref{subfig:prob_weighted_workitems_age_q010}). As the project ages, this trend reverses and as the number of work items increases, the probability of build success increases as well (Figure \ref{subfig:prob_weighted_workitems_age_q100}). According to the coefficients in Table \ref{tab:logr}, this effect on build success probability is not as strong as the authors main effect or the files main effect.
+\item[Build Date and Work items] The work~items~$\times$~date interaction is significant. Early in the project, as the number of work items increases, the probability of build success decreases (cf. Figure \ref{subfig:prob_weighted_workitems_age_q010}). As the project ages, this trend reverses and as the number of work items increases, the probability of build success increases as well (cf. Figure \ref{subfig:prob_weighted_workitems_age_q100}). According to the coefficients in Table~\ref{tab:logr}, this effect on build success probability is not as strong as the authors main effect or the files main effect.
 \end{description}
 
 \begin{figure}[t]
@@ -369,6 +368,7 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
 
 \begin{table}[t]
 \centering
+\caption{Number of Builds with Congruence Values 0 and 1}
 \begin{tabular}{lrr}
 \toprule
 & \multicolumn{2}{c}{Congruence} \\\midrule
@@ -377,7 +377,6 @@ Table \ref{tab:congruence_extremes} shows the number of OK and error builds that
                              ERR & 2 & 2 \\
  \bottomrule
 \end{tabular}
-\caption{Number of Builds with Congruence Values 0 and 1}
 \label{tab:congruence_extremes}
 \end{table}
 
@@ -387,6 +386,7 @@ Of note is the high number of comments on work items that have zero congruence. 
 
 \begin{table}[t]
 \centering
+\caption{Number of work items-change-set pairs with comments and build success probabilities for congruence 0 and 1}
 \begin{tabular}{ll@{\hspace{40pt}}rr@{\hspace{40pt}}rr}
 \toprule
 & & \multicolumn{2}{@{\hspace{-40pt}}c}{Num. of Pairs} & \multicolumn{2}{c}{Success rate} \\
@@ -398,7 +398,6 @@ Congruence &                                & 1     & 0   & 1 & 0 \\\midrule
 \multirow{2}{*}{Total} 		& OK		  & 652 & 588 &     \multirow{2}{*}{66\%} & \multirow{2}{*}{69\%}   \\
                        		& Error   & 333  & 263 & &\\\bottomrule
 \end{tabular}
-\caption{Number of work items-change-set pairs with comments and build success probabilities for congruence 0 and 1}
 \label{tab:change-set_commenters}
 \end{table}
 
@@ -412,18 +411,18 @@ In this case study, we applied socio-technical congruence to study coordination 
 
 Overall, we found that the average congruence across builds was very low---only 20--30\% of the coordination needs in the project were fulfilled with actual coordination. Even in the cases where there is zero congruence, the build result was an OK build in over 90\% of the observed cases.
 
-We found that there was an interaction effect involving congruence and build type on build success probabilities (Section \ref{sec:congruenceinteractions}). For continuous builds, increasing congruence improves the chance of build success in continuous builds and can actually decrease build success probability in integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}). Congruence significantly reduce integration build success probability.
+We found that there was an interaction effect involving congruence and build type on build success probabilities (cf. Section \ref{sec:congruenceinteractions}). For continuous builds, increasing congruence improves the chance of build success in continuous builds and can actually decrease build success probability in integration builds (cf. Figures \ref{fig:unweighted_congruence_typeci_age}). Congruence significantly reduces integration build success probability.
 
 The gap ratio is a representation of whether enough coordination
 occurred to fulfill multiple coordination needs. If two developers have multiple dependencies on each other, one would expect them to
 coordinate more often as well.
-We hypothesized that a small gap ratio would increase the probability of successful builds and that a large gap ratio would decrease the probability of a successful build. Instead, we found that as the mean gap increases, the build success probability also increases (Figure \ref{fig:prob_gapsize_a}).
+We hypothesized that a small gap ratio would increase the probability of successful builds and that a large gap ratio would decrease the probability of a successful build. Instead, we found that as the mean gap increases, the build success probability also increases (cf. Figure \ref{fig:prob_gapsize_a}).
 
 Below we discuss the reasons for these observed results based on our knowledge of RTC.
 
 \subsection{Strong Awareness Helps Coordination}
 The overall congruence for the majority of builds is low: over 75\% of
-builds have a congruence of less than 0.25 (Section \ref{sec:congruence_effect_build_result}).
+builds have a congruence of less than 0.25 (cf. Section \ref{sec:congruence_effect_build_result}).
 Despite low congruence, the RTC team is able to successfully build its software in many situations.
 
 
@@ -436,7 +435,7 @@ The RTC team members use the RTC environment extensively to communicate with eac
 This leaves the RTC work item comment system and instant messaging as methods for communication, as well as the phone and internal face-to-face meetings.
 We learned that while face-to-face interaction is efficient for solving local issues, it does not benefit remote teams, and the RTC team as a whole encourages every team member to record face-to-face discussions as comments for the purpose of archiving and sharing information.
 
-However, explicit coordination has a cost. There is evidence that involving too many authors in the same build also reduces the build success (Figure \ref{subfig:prob_weighted_authors_age_q100}). The overhead required to coordinate many people may interfere with the ability of the team to build the project successfully, suggesting that there is a limit before a developer is overloaded with information.
+However, explicit coordination has a cost. There is evidence that involving too many authors in the same build also reduces the build success (cf. Figure \ref{subfig:prob_weighted_authors_age_q100}). The overhead required to coordinate many people may interfere with the ability of the team to build the project successfully, suggesting that there is a limit before a developer is overloaded with information.
 
 \subsubsection{RTC is a Shared Workspace}
 The RTC client software helps a developer acquire and maintain \emph{environmental awareness} of what is going on in the project by providing access to a shared workspace. Much of the work is centred around the RTC technical entities, which include plans, source code, work items, and comments.
@@ -457,17 +456,17 @@ It appears that involving too many individuals when coordinating the activities 
 
 
 \subsection{Project Maturity and Build Success}
-We found that early builds exhibited a different type of relationship between congruence and build success probability than later builds (Section \ref{sec:congruenceinteractions}). Over the course of the study, we observed 13 internal milestones; the last milestone in our observed builds was a public beta release for end users.
+We found that early builds exhibited a different type of relationship between congruence and build success probability than later builds (cf. Section \ref{sec:congruenceinteractions}). Over the course of the study, we observed 13 internal milestones; the last milestone in our observed builds was a public beta release for end users.
 
-Build success probability decreased significantly over time for continuous builds and stayed roughly the same for integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}).
-However, the early builds in the project behaved contrary to later builds in the project (Figure \ref{subfig:prob_unweighted_age_typeci_q010} and \ref{subfig:prob_unweighted_age_typeci_q010}). The RTC software early in its lifetime is in a state of change. Integration builds are not a priority, and features are being added to the project. This means that dependencies are changing rapidly, as well as the expertise among team members, making it difficult to solidify coordination needs.
+Build success probability decreased significantly over time for continuous builds and stayed roughly the same for integration builds (cf. Figures \ref{fig:unweighted_congruence_typeci_age}).
+However, the early builds in the project behaved contrary to later builds in the project (cf. Figure \ref{subfig:prob_unweighted_age_typeci_q010} and \ref{subfig:prob_unweighted_age_typeci_q010}). The RTC software early in its lifetime is in a state of change. Integration builds are not a priority, and features are being added to the project. This means that dependencies are changing rapidly, as well as the expertise among team members, making it difficult to solidify coordination needs.
 
 In addition to interactions between congruence and type, and congruence and date, we observed a significant interaction effect between build date and work items.
-We found that early in the project (Figure \ref{subfig:prob_weighted_workitems_age_q010}), builds with large numbers of work items have a high probability of failing, but late in the project (Figure \ref{subfig:prob_weighted_workitems_age_q100}), these builds succeed. Because the latest release was focused on a public release, a build linked to numerous work items may indicate that a bug is highly problematic or a feature is highly desired, and therefore received more attention. 
+We found that early in the project (cf. Figure \ref{subfig:prob_weighted_workitems_age_q010}), builds with large numbers of work items have a high probability of failing, but late in the project (cf. Figure \ref{subfig:prob_weighted_workitems_age_q100}), these builds succeed. Because the latest release was focused on a public release, a build linked to numerous work items may indicate that a bug is highly problematic or a feature is highly desired, and therefore received more attention. 
 
 
 
-\section{Conclusions}
+\section{Summary}
 \label{sec:conclusion}
 We end this chapter by bringing it back to the initial research question we set out to answer:
 \begin{description}
@@ -478,4 +477,4 @@ We conducted two investigations: (1) the investigation of the influence of the s
 Both avenues of investigations showed that they expose an influence on build success.
 
 These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
-Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
+Thus in the next chapter we detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.

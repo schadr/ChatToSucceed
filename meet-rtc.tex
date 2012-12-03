@@ -1,13 +1,13 @@
 % !TEX root = thesis.tex
-\startchapter{Meet IBM Rational Team Concert}
+\startchapter{IBM Rational Team Concert}
 \label{chap:rtc}
 In this chapter we describe the IBM Rational Team Concert\footnote{https://www.jazz.net} product as well as its development team,
-since most of the research carried out throughout this thesis was in collaboration with this product development team which as part of their development process is also using their own product.
+since most of the research carried out throughout this dissertation was in collaboration with this product development team which as part of their development process is also using their own product.
 We begin with introducing the product and its functionalities before we describe the development team's composition and development process.
 
 \section{The IBM Rational Team Concert Product}
 IBM Rational Team Concert (RTC) is a server client application meant to support software development.
-It is comprised of four major functionalities that bear relevance to this thesis:
+It is comprised of four major functionalities that bear relevance to this dissertation:
 (1) source control management that is based on similar principles as GIT\footnote{http://GIT-scm.com/} and mercurial\footnote{http://mercurial.selenic.com/}, (2) work item management to keep track of issues, tasks and features that need to be resolved and implemented, (3) planning capabilities to organize work items into iterations working towards milestones, and (4) a build engine that allows for continues builds and regression tests.
 
 \subsection{Source Control}
@@ -30,8 +30,8 @@ With this the main difference between the RTC source code management system and 
 Even branching and sharing of changes to the source code work similarly to distributed version control systems as they can be freely moved in-between workspaces, in-between streams, and between streams and work spaces.
 
 For example Figure~\ref{fig:change-set} presents a typical work flow after a unit of work has been finished and needs to be finalized.
-A developer would gather all the changes that are only available on her local machine (Figure~\ref{subfig:csb}) and combine them into a change-set (Figure~\ref{subfig:cs}) that is at that point made available on her remote workspace.
-After ideally linking that change-set to the task it is meant to resolve (Figure~\ref{subfig:csa}) the developer can deliver the change-set to the team stream to make it available to the whole team.
+A developer would gather all the changes that are only available on her local machine (cf. Figure~\ref{subfig:csb}) and combine them into a change-set (cf. Figure~\ref{subfig:cs}) that is at that point made available on her remote workspace.
+After ideally linking that change-set to the task it is meant to resolve (cf. Figure~\ref{subfig:csa}) the developer can deliver the change-set to the team stream to make it available to the whole team.
 
 \subsection{Work Items}
 \begin{figure}
@@ -47,7 +47,7 @@ These work items are basically an extension to bug reports as filed to a Bugzill
 
 Developers have the ability to link work items into logical units and build hierarchies of work items to structure their work.
 Furthermore, work items allow tracking meta information, such as time estimates, severity, and priority, and on top of that lends themselves to be customized with self defined fields on a project configuration level.
-For example in Figure~\ref{fig:wi} we see the work item view from within Eclipse (Figure~\ref{subfig:wieclipse}) and through the web (Figure~\ref{subfig:wiweb}).
+For example in Figure~\ref{fig:wi} we see the work item view from within Eclipse (cf. Figure~\ref{subfig:wieclipse}) and through the web (cf. Figure~\ref{subfig:wiweb}).
 Both representations show links to other work items in the Quick Information pane as well as links to other artifacts such as change-sets.
 
 \subsection{Planning}
@@ -66,14 +66,14 @@ Both representations show links to other work items in the Quick Information pan
 \label{fig:charts}
 \end{figure}
 In contrast to issue trackers such as bugzilla IBM Rational Team Concert offers planning capabilities.
-Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members (see Figure~\ref{fig:plan} for an example).
+Within RTC plans can be defined that consists of a number of work items that can be ranked against each other and assigned to different team members (cf.  Figure~\ref{fig:plan} for an example).
 RTC also supports multiple plans for different teams to support a better overview for the teams instead of cluttering plans with less relevant tasks.
 
 The planning component supports several development styles reaching from agile-development styles such as XP and SCRUM~\cite{larman:ieeecomputer:2003} to more traditional development methods such as Waterfall~\cite{boehm:senotes:1986}.
 Each different development style comes with a different default of control measures and charts such as burn down charts.
 These charts as well as the planning can be both reviewed in the Eclipse and web client.
 Both can be viewed in a customizable dashboard for quick information retrieval to stay up to date.
-Figure~\ref{fig:charts} shows some examples of burn down charts as they show up on the Eclipse client (Figure~\ref{subfig:charteclipse}) and the Web UI (Figure~\ref{subfig:chartweb}).
+Figure~\ref{fig:charts} shows some examples of burn down charts as they show up on the Eclipse client (cf. Figure~\ref{subfig:charteclipse}) and the Web UI (cf. Figure~\ref{subfig:chartweb}).
 
 \subsection{Build Engine}
 The RTC build engine is comparable to build engines such as IBM Rational Buildforge\footnote{http://www-01.ibm.com/software/awdtools/buildforge/enterprise/} and Jenkins\footnote{http://jenkins-ci.org/}.
@@ -83,12 +83,12 @@ Build Results RTC can either be \error, \texttt{WARNING} or \ok.
 \subsection{Foundation/Integration}
 \begin{figure}[t]
 \centering
-\includegraphics[width=.8\textwidth]{figures/meet-rtc.tex/rtc-topology}
+\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/rtc-topology}
 \caption{RTC topology}
 \label{fig:rtctopology}
 \end{figure}
 The IBM Jazz Foundation builds the layer on which the previously described components run.
-By itself it does not offer any capabilities to the user, but it enables each component to integrated with the others. 
+By itself it does not offer any capabilities to the user, but it enables each component to be integrated with the others. 
 This allows the developer to both manually link artifacts with each other and define queries that cross reference multiple repositories.
 Figure~\ref{fig:rtctopology} shows the three layers of the RTC product.
 At the top is the user that interacts with the application servers, ranging from source control over planing to work item management.
@@ -105,7 +105,7 @@ For this purpose developers can create queries that look for work items associat
 
 \section{The IBM Rational Team Concert Product Development Team}
 The IBM Rational Team Concert product development team is distributed across multiple sites following an agile development methodology.
-In this section we are going to characterize the development team at large as well as describing their development process.
+In this section we characterize the development team at large as well as describe their development process.
 
 \subsection{The People}
 \begin{table}[t]
@@ -127,8 +127,8 @@ Range of Developer per Location & & 7 & 24 & 14.8\\
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=.8\textwidth]{figures/meet-rtc.tex/ppl-orga}
-\caption{Organizational structure of the technical personal in the RTC development team.}
+\includegraphics[width=.5\textwidth]{figures/meet-rtc.tex/ppl-orga}
+\caption{Organizational structure of the technical personal in the RTC development team}
 \label{fig:orgastruct}
 \end{center}
 \end{figure}

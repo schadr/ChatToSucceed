@@ -1,34 +1,34 @@
 % !TEX root = thesis.tex
-\startchapter{Discussion}
+\startchapter{Conclusions}
 \label{chap:disc}
-In this chapter we discuss the approach and how the research we presented in the last three chapters support it (Section~\ref{ch:dis:app}).
-Followed by our second contribution which takes the form of the individual insights gained by the five studies we presented (Section~\ref{sec:cont:emp}).
-Before we end this thesis with concluding remarks as well as some future work (Section~\ref{ch:dis:con}) we discuss the threats to validity (Section~\ref{sec:threat}).
+In this chapter we summarize and discuss our approach and how the research we presented in the last three chapters support it (cf. Section~\ref{ch:dis:app}).
+Followed by our second contribution which takes the form of the individual insights gained by the five studies we presented (cf. Section~\ref{sec:cont:emp}).
+Before we end this dissertation with concluding remarks as well as some future work (cf. Section~\ref{ch:dis:con}) we discuss the threats to validity (cf. Section~\ref{sec:threat}).
 
 \section{An Approach For Improving Social Interactions}
 \label{ch:dis:app}
-We derived the approach presented in Chapter~\ref{chap:approach} through two case studies that investigate the usefulness of social and socio-technical networks to predict build outcome (Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
+We derived the approach presented in Chapter~\ref{chap:approach} through two case studies that investigate the usefulness of social and socio-technical networks to predict build outcome (cf. Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
 We conducted a study to see if the approach can generate relevant recommendations in Chapter~\ref{chap:soc-net}.
 The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well as if these recommendations could be produced in real time and potentially prevent issues from arising.
 The approach we presented in Chapter~\ref{chap:approach} consists of five steps:
 
 \begin{enumerate}
-\item Define scope of interest.
-\item Define outcome metric.
-\item Build social networks.
-\item Build technical networks.
-\item Generate actionable insights.
+\item Define scope of interest
+\item Define outcome metric
+\item Build social networks
+\item Build technical networks
+\item Generate actionable insights
 \end{enumerate}
 
 In Chapter~\ref{chap:soc-net} we showed that the communication structure of a software development team influences build success, suggesting that there is value in manipulating this structure to improve the likelihood for a successful build.
-That evidence is further supported by our finding that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success (Chapter~\ref{chap:stc-net2}).
+That evidence is further supported by our finding that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success (cf. Chapter~\ref{chap:stc-net2}).
 
 In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{chap:approach}.
 We defined the build as the scope together with the build outcome, success or failure, as the outcome metric.
 Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{chap:bg} in both Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2}.
 Chapter~\ref{chap:stc-net2} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
 
-The three studies we presented in Part~\ref{part3} of this thesis focused on the last step to \emph{generate actionable insights}.
+The three studies we presented in Part~\ref{part3} of this dissertation focused on the last step to \emph{generate actionable insights}.
 The study in Chapter~\ref{chap:stc-net} showed that we are able to produce recommendations from available repository data that affect build success.
 These recommendations take the form of highlighting two developers that have a technical dependency but did not communicate in the context of the build.
 %These recommendations in the form of recommending developers to communicate changes the structure of the social network, which we intend in order to improve build success.
@@ -41,11 +41,11 @@ In Chapter~\ref{chap:talk} we explored the developer view with respect to recomm
 The feedback we received generally welcomed such recommendations as long as they are not seen as irrelevant, thus, corroborating Murphy and Murphy-Hill's~\cite{murphy:rsse:2010} point.
 Developers, in fact, discuss change-sets in general, but specifically towards the end of a release cycle, as each change becomes more important with respect to the stability of the overall project.
 
-Through an in-class study with several students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing (Chapter~\ref{chap:actionable}).
-We recognize that a student project is substantially smaller in size and complexity than an industrial project such as Rational Team Concert, nevertheless, the student project was to work on an existing open source project that is used by several companies.
-Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed build to fail for less reasons and therefore making the impact of the recommendations clearer.
+Through an in-class study with several students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing (cf. Chapter~\ref{chap:actionable}).
+We recognize that a student project is substantially smaller in size and complexity than an industrial project such as Rational Team Concert, nevertheless, the students worked on an existing open source project that is used by several companies.
+Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed builds to fail for few reasons and therefore making the impact of the recommendations clearer.
 
-Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (see Chapter~\ref{chap:bg}).
+Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (cf. Chapter~\ref{chap:bg}).
 Furthermore, we showed that the approach can generate actionable insights that are acceptable to developers.
 In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
 
@@ -117,11 +117,11 @@ problems that include factors such as geographical or functional distance in the
 \subsection{Recommender System Design Guidelines}
 \label{sec:sub:tools}
 % talk or not to talk
-In our first qualitative study (Chapter~\ref{chap:talk}) we explored whether developers would accept recommendations produced by our approach.
+In our first qualitative study (cf. Chapter~\ref{chap:talk}) we explored whether developers would accept recommendations produced by our approach.
 It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
 For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
 
-Nakakoji et al~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al guidelines:
+Nakakoji et al.~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al. guidelines:
 
 \paragraph{Guideline \#1} \emph{Recommender systems should adjust to the development mode.}
 Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
@@ -139,7 +139,7 @@ To avoid overwhelming or reducing overhead further for developers, recommendatio
 Our second and third findings unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
 Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
 
-Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
+Traditional recommender systems in software engineering focus on the source code to determine useful recommendations (e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}).
 This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
 
 But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
@@ -160,20 +160,20 @@ Thus, developers often need to be reminded that they must focus their efforts on
 To support developers to focus on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
 
 
-\subsection{STC in real time}
+\subsection{Socio-Technical Congruence in Real Time}
 % leveraging stc in real time
-Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild, leads us to our last study (Chapter~\ref{chap:actionable}).
+Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild, leads us to our last study (cf. Chapter~\ref{chap:actionable}).
 In this study we showed the feasibility of generating recommendations at the right time, by gathering data to generate socio-technical congruence in real time.
 Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 
 \section{Threats to Validity}
 \label{sec:threat}
-In his section we detail the threats to validity of this thesis.
+In his section we detail the threats to validity of this dissertation.
 
 % limited number of studies
 \paragraph{External Validity}
-In part of this work we draw on information from observational studies (Chapters~\ref{chap:talk} and~\ref{chap:actionable}) and studies relying on development repositories (Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}) that cover two development projects.
+In part of this work we draw on information from observational studies (cf. Chapters~\ref{chap:talk} and~\ref{chap:actionable}) and studies relying on development repositories (cf. Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}) that cover two development projects.
 Although this limits the generalizability of the findings presented as well as the validity of the inferred approach, we think that the approach still holds merit as the studies that lay the foundation for the validity of generating insights in real time are derived from and industrial project comprising more than one hundred developers at a large software corporation.
 This in-depth relationship created by working together with the IBM Rational Team Concert development team limits the amount of data available for the studies we presented but this in-depth relationship enables us to better interpret the collected data as well as gain a deeper understanding of the organization and their processes and how they influence the data.
 In the case of the in class study, we aimed to minimize the conclusions we drew to only serve as a feasibility study to demonstrate that technical networks can be constructed in real time as well as give some evidence that potential recommendations can prevented build failures from occurring.
@@ -183,9 +183,9 @@ However, we are confident that this threat is minor, due to the mix of developer
 Furthermore, the triangulation with our observations and survey responses increases our confidence in our findings.
 
 \paragraph{Construct Validity}
-In this thesis we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions as well as relied on technical dependencies inferred from developers changing the same source code file.
+In this dissertation we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions as well as relied on technical dependencies inferred from developers changing the same source code file.
 Both constructs are used by the software engineering research community in several studies (e.g.~\cite{cataldo:cscw:2006}).
-Nevertheless, both the social and technical dependency characterizations come with the danger that they do not necessary measure social or technical dependencies of relevance or might as well miss existing dependencies.
+Nevertheless, both the social and technical dependency characterizations come with the danger that they do not necessarily measure social or technical dependencies of relevance or might as well miss existing dependencies.
 This leads to the threat that our inferences might be based on inconsistencies in the data such as meaningless communication among developers or file changes that are not technical in nature.
 For instance, due to storage problems the Jazz teams erased some build results. In the case of
 nightly builds we expected 90 builds (according to project duration) but found
@@ -209,7 +209,7 @@ Another threat to the approach, which is related to the previously mentioned lac
 We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
-The surveys we deployed in our qualitative studies (Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
+The surveys we deployed in our qualitative studies (cf. Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
 This bias poses a threat to our findings due to the possibility that we were missing important items.
 We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
 
@@ -225,13 +225,13 @@ We mitigated it by developing the survey iteratively by piloting and discussing 
 
 \subsection{Conclusions and Future Work}
 \label{ch:dis:con}
-In this thesis we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
+In this dissertation we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
 The first parameter scope helps with constructing the social networks (the third step) and constructing the technical networks (the fourth step) by supporting the selection of the best data sources.
 The outcome metric guides the analysis to produce actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
 
 % future work
-The work presented in this thesis lend it self to several venues of future work, such as building and testing the recommendation system with several software development teams to study its impact.
+The work presented in this dissertation lends itself to several avenues of future work, such as building and testing the recommendation system with several software development teams to study its impact.
 A more interesting avenue to pursue is to explore what software architecture can support what kind of communication and organizational structure.
 So far, the research around socio-technical congruence is pointing into the direction of changing how software developers coordinate their work, but we propose to return to the original observation Conway made in that the software architecture will change to accommodate the communication structures in an organization.
 Therefore, analyzing software architectures with respect to the project properties, such as distribution of the development team or the organizational hierarchy, might yield valuable insight in guiding design decisions of the software product that not only take into account properties to increase the feature richness or maintainability of the software product but is optimal with respect to properties of the organization and the development team in order to increase productivity and quality. 

@@ -1,8 +1,8 @@
 % !TEX root = thesis.tex
 \startchapter{Methodology and Constructs}
 \label{chap:meth}
-Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we present the overall roadmap for this thesis (Section~\ref{c5:sec:roadmap}) and some common definitions (Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that we use for the remainder of the thesis.
-Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{c5:sec:datacollection}).
+Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we present the overall roadmap for this dissertation (cf. Section~\ref{c5:sec:roadmap}) and some common definitions (cf. Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that we use for the remainder of the dissertation.
+Furthermore, we also will discuss the general approach to the data collection methods employed (cf. Section~\ref{c5:sec:datacollection}).
 
 \begin{figure}[h!]
 \centering
@@ -14,16 +14,16 @@ Furthermore, we also will discuss the general approach to the data collection me
 \section{Methodology Roadmap}
 \label{c5:sec:roadmap}
 In this section we discuss the methods we apply to answer the research questions presented in Chapter~\ref{chap:bg}.
-Figure~\ref{fig:roadmap} depicts the relationship between the research questions and the contribution of this thesis, an approach to improve social interactions among developers by characterizing the quality of interactions by the build outcome of the related build.
+Figure~\ref{fig:roadmap} depicts the relationship between the research questions and the contribution of this dissertation, an approach to improve social interactions among developers by characterizing the quality of interactions by the build outcome of the related build.
 Research questions~1.1 and~1.2 discussed in Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2} motivate the approach.
-Research questions~2.1 and~2.3 (Chapters~\ref{chap:stc-net} and~\ref{chap:actionable}) explore whether socio-technical networks can be used to form recommendations that can prevent build failures, whereas research question~2.2 inquires in Chapter~\ref{chap:talk} whether such recommendations are acceptable by developers.
+Research questions~2.1 and~2.3 (cf. Chapters~\ref{chap:stc-net} and~\ref{chap:actionable}) explore whether socio-technical networks can be used to form recommendations that can prevent build failures, whereas research question~2.2 inquires in Chapter~\ref{chap:talk} whether such recommendations are acceptable by developers.
 
-\subsection{Research Question 1.1}
+\subsection{%Research Question 1.1}
 %Motivation
-\begin{description}
-  \item[RQ 1.1:] Do Social Networks influence build success? (Chapter~\ref{chap:soc-net})
-\end{description}
-The thesis goal is to design an approach that is able to improve the social interactions in the form of communication among software developers.
+%\begin{description}
+  RQ 1.1: Do Social Networks influence build success? (cf. Chapter~\ref{chap:soc-net})}
+%\end{description}
+This dissertation's goal is to design an approach that is able to improve the social interactions in the form of communication among software developers.
 As a first step we need to establish if the communication among software developers has an influence on the build success.
 
 %Data Source
@@ -39,10 +39,10 @@ Via this machine learning approach we want to establish a connection between a b
 If we are able to predict the build outcome more accurately than by simply guessing, using the likelihood for a build failure, we demonstrated that there is a statistical relationship between build outcome and social networks.
 Thus, this result forms the first evidence that manipulating the social network might yield a positive effect on build success.
 
-\subsection{Research Question 1.2}
-\begin{description}
-  \item[RQ 1.2:] Does Socio-Technical Networks influence build success? (Chapter~\ref{chap:stc-net2})
-\end{description}
+\subsection{%Research Question 1.2}
+%\begin{description}
+  RQ 1.2: Does Socio-Technical Networks influence build success? (cf. Chapter~\ref{chap:stc-net2})}
+%\end{description}
 
 %Motivation
 Knowing that a social network can influence the success of the corresponding build leads us to the question of how networks should be manipulated to improve the likelihood for a build to succeed.
@@ -59,10 +59,10 @@ Instead we investigate the relationship of the socio-technical congruence index 
 Via statistical analysis methods such as regression analysis we want to establish a relationship between the existence of gaps within the socio-technical network and build success.
 By addressing this research question we obtain another piece of evidence that let us formulate an approach to recommend actions to increase build success that are specifically alleviating gaps within the socio-technical network by recommending developer to communicate.
 
-\subsection{Research Question 2.1}
-\begin{description}
-  \item[RQ 2.1:] Can Socio-Technical Networks be manipulated to increase build success? (Chapter~\ref{chap:stc-net})
-\end{description}
+\subsection{%Research Question 2.1}
+%\begin{description}
+RQ 2.1: Can Socio-Technical Networks be manipulated to increase build success? (cf. Chapter~\ref{chap:stc-net})}
+%\end{description}
 %Motivation
 The previous two research questions enable us to formulate an approach to generate recommendations that are meant to foster communication among developers in order to increase build success.
 This leads to the next step, namely, to explore whether this approach can generate recommendations that bear a statistical relationship to build success.
@@ -74,10 +74,10 @@ Knowing those gaps, or developers that frequently share a technical dependency w
 %Expected results
 We expect to find a number of gaps that when mitigated increase the likelihood of build success.
 
-\subsection{Research Question 2.2}
-\begin{description}
-  \item[RQ 2.2:] Do developers accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})
-\end{description}
+\subsection{%Research Question 2.2}
+%\begin{description}
+  RQ 2.2: Do developers accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})}
+%\end{description}
 %Motivation
 Before exploring if the recommendation hold actual value with preventing build failures, we explore if developers would welcome recommendations with respect to changes.
 %Data Source
@@ -91,10 +91,10 @@ To extend our reach beyond the local team we deployed a questionnaire with the p
 This study should give us a better understanding of whether developers are discussing individual changes, thus justifying the appropriateness of the level of recommendations.
 Furthermore, we expect to uncover general suggestions on when and how to supply such recommendations as developers might not always be interested in individual changes even if they pose a threat to build success.
 
-\subsection{Research Question 2.3}
-\begin{description}
-  \item[RQ 2.3:] Can recommendations actually prevent build failures? (Chapter~\ref{chap:actionable})
-\end{description}
+\subsection{%Research Question 2.3}
+%\begin{description}
+  RQ 2.3: Can recommendations actually prevent build failures? (cf. Chapter~\ref{chap:actionable})}
+%\end{description}
 %Motivation
 We conclude our evaluation of our proposed approach with  a proof of concept in a more controlled environment to ascertain whether the recommendation we can generate actually help in preventing builds from failing.
 As root cause analysis of failures can be very tedious and due to the various reasons a build can fail that are not necessarily due to software changes we depart from studying the development of Rational Team Concert and observe students extending an open source project during a course taught at the University of Victoria, Canada, and Aalto University, Finland.
@@ -164,8 +164,8 @@ A \emph{Build} is a to some extend executable version of the product that includ
 
 \section{Constructs}
 \label{c5:sec:constructs}
-From the definitions introduced previously we can derive the three central constructs we work with in this thesis: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
-These constructs are important for the three chapters that are mining the repository provided by the Rational Team Concert development team (Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}).
+From the definitions introduced previously we can derive the three central constructs we work with in this dissertation: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.
+These constructs are important for the three chapters that are mining the repository provided by the Rational Team Concert development team (cf. Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}).
 
 \subsection{Social Network}
 \begin{figure}[t!]
@@ -192,7 +192,7 @@ There are three critical elements that are necessary to construct task-based soc
 \item[Project Members] are people who work on the software project. 
 These project members can be developers, testers, project managers, requirements analysts,
 or clients. 
-Project members, such as Cathrin and Eve, become nodes in the social network.
+Project members, such as Cathrine and Eve, become nodes in the social network.
 
 \item[Work Items] are units of work (as defined earlier) within the project that may create a need to collaborate and communicate. 
 Examples for a work item include resolving Bug~123 or implementing the GUI API. 
@@ -203,7 +203,7 @@ In our example, dashed black lines represent task-related communication such as 
 Task-related communication is used to create the edges between developers in the social networks.
 \end{description}
 
-The data underlying the social network used throughout this thesis are based on work items and their associated discussions.
+The data underlying the social network used throughout this dissertation are based on work items and their associated discussions.
 In IBM Rational Team Concert each work item has an attached discussion thread were developers can discuss the work item or simply note down their thoughts while working on the work item.
 This means, we would create a link between two developer if they comment together on the same work item to indicate that they are part of the same discussion.
 Note that this sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
@@ -280,7 +280,7 @@ Hence constructing a socio-technical network requires the following four steps:
 \begin{enumerate}
 \item\textbf{Selecting the Focus} used for the socio-technical network represents the glue that binds the social and technical network into a socio-techncial network. 
 This focus also referred to as filter in our earlier publication~\cite{wolf:ieee:2009}, determines the content of the networks.
-In this thesis we use for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
+In this dissertation we use for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
 \item\textbf{Constructing the Social Network} follows the description above with the focus determining the work items that are selected to generate the nodes from the work item participants and the edges from the communication among the participants through a work item.
 \item\textbf{Constructing the Technical Network} follows the description of constructing technical networks above with the focus determining the change-sets being used to determine and connect developers in the network.
 \item\textbf{Combining Networks} is the final step that overlays the networks by unifying the set of developers in both networks.
@@ -289,15 +289,15 @@ Thus a pair of developers can be directly connected with each other through two 
 
 % describe the example in the figure
 Figure~\ref{fig:construct-stc} shows an example on how we in our studies of the IBM Rational Team Concert development team used to create socio-technical networks.
-In the first step (Figure~\ref{fig:construct-focus}) we set the focus to be a software build which allows us via the change-sets that made it into the build to infer what work items are also represented in said build.
-Given the focus, the social network can be constructed using the work items that can be linked to the software build (Figure~\ref{fig:construct-sn}).
+In the first step (cf. Figure~\ref{fig:construct-focus}) we set the focus to be a software build which allows us via the change-sets that made it into the build to infer what work items are also represented in said build.
+Given the focus, the social network can be constructed using the work items that can be linked to the software build (cf. Figure~\ref{fig:construct-sn}).
 Similarly the construction of the technical network relies on the change-sets that went into a build. 
-To actually infer edges between developer, we relying on co-changed files within a build as an indicator of work dependency (Figure~\ref{fig:construct-tn}).
+To actually infer edges between developer, we relying on co-changed files within a build as an indicator of work dependency (cf. Figure~\ref{fig:construct-tn}).
 Finally, the two networks are combined and yield the socio-technical network shown in Figure~\ref{fig:construct-combine}.
 
 \section{Data Collection Methods}
 \label{c5:sec:datacollection}
-To conduct the research for this thesis we drew upon multiple data sources.
+To conduct the research for this dissertation we drew upon multiple data sources.
 We employ repository mining techniques to identify larger trends in measurable activities.
 In contrast to gain a more in-depth understanding on how developers actually work and deal with interdependencies especially how they would react to certain recommendations and whether they are can be made useful we employ qualitative methods.
 
@@ -309,7 +309,7 @@ Repositories can grow to considerable sizes depending on the projects live span 
 Therefore, it is often infeasible to manually review the history of a project and it is necessary to employ data-mining techniques to be able to analyze trends.
 Although this approach is limited in gaining a deeper understanding of the intricacies of a development project, it nevertheless is invaluable to place in-depth results in the bigger picture of the project.
 Furthermore, data mining approaches are one way to easily give back value to the development team without burdening any individual developer with diverting time to other non-automatic data collection instruments.
-This is an important point as one goal of this thesis is to explore the ability of the concept of socio-technical congruence to generate actionable recommendations.
+This is an important point as one goal of this dissertation is to explore the ability of the concept of socio-technical congruence to generate actionable recommendations.
 In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make the system useless.
 
 We extract information from three different types of repositories: (1) version control, (2) task management, and (3) build engine systems.
@@ -319,7 +319,7 @@ And lastly the build engine supplies us with the focus to construct socio-techni
 
 In order to derive socio-technical networks we need to link the different artifact types.
 Within IBM Rational Team Concert as illustrated in Figure~\ref{fig:construct-focus} work items are linked to change-sets and change-sets are linked to builds, therefore, establishing the connections needed to construct socio-technical networks with a build as focus.
-Similarly these links can be inferred as proposed by Cubranic et al~\cite{cubranic:tse:2005} from repositories that are missing the capabilities of creating formalized links.
+Similarly these links can be inferred as proposed by Cubranic et al.~\cite{cubranic:tse:2005} from repositories that are missing the capabilities of creating formalized links.
 We used repository mining techniques in Chapter~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net} to explore the rich repositories provided by the IBM Rational Team Concert team.
 
 \subsection{Surveys}
@@ -372,7 +372,7 @@ This type of interview comes with two major benefits over structured interviews 
 
 \begin{itemize}
 \item\textbf{Focus onto for the interviewee important events.}
-Our goal with this thesis is to better support software development.
+Our goal with this dissertation is to better support software development.
 Knowing the pain points as they are perceived by the projects participants allows us to focus on important issues.
 With prepared questions the focus of the interview might not uncover what is important to the interviewee and thus we might miss areas.
 \item\textbf{Better recall of events by interviewee.}
@@ -389,7 +389,7 @@ It is therefore necessary that the interviewer has a good understanding of the p
 We tried to minimize the interruption to project members as much as possible therefore we limited the time we require for each interview as much as possible.
 Most interviews are aimed at taking 30 minutes with a 30 minute overflow in case a participant is willing to continue the interview.
 Furthermore, we gave the work of the interviewee priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
-This was especially valuable with a professional development team such as the IBM Rational Team Concert development team as we joined their development effort when they were nearing a major milestone (Chapter~\ref{chap:talk}).
+This was especially valuable with a professional development team such as the IBM Rational Team Concert development team as we joined their development effort when they were nearing a major milestone (cf. Chapter~\ref{chap:talk}).
 
 
 

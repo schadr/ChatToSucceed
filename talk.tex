@@ -2,23 +2,23 @@
 \startchapter{Acceptability of Recommendations}
 \label{chap:talk}
 Knowing that our approach can generate statistically significant recommendations is only one necessary step towards showing its usefulness.
-As Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out recommendation become of little use once developers reject them.
+As Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out recommendations are of little use if developers reject them.
 Thus in this chapter we pursue the following research question:
 
 \begin{description}
   \item[RQ 2.2:] Do developers accept recommendations based on software changes to increase build success? 
 \end{description}
 
-We want developers to communicate as soon as we suspect that otherwise the likelihood for a build to succeed diminishes.
+We would like developers to communicate as soon as we suspect that otherwise the likelihood for a build to succeed diminishes.
 But currently our investigation only took a very technical stance and ignores many other criteria that might be of relevance to developers.
 For instance, it is unlikely that every build is of equal importance.
-Furthermore, we also think that developers opinion of each other play a role, such as trust and respect.
-Therefore, it is important to explore those less technical aspects of developer relationship to gain a better understanding on when to deliver a recommendation.
+Furthermore, we also think that developers' opinion of each other plays a role, such as trust and respect.
+Therefore, it is important to explore those less technical aspects of developer relationships to gain a better understanding on when to deliver a recommendation.
 
 % give chapter overview
-In this chapter, we start by detailing the study design that is relevant to exploring our research question (Section~\ref{sec:studydesign}).
+In this chapter, we start by detailing the study design that is relevant to exploring our research question (cf. Section~\ref{sec:studydesign}).
 Then, we present the findings we obtained in Section~\ref{sec:findings}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:actionable} (Section~\ref{sec:conclusions}).
+We conclude this chapter by offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:actionable} (cf. Section~\ref{sec:conclusions}).
 
 
 \section{Study Design}
@@ -35,11 +35,11 @@ Third, we conducted interviews with the developers from one component team to ob
 We used a mixed methods approach to answer our research question. We obtained data from three sources: participant observation, a survey, and a set of interviews with RTC team members.
 
 \subsubsection{Participant-Observation}
-The  author of this thesis joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. He was involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During his period as a participant-observer, Adrian kept a daily activity log, recording any information of relevance to the communication behaviour of his team.
+We joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. We were involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During our period as a participant-observers, we kept a daily activity log, recording any information of relevance to the communication behaviour of our team.
 
-The observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, Adrian also participated in the development of a feature for the upcoming version of the product.
+The observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, we also participated in the development of a feature for the upcoming version of the product.
 
-The team in which he was embedded had the responsibility to develop the task management and the planning components of RTC. There were ten developers at the site, including two novices that had recently joined the team and eight experienced developers. The team includes RTC's three senior project management members, who play a major role in planning the entire product's architecture and development.
+The team in which we were embedded had the responsibility to develop the task management and the planning components of RTC. There were ten developers at the site, including two novices that had recently joined the team and eight experienced developers. The team includes RTC's three senior project management members, who play a major role in planning the entire product's architecture and development.
 
 
 \begin{sidewaystable}
@@ -47,6 +47,7 @@ The team in which he was embedded had the responsibility to develop the task man
 %\subfloat[Process-related items and quotes]{
 \small
 \centering
+\caption{Process-related items and quotes}
 \begin{tabular}{l@{\hspace{7pt}}l@{\hspace{-20pt}}r}
 \toprule
 Survey Items & Interview Quotes (I)/Participant Observation Quotes (O) & Mean Rank\\
@@ -68,7 +69,6 @@ Early milestone &--- & 12.10\\%60\\%\emph{``''}
 \bottomrule
 \end{tabular}
 %}\vspace{0pt}
-\caption{Process-related items and quotes}
 \label{tab:sub-process}
 %\end{table}
 \end{sidewaystable}
@@ -78,6 +78,7 @@ Early milestone &--- & 12.10\\%60\\%\emph{``''}
 %\subfloat[Developer-related items and quotes]{
 \small
 \centering
+\caption{Developer-related items and quotes}
 \begin{tabular}{l@{\hspace{5pt}}l@{\hspace{-10pt}}r}
 \toprule
 Survey Items & Interview Quotes (I)/Participant Observation Quotes (O) & Mean Rank\\
@@ -99,7 +100,6 @@ Author recently delivered high-quality work &--- & 11.09\\%86\\%\emph{``''}
 \bottomrule
 \end{tabular}
 %}\vspace{0pt}
-\caption{Developer-related items and quotes}
 \label{tab:sub-social}
 %\end{table}
 \end{sidewaystable}
@@ -109,6 +109,7 @@ Author recently delivered high-quality work &--- & 11.09\\%86\\%\emph{``''}
 %\subfloat[Code-change-related items and quotes]{
 \small
 \centering
+\caption{Code-change-related items and quotes}
 \begin{tabular}{l@{\hspace{-10pt}}l@{\hspace{-20pt}}r}
 \toprule
 Survey Items & Interview Quotes (I)/Participant Observation Quotes (O) & Mean Rank\\
@@ -133,7 +134,6 @@ Simple code was changed\phantom{abcdefgheabcdefghe} &--- & 12.57\\%58\\   %23 ch
 %Author recently delivered high-quality work	
 \bottomrule
 \end{tabular}
-\caption{Code-change-related items and quotes}
 \label{tab:sub-technical}
 %}\vspace{-10pt}
 \label{tab:surveyfactors}
@@ -141,9 +141,9 @@ Simple code was changed\phantom{abcdefgheabcdefghe} &--- & 12.57\\%58\\   %23 ch
 \end{sidewaystable}
 
 \subsubsection{Interviews}
-We conducted interviews with ten developers of the RTC team to inform our observational findings. The setting for the interviews was slightly unusual, and beneficial from a research perspective, since the first author's participant-observation allowed him to develop working relationships during his stay at the team, and to delve into a discussion of complex communication issues without needing to spend time understanding the basic context of the team.
+We conducted interviews with ten developers of the RTC team to inform our observational findings. The setting for the interviews was slightly unusual, and beneficial from a research perspective, since our participant-observations allowed us to develop working relationships during our stay at the team, and to delve into a discussion of complex communication issues without needing to spend time understanding the basic context of the team.
 
-In the interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part in~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
+In the interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
 
 
 \subsubsection{Survey}
@@ -159,7 +159,7 @@ Of the 36 respondents, 26 are located in North America, 5 are located in Europe,
 \subsection{Analysis} 
 For our data analysis, we transcribed the interviews, and then coded both the interviews and the participant-observation notes. From the codes we created categories, which we cross-referenced to the survey rankings. We used an open coding approach, during which we assigned codes to summarize incidents in sentences and paragraphs of the transcribed interviews that relate to our research question.
 
-We calculated the ranking of the survey items for each category by calculating the mean over all ranks given by developers to a survey item (see Table~\ref{tab:surveyfactors}).
+We calculated the ranking of the survey items for each category by calculating the mean over all ranks given by developers to a survey item (cf. Table~\ref{tab:surveyfactors}).
 Table~\ref{tab:sparkle} shows the distribution of the rankings for each survey item.
 
 During our analysis, we derived a set of factors affecting communication behaviour based on our list of survey items and qualitative data from our interviews and observations. Whenever possible, we triangulated our findings using all our data sources. We tried to ensure that all of our findings were supported by at least two data sources; none of the findings we report were challenged by any of our data sources. 
@@ -180,6 +180,7 @@ The evidence collected from our survey, interviews, and participant observation 
 
 \begin{table}[t!]
 \centering
+\caption{This table contains the distribution of ranks for each survey item. The leftmost point of each sparkline represents the amount of respondents that ranked the item first; the rightmost point represents the amount that ranked it last (14th).}
 \begin{tabular}{rll}
 \toprule
 %\vspace{-2pt} Process-related items\\
@@ -235,7 +236,6 @@ Code-change related items&\vspace{-2pt}\includegraphics[height=10px, width=30px]
 \bottomrule
 \end{tabular}
 \vspace{-5pt}
-\caption{This table contains the distribution of ranks for each survey item. The leftmost point of each sparkline represents the amount of respondents that ranked the item first; the rightmost point represents the amount that ranked it last (14th).}
 \label{tab:sparkle}
 \end{table}
 
@@ -250,7 +250,7 @@ The RTC team switches between the two modes in each iteration. Of the six weeks 
 
 We identified the same pattern with respect to the amount of change-set-related interactions in the team. We found that the mode in which the team is currently in is an important factor determining whether developers will feel a need to communicate about change-sets. Being in endgame mode increases the need for developers to communicate about a change-set, whereas being in normal mode decreases the need to request information about it.
 
-The first author of this paper experienced both modes during his participant-observer time with the RTC team. He joined the team in a release endgame phase, which was characterized by fixing bugs that were reported by testers, and he helped by fixing minor bugs as well as setting up servers for testing. When the team released the project, it switched gears, and in the decompression after the endgame he had the opportunity to develop a feature for the product. The differences in the patterns of interaction between the two modes were distinctly clear, for him and for his peers. During the endgame mode, developers were essentially ``on demand,'' available to fix whatever bugs were discovered. Later, during the normal iteration mode, they experienced far more autonomy and control over their time, and began working on activities that were less demanding of an interaction back-and-forth, and especially less demanding of keeping track of the change-sets committed by their peers. In our interviews, developers almost unanimously pointed to the separation of the two types of modes, describing the differences in the type of communication in each, and identifying the autonomous \emph{vs.}~uncontrollable, inside \emph{vs.}~outside influence.
+We experienced both modes during his participant-observer time with the RTC team. He joined the team in a release endgame phase, which was characterized by fixing bugs that were reported by testers, and he helped by fixing minor bugs as well as setting up servers for testing. When the team released the project, it switched gears, and in the decompression after the endgame he had the opportunity to develop a feature for the product. The differences in the patterns of interaction between the two modes were distinctly clear, for him and for his peers. During the endgame mode, developers were essentially ``on demand,'' available to fix whatever bugs were discovered. Later, during the normal iteration mode, they experienced far more autonomy and control over their time, and began working on activities that were less demanding of an interaction back-and-forth, and especially less demanding of keeping track of the change-sets committed by their peers. In our interviews, developers almost unanimously pointed to the separation of the two types of modes, describing the differences in the type of communication in each, and identifying the autonomous \emph{vs.}~uncontrollable, inside \emph{vs.}~outside influence.
 
 This is not to say that developers do not communicate while they are in normal iteration  mode, but that the nature of their communication seems to be different. In normal iteration mode, developers communicate less about concrete change-sets, but they communicate more about high level ideas: for instance, they raise questions about how a feature fits into the existing architecture or general tactics to implement a feature, about how much of it actually needs to be implemented or can be reused from other libraries, and so forth. Generally, however, the amount of communication decreases in normal iteration mode. As a developer commented in one of our interviews, \emph{``during feature development iterations there are weeks I sometimes don't talk to my colleagues at all.''} 
 
@@ -279,9 +279,9 @@ According to our interviews, this is the case particularly for senior team membe
 
 Generally speaking, despite the lack of opportunities to build personal relationships with off-site people, for most developers sharing common experiences makes it easier to contact teammates to request information. One team lead told us: \emph{``I have one or two contact people in each team we usually work with whom I ask for information and then often enough get referred to the right person in their team.''}
 
-Our participant-observation data confirm this. At one point, Adrian needed to set up and test a specific component in the RTC product. The development team in charge of that component was located on a different site. However, since Adrian had previously had the opportunity to establish relationships with some of the developers of that team through a previous research study, it was easier for him to contact them and ask for help in his setup task.
+Our participant-observation data confirm this. At one point, we needed to set up and test a specific component in the RTC product. The development team in charge of that component was located on a different site. However, since Adrian had previously had the opportunity to establish relationships with some of the developers of that team through a previous research study, it was easier for him to contact them and ask for help in his setup task.
 
-Our survey data corroborate these observations. It suggests that the developers that form relationships (on a personal or work level) with other developers gave more emphasis on previous experiences with them. For instance, it made a difference whether the developers \emph{are currently working together} (Table~\ref{tab:sub-social}). Additionally, whether they have shared work experiences seems to be a more determinant factor than having \emph{met in person} or sharing the same \emph{physical location}.
+Our survey data corroborate these observations. It suggests that the developers that form relationships (on a personal or work level) with other developers gave more emphasis on previous experiences with them. For instance, it made a difference whether the developers \emph{are currently working together} (cf. Table~\ref{tab:sub-social}). Additionally, whether they have shared work experiences seems to be a more determinant factor than having \emph{met in person} or sharing the same \emph{physical location}.
 
 This last finding would seem to indicate that the RTC team has managed to overcome obstacles created by geographical distance. Developers state that the physical location of a change-set author is not an important factor to seek more information about the change-set. Nevertheless, we should note two things. First, this finding merely points out that developers have no greater need to inform themselves of work output of their remote peers than of their local peers; it says nothing about the ease with which such information is acquired. Second, the RTC team has determined to carry out as many of its interactions as possible through textual, electronic media. This neglects the natural advantages provided by proximity in favour of uniform accessibility of interactions, no matter the physical location of the interlocutors.
 
@@ -301,7 +301,7 @@ In the later stages of the development cycle, developers have two process-based 
 In the change-set review process, there are two ways the change-set author and the reviewers interact.
 Either the change-set author submits his change-set for review, or the change-set author discusses the change-set with the reviewer before submitting it for review. The main discriminant between meeting with the reviewer to discuss the change-set before submitting it or submitting without prior discussion seems to be whether the reviewer and the author are co-located.
 
-Adrian's mentor during his time with the RTC team explained: \emph{``It is very demotivating to get a change-set rejected, that's why we usually try to discuss things before and then the reviewing just becomes all about quickly testing and accepting the change-set.''} Of course, this does not prevent an already discussed change-set from being rejected, but it signals that the process-based constraint is not as strict as to forbid discussions about a change-set between authors and reviewers in the interest of an unbiased code review.
+Our mentor during our time with the RTC team explained: \emph{``It is very demotivating to get a change-set rejected, that's why we usually try to discuss things before and then the reviewing just becomes all about quickly testing and accepting the change-set.''} Of course, this does not prevent an already discussed change-set from being rejected, but it signals that the process-based constraint is not as strict as to forbid discussions about a change-set between authors and reviewers in the interest of an unbiased code review.
 
 In the case of developers seeking approval to start working on a task, the process is similarly flexible. The approval is supposed to be issued before the developer begins work on the task. However, we observed several times that developers performed quick fixes, and later went to their team leads to acquire approval for the fixes they had already performed.
 
@@ -309,12 +309,12 @@ Several items in our survey point to the importance of information-seeking aroun
 
 \subsection{Type of Change}
 The three main reasons for a developer to commit a change-set are to (1) do feature development, (2) fix bugs, and (3) re-factor. Among them, feature development seems to be the one that prompts developers to seek information the most.
-In our survey (Table \ref{tab:sub-process}), code that \emph{introduced new functionality} is ranked fifth among the code-change related factors, while changes that consist of \emph{a bug fix} and \emph{a refactoring} ranked far lower on the same list.
+In our survey (cf. Table \ref{tab:sub-process}), code that \emph{introduced new functionality} is ranked fifth among the code-change related factors, while changes that consist of \emph{a bug fix} and \emph{a refactoring} ranked far lower on the same list.
 
 This may be due to the fact that feature development has less tool support than bug fixing (which is supported by debugging tools and automated test frameworks) and refactoring (which is essentially an automatic process today). The limited tool support and the inherently difficult nature of the task itself makes change-sets that introduce new functionality more difficult to understand or assess. Hence, developers are more likely to request information about them.
 
 
-\subsection{Business Goals vs Developers' Pride}
+\subsection{Business Goals vs Developer Pride}
 Senior team members (managers and team leads among them) often ask about the purpose and the real need of a change-set in order to minimize unpleasant surprises that might be introduced with further code changes, and simply to have an economically feasible product. One senior development lead told us: \emph{``often I need to stop my developers from fixing every little bug otherwise we would never be able to ship.''}
 
 Although every team member is concerned with the quality of their product, a more realistic, business-oriented perspective seems to be more prominent in the senior team members' information-seeking behaviour: they may request clarifications on the business case of change-sets or work items if they are not immediately clear in the existing documentation.
@@ -322,19 +322,19 @@ Although every team member is concerned with the quality of their product, a mor
 More junior team members, however, do not have this concern. They express their pride in the actual product and want it to be as bug free as possible. A developer commented to us: \emph{``I want to be proud of what I deliver and I am fairly certain if we don't fix it now it will come back to haunt us because it might upset some customers.''} Not only does this lead the developer to try to convince her manager that including change-sets for seemingly unimportant fixes is valuable, it also makes her information-seeking behaviour different with respect to that of the more senior team members. Broadly speaking, managers will be more interested in seeking clarifications as to the business case of a work item if it is not clear in its description, while developers will not care as much about this.
 
 
-\section{Conclusions}
+\section{Summary}
 \label{sec:conclusions}
 We end this chapter by bringing it back to the initial research question we set out to answer:
 \begin{description}
   \item[RQ 2.2:] Do developers accept recommendations based on software changes to increase build success? 
 \end{description}
 
-The findings we presented in Section~\ref{sec:findings} show that there are different factors that influence developer to inquire about change-sets.
-Although not directly asked for, the developer with reporting on those factors answered our research question in a positive way.
+The findings we presented in Section~\ref{sec:findings} show that there are different factors that influence developers to inquire about change-sets.
+Although not directly asked for, the developer who reported on those factors answered our research question in a positive way.
 Our approach would provide developers with recommendations either on a per change-set level or while they are working on the code.
-We found that developer do talk about change-sets which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
+We found that developers do talk about change-sets which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
 Thus we can say that the level of our recommendation seems to be appropriate when keeping it to the change-set level.
-Examining our finding about risk assessment, which is practices by every lead and developer we are confident that developer would welcome notifications on how risky with respect to build success the changes they are currently applying are to give them a chance to either talk to the recommended person or reconsider the change altogether.
+Examining our finding about risk assessment, which is practiced by every lead and developer we are confident that developers would welcome notifications on how risky with respect to build success the changes they are currently applying are to give them a chance to either talk to the recommended person or reconsider the change altogether.
 Hence, we are confident the developer answers both validated that they would accept recommendations both in the form we present them, namely per change-set submitted, as well as lending our outcome metric more credibility as they show a keen interest in build success when the date to ship the product approaches.
 
 In the next chapter we return to our path of a more direct analysis of our recommendations by showing a proof of concept that the recommendations do not only statistically relate to build outcome but that recommendation could actually prevent build failures.

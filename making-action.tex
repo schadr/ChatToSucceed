@@ -9,23 +9,23 @@ Thus, this chapter explores the following research question:
   \item[RQ 2.3:] Can recommendation actually prevent build failures?
 \end{description}
 
-In essence generating recommendations after the fact even if the form and content in generally accepted by developers is of little use, since it is to late to act upon it.
-Thus we explore in this chapter not only whether the recommendation if given in the right moment could have prevented a build from failing, but also if we could have generated that very recommendation at an appropriate time for preventative actions to have taken place.
+In essence generating recommendations after the fact even if the form and content in generally accepted by developers is of little use, since it is too late to act upon it.
+Thus we explore in this chapter not only whether the recommendation if given at the right moment could have prevented a build from failing, but also if we could have generated that very recommendation at an appropriate time for preventative actions to have taken place.
 
 In the remainder of this chapter, %we start with detailing the background as to how we can generate recommendations in ``real time'' (Section~\ref{ch10:bg}).
 %Subsequently, 
 we describe the course setting in Section~\ref{ch10:setting}.
 Next, we describe our methodology in Section~\ref{ch10:meth}.
 Then, we present the analysis and results we obtained in Section~\ref{ch10:ana} and Section~\ref{ch10:findings}, respectively, followed by a discussion of the results in Sections~\ref{ch10:dis}.
-We conclude this chapter with offering an answer to our research question (Section~\ref{ch10:con}).
+We conclude this chapter with offering an answer to our research question (cf. Section~\ref{ch10:con}).
 
 
 \section{A Course on Globally Distributed Software Development}
 \label{ch10:setting}
-We conduct a case study of the collaboration of students in a project students taking a class in globally distributed software development taught at the University of Victoria, Canada, and Aalto University, Finland, as the basis for exploring our final research question for several reasons:
+We conduct a case study of the collaboration of students in a project students take in a class in globally distributed software development course taught at the University of Victoria, Canada and Aalto University, Finland, as the basis for exploring our final research question for several reasons:
 \begin{itemize}
 \item Control over a project infrastructure that supports data collection.
-\item The distribution of the course across countries ensures a minimum at electronically recordable and mineable communication data being generated.
+\item The distribution of the course across countries ensures a minimum of electronically recordable and mineable communication data being generated.
 \item A course setting allows for more control to ensure data quality.
 \item A course setting enables better access to study participants.
 \end{itemize}
@@ -46,6 +46,7 @@ Through a feedback loop we can change the data collection to accommodate the nee
 
 \begin{table}[t]
 \centering
+\caption{Descriptive statistics about the student development effort}
 \begin{tabular}{rrrrr}
 \toprule
 & Team A & Team B & Team C & Total\\
@@ -59,7 +60,6 @@ Through a feedback loop we can change the data collection to accommodate the nee
 \#Change Sets & 440 & 491 &  452& 1383\\
 \bottomrule
 \end{tabular}
-\caption{Descriptive statistics about the student development effort.}
 \label{tab:gsd:desc:stats}
 \end{table}
 
@@ -68,7 +68,7 @@ Through a feedback loop we can change the data collection to accommodate the nee
 %Team A = 4 +17+ 64+ 50+ 44+ 47+ 19+ 21+ 51+ 22+ 43+ 42+ 7 +2+ 3+ 1+ 3
 
 \subsection{Course Details}
-The globally distributed software development course taught at both the University of Victoria, Canada, and Aalto University, Finland, aims at teaching students how to develop software in a distributed setting.
+The globally distributed software development course taught at both the University of Victoria, Canada and Aalto University, Finland, aims at teaching students how to develop software in a distributed setting.
 In this particular course student teams where forced to deal with the issues that come with a distributed team in an extreme way since both West Coast Canada and Finland are separated by a time difference of eleven hours minimizing the time all team members are awake.
 This both necessitates and motivates the students to apply lessons learned in the class room.
 
@@ -96,14 +96,14 @@ In addition to the three teams we also have a product owner that came up with th
 The product owner is located in Finland and is responsible for prioritizing the different features that he wants to be implemented.
 Moreover, he negotiates with the teams what items they should aim for within a given two week span. 
 
-To coordinate the work across teams, one Finish student has become the scrum master or de-facto project manager.
+To coordinate the work across teams, one Finish student has become the SCRUM master or de-facto project manager.
 He is both the most experienced developer and has the most knowledge about the projects as he is using the product within his own company.
 Some of his responsibilities entail facilitating coordination across teams,  setting up meetings between teams, and structuring the biweekly project meeting.
 He also takes care of scoping out development tools to use and ensures that everyone is up to speed with issues arising from other teams that may implicate their work.
 
 \subsection{Development Project}
 \label{chap:make:subset:devproject}
-The students in this course are extending the agile-planning tool Agilefant\footnote{www,agilefant.org}.
+The students in this course are extending the agile-planning tool Agilefant.\footnote{www,agilefant.org}
 Agilefant combines task creation, task management, and planning into one tool that allows to schedule different tasks for different sprints, with a sprint being a time period that is meant to implement a fixed set of tasks.
 Furthermore, tasks can be organized hierarchically and be of different types, such as user stories or bug reports.
  
@@ -115,7 +115,7 @@ Due to the development being mainly undertaken in the cap-stone projects that ar
 Nevertheless, the stability of its core feature and light weight approach made it popular among small and mid-sized companies for planning their development projects.
 
 \subsection{Development Process}
-The project follows a scrum process\footnote{http://en.wikipedia.org/wiki/Scrum\_(development)} and thus development progresses in small sprints working of a common backlog.
+The project follows a SCRUM process\footnote{http://en.wikipedia.org/wiki/SCRUM\_(development)} and thus development progresses in small sprints working of a common backlog.
 A sprint, in the case of our project, is defined to be two weeks long starting with a planning session and ending in a retrospective.
 The planning sessions and retrospectives take place between two sprints at the same day starting with the retrospective followed by the planning for the next sprint.
 
@@ -141,7 +141,7 @@ In order to be able to explore the possibility of recommending improvements with
 The main issue with creating real time socio-technical networks lies with constructing technical networks as they are only known once a developer submits her changes to a repository.
 On the other hand social-networks can be more readily constructed in real time because in order to communicate, at least electronically, yields a trace for each bit of communication traveling from one person to the other and thus allows to extend a social network with each new instance of communication.
 
-To gain a similarly effective way to construct technical network we build upon the work of Blincoe et al~\cite{blincoe:cscw:2012}, who proposed a measure called proximity using Mylyn~\cite{kersten:aosd:2005} traces to infer real time developer dependencies.
+To gain a similarly effective way to construct technical network we build upon the work of Blincoe et al.~\cite{blincoe:cscw:2012}, who proposed a measure called proximity using Mylyn~\cite{kersten:aosd:2005} traces to infer real time developer dependencies.
 Mylyn is an Eclipse plug-in that records edits and selects within source code files.
 These events show which artifacts were modified and selected thus allowing the partial construction of a technical network based on ownership information of the modified, selected, and implicated source code artifacts.
 
@@ -170,7 +170,7 @@ Each developer owns her own forked repository from which she pushes changes to h
 Once a feature implementation or bug fix has been reviewed by the product owner it is pushed to the project repository to ensure that each development team is working on the latest stable code.
 
 Since implementing quality features was a main concern during the class, the students set up a build-engine to continuously test their implementations.
-Jenkins\footnote{\url{http://jenkins-ci.org/}}, the build engine used by the teams, keeps a log of all the builds as well as their outcomes.
+Jenkins,\footnote{\url{http://jenkins-ci.org/}} the build engine used by the teams, keeps a log of all the builds as well as their outcomes.
 
 Besides collecting data that is generated by the development activities of the students during the course we also asked them to keep a development diary as well as fill out frequent surveys that gauge their impression of the progress within the project as well as the adequacy of the tools used.
 
@@ -236,6 +236,7 @@ This and because the product owner is deciding on whether a feature is deployabl
 
 \begin{table}[t!]
 \centering\small
+\caption{Overlapping code interaction traces that lead to a merge conflict}
 \begin{tabular}{@{\hspace{2pt}}l@{\hspace{2pt}}}
 \toprule
 Angeliques Method Trace for Task ... \\%
@@ -301,7 +302,6 @@ Bernards Method Trace fo Task ... \\% Timestamp \\
      UserLoadWidget.java-getUser                                                     \\% 2012-02-22 19:55:33.581 \\
       \bottomrule
 \end{tabular}
-\caption{Overlapping code interaction traces that lead to a merge conflict.}
 \label{tab:overlappingtraces}
 \end{table}
 
@@ -334,11 +334,11 @@ Using our approach and given the data we collected from the developer traces we 
 \section{Discussion}
 \label{ch10:dis}
 In this chapter we set out to answer the question whether it is possible to make recommendations to prevent build failures before they happen.
-We found that the methods proposed by Blincoe et al~\cite{blincoe:cscw:2012} gathering real time code interactions using Mylyn to make the post-mortem analysis performed in the traditional socio-technical congruence context~\cite{kersten:aosd:2005} actionable is useful to provide real time recommendations.
-Although we did not show the usefulness of using Blincoe et al~\cite{blincoe:cscw:2012} approach by implementing a recommender system leveraging the data, nonetheless, the data is in place and shows promise to resolve certain issues before they become problematic.
-The students course showed that there is a link between the build failures that stems from technical dependencies that can be inferred while developers are working to implement their work items.
+We found that the methods proposed by Blincoe et al.~\cite{blincoe:cscw:2012} gathering real time code interactions using Mylyn to make the post-mortem analysis performed in the traditional socio-technical congruence context~\cite{kersten:aosd:2005} actionable is useful for providing real time recommendations.
+Although we did not show the usefulness of using the Blincoe et al.~\cite{blincoe:cscw:2012} approach by implementing a recommender system leveraging the data, nonetheless, the data is in place and shows promise to resolve certain issues before they become problematic.
+The course experiment showed that there is a link between the build failures that stems from technical dependencies that can be inferred while developers are working to implement their work items.
 
-\section{Conclusions}
+\section{Summary}
 \label{ch10:con}
 We end this chapter by bringing it back to the initial research question we set out to answer:
 \begin{description}
