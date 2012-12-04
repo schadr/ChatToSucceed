@@ -1,7 +1,7 @@
 % !TEX root = thesis.tex
 \startchapter{Communication and Failure}
 \label{chap:soc-net}
-We open our investigation of how to modify the social relationships among software developers, represented by the communication among them, by searching for a relationship between communication and build success.
+We open our investigation of how to modify the social relationships among software developers, represented by the communication among them, by searching for a relationship between communication and build success~\cite{wolf:icse:2009}.
 This forms the basis and justification for an approach that we describe in Chapter~\ref{chap:approach} to allow us to manipulate the social interactions among developers.
 Thus this chapter explores our first research question:
 \begin{description}
@@ -56,7 +56,8 @@ Density is calculated as the percentage of the existing connections to all
 possible connections in the network. A fully connected network has a density of
 1, while a network without any connections has the density of 0. For example, the
 density in the directed network in Figure~\ref{fig:CentralityExample} is
-$12/42=0.28$.
+the number of directed edges over the number of all possible directed edges $12/42=0.28$.
+
 
 \subsubsection{Centrality measures}
 We use the centrality measures \emph{group degree centralization} and
@@ -81,15 +82,31 @@ centrality measures for the ego networks are:
 To compute the \emph{Group Degree Centralization} index for the complete network
 we use Equation~\ref{eq:GroupDegreeCentralization} from
 Freeman~\cite{Freeman:1979rl}, in which $g$ is the number of nodes in a network,
-and $C_D(c_i)$ are the degree centrality measures of node $c_i$ as
-described above. $C_D(c^*)$ is the largest InOut-Degree for the set of
-contributors in the network. The formula is also used
-by~\cite{Gloor:2003cikm,hinds:cscw:2006}.
+and $C_{*D}(c_i)$ are the degree centrality measures of node $c_i$ as
+described above. $C_{*D}(c^*)$ is the largest Degree for the set of
+contributors in the network. 
+The formula is also used by~\cite{Gloor:2003cikm,hinds:cscw:2006}.
 
 \begin{equation}
-\displaystyle C_D =  \frac{\sum_{i=1}^g[C_D(c^*) - C_D(c_i)]}{(g-1)^2}
+\displaystyle C_{*D} =  \frac{\sum_{i=1}^g[C_{*D}(c^*) - C_{*D}(c_i)]}{(g-1)^2}
 \label{eq:GroupDegreeCentralization}
 \end{equation}
+
+Note that this formula can be used for each centrality. In the following we compute the group degree centrality indices for each degree centrality measure for the social network shown in Figure~\ref{fig:CentralityExample}:
+\begin{itemize}
+\item Out-Degree:
+\begin{equation}
+\displaystyle C_{oD} = \frac{\sum_{i=1}^7[C_{oD}(c_7) - C_{oD}(c_i)]}{(7-1)^2} = 0.056
+\end{equation}
+\item In-Degree:
+\begin{equation}
+\displaystyle C_{oD} = \frac{\sum_{i=1}^7[C_{oD}(c_1) - C_{oD}(c_i)]}{(7-1)^2} = 0.25
+\end{equation}
+\item InOut-Degree:
+\begin{equation}
+\displaystyle C_{oD} = \frac{\sum_{i=1}^7[C_{oD}(c_7) - C_{oD}(c_i)]}{(7-1)^2} = 0.306
+\end{equation}
+\end{itemize}
 
 \begin{figure}[t]
 \begin{center}
@@ -108,7 +125,7 @@ network has more shortest paths, all of them have the same probability to be
 chosen. If $g_{jk}$ is the number of shortest paths linking two contributors,
 $1/g_{jk}$ is the probability of using one of the shortest paths for
 communication. Let $g_{jk}(c_i)$ be the number of shortest paths linking two
-contributors that contain the contributors $c_i$. Freeman~\cite{Freeman:1979rl}
+contributors $j$ and $k$ that contain the contributors $c_i$. Freeman~\cite{Freeman:1979rl}
 estimates the probability that contributor $c_i$ is between $c_j$ and $c_k$ by
 $g_{jk}(c_1)/g_{jk}$. The betweenness index for $c_i$ is the sum of all
 probabilities overall pairs of actors excluding the $i$th contributor.
@@ -120,6 +137,44 @@ directed networks.
 \label{eq:Betweenness}
 \end{equation}
 
+\begin{table}[t]
+\centering
+\caption{Listing the number of occurrences of $c_1$ on the shortest path between $c_j$ and $c_k$ with $j<k$ shown in Figure 5.1 with $g_jk$ being one for each combination.}
+\begin{tabular}{ccc}
+\toprule
+$c_j$ & $c_k$ & $g_{jk}(c_1)$\\
+\midrule
+$c_1$&$c_2$&1\\
+$c_1$&$c_3$&1\\
+$c_1$&$c_4$&1\\
+$c_1$&$c_5$&1\\
+$c_1$&$c_6$&1\\
+$c_1$&$c_7$&1\\
+$c_2$&$c_3$&0\\
+$c_2$&$c_4$&0\\
+$c_2$&$c_5$&0\\
+$c_2$&$c_6$&0\\
+$c_2$&$c_7$&0\\
+$c_3$&$c_4$&0\\
+$c_3$&$c_5$&0\\
+$c_3$&$c_6$&0\\
+$c_3$&$c_7$&0\\
+$c_4$&$c_5$&0\\
+$c_4$&$c_6$&0\\
+$c_4$&$c_7$&0\\
+$c_5$&$c_6$&0\\
+$c_5$&$c_7$&0\\
+$c_6$&$c_7$&0\\
+\bottomrule
+\end{tabular}
+\label{tab:between}
+\end{table}
+
+The betweenness centrality for node $c_1$ in Figure~\ref{fig:CentralityExample} is computed as follows, note that we the values for $g_{jk}(c_1)$ are shown in Table~\ref{tab:between}:
+\begin{equation}
+\displaystyle C_B(c_1) = \frac{\sum_{j<k} g_{jk}(c_1)/1}{(7-1)(7-2)} = 0.2
+\end{equation}
+
 To compute a betweenness index for the complete network instead of a single node,
 we used Freeman's equation for \emph{Group Betweenness Centralization}, shown in Equation~\ref{eq:GroupBetweenness}, in which $C_B(c^*)$ is
 the largest betweenness index of all actors in the network.
@@ -129,6 +184,8 @@ the largest betweenness index of all actors in the network.
 \label{eq:GroupBetweenness}
 \end{equation}
 
+
+%fig:CentralityExample
 
 \subsubsection{Structural holes}
 We use the following structural hole measures:
@@ -300,12 +357,9 @@ model for each set of team-level and project-level networks separately by
 training a Bayesian classifier~\cite{Hastie:2003ys} and using the leave one
 out cross validation method~\cite{Hastie:2003ys}.
 
-For example, to predict the build result N of team F's 55 build results, we train
-a Bayesian classifier with all other 54 build results and their communication
-related network measures. Then, we input the communication measures of Build N's
-related communication network into the classifier and predict the result of build
-N. We repeat the classification for all 55 builds of team F and sum up the number
-of correctly and wrongly classified results.
+In the case team F's 55 build results, we train a Bayesian classifier with all but one of the 55 build results and their communication related network measures. 
+Then we predict the build result for the build we left out and repeat this procedure such that we predict the build result for each build once.
+We tabulate the results of all predicting as in the case of team F in Table~\ref{tab:cont}.
 
 \begin{table}[t] \centering\small
 \caption{Classification results for team F}
@@ -419,8 +473,7 @@ of the development tasks to be coordinated. According to Nagappan and
 Ball~\cite{nagappan:icse:2005}, one might expect that increased size and complexity
 of code changes relates to more build failures. But in our study these single
 measures did not significantly differentiate between successful and failed build
-results. However, additional technical measures that were used by Nagappan might
-be good predictors in Jazz as well.
+results. However, additional technical measures (i.e., Object Oriented metrics) that were used by Nagappan might be good predictors in Jazz as well.
 
 The second contribution of this work is the predictive model that uses measures
 of communication structures to predict build results. The
