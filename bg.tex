@@ -194,6 +194,11 @@ We now discuss the two commonly used approached to infer socio-technical depende
 
 \subsubsection{Task Assignment and Dependency}
 Cataldo et al.~\cite{cataldo:cscw:2006} defined  technical dependencies among developers as the matrix multiplication of the matrix defining the assignment of a developer to a task with the matrix defining the dependencies among tasks multiplied with the transpose of the matrix defining the assignment of a developer to a task.
+%
+The motivation behind using a matrix format with the matrix multiplication stems from the creation of the separate matrixes.
+In the original study conducted by Cataldo et al. task dependencies and task assignments were defined in different repositories requiring different approaches to extract the information.
+The matrix multiplication allows to derive the developer interdependencies without requiring direct access to the data.
+%
 Thus, two matrices need to be inferred from a data set: (1) task assignment matrix describing which developer is assigned to what task and (2) the task dependency matrix describing which tasks share dependencies.
 
 \paragraph{Task Assignment Matrix}
@@ -249,7 +254,11 @@ For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dep
 \caption{Calculating technical dependencies among developer using the task assignment and task dependency matrix.}
 \label{chap:3:fig:example:stc:cataldo}
 \end{figure}
-The final calculation of the technical dependency among developer follows the formula presented below:
+Once the matrices for task assignment and task dependency are derived, we can compute the technical dependency among developers.
+Through a matrix multiplication of the task assignment with the task dependency matrix we obtain a matrix describing on what task a developer depends.
+Further multiplying this matrix with the transposed task assignment matrix yields a developer by developer matrix that indicates which developers are dependent on each others work through at least one task. 
+%
+Thus, the calculation of the technical dependency among developer follows the formula presented below:
 \begin{equation}
 \label{eq:stc:cataldo}
 \text{Task Assignment} \times \text{Task Dependency} \times \text{Task Assignment}^{\text{T}} = \text{Coordination Needs}
@@ -470,8 +479,19 @@ Hence, the first three chapters of the third part of this dissertation are guide
 In the discussion in Chapter~\ref{chap:disc} we highlight how our findings from these three research questions support the approach we detailed in Chapter~\ref{chap:approach}.
 
 
+\section{Summary}
+In this chapter we discussed relevant related work that both motivated and enabled us to conduct the research presented in this dissertation.
+We started with presenting work related to software build with a particular focus on the influence software teams and the way they communicate and coordinate their work have on integrating their work into a product.
+The current body of knowledge agrees that lapses in coordination (insufficient processes or communication tools) is a major cause for integration issues.
 
+Further exploring existing literature on coordination within software development teams pointed us to that software developers have a need to coordinate their work and that those needs are often expressed by the interdependence in their work.
+This lead to the study of socio-technical congruence as a measure of productivity. 
+Motivated by Conway's Law several studies showed that a better overlap in the social and technical dimension of a software development effort result in higher productivity.
 
+These social and technical dimensions can be expressed as networks of developer that only differ in their connections which can either be social or technical.
+Leveraging a combination of technical and social relationships among developer proved to be a good predictor for failures at various granularities ranging from files to binaries. 
+The use that can be gained from this network information is not limited to building failure predictors but has use to create recommendation systems that enhance the awareness of developers of the work of colleagues.
+From the reviewed body of knowledge we distilled five research questions that guide this dissertation.
 
 
 
