@@ -2,7 +2,7 @@
 \startchapter{Socio-Technical Congruence and Failure}
 \label{chap:stc-net2}
 Knowing that social networks have an effect on build success opens the next question as to how or more precisely which parts of the social network should be changed to increase the likelihood for a build to succeed.
-For this reason we turn to the concept of socio-technical congruence as it postulates that developers should communicate once their work intersects.
+For this reason we turn to the concept of socio-technical congruence as it postulates that developers should communicate once their work intersects~\cite{kwan:tse:2011}.
 Thus in this section we explore the effect of socio-technical networks on build success bt answering the following research question:
 
 \begin{description}
@@ -13,6 +13,7 @@ Although socio-technical congruence has only been studied in connection with pro
 For example, imagine two developers modifying classes that share call and data dependencies and one developer making changes that violate certain assumptions the other developer relies on when using the modified code.
 This might introduce an error that could have been prevented if both developers would have discussed their work.
 Thus, we hypothesize that the concept of socio-technical congruence relates to software quality as well as productivity and might be used to point developers towards improvements in the social network by pointing out developers that should communicate.
+We analyze data from the Rational Team Concert (RTC) development team to evaluate our research question.
 
 In this chapter, we start discussing how we calculate socio-technical congruence (cf. Section~\ref{sec:congruence}).
 Subsequently, we briefly discuss the methodology that is relevant to exploring our research question (cf. Section~\ref{sec:methodology}).
@@ -22,30 +23,6 @@ We conclude this chapter offering an answer to our research question and leading
 
 \section{Calculating Congruence}
 \label{sec:congruence}
-%In this section we describe how we derive the socio-technical index as used by Cataldo et al~\cite{cataldo:cscw:2006} from our technical networks by additionally giving some comparison of our approach to the original.
-%
-%\subsection{Technical Entities and Social Relationships}
-%A technical entity is an entity in a project that can be worked on by a person. Examples of a technical entity include a source code file, a compiled binary, a requirement, a task, or a bug. Socio-technical congruence has focused on the source code file as the technical entity \cite{cataldo:cscw:2006, ehrlich:stc:2008}, although work has also examined socio-technical congruence using a requirement~\cite{damian2010:rdc,marczak2009:crossfunctional} or a task~\cite{wolf:ieee:2009} as the technical entity. The choice of technical entity depends on the context of the study.
-%
-%At the core of socio-technical congruence is the concept of a technical dependency. A technical dependency is a type of dependency between two technical entities. Examples of technical dependencies are in Box \ref{ph:technicalunits}.
-%
-%\begin{placeholder}[t]
-%\begin{itemize}
-%\item Requirements that depend on each other~\cite{marczak:re:2008,marczak2009:crossfunctional}
-%\item Source code modules changed together in a change-set~\cite{cataldo:cscw:2006,cataldo:esem:2008}
-%\item Source code that has a call-graph dependency~\cite{deSouza2004:thwarts_collaboration}
-%\item Tasks that depend on other tasks \cite{wolf:ieee:2009}
-%\end{itemize}
-%\caption{Examples of technical dependencies}
-%\label{ph:technicalunits}
-%\end{placeholder}
-%
-%A coordination need is a relationship that indicates that two people should be coordinating, based on the assignment of each person to a technical entity, and the technical dependencies between the entities.
-%
-%Social relationships are identified through actual coordination, which indicates how people in the organization are actually coordinating. Note that, despite the nomenclature ``coordination'' used in previous work \cite{cataldo:cscw:2006}, the actual coordination matrix does not need to represent coordination at all, but merely a relationship of interest between two people in an organization. Generally, one would want to choose relationships that are of interest to the performance of the organization, hence favouring the selection of relationships such as ``communication''. Examples of actual coordination appear in Box \ref{ph:relationships}.
-%
-%\subsection{Calculating Socio-Technical Congruence}
-%\label{sec:stc}
 In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
 If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix C and the social network in matrix representation is the actual coordination matrix A.
 Thus we compute the socio-technical congruence index as follows:
@@ -54,20 +31,36 @@ Thus we compute the socio-technical congruence index as follows:
 
 The main difference to the calculation proposed by Cataldo et al~\cite{cataldo:cscw:2006} lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
 
-\begin{placeholder}[t]
+%\begin{placeholder}[t]
+%\begin{itemize}
+%\item Communication---A communicates with B~\cite{cataldo:cscw:2006, ehrlich:stc:2008, cataldo:esem:2008,damian2007:collaboration}.
+%\item Location---A is in the same location as B~\cite{cataldo:cscw:2006, ehrlich:stc:2008}.
+%\item Team structure---A is in the same team as B~\cite{cataldo:cscw:2006}.
+%\end{itemize}
+%\caption{Examples of actual coordination}
+%\label{ph:relationships}
+%\end{placeholder}
+
+\begin{figure}[t]
+%\hline
+\centering
+\fbox {
+    \parbox{.9\textwidth}{
 \begin{itemize}
 \item Communication---A communicates with B~\cite{cataldo:cscw:2006, ehrlich:stc:2008, cataldo:esem:2008,damian2007:collaboration}.
 \item Location---A is in the same location as B~\cite{cataldo:cscw:2006, ehrlich:stc:2008}.
 \item Team structure---A is in the same team as B~\cite{cataldo:cscw:2006}.
 \end{itemize}
+}
+}
 \caption{Examples of actual coordination}
 \label{ph:relationships}
-\end{placeholder}
+\end{figure}
 
 
 \section{Analysis Methods}
 \label{sec:methodology}
-Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
+Logistic regression is ideal~\cite{Sheskin2000} to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
 The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the ratio between gaps and coordination needs, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
 
 We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
@@ -409,6 +402,12 @@ We manually inspected the work items with extreme amounts of congruence, reading
 The concepts illustrated in Conway's Law, as well as previous empirical work on socio-technical congruence lead us to expect that team members must coordinate according to coordination needs suggested by technical dependencies in order to build software effectively.
 In this case study, we applied socio-technical congruence to study coordination and its relationship to build success probability in RTC. 
 
+Although Conway made his observation before the emergence of programming languages that were design better allow to define interfaces to enable better decoupling of program modules.
+These advances in programming languages and processes help alleviate issues with module interaction but the underlying issue that Conway observed is still prevalent.
+The issue Conway observed is that communication structures of organizational structures will lead any software architecture over time to reflect that communication structure.
+Although new programming languages can help smooth interacting across modules it is not always possible to modularize software such that modules can be assigned to teams that are only part of one organizational unit.
+Thus, with the evidence found by Cataldo et al.~\cite{cataldo:cscw:2006} we think that Conway's Law still applies.
+
 Overall, we found that the average congruence across builds was very low---only 20--30\% of the coordination needs in the project were fulfilled with actual coordination. Even in the cases where there is zero congruence, the build result was an OK build in over 90\% of the observed cases.
 
 We found that there was an interaction effect involving congruence and build type on build success probabilities (cf. Section \ref{sec:congruenceinteractions}). For continuous builds, increasing congruence improves the chance of build success in continuous builds and can actually decrease build success probability in integration builds (cf. Figures \ref{fig:unweighted_congruence_typeci_age}). Congruence significantly reduces integration build success probability.
@@ -457,6 +456,11 @@ It appears that involving too many individuals when coordinating the activities 
 
 \subsection{Project Maturity and Build Success}
 We found that early builds exhibited a different type of relationship between congruence and build success probability than later builds (cf. Section \ref{sec:congruenceinteractions}). Over the course of the study, we observed 13 internal milestones; the last milestone in our observed builds was a public beta release for end users.
+
+There are three reasons for a build to fail (1) compilation errors, (2) linking errors, and (3) test errors.
+We did not observe any compilation failures as developers cannot check in code that contains errors.
+Although Java does not not produce linking errors updating API's that are only made available during integration builds can result in similar errors.
+Due to the maturity of the project the build failures we observed were due to test errors.
 
 Build success probability decreased significantly over time for continuous builds and stayed roughly the same for integration builds (cf. Figures \ref{fig:unweighted_congruence_typeci_age}).
 However, the early builds in the project behaved contrary to later builds in the project (cf. Figure \ref{subfig:prob_unweighted_age_typeci_q010} and \ref{subfig:prob_unweighted_age_typeci_q010}). The RTC software early in its lifetime is in a state of change. Integration builds are not a priority, and features are being added to the project. This means that dependencies are changing rapidly, as well as the expertise among team members, making it difficult to solidify coordination needs.
