@@ -20,18 +20,18 @@ Our approach encompasses five steps:
 \section{Define Scope} 
 Each network, social, technical and thus socio-technical, needs to be built with a specific scope in mind.
 For example, throughout this thesis we focus on software builds.
-This focus defines the source and communication artifacts that are used to construct the social and technical networks.
+The focus defines the source and communication artifacts used to construct the social and technical networks.
 In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social networks and how defining software builds let us select communication artifacts for the construction of a social network for a specific build.
 
 \section{Define Outcome}
 In order to derive useful insights from the constructed networks the scope used to construct them needs to be complemented with an outcome metric.
 For example, in this thesis we are interested in build success, a binary variable that states whether a build is of acceptable quality.
 With an outcome measure at hand we can contrast networks to gain insights.
-Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depends on the scope.
+Note, that the outcome and scope are closely related, as we need to attach the outcome to the social and technical network whose construction depends on the scope.
 
 \section{Construct Social Networks}
 After  defining the scope and outcome, the next step is to construct the social networks.
-This involves identifying all communication channels that are programatically accessible in real time.
+This involves identifying all communication channels that are programmatically accessible in real time.
 Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
 Gathering all to the selected scope relevant communication artifacts than yields a social network.
 In Chapter~\ref{chap:meth} Figure~\ref{fig:network} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
@@ -53,7 +53,7 @@ Since we are focusing on improving the social interactions we focus on identifyi
 For this purpose we split the triples derived from all socio-technical networks into two groups, those triples that originate from a socio-technical network of a failed build and those that originate from a socio-technical network of a successful build.
 
 For each triple we can now apply statistical tests to see if a given triple is more often observed with failed or successful builds.
-Those that are statistically significant for failed builds should be broken by suggesting to developers to communicate.
+Suggesting to developer to communicate should break those that are statistically significant for failed builds.
 To ensure not to worsen the odds of a successful build we contrast the developer pair forming the gap with the same pair being connected both technically and socially.
 
 \section{Summary}
@@ -61,6 +61,6 @@ The approach we described builds on our work on software builds and the influenc
 Note that this approach can also be applied to identify those met coordination needs that warrant further examination, by applying the same insight generation to pairs of developers that are connected both through a technical and social dependency.
 
 The following three chapters aim at identifying the usefulness of the approach we detailed in this chapter.
-We start by first investigating whether we can using this approach generate recommendation that are statistically significant (cf. Chapter~\ref{chap:stc-net}).
+We start by first investigating whether we can use this approach to generate recommendations that are statistically significant (cf. Chapter~\ref{chap:stc-net}).
 Following, we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (cf. Chapter~\ref{chap:talk}).
 Finally, in a large student project in a course offered at the University of Victoria, Canada and Aalto University, Finland, we explore whether we could generate recommendations that might have prevented builds from failing (cf. Chapter~\ref{chap:actionable}).
