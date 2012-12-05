@@ -148,7 +148,7 @@ the technical pair (Adam, Bart). This pair appears in three successful builds an
 13 failed builds. Thus, it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
 A Fischer Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
 
-Note that we adjust the p-values of the Fischer Exact Value test to account for multiple hypothesis testing using the Bonferroni adjustment.
+Note that we adjust the p-values of the Fischer Exact Value test to account for multiple hypotheses testing using the Bonferroni adjustment.
 The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
 To enable us to discuss the findings as to whether closing socio-technical gaps
@@ -168,7 +168,7 @@ p_x\text{=}\frac{ \text{pair}_{\text{failed}} / \text{total}_{\text{failed}} }
 \end{equation}
 
 The coefficient is comprised of four counts: (1) pair$_{\text{failed}}$, the number of failed builds where the pair occurred; (2) total$_{\text{failed}}$, the number of failed builds; (3) pair$_{\text{success}}$, the number of successful builds where the pair occurred; (4) total$_{\text{success}}$, the number of successful builds.
-A value closer to one means that the developer pair is strongly related to build
+A value closer to one means the developer pair is strongly related to build
 failure.
 
 
@@ -226,13 +226,13 @@ We choose to present the twenty that are most frequent across failed builds.
 We rank the failure relating \emph{technical} pairs (cf. Tables~\ref{tab:badtechpairs})
 by the coefficient $p_{x}$. This coefficient indicates the strength of
 relationship between the developer pair and build failure. For instance, the
-developer pair (Adam, Bart), appears in 13 failed builds and in 3
+developer pair (Adam, Bart) appears in 13 failed builds and in 3
 successful builds. This means that pair$_{failed}$ = 13 and pair$_{success}$ = 3
 with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
 Besides that we report the number of successful builds the pair was observed with
 (\#successful) as well as the number of failed builds the pairs was observed with
 (\#failed). The $p_x$ values are all above 0.74, implying that the likelihood
-of failure is at least 74\% in all builds in which these developers pairs are
+of failure is at least 74\% in all builds in which these developer pairs are
 involved. 
 
 We then checked for the 120 pairs whether the corresponding \emph{socio-technical} pairs are related to failure.
@@ -248,7 +248,7 @@ illustrates that there are few builds that have a large number of failure relate
 builds (e.g. 4 with 18 or more pairs) but most builds only show a small number of
 pairs (15 out of 48 failed builds have 4 or less). 
 %Not only does 
-This distribution of technical pairs indicate that the developer
+This distribution of technical pairs indicates that the developer
 pairs we found  did not concentrate in a small number of builds. 
 In addition, it validates the assumption that it is
 worthwhile seeking insights about developer coordination in failed builds.
@@ -260,7 +260,7 @@ worthwhile seeking insights about developer coordination in failed builds.
 \vspace{-1cm}
 \includegraphics[width=\columnwidth]{figures/builddistribution}
 \vspace{-.75cm}
-\caption{Histogram of how many builds have a certain number of failure-reated technical pairs.}
+\caption{Histogram of how many builds have a certain number of failure-related technical pairs.}
 \label{fig:builddistribution}
 \end{figure}
 
@@ -280,9 +280,9 @@ that the analysis presented in this paper is able to identify the specific
 socio-technical gaps, namely the actual developer pairs where the gaps occur
 and that increase the likelihood of build failure. 
 
-A preliminary analysis of developers membership to teams shows that most
+A preliminary analysis of developer membership to teams shows that most
 of the technical pairs related to build failure consist of developers belonging to
-different teams. Naggappan et al.~\cite{nagappan:icse:2008} found that using the
+different teams. Nagappan et al.~\cite{nagappan:icse:2008} found that using the
 organizational distance between people predicts failures. They reasoned that this
 is due to the lack of awareness what people separated by organizational distance
 work on. Although the Rational Team Concert team strongly emphasizes communication
@@ -300,7 +300,7 @@ Overall the logistic regression confirms the effect of the developer pairs
 even in the presence of confounding variables, such as number of files changed
 and numbers of developers (AIC of 706). 
 Table~\ref{tab:regression} shows an excerpt from the complete logistical
-regression which shows that the twenty pairs previously identified are still
+regression that shows that the twenty pairs previously identified are still
 significant under the influence of the four confounding variables. Because we have 2872 developer pairs, space constraints prevent us from reporting the entire regression model. We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression} as well as the coefficients for the four control features.
 
 All features shown in Table~\ref{tab:regression} are significant at the $\alpha=.001$ level (indicated by the p-value and ***).
