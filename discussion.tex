@@ -124,7 +124,7 @@ For instance, we found depending on how close a development team to a software r
 Nakakoji et al.~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al. guidelines:
 
 \paragraph{Guideline \#1} \emph{Recommender systems should adjust to the development mode.}
-Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
+Our first finding presented in Chapter~\ref{chap:talk} strongly suggests that a developer's information needs can dramatically change between development modes. 
 %
 When in normal iteration mode, developers act upon planned work and can therefore anticipate the information they need, but in endgame mode, developers react to unplanned incoming work, such as bug reports or requests for code reviews. 
 
@@ -136,7 +136,7 @@ In the Codebook case, this might lead to extra overhead in endgame mode when dev
 To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
 \paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
-Our second and third findings unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
+Our second and third findings (cf Chapter~\ref{chap:talk}) unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
 Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
 
 Traditional recommender systems in software engineering focus on the source code to determine useful recommendations (e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}).
@@ -146,15 +146,16 @@ But because developers often look beyond source code and perform an additional s
 Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
 
 Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
+Since this information can be difficult to determine automatically since perceptions are specific to the individual developer, a recommender system should allow users to manually input information.
 
 
 \paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
-We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
+We observed, as described in the fourth, fifth, and sixth findings  (cf Chapter~\ref{chap:talk}), that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
 
 In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
 
 \paragraph{Guideline \#4} \emph{Recommender systems should account for business goals.}
-Our last finding points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
+Our last finding (cf Chapter~\ref{chap:talk}) points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
 Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
 
 To support developers to focus on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
@@ -223,15 +224,50 @@ We mitigated it by developing the survey iteratively by piloting and discussing 
 
 
 
-\subsection{Conclusions and Future Work}
+\section{Future Work}
 \label{ch:dis:con}
 In this dissertation we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
 The first parameter scope helps with constructing the social networks (the third step) and constructing the technical networks (the fourth step) by supporting the selection of the best data sources.
 The outcome metric guides the analysis to produce actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
 
-% future work
-The work presented in this dissertation lends itself to several avenues of future work, such as building and testing the recommendation system with several software development teams to study its impact.
-A more interesting avenue to pursue is to explore what software architecture can support what kind of communication and organizational structure.
+We see four promising direction we can take based on the research we presented in this dissertation:
+\begin{itemize}
+\item Implement and deploy the recommender system
+\item Extend the recommender system with more technical dependencies
+\item Extend the recommender system by generalizing the recommendations
+\item Investigate architectures that better fit organizational structures.
+\end{itemize}
+
+\subsection{Implement and Deploy the Recommender System}
+The approach that we motivated and validated in this dissertation as a next step needs to implemented and deployed to test its effects in a real development environment.
+This implementation would also follow the recommendation we mentioned in Section~\ref{sec:sub:tools} by allowing the user to manually input data that cannot be automatically inferred from recorded data.
+
+The purpose of this deployment is twofold.
+The deployment creates a baseline for future improvements on the recommendation.
+Furthermore the deployment of the system to actual developers will provide developer with insights and support the development effort by reducing the risk of build failure.
+
+
+
+\subsection{Extend the Recommender System with more Technical Dependencies}
+In this dissertation we defined two developers to share a technical dependency when they modified the same file.
+This technical dependency is very basic and missed several code dependencies that define dependencies among code artifacts.
+For instance Schr\"oter et al.~\cite{schroeter:isese:2006} showed that usage relationship point to failures.
+Other measures that measure dependencies among software artifacts are also good predictors for failures (e.g.~\cite{nagappan:icse:2006}).
+
+Using multiple types of technical dependencies will not only increase the accuracy of our approach but it also enables us to provide recommendations that offer more insights into the reason for failure.
+Leveraging the different technical dependencies allows us to further prioritize recommendations based on the predictive power of a technical relationship.
+Moreover, developers using the recommender system can decide which technical dependency is most relevant for their work and filter recommendations based on that information.
+
+\subsection{Extend the Recommender System by Generalizing the Recommendations}
+Currently recommendations are specific to developer.
+To further explore patterns of coordination related to failures and to extract more general rules we plan on generalizing the developers.
+Developer can be characterized in several ways such as their roles, positions or experience levels.
+
+The generalization of developers into roles or position does allow for the knowledge of one project to be transferred to other projects.
+We plan to extract these more general patterns from several projects to find general rules that can be used to guide new projects that cannot rely on a rich history to generate recommendations generated by our approach.
+
+\subsection{Investigate Architectures that Better Fit Organizational Structures}
+Another interesting avenue to pursue is to explore what software architecture can support what kind of communication and organizational structure.
 So far, the research around socio-technical congruence is pointing into the direction of changing how software developers coordinate their work, but we propose to return to the original observation Conway made in that the software architecture will change to accommodate the communication structures in an organization.
 Therefore, analyzing software architectures with respect to the project properties, such as distribution of the development team or the organizational hierarchy, might yield valuable insight in guiding design decisions of the software product that not only take into account properties to increase the feature richness or maintainability of the software product but is optimal with respect to properties of the organization and the development team in order to increase productivity and quality. 
