@@ -1,5 +1,6 @@
 % !TEX root = thesis.tex
-\startchapter{Proof of Concept: Can we generate useful recommendations?}
+%\startchapter{Proof of Concept: Can we generate useful recommendations?}
+\startchapter{Appropriateness of Technical Relations}
 \label{chap:actionable}
 In this chapter we present the last piece of evidence in the line of exploring the usefulness of our approach presented in Chapter~\ref{chap:approach}.
 We show with a case study that we can actually generate recommendations to prevent build failures when it actually matters.
@@ -346,4 +347,9 @@ We end this chapter by bringing it back to the initial research question we set 
 \end{description}
 
 We showed in a class room setting that based on data that can be gathered in a team setting that recommendations preventing build failures can be generated.
+The student in the globally distributed software engineering course experienced the very build failures that the approach we presented in Chapter~\ref{chap:approach}.
+Through interviews we and analyzing the students development diaries we could identify a number of build failures that matters to the students.
+For a representative build we traced the cause of the build failure through the coding interactions we recorded from the students and were able to  find that the cause for the build failure stemmed from modifying the same file.
+This lends further evidence that the technical dependencies we used in Chapter~\ref{chap:stc-net} to generate actionable insights.
+%
 We did not provide the actual recommendations but traced in one representative case the build issue back to coding errors that could have been uncovered if the respective developers would have talked about their changes.
