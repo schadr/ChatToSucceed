@@ -9,8 +9,8 @@ Thus this chapter explores our first research question:
 \end{description}
 
 A connection between communication among developers and any sort of software quality including software builds makes sense intuitively.
-For example, any non trivial software project consists of several interdependent modules and with the growing size and number of modules more than one software developer is required to finish the project within a certain time constraint often mandated by a customer.
-Now due to the interdependence of the software modules developers assigned either to the same or to interdependent modules need to coordinate their work.
+For example, any non-trivial software project consists of several interdependent modules and with the growing size and number of modules more than one software developer is required to finish the project within a certain time frame.
+Now due to the interdependence of the software modules developers assigned either to the same or two interdependent modules need to coordinate their work.
 This coordination is in the most part accomplished through communication, which can take any form from a face-to-face discussion to electronically asynchronous messages such as email.
 Coupled with the fact that communication is inherently ambiguous and can often lead to misunderstandings, errors based on such misunderstandings may be introduced into the source code.
 Thus, we are confident that there exists  a connection between developer communication and build success.
@@ -22,7 +22,7 @@ We conclude this chapter by offering an answer to our research question.
 
 \section{Methodology}
 \label{sec:Methodology}
-To address our research question we analyze data from th large software
+To address our research question we analyze data from the large software
 development project IBM Rational Team Concert described in great detail in Chapter~\ref{chap:rtc}.
 
 \subsection{Coordination outcome measure}
@@ -47,7 +47,7 @@ networks for each build (cf. Chapter~\ref{chap:meth}), we compute a number of so
 measures that we include in our analysis are: Density, Centrality and Structural
 holes. Some of these measures characterize single nodes and their neighbours (ego
 networks), while others relate to complete networks. As we are interested in
-analysing the characteristics of complete communication networks associated to
+analyzing the characteristics of complete communication networks associated to
 integration builds, we normalize and use appropriate formulas to measure the
 complete communication networks instead of measuring the individual nodes.
 
@@ -84,8 +84,7 @@ we use Equation~\ref{eq:GroupDegreeCentralization} from
 Freeman~\cite{Freeman:1979rl}, in which $g$ is the number of nodes in a network,
 and $C_{*D}(c_i)$ are the degree centrality measures of node $c_i$ as
 described above. $C_{*D}(c^*)$ is the largest Degree for the set of
-contributors in the network. 
-The formula is also used by~\cite{Gloor:2003cikm,hinds:cscw:2006}.
+contributors in the network~\cite{Gloor:2003cikm,hinds:cscw:2006}.
 
 \begin{equation}
 \displaystyle C_{*D} =  \frac{\sum_{i=1}^g[C_{*D}(c^*) - C_{*D}(c_i)]}{(g-1)^2}
@@ -187,14 +186,14 @@ the largest betweenness index of all actors in the network.
 
 %fig:CentralityExample
 
-\subsubsection{Structural holes}
-We use the following structural hole measures:
+\subsubsection{Structural-holes}
+We use the following structural-hole measures:
 \begin{itemize}
   \item The \emph{Effective Size} of a node $c_i$ is the number of its
   neighbours minus the average degree of those in $c_i$'s ego network, not
   counting their connections to $c_i$. The effective size of node $c_1$ in 
   Figure~\ref{fig:CentralityExample}a is $2-1=1$. Note, that only direct
-  neighbours of $c_1$ are considered and the directed connections are replaced
+  neighbours of $c_1$ are considered while the directed connections are replaced
   with undirected. The effective size of node $c_4$ in 
   Figure~\ref{fig:CentralityExample}b is $2-0=2$.
   
@@ -212,7 +211,7 @@ We use the following structural hole measures:
 \end{itemize}
 
 To calculate network measures of the introduced ego network measures on
-structural holes, we compute the sum of the measures for each node of a network.
+structural-holes, we compute the sum of the measures for each node of a network.
 As the measures are based on network connections, we normalize the sum by
 computing the fraction of the sum and the number of possible network connections.
 
@@ -229,7 +228,7 @@ and 71,019 comments. Out of a total of 47 Jazz teams, 24 had integration builds.
 The build results we extracted were created during the time range from
 November~5, 2007 to February~26, 2008.
 
-Next, we had to make a decision which builds and associated communication to
+Next, we had to make a decision that builds and associated communication to
 analyze. Our selection criterion was that we analyze a number of build results
 that is large enough for statistical tests and include both \ok\ and \error\
 builds. Some teams used the building process for testing purposes only and created
@@ -330,13 +329,13 @@ network measures described in Section~\ref{sec:Methodology} and compare them
 across the two groups of builds (i.e., \error\ and \ok).
 
 The communication measures used in the analysis were: Density, Centrality
-(in-degree, out-degree, inout-degree, and betweenness), Structural Holes
+(in-degree, out-degree, inOut-degree, and betweenness), Structural-Holes
 (efficiency, effective size, and constraint), and number of directed connections.
 We used the Mann-Whitney test~\cite{Siegel:1956tu} to test if any of the measures
 differentiate between the groups of \error\ and \ok\ related communication
 networks. We used an $\alpha$-level of $.05$ and applied the Bonferroni
 correction to mitigate the threat of multiple hypothesis testing. None of the
-tests yielded statistical significance, which indicates that no individual
+tests yielded statistical significance, which indicates that, any individual
 communication structure measures significantly differentiate between \error\ and
 \ok\ builds.
 
@@ -420,6 +419,7 @@ of the \error\ predictions are actual \error s.
 \begin{center}
 \caption{Recall and precision for failed (\error) and successful (\ok) build results using
 the Bayesian classifier}
+\label{tab:PredictionResultTable}
 %{\small
 \begin{tabular}{ r@{\hspace{15pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c@{\hspace{15pt}}c@{\hspace{5pt}}c@{\hspace{5pt}}c}
 \toprule
@@ -435,7 +435,6 @@ the Bayesian classifier}
 \bottomrule
 \end{tabular}
 \end{center}
-\label{tab:PredictionResultTable}
 \end{table}
 
 
@@ -446,7 +445,7 @@ shows the recall and precision values for as to \ok\ and \error\ leading
 classified communication networks for each of the five team-level and three
 project-level integrations. Since we are interested in the power of build failure
 prediction, the error related values from our model are of greater importance to
-us. The \error\ recall values (how many \error s were classified correctly) of
+us. The \error\ recall-values (how many \error s were classified correctly) of
 team-level builds are between 55\% and 75\% and the recall values of the
 project-level builds are even higher with at least 89\%. The \error\ precision
 values are equally high.
@@ -471,7 +470,7 @@ the number of change sets, contributors, and work items -- have an impact on the
 integration build result, as they are an indication for the size and complexity
 of the development tasks to be coordinated. According to Nagappan and
 Ball~\cite{nagappan:icse:2005}, one might expect that increased size and complexity
-of code changes relates to more build failures. But in our study these single
+of code changes relate to more build failures. But in our study these single
 measures did not significantly differentiate between successful and failed build
 results. However, additional technical measures (i.e., Object Oriented metrics) that were used by Nagappan might be good predictors in Jazz as well.
 
