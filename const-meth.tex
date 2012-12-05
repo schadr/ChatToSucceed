@@ -52,7 +52,7 @@ Similarly to the previous research question, we base the analysis on the same da
 We used these changes previously to infer the work items developers used to communicate among each other about the build.
 
 %Methods
-Since the socio-technical networks has two semantically different edges connecting two developer within a network (technical dependencies and communication among developers) we refrain from using social network metrics as they assume only one mode of connection among nodes within a network.
+Since the socio-technical networks has two semantically different edges connecting two developers within a network (technical dependencies and communication among developers) we refrain from using social network metrics as they assume only one mode of connection among nodes within a network.
 Instead we investigate the relationship of the socio-technical congruence index and build success as well as focusing on the influence of gaps in the network on build success.
 
 %Expected results
@@ -105,7 +105,7 @@ Additionally, we have access to the actual source code repositories such as sour
 Furthermore, we ask the students to answer regular questionnaires and keep a development diary that are meant to collect information on issues that the students encounter during the course and are especially related to their development effort.
 
 %Methods
-Analyzing the collected data from the questionnaires and development diaries is done manually, by reading and annotating the different responses and entries to uncover build issues that were important to the students.
+We analyze the collected data from the questionnaires and development diaries manually, by reading and annotating the different responses and entries to uncover build issues that were important to the students.
 Knowing the build issues the students encountered, we select the most severe in terms on the number of reports and trace them to the actually root cause if possible by identifying the code changes that causes them (if applicable) and continuing to analyze the offending changes and identifying corresponding communication.
 
 %Expected results
@@ -118,11 +118,11 @@ We start with giving our definitions of the three constructs that we are heavily
 \subsection{Work Item}
 A \emph{Work Item} is a unit of work that can be assigned to a single developer.
 A unit of work can span anything from being a bug-report, reported by either the end user or by a developer, to a feature implementation.
-\emph{Work Item}s can be hierarchically organized to show the work break-down from high-level requests to manageable pieces.
+\emph{Work Item}s can be hierarchically organized to show the work breakdown from high-level requests to manageable pieces.
 One project team member is responsible for a work item to be completed, the sub work items that it is broken-down to do not necessarily need to be assigned to the owner of the parent work item.
 
 For instance, in the case of the IBM Rational Team Concert the development team creates story items to describe larger functionality from the user point of view and assigns them depending on the complexity and implication of the story.
-The owner of the story then either breaks down the story into multiple stories or tasks which are again assigned to team members according to their complexity and implications.
+The owner of the story then either breaks down the story into multiple stories or tasks that are again assigned to team members according to their complexity and implications.
 Once the work item level is sufficiently low the developer assigned to it can make the necessary modifications to the project to accomplish the work detailed in the work item.
 
 \begin{note}
@@ -137,7 +137,7 @@ The developer that applied those changes to the product bundles them into one or
 For example, in the Eclipse project\footnote{\url{http://www.eclipse.org}} the developers use CVS\footnote{\url{http://www.nongnu.org/cvs}} as their version control system to manage changes to the Eclipse IDE.
 A developer will check out her current version of the repository and started editing, creating and deleting files in order to fulfill a work item she is currently working on.
 Once the developer decides that she accomplished the work to finish her current work item, she commits her changes.
-Those changes that consists of file creations, deletions, and modifications taken together are referred to as a \emph{Change-Set}. 
+Those changes that consist of file creations, deletions, and modifications taken together are referred to as a \emph{Change-Set}. 
 
 \begin{note}
 \begin{mydef}
@@ -153,8 +153,8 @@ To create a build a team gathers all the changes implementing work items that ar
 The amount of work items and their respective changes included in a build will gradually increase over time because more work will be finished as the project progresses.
 
 In the case of the IBM Rational Team Concert development team, they create builds on a frequent basis to test the product as a whole to look for integration issues. 
-The team also subscribes to the philosophy to use their own products themselves and thus try to bring each build to a level that it can be used for development.
-This intense use enables the team to spot issues that are still within the product and enables them to asses the severity of those found issues.
+The team also subscribes to the philosophy to use their own products and thus try to bring each build to a level that it can be used for development.
+This intense use enables the team to spot issues that are still within the product and enables them to assess the severity of those found issues.
 
 \begin{note}
 \begin{mydef}
@@ -176,10 +176,10 @@ These constructs are important for the three chapters that are mining the reposi
 \end{center}
 \end{figure}
 To illustrate our approach to construct social networks we go through the example of a failed build illustrated in Figure~\ref{fig:network}. 
-A social network is represented as a graph that consist of nodes connected by edges. 
+A social network is represented as a graph that consists of nodes connected by edges. 
 In our approach, the nodes represent people and edges represent task-related communication between these people.
 
-The approach is repository and tool independent and can be applied to any repositories that provide information about people, tasks, technical artifacts, and communication, this includes work, issue, or change management repositories, such as Bugzilla or IBM Rational Team Concert; or source code management systems, such as CVS or IBM Rational Team Concert; or even communication repositories such as email archives.
+The approach is repository and tool independent and can be applied to any repositories that provide information about people, tasks, technical artifacts, and communication, this includes work, issue, or change management repositories, such as BugZilla or IBM Rational Team Concert; or source code management systems, such as CVS or IBM Rational Team Concert; or even communication repositories such as email archives.
 
 We construct and analyze social networks within a collaboration scope of interest.
 With a collaboration scope defining the people and interactions of interest.
@@ -204,8 +204,8 @@ Task-related communication is used to create the edges between developers in the
 \end{description}
 
 The data underlying the social network used throughout this dissertation are based on work items and their associated discussions.
-In IBM Rational Team Concert each work item has an attached discussion thread were developers can discuss the work item or simply note down their thoughts while working on the work item.
-This means, we would create a link between two developer if they comment together on the same work item to indicate that they are part of the same discussion.
+In IBM Rational Team Concert each work item has an attached discussion thread were developers could discuss the work item or simply note down their thoughts while working on the work item.
+This means, we would create a link between two developers if they comment together on the same work item to indicate that they are part of the same discussion.
 Note that this sections draws heavily from our work done in collaboration with Timo Wolf, Daniela Damian, Lucas Panjer, and Thanh Nguyen~\cite{wolf:ieee:2009}.
 
 \subsection{Technical Network}
@@ -232,17 +232,17 @@ In Figure~\ref{fig:addtechnicaledge} project members, such as Alfred and Bob, be
 A set consists of a number of artifacts that have been modified as well as the modifications themselves.
 For example Alfred as shown in Figure~\ref{fig:addtechnicaledge} modified File$_{\text{A}}$ and File$_{\text{B}}$.
 
-\item[Software Artifact Relation] describe the relation between developers in the technical networks.
-These relationship can be defined in several different ways.
+\item[Software Artifact Relation] describes the relation between developers in the technical networks.
+This relationship can be defined in several different ways.
 For example, in Figure~\ref{fig:addtechnicaledge} Alfred and Bob are related through a technical relationship because they modified the same file.
-Note, that we are mostly interested in relationships between artifacts that are effected by changes.
+Note, that we are mostly interested in relationships between artifacts that are affected by changes.
 \end{description}
 
 % Example as shown in the picture
 Constructing technical networks therefore follows three steps: (1) we gather all change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
 For example, after we selected the set of change-sets of interest we define the change-sets themselves as the source code artifact and identify the owners of those artifacts.
 Then we infer the relationship between those source code artifacts by relating all change-sets that changes the same source code file.
-And as Figure~\ref{fig:addtechnicaledge} shows this means in the case for Alfred and Bob that they are connected because both own a change-set that modifies the same file.
+This means in the case for Alfred and Bob that they are connected because both own a change-set that modifies the same file (cf. Figure~\ref{fig:addtechnicaledge}).
 
 \subsection{Socio-Technical Network}
 \begin{figure}[t!]
@@ -278,7 +278,7 @@ Selecting this meaningful combination reflects itself in the selection of the wo
 Hence constructing a socio-technical network requires the following four steps:
 
 \begin{enumerate}
-\item\textbf{Selecting the Focus} used for the socio-technical network represents the glue that binds the social and technical network into a socio-techncial network. 
+\item\textbf{Selecting the Focus} used for the socio-technical network represents the glue that binds the social and technical network into a socio-technical network. 
 This focus also referred to as filter in our earlier publication~\cite{wolf:ieee:2009}, determines the content of the networks.
 In this dissertation we use for the focus of such networks are software builds to construct networks that are describing the coordination among developer for a given software build.
 \item\textbf{Constructing the Social Network} follows the description above with the focus determining the work items that are selected to generate the nodes from the work item participants and the edges from the communication among the participants through a work item.
@@ -292,13 +292,13 @@ Figure~\ref{fig:construct-stc} shows an example on how we in our studies of the 
 In the first step (cf. Figure~\ref{fig:construct-focus}) we set the focus to be a software build which allows us via the change-sets that made it into the build to infer what work items are also represented in said build.
 Given the focus, the social network can be constructed using the work items that can be linked to the software build (cf. Figure~\ref{fig:construct-sn}).
 Similarly the construction of the technical network relies on the change-sets that went into a build. 
-To actually infer edges between developer, we relying on co-changed files within a build as an indicator of work dependency (cf. Figure~\ref{fig:construct-tn}).
+To actually infer edges between developers, we relying on co-changed files within a build as an indicator of work dependency (cf. Figure~\ref{fig:construct-tn}).
 Finally, the two networks are combined and yield the socio-technical network shown in Figure~\ref{fig:construct-combine}.
 
 \section{Data Collection Methods}
 \label{c5:sec:datacollection}
 To conduct the research for this dissertation we drew upon multiple data sources.
-We employ repository mining techniques to identify larger trends in measurable activities.
+We employ repository-mining techniques to identify larger trends in measurable activities.
 In contrast to gain a more in-depth understanding on how developers actually work and deal with interdependencies especially how they would react to certain recommendations and whether they are can be made useful we employ qualitative methods.
 
 \subsection{Repository Mining}
@@ -336,7 +336,7 @@ We both deployed surveys working with the Rational Team Concert development team
 
 \subsection{Observations}
 The next richer and also to the developer more distracting method of data gathering are observations.
-Although not necessarily actively interrupting and distracting developer, the act of observing can distract developers and also change their behaviour.
+The act of observing can distract developers and also change their behaviour, although we do not actively interrupt or distract developers.
 In order to minimize this type of distraction and to mitigate the observer bias, we employed a special form of observation study namely participant observation.
 In short we became both an observer and a participant.
 %
@@ -345,7 +345,7 @@ Being a participant observer has a multitude of advantages:
 \begin{itemize}
 \item\textbf{Reciprocity.} By participating in the actual development we can provide value to the development team from the very beginning.
 This, in turn, motivates the developers to give us the time we need to conduct other parts of the study, like surveys and interviews.
-\item\textbf{Learning the Vocabulary.} Each development project has its own project vocabulary~\cite{espinosa2007:team_knowledge} in order to effectively and clearly communicate. 
+\item\textbf{Learning the Vocabulary.} Each development project has its own project vocabulary~\cite{espinosa2007:team_knowledge} in order to effectively and clearly communicates. 
 Understanding this vocabulary as an outside is not necessarily easy but very important to make sense of comments and answers supplied in interviews and surveys and of course to better interpret observations.
 \item\textbf{Understanding the Context.} For example, in one study our observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. 
 % something about the context helping
@@ -354,26 +354,26 @@ Because of this closeness of our observation period to a major release we observ
 Although it is easy to ascertain when the next major release of the product is, the effect this has on the developer besides a change in the process is harder to gauge.
 Being part of the development effort allowed us to better understand how developers react to the change in process and better understand their struggles.
 
-\item\textbf{Asking more Meaningful Questions.} A better understanding of the project and how it affects the individual developer as well as understand the vocabulary helps with phrasing better questions.
+\item\textbf{Asking more Meaningful Questions.} A better understanding of the project and how it affects the individual developer as well as gaining a better understanding of  the vocabulary helps with phrasing better questions.
 Better in the sense of both more meaningful to the developer and in the sense of understandability because they can be phrased using the project vocabulary.
 \end{itemize}
 
 Besides gaining a better understanding of some easily missed or miss-understood intricacies, working together with the developer establishes a trust relationship~\cite{letherbridge:ese2005}.
 This trust helps to mitigate observation biases that are introduced by just observing as well as makes developers more forthcoming during interviews and surveys~\cite{letherbridge:ese2005}.
-It is difficult to separate the different data collection methods that involve human interaction, therefore we think combining these data collection methods in the right order can greatly enhance the quality of the collected data.
+It is difficult to separate the different data collection methods that involve human interaction; therefore we think combining these data collection methods in the right order can greatly enhance the quality of the collected data.
 We were able to join the Rational Team Concert development team as a participant observer mainly due to the convincing argument that we take the place of an intern, thus, contributing to their development effort (Chapter~\ref{chap:talk})
 
 \subsection{Interviews}
 To further enhance our understanding on how developers view the situation and further make sense of survey responses as well as results from mining repositories and our observations, we employed interviews.
 Instead of following a structured interview approach, we opt for a semi-structured interview with a focus on war stories.
 War stories~\cite{lutters:ist:2007} ask the interviewee to share memorable stories from work life.
-The interviewer than can explore those war stories and help shape the focus of the discussion of those events.
+The interviewer can explore those war stories and help shape the focus of the discussion of those events.
 This type of interview comes with two major benefits over structured interviews that follow a set of questions:
 
 \begin{itemize}
 \item\textbf{Focus onto for the interviewee important events.}
 Our goal with this dissertation is to better support software development.
-Knowing the pain points as they are perceived by the projects participants allows us to focus on important issues.
+Knowing the pain points, as the projects participants perceive them allows us to focus on important issues.
 With prepared questions the focus of the interview might not uncover what is important to the interviewee and thus we might miss areas.
 \item\textbf{Better recall of events by interviewee.}
 Recall of events of importance is better than of arbitrary events~\cite{lutters:ist:2007}.
@@ -383,11 +383,11 @@ Whereas in structured interviews the interview itself is guided by a set of prep
 
 The main drawback of using war stories over prepared interview questions in a structured interview framework lies with the loss of focus of the interviews.
 By asking the interviewee to tell war stories of memorable events it can be more difficult to gain the insights into a particular area of interest if the war stories veer to far off the topic of interest.
-It is therefore necessary that the interviewer has a good understanding of the project and the project language to explore the stories for relevance to topics of interest making it thus more demanding on the side of the interviewer.
+It is therefore necessary that the interviewer have a good understanding of the project and the project language to explore the stories for relevance to topics of interest making it thus more demanding on the side of the interviewer.
 
 % talk about the time of the interviews
 We tried to minimize the interruption to project members as much as possible therefore we limited the time we require for each interview as much as possible.
-Most interviews are aimed at taking 30 minutes with a 30 minute overflow in case a participant is willing to continue the interview.
+Most interviews are aimed at taking 30 minutes with a 30-minute overflow in case a participant is willing to continue the interview.
 Furthermore, we gave the work of the interviewee priority over the interview and assured the interviewees that they could stop the interview anytime they felt that their work needs attention.
 This was especially valuable with a professional development team such as the IBM Rational Team Concert development team as we joined their development effort when they were nearing a major milestone (cf. Chapter~\ref{chap:talk}).
 
@@ -395,7 +395,7 @@ This was especially valuable with a professional development team such as the IB
 We presented our methodology and constructs that we use throughout this dissertation.
 We started with a roadmap describing the methodology used to answer our five research questions.
 Subsequently, we gave our definitions of what we refer to as a work  item, change-set, and a build.
-These three definition build the fundament that enable us to conceptualize social interaction and technical dependencies into networks of developers.
+These three definition build the fundament that enables us to conceptualize social interaction and technical dependencies into networks of developers.
 
 We further described the methods we used to elicit our data to conduct our studies.
 Trying to minimize the interruption with actual development we focus on exploiting mining repository techniques, when interacting with developers we use a mixed method approach consisting of observations, surveys, and interviews.
