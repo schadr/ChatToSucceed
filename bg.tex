@@ -39,7 +39,7 @@ maintaining personal cross-site relationships is challenging~\cite{hinds:cscw:20
 With respect to the role of effective coordination in project success, early
 studies indicate the issues that software development teams face in large
 projects~\cite{curtis:acm:1988}. A study by Herbsleb et
-al~\cite{Herbsleb:1999ew} showed that Conway's law is also applicable for the
+al.~\cite{Herbsleb:1999ew} showed that Conway's law is also applicable for the
 coordination within development teams, supporting the influence of coordination
 on software projects. Kraut et al.~\cite{kraut:1995coordination} showed that
 software projects are greatly influenced by the quality of coordination of
@@ -57,7 +57,7 @@ integration~\cite{Grinter:1999geography,deSouza2004:thwarts_collaboration}. Coor
 conceptualized via communication has also been studied more generally in relation
 to project success: factors such as ``harmony''~\cite{Souder:1988jpim},
 communication structure~\cite{Robin:1990jpim}, and communication
-frequency~\cite{Griffin:1992ms} were related to project success.
+frequency~\cite{Griffin:1992ms} was related to project success.
 
 The difficulty in studying failed integration in relation to communication lies
 in capturing and quantifying information about communication in teams that have a
@@ -83,9 +83,8 @@ Communication structure in particular -- the topology of a communication network
 communication structure include network density, centrality and structural
 holes~\cite{Wasserman:1994sq,Freeman:1979rl}.
 
-Density, as a measure of the extent to which all members in a team are
-connected to one another, reflects the ability to distribute
-knowledge~\cite{Rulke:2000ys}. Density has been studied, for example, in relation
+Density reflects the ability to distribute knowledge~\cite{Rulke:2000ys} by measuring the extent to which all members in a team are connected to one another. 
+Density has been studied, for example, in relation
 to coordination ease~\cite{hinds:cscw:2006}, coordination
 capability~\cite{hossain:cscw:2006} and enhanced group
 identification~\cite{RayReagans:2001os}.
@@ -103,7 +102,7 @@ Betweenness is a measure of the extent to which a team member is
 positioned on the shortest path in between other two members. People in between
 are considered to be ``actors in the middle'' and to have more ``interpersonal
 influence'' in the
-network(e.g.,~\cite{Gloor:2003cikm,zimmermann:icse:2008,hossain:cscw:2006}).
+network (e.g.,~\cite{Gloor:2003cikm,zimmermann:icse:2008,hossain:cscw:2006}).
 
 The structural holes measures are concerned with the degree to which there
 are missing links in between nodes and with the notion of redundancy in
@@ -170,13 +169,13 @@ This prior work establishes the fact that developers communicate heavily about t
 Coordinating software teams becomes more difficult as the distance between people increases \cite{herbsleb:icse:2001}.
 Studies of Microsoft~\cite{bird2009:dds_quality,nagappan:icse:2008}
 show that distance between people that work together on a
-program determine the program's failure proneness.
+program determines the program's failure proneness.
 Differences in time zones can affect the number of defects in software projects \cite{cataldo2009:quality}.
 
 Although distance has been identified as a challenge, advances in collaborative
 development environments are enabling people to overcome challenges of distance.
 One study of early RTC development
-shows that the task completion time is not as strongly affected by distance as in previous studies~\cite{Nguyen:2008Distance}. Technology that empowers distributed collaboration include topic recommendations~\cite{carter2004} and instant messaging~\cite{niinimaki2008}. Processes are adapting to the fast pace of software development: the Eclipse way~\cite{frost:ieeesoftware:2007} emphasizes placing milestones at fixed intervals and community involvement.
+shows that the task completion time is not as strongly affected by distance as in previous studies~\cite{Nguyen:2008Distance}. Technology that empowers distributed collaboration includes topic recommendations~\cite{carter2004} and instant messaging~\cite{niinimaki2008}. Processes are adapting to the fast pace of software development: the Eclipse way~\cite{frost:ieeesoftware:2007} emphasizes placing milestones at fixed intervals and community involvement.
 This increased focus on software builds  warrants more support by research as we conduct it in this dissertation.
 
 
@@ -195,9 +194,9 @@ We now discuss the two commonly used approached to infer socio-technical depende
 \subsubsection{Task Assignment and Dependency}
 Cataldo et al.~\cite{cataldo:cscw:2006} defined  technical dependencies among developers as the matrix multiplication of the matrix defining the assignment of a developer to a task with the matrix defining the dependencies among tasks multiplied with the transpose of the matrix defining the assignment of a developer to a task.
 %
-The motivation behind using a matrix format with the matrix multiplication stems from the creation of the separate matrixes.
+The creation of separate matrices is motivated originated from the need to extract information from different data repositories.
 In the original study conducted by Cataldo et al. task dependencies and task assignments were defined in different repositories requiring different approaches to extract the information.
-The matrix multiplication allows to derive the developer interdependencies without requiring direct access to the data.
+The matrix multiplication allows deriving the developer interdependencies without requiring direct access to the data.
 %
 Thus, two matrices need to be inferred from a data set: (1) task assignment matrix describing which developer is assigned to what task and (2) the task dependency matrix describing which tasks share dependencies.
 
@@ -208,8 +207,8 @@ This information is inferred from task management systems such as BugZilla\footn
 
 \paragraph{Task Dependency Matrix}
 The task dependency matrix dimension is the number of tasks times the number of tasks with each row and column representing all tasks.
-Each entry in the task dependency matrix indicated whether two tasks have a dependency, note that non-zero entries refer to the existence of a dependency but not its strength.
-The task dependency matrix is populated by identifying the code written to finish a task and infer dependencies among the various code changes implementing different tasks.
+Each entry in the task dependency matrix indicated whether two tasks have a dependency; note that nonzero entries refer to the existence of a dependency but not its strength.
+The task dependency matrix is populated by identifying the code written to finish a task and infers dependencies among the various code changes implementing different tasks.
 For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dependent if the associated changes modify the same file. 
 
 \begin{figure}[t!]
@@ -256,7 +255,7 @@ For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dep
 \end{figure}
 Once the matrices for task assignment and task dependency are derived, we can compute the technical dependency among developers.
 Through a matrix multiplication of the task assignment with the task dependency matrix we obtain a matrix describing on what task a developer depends.
-Further multiplying this matrix with the transposed task assignment matrix yields a developer by developer matrix that indicates which developers are dependent on each others work through at least one task. 
+Further multiplying this matrix with the transposed task assignment matrix yields a developer-by-developer matrix that indicates which developers are dependent on each other's work through at least one task. 
 %
 Thus, the calculation of the technical dependency among developer follows the formula presented below:
 \begin{equation}
@@ -270,7 +269,7 @@ This resulting matrix is also referred to as the coordination needs matrix.
 
 The technical dependency matrix obtained through the matrix multiplication described needs to be contrasted with the actual coordination that happened in the project.
 For this purpose Cataldo et al.~\cite{cataldo:cscw:2006} proposed to create a matrix recording whether two developers coordinate their work.
-Note that communication is often~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008,wolf:icse:2009} used as a proxy for coordination allowing to rely on recorded communications found in email archives or task discussions in issue management systems.
+Note that communication is often~\cite{cataldo:cscw:2006,kwan:tse:2011,valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008,wolf:icse:2009} used as a proxy for coordination allowing relying on recorded communications found in email archives or task discussions in issue management systems.
 The congruence metric itself is the ratio between developers that have both a technical dependency and did coordinate over the number of developers that have a technical dependency.
 
 The actual coordination matrix depicts a social network with developer being nodes and coordination instances edges.
@@ -290,10 +289,10 @@ This more direct approach enables the construction of technical networks, connec
 \paragraph{Social Networks}
 The social network representation of the ongoing communication is exactly the same as the actual coordination matrix as described by Cataldo et al.'s~\cite{cataldo:cscw:2006} as the matrix is in effect a way to represent a network (also known as adjacency matrix).
 
-The technical difficulties in this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less governed by processes demanding naming conventions of account names~\cite{schroeter:isese:2006}.
+The technical difficulties in this approach is to match the social and technical networks as the usernames used for code repositories and task management can be different, this is especially an issue with open source development as they are less likely to enforce processes demanding naming conventions of account names~\cite{schroeter:isese:2006}.
 
 \subsection{Socio-Technical Congruence and Performance}
-Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} states that any product developed by an organization will inevitably mirror the organization's communication structure.
+Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} states that any product developed by an organization would inevitably mirror the organization's communication structure.
 From this starting point Cataldo et al.~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated whether the lack of this reflection relates to changes in productivity by investigating the overlap of communication among developers and their technical dependencies.
 The communication among developers represents the organizational communication structure whereas the technical dependencies between the work each developer represents the products organization.
 If the communication structure completely contains the work dependencies among developers, then developers accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
@@ -305,79 +304,7 @@ Overall Cataldo et al.~\cite{cataldo:cscw:2006} found that there is a statistica
 
 
 \section{Networks and Failure}
-%Technical dependencies that are used in the work of Cataldo et al.~\cite{cataldo:cscw:2006} were studied in the relation to software failures.
 Because we are investigating how to improve communication among software developers following their technical dependencies among each other we give an overview over work that involves work on source code that directly or indirectly indicates technical dependencies. 
-
-%\subsection{Software Metrics}
-%\label{chap:6:measure}
-%
-%We break down software metrics into three categories:
-%(1) code complexity metrics that measure the interdependencies between low level software artifacts,
-%(2) object oriented metrics often measure very localized aspects or the class interdependencies,
-%and (3) metrics that measure code interdependencies such as function fan in and fan out.
-%
-%\subsubsection{Code Complexity Metrics}
-%Defect prediction heavily uses metrics the describe code to predict defect proneness of files and other levels of software artifacts.
-%%
-%The two most common complexity metrics used are Lines of Code in a software artifact and Mc Cabe's complexity metric~\cite{mccabe:ieee:1976}.
-%Both metrics have been found to exhibit a medium to strong correlation across various software projects.
-%In principal, source code files or methods with more code lines have a higher changes to describe a more complex data flow.
-%Similarly, both metric indicate that the more complex code is the more relations it has to other parts of the code.
-%
-%A study undertaken to show the relation between multiple code metrics including lines of code and other metric such as Mc Cabe's complexity as well as other metrics, such as fan in and fan out which we will cover in Section~\ref{chap:6:sub:depmet}, was undertaken by Nagappan et al.~\cite{nagappan:icse:2006} at Microsoft.
-%Both lines of code and Mc Cabe's complexity showed a correlation to post-release failures per file, failures that are reported by the customer within the first six months after release, of medium strength.
-%
-%Although we consider Nagappan at al work to be among the first comprehensive studies into predicting post-release defects using multiple source code metrics, other studies the relation ship of particular metrics with defect density.
-%For instance, Koru et al.~\cite{koru:promise:2005} conducted an in-depth analysis of the relation between the number of lines of code within a file and the relationship to defect density.
-%Size not only is a defect predictor in many forms, e.g., average function size or file size, but the size of components also determines how well other predictors can work on it.
-%
-%In 2005 one year before Nagappan et al. published their study on the relation of code metrics to defect density, Nikora et al.~\cite{nikora:metrics:2005} discussed the use of graph measures used on the control flow graph.
-%In the light of Mc Cabe's complexity metric that gives one value to the overall control flow graph within a software artifact, Nikora et al. characterize the control flow graph using graph measures.
-%
-%Complexity and size metrics are often used as a control variable to ensure that newly found metrics are not simply a new representation of size or complexity and actually add more predictive power to already known metrics.
-%Hence, there is ample evidence that lines of code~\cite{shihab:esem:2010,arisholm:isese:2006,jiang:promise:2008,knab:msr:2006,zhang:icsm:2009} and Mc Cabe's complexity~\cite{nagappan:icse:2006,shihab:fse:2011,zimmermann:fse:2009,jiang:promise:2008,zimmermann:promise:2007} have a moderate correlation to software defects on a file level.
-%
-%Despite their moderate usefulness complexity measures as we know them so far especially lines of code and Mc Cabe's complexity metric do not generalize across projects.
-%This means, using those metrics as predictors adjusted to one project usually offers poor predictions when applied to another~\cite{zimmermann:fse:2009}. 
-%
-%
-%\subsubsection{Change Complexity Metrics}
-%During the evolution or maintenance of a project files are continuously edited to extend or improve the exiting project.
-%Software artifact modifications are seldomly equally distributed across the project time and the artifacts related to a project.
-%Thus, software artifact changes lend themselves to be studies in relation to software quality.
-%The simplest metric to measure on a file level is to count the amount of change that happened to a file within a given time frame~\cite{li:metrics:2005,moser:icse:2008,cataldo:icse:2011}.
-%
-%The next logical step after investigating the amount of change is to characterize the complexity of the changes made to a software artifact. 
-%These churn metric measure similarly to lines of code the distribution of the change size in a given time frame~\cite{nagappan:icse:2005,shihab:fse:2011,zimmermann:fse:2009,bell:promise:2011}.
-%Compared to studying the actual change sizes per software artifact the change of the change sizes poses a good predictor on the grounds that changes that seem out of the ordinary are more likely to introduce issues~\cite{hassan:icse:2009}.
-%Instead of looking into high level artifacts investigating low level changes on the level of control flow instructions such as if-then-else clauses also yields a good failure predictor~\cite{giger:msr:2011}.
-%
-%Similarly to the code complexity metrics, change complexity metrics are also not necessarily able to predict failure density for a project when trained with data from a different projects~\cite{zimmermann:fse:2009}.
-%
-%
-%\subsubsection{Object Oriented Metrics}
-%\label{chap:6:sub:oom}
-%Object oriented metrics are taking into account more language specific constructs that in the case of object oriented programming are often describing the relationship between object, such as inheritance depth.
-%Besides measuring the relationships between objects object oriented metrics also measure the complexity of objects using metrics such as method counts.
-%Method counts have been used by Nagappan et al.~\cite{nagappan:icse:2006} and Arisholm et al.~\cite{arisholm:isese:2006} and they showed a moderately strong correlation between the amount of methods within a class and both post-release failures in Windows Vista and the defect density of components in telecommunication software.
-%%
-%Direct measures of object relationship, such as inheritance depth~\cite{chidamber:tse:1994}, sub-classing~\cite{chidamber:tse:1994} and object coupling~\cite{chidamber:tse:1994}, can predict software quality~\cite{nagappan:icse:2006,arisholm:isese:2006,english:promise:2009}.
-%
-%
-%
-%\subsubsection{Dependency Metrics}
-%\label{chap:6:sub:depmet}
-%Besides the three types of metrics discussed that measure complexity of code and in the case of object oriented metrics sometimes actual dependencies between software artifacts.
-%Metrics such as fan-in and fan-out~\cite{henry:tse:1981} of methods are directly measuring the dependencies between software artifacts.
-%
-%Counting the number of dependencies either through metrics such as fan-in or fan-out or straight up counting call dependencies between software artifacts already yield moderate failure predictors~\cite{cataldo:icse:2011,nagappan:icse:2006,arisholm:isese:2006,knab:msr:2006,shin:msr:2009}.
-%Note that although most of the object oriented metrics we mentioned in the previous section (Section~\ref{chap:6:sub:oom}) are also dependency metrics we will not reiterate them in this section. 
-%Using more course grained dependency on the module level, or in other words counting dependencies across module boundaries, can also yield good failure predictors~\cite{jiang:promise:2008}.
-%Another dependency metric creating dependencies between files or larger modules, such as Java packages, uses the usage relationship between software artifacts as they can be defined at the time of a software projects design~\cite{schroeter:isese:2006,dualaekoko:esem:2009}.
-%
-%Earlier we showed that the definition of complexity used on software artifacts such as source code files can also be extended to the notion of change complexity such as code churn, similarly dependencies between source code artifacts can be inferred using change information.
-%Zimmermann et al.~\cite{zimmermann:icse:2004} and D'Ambros et al.~\cite{dambros:wcre:2009} used the information about co-changing files, files that are frequently changed together in the same change-set, to determine how dangerous it can be not to change those files together.
-%Zimmermann et al.'s work originally was intended to recommend which files to additionally change to an original software change found that violating those co-change dependencies can lead to software failure.
 
 
 \subsection{Artifact Networks}
@@ -390,7 +317,7 @@ From the notion of a code peer and its influence on other peers can the idea of 
 In a first study Zimmermann et al.~\cite{zimmermann:icse:2008} analyzed call dependencies of a single artifact and found measures characterizing those dependencies to be a good predictor for software defects.
 
 In a follow up study Zimmermann et al.~\cite{zimmermann:esem:2009} extended the influence of an artifacts peer by not solely focusing on an artifacts dependencies to its peers but taking into account the dependencies among an artifacts peers.
-This enables the application of network measures and social-network measures to characterize this ego network constructed around a software artifacts.
+This enables the application of network measures and social-network measures to characterize this ego network constructed around a software artifact.
 As it turn out, the predictive power of such a network is stronger than only considering dependencies between an artifact and its peers~\cite{zimmermann:esem:2009}.
 
 \subsection{Technical Networks}
@@ -418,15 +345,15 @@ This allows a developer to see which other developer she might need to coordinat
 
 % palantir
 \emph{Palantir}~\cite{sarma:cscw:2002} complements the dependencies among developers by providing the reverse awareness  showing a developer what source code she is currently accessing in their workspace is affected by code changes submitted by co-workers.
-For example, Palantir indicates which source code files have been changed in the mean time by other developers that are present in the developer's current work space and thus might hint at possible merge conflicts.
+For example, Palantir indicates which source code files have been changed in the mean time by other developers that are present in the developer's current workspace and thus might hint at possible merge conflicts.
 
 % tesseract
 \emph{Tesseract}~\cite{sarma:icse:2009} extends the concept of showing code dependencies among developers by fostering awareness through visualizing task and developer centric socio-technical networks, thus extending the networks underlying Ariadne and Palantir by a social component.
 A task centric socio-technical network is build from all developers and source code changes that are related through code dependencies or task discussions.
-These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what social, technical, or socio-technical relationships she has with her colleagues.
+Developer centric networks that show for a speciﬁc developer what social, technical, or socio-technical relationships she has with her colleagues complement these task centric socio-technical networks.
 
 % proxi scentia
-Ariadne, Plantir, and Tesseract suffer from the issue that they cannot provide real time feedback on changes in  technical networks, as they solely rely on changes committed to the source code repository. 
+Ariadne, Palantir, and Tesseract suffer from the issue that they cannot provide real time feedback on changes in  technical networks, as they solely rely on changes committed to the source code repository. 
 \emph{Proxiscentia}~\cite{borici:chase:2012} address this issue by implementing an approach proposed by Blincoe et al.~\cite{blincoe:cscw:2012} to instrument IDEs used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
 This enables a developer to be forewarned of changes that are made to related code as for example Palantir relies on.
 
@@ -482,13 +409,13 @@ In the discussion in Chapter~\ref{chap:disc} we highlight how our findings from 
 \section{Summary}
 In this chapter we discussed relevant related work that both motivated and enabled us to conduct the research presented in this dissertation.
 We started with presenting work related to software build with a particular focus on the influence software teams and the way they communicate and coordinate their work have on integrating their work into a product.
-The current body of knowledge agrees that lapses in coordination (insufficient processes or communication tools) is a major cause for integration issues.
+The current body of knowledge agrees that lapses in coordination (insufficient processes or communication tools) are a major cause for integration issues.
 
 Further exploring existing literature on coordination within software development teams pointed us to that software developers have a need to coordinate their work and that those needs are often expressed by the interdependence in their work.
-This lead to the study of socio-technical congruence as a measure of productivity. 
+This leads to the study of socio-technical congruence as a measure of productivity. 
 Motivated by Conway's Law several studies showed that a better overlap in the social and technical dimension of a software development effort result in higher productivity.
 
-These social and technical dimensions can be expressed as networks of developer that only differ in their connections which can either be social or technical.
+These social and technical dimensions can be expressed, as networks of developer that only differ in their connections that can either be social or technical.
 Leveraging a combination of technical and social relationships among developer proved to be a good predictor for failures at various granularities ranging from files to binaries. 
 The use that can be gained from this network information is not limited to building failure predictors but has use to create recommendation systems that enhance the awareness of developers of the work of colleagues.
 From the reviewed body of knowledge we distilled five research questions that guide this dissertation.
