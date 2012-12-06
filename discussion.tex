@@ -2,7 +2,7 @@
 \startchapter{Conclusions}
 \label{chap:disc}
 In this chapter we summarize and discuss our approach and how the research we presented in the last three chapters support it (cf. Section~\ref{ch:dis:app}).
-Followed by our second contribution which takes the form of the individual insights gained by the five studies we presented (cf. Section~\ref{sec:cont:emp}).
+Followed by our second contribution that takes the form of the individual insights gained by the five studies we presented (cf. Section~\ref{sec:cont:emp}).
 Before we end this dissertation with concluding remarks as well as some future work (cf. Section~\ref{ch:dis:con}) we discuss the threats to validity (cf. Section~\ref{sec:threat}).
 
 \section{An Approach For Improving Social Interactions}
@@ -15,7 +15,7 @@ The approach we presented in Chapter~\ref{chap:approach} consists of five steps:
 \begin{enumerate}
 \item Define scope of interest
 \item Define outcome metric
-\item Build social networks
+\item Build social networks  f
 \item Build technical networks
 \item Generate actionable insights
 \end{enumerate}
@@ -24,7 +24,7 @@ In Chapter~\ref{chap:soc-net} we showed that the communication structure of a so
 That evidence is further supported by our finding that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success (cf. Chapter~\ref{chap:stc-net2}).
 
 In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{chap:approach}.
-We defined the build as the scope together with the build outcome, success or failure, as the outcome metric.
+We defined the build as the scope and we defined the outcome metric as the build outcome.
 Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{chap:bg} in both Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2}.
 Chapter~\ref{chap:stc-net2} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
 
@@ -46,7 +46,7 @@ We recognize that a student project is substantially smaller in size and complex
 Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed builds to fail for few reasons and therefore making the impact of the recommendations clearer.
 
 Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (cf. Chapter~\ref{chap:bg}).
-Furthermore, we showed that the approach can generate actionable insights that are acceptable to developers.
+Furthermore, we showed that the approach could generate actionable insights that are acceptable to developers.
 In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
 
 
@@ -136,7 +136,7 @@ In the Codebook case, this might lead to extra overhead in endgame mode when dev
 To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
 \paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
-Our second and third findings (cf Chapter~\ref{chap:talk}) unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
+Our second and third findings (cf. Chapter~\ref{chap:talk}) unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
 Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
 
 Traditional recommender systems in software engineering focus on the source code to determine useful recommendations (e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}).
@@ -150,12 +150,12 @@ Since this information can be difficult to determine automatically since percept
 
 
 \paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
-We observed, as described in the fourth, fifth, and sixth findings  (cf Chapter~\ref{chap:talk}), that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
+We observed, as described in the fourth, fifth, and sixth findings  (cf. Chapter~\ref{chap:talk}), that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
 
 In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
 
 \paragraph{Guideline \#4} \emph{Recommender systems should account for business goals.}
-Our last finding (cf Chapter~\ref{chap:talk}) points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
+Our last finding (cf. Chapter~\ref{chap:talk}) points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
 Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
 
 To support developers to focus on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
@@ -165,7 +165,7 @@ To support developers to focus on business goals, systems supporting the informa
 % leveraging stc in real time
 Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild, leads us to our last study (cf. Chapter~\ref{chap:actionable}).
 In this study we showed the feasibility of generating recommendations at the right time, by gathering data to generate socio-technical congruence in real time.
-Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
+Thus, we showed that socio-technical congruence could be used in real time to create actionable knowledge that might be of use to developers.
 
 
 \section{Threats to Validity}
@@ -208,9 +208,9 @@ To mitigate this threat we showed some initial evidence of tracing a failed buil
 
 Another threat to the approach, which is related to the previously mentioned lack of tracing the basis of the recommendations back to actual build failures, is that we did not test it in the field to see how the recommendation affect the development process.
 We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
-Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
+Furthermore, the study conducted in a classroom setting also suggests that there is value in generating such recommendations.
 
-The surveys we deployed in our qualitative studies (cf. Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
+The surveys we deployed in our qualitative studies (cf. Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers that might introduce a bias.
 This bias poses a threat to our findings due to the possibility that we were missing important items.
 We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
 
@@ -250,7 +250,7 @@ Furthermore the deployment of the system to actual developers will provide devel
 
 
 \subsection{Extend the Recommender System with more Technical Dependencies}
-In this dissertation we defined two developers to share a technical dependency when they modified the same file.
+In this dissertation we defined two developers to share a technical dependency if they modified the same file.
 This technical dependency is very basic and missed several code dependencies that define dependencies among code artifacts.
 For instance Schr\"oter et al.~\cite{schroeter:isese:2006} showed that usage relationship point to failures.
 Other measures that measure dependencies among software artifacts are also good predictors for failures (e.g.~\cite{nagappan:icse:2006}).
