@@ -1,17 +1,17 @@
 % !TEX root = thesis.tex
 \startchapter{Communication and Failure}
 \label{chap:soc-net}
-We open our investigation of how to modify the social relationships among software developers, represented by the communication among them, by searching for a relationship between communication and build success~\cite{wolf:icse:2009}.
+We open our investigation into how to modify the social relationships among software developers, represented by the communication among them, by searching for a relationship between communication and build success~\cite{wolf:icse:2009}.
 This forms the basis and justification for an approach that we describe in Chapter~\ref{chap:approach} to allow us to manipulate the social interactions among developers.
 Thus this chapter explores our first research question:
 \begin{description}
 \item[RQ 1.1] Do Social Networks influence build success?
 \end{description}
 
-A connection between communication among developers and any sort of software quality including software builds makes sense intuitively.
-For example, any non-trivial software project consists of several interdependent modules and with the growing size and number of modules more than one software developer is required to finish the project within a certain time frame.
-Now due to the interdependence of the software modules developers assigned either to the same or two interdependent modules need to coordinate their work.
-This coordination is in the most part accomplished through communication, which can take any form from a face-to-face discussion to electronically asynchronous messages such as email.
+A connection between communication among developers and any sort of software quality, including software builds, makes sense intuitively.
+For example, any non-trivial software project consisting of several interdependent modules, and with the growing size and number of modules, more than one software developer is required to finish the project within a certain time frame.
+Now due to the interdependence of the software modules, developers assigned either to the same or two interdependent modules, need to coordinate their work.
+This coordination is in most part accomplished through communication, which can take any form from a face-to-face discussion to electronically asynchronous messages such as email.
 Coupled with the fact that communication is inherently ambiguous and can often lead to misunderstandings, errors based on such misunderstandings may be introduced into the source code.
 Thus, we are confident that there exists  a connection between developer communication and build success.
 
@@ -22,11 +22,11 @@ We conclude this chapter by offering an answer to our research question.
 
 \section{Methodology}
 \label{sec:Methodology}
-To address our research question we analyze data from the large software
+To address our research question, we analyze data from the large software
 development project IBM Rational Team Concert described in great detail in Chapter~\ref{chap:rtc}.
 
 \subsection{Coordination outcome measure}
-In our study we conceptualize the coordination outcome by the Build Result,
+In our study, we conceptualize the coordination outcome by the Build Result,
 which is regarded as a coordination success indicator in Jazz and can be \error,
 \texttt{WARNING} or \ok. We analyze build results to examine the integration
 outcomes in relation to the communication necessary for the coordination of the
@@ -34,8 +34,8 @@ build.
 
 Conceptually, the \texttt{WARNING} and \ok\ build results are treated similar by
 the Jazz team, as they require no further attention or reaction from the
-developers. In contrast, \error\ build results indicate serious problems such as
-compile errors or test failures and require further coordination, communication
+developers. In contrast, \error\ build results indicate serious problems, such as
+compile errors or test failures, and require further coordination, communication
 and development effort. We thus treated all \texttt{WARNING}s as \ok s to clearly
 separate between failed and successful builds in our conceptualization of
 coordination outcome.
@@ -46,7 +46,7 @@ To characterize the communication structure represented by the constructed socia
 networks for each build (cf. Chapter~\ref{chap:meth}), we compute a number of social network measures. The
 measures that we include in our analysis are: Density, Centrality and Structural
 holes. Some of these measures characterize single nodes and their neighbours (ego
-networks), while others relate to complete networks. As we are interested in
+networks), while others relate to complete networks. Because we are interested in
 analyzing the characteristics of complete communication networks associated to
 integration builds, we normalize and use appropriate formulas to measure the
 complete communication networks instead of measuring the individual nodes.
@@ -54,7 +54,7 @@ complete communication networks instead of measuring the individual nodes.
 \subsubsection{Density}
 Density is calculated as the percentage of the existing connections to all
 possible connections in the network. A fully connected network has a density of
-1, while a network without any connections has the density of 0. For example, the
+1, while a network without any connections has a density of 0. For example, the
 density in the directed network in Figure~\ref{fig:CentralityExample} is
 the number of directed edges over the number of all possible directed edges $12/42=0.28$.
 
@@ -71,7 +71,7 @@ centrality measures for the ego networks are:
   Figure~\ref{fig:CentralityExample}.
   
   \item The \emph{In-Degree} of a node $c$ is the
-  number of it s incoming connections $C_{iD}(c)$. For example, $C_{iD}(c_1)=1$ 
+  number of its incoming connections $C_{iD}(c)$. For example, $C_{iD}(c_1)=1$ 
   in Figure~\ref{fig:CentralityExample}.
   
   \item The \emph{InOut-Degree} of a node $c$ is the sum of its In-Degree and
@@ -91,7 +91,7 @@ contributors in the network~\cite{Gloor:2003cikm,hinds:cscw:2006}.
 \label{eq:GroupDegreeCentralization}
 \end{equation}
 
-Note that this formula can be used for each centrality. In the following we compute the group degree centrality indices for each degree centrality measure for the social network shown in Figure~\ref{fig:CentralityExample}:
+Note that this formula can be used for each centrality. In the following, we compute the group degree centrality indices for each degree centrality measure for the social network shown in Figure~\ref{fig:CentralityExample}:
 \begin{itemize}
 \item Out-Degree:
 \begin{equation}
@@ -119,7 +119,7 @@ analysis measures.}
 To calculate the \emph{Group Betweenness Centralization} index for a whole
 network, we need to compute the betweenness centrality probability index for each
 actor of the network. The probability index assumes that a ``communication''
-takes the shortest path from a contributor $c_j$ to contributor $c_k$ and if the
+takes the shortest path from contributor $c_j$ to contributor $c_k$ and if the
 network has more shortest paths, all of them have the same probability to be
 chosen. If $g_{jk}$ is the number of shortest paths linking two contributors,
 $1/g_{jk}$ is the probability of using one of the shortest paths for
@@ -127,7 +127,7 @@ communication. Let $g_{jk}(c_i)$ be the number of shortest paths linking two
 contributors $j$ and $k$ that contain the contributors $c_i$. Freeman~\cite{Freeman:1979rl}
 estimates the probability that contributor $c_i$ is between $c_j$ and $c_k$ by
 $g_{jk}(c_1)/g_{jk}$. The betweenness index for $c_i$ is the sum of all
-probabilities overall pairs of actors excluding the $i$th contributor.
+probabilities over all pairs of actors excluding the $i$th contributor.
 Equation~\ref{eq:Betweenness} shows the normalized betweenness index for
 directed networks.
 
@@ -169,7 +169,7 @@ $c_6$&$c_7$&0\\
 \label{tab:between}
 \end{table}
 
-The betweenness centrality for node $c_1$ in Figure~\ref{fig:CentralityExample} is computed as follows, note that we the values for $g_{jk}(c_1)$ are shown in Table~\ref{tab:between}:
+The betweenness centrality for node $c_1$ in Figure~\ref{fig:CentralityExample} is computed as follows, note that the values for $g_{jk}(c_1)$ are shown in Table~\ref{tab:between}:
 \begin{equation}
 \displaystyle C_B(c_1) = \frac{\sum_{j<k} g_{jk}(c_1)/1}{(7-1)(7-2)} = 0.2
 \end{equation}
@@ -210,9 +210,9 @@ We use the following structural-hole measures:
   alternatives in the neighborhood, they cannot constrain $c_i$'s behavior. 
 \end{itemize}
 
-To calculate network measures of the introduced ego network measures on
+To calculate the network measures of the introduced ego network measures on
 structural-holes, we compute the sum of the measures for each node of a network.
-As the measures are based on network connections, we normalize the sum by
+Since the measures are based on network connections, we normalize the sum by
 computing the fraction of the sum and the number of possible network connections.
 
 \subsection{Data collection} 
@@ -221,20 +221,19 @@ A query plug-in was implemented to extract all development and communication
 artifacts involved in each build from the Jazz server. These build-related
 artifacts included build results, teams, change sets, work items, contributors,
 and comments. We imported the resulting data into a relational database
-management system to handle the data more efficiently.
+management system in order to handle the data more efficiently.
 
 We extracted a total of 1,288 build results, 13,020 change sets, 25,713 work items
 and 71,019 comments. Out of a total of 47 Jazz teams, 24 had integration builds.
-The build results we extracted were created during the time range from
+The build results we extracted were created during the time spanning from
 November~5, 2007 to February~26, 2008.
 
-Next, we had to make a decision that builds and associated communication to
-analyze. Our selection criterion was that we analyze a number of build results
-that is large enough for statistical tests and include both \ok\ and \error\
-builds. Some teams used the building process for testing purposes only and created
-just a view build result, while others had either only \ok\ or only \error\
+Our selection criterion was that we analyze a number of build results
+that are large enough for statistical tests and include both \ok\ and \error\
+builds. Some teams used the building process for testing purposes only and therefore only created
+a view build result, while others had either only \ok\ or only \error\
 build results. Predicting build results for a team that only produced \error\
-builds in the past, will most likely yield an \error, since no communication
+builds in the past will most likely yield an \error, since no communication
 information representing successful builds is available. Thus, we considered
 teams that had more than 30 build results and at least 10 failed and 10
 successful builds. Five teams satisfied these constraints and were considered in
@@ -255,7 +254,7 @@ the first 5 columns) and the nightly, weekly, and beta project-level
 integrations. For example, team B created 60 builds from which 20 turned out to
 be \error s and 40 \ok. The communication networks of this team had between 3 and
 58 contributors (51.58 directed connections on average) and spanned 0 to 131 work
-items. The builds involved on average 10.83 change sets.
+items. On average, the builds involved on average 10.83 change sets.
 
 \begin{table}[t]
 \footnotesize
@@ -335,13 +334,13 @@ We used the Mann-Whitney test~\cite{Siegel:1956tu} to test if any of the measure
 differentiate between the groups of \error\ and \ok\ related communication
 networks. We used an $\alpha$-level of $.05$ and applied the Bonferroni
 correction to mitigate the threat of multiple hypothesis testing. None of the
-tests yielded statistical significance, which indicates that, any individual
+tests yielded statistical significance, indicating that, non of the individual
 communication structure measures significantly differentiate between \error\ and
 \ok\ builds.
 
-We also tested for the possible effect of the technical measures shown in
+Furthermore, we tested for the possible effect of the technical measures shown in
 Table~\ref{tab:DescriptiveStats}: \#Contributors, \#Change Sets and the \#Work
-Items on the build result. Also, none of the tests yielded statistical
+Items on the build result. Our results showed that none of the tests yielded statistical
 significance to differentiate between \error\ and \ok\ builds.
 
 
@@ -356,7 +355,7 @@ model for each set of team-level and project-level networks separately by
 training a Bayesian classifier~\cite{Hastie:2003ys} and using the leave one
 out cross validation method~\cite{Hastie:2003ys}.
 
-In the case team F's 55 build results, we train a Bayesian classifier with all but one of the 55 build results and their communication related network measures. 
+In the case of team F's 55 build results, we train a Bayesian classifier with all but one of the 55 build results and their communication related network measures. 
 Then we predict the build result for the build we left out and repeat this procedure such that we predict the build result for each build once.
 We tabulate the results of all predicting as in the case of team F in Table~\ref{tab:cont}.
 
@@ -393,9 +392,9 @@ coefficients for prediction of \error\ builds.
 \error\ divided by the number of \error\ related networks. In
 Table~\ref{tab:cont} the lower right cell shows the number of correct classified
 networks that are leading to \error s, which is divided by the sum of the values
-in the lower row, which represents the total number of actual \error s. This
+in the lower row, representing the total number of actual \error s. This
 yields for Table~\ref{tab:cont} a recall of $15/(9+15)=.62$. In other words,
-62\% of the actual to \error\ leading networks are correctly classified.
+62\% of the actual \error\ leading networks are correctly classified.
  
 \item[Precision] is the percentage of as to \error\ leading classified networks
 that turned out to be actually \error s. In Table~\ref{tab:cont}, it is the
@@ -461,7 +460,7 @@ In our analysis we examined the relationship between integration builds and
 measures of the related communication structure. We found that none of the single
 communication structure measures (i.e., density, centrality or structure hole measures)
 significantly differentiated between failed and successful builds at the
-team-level and project-level. Therefore none of these individual communication
+team-level and project-level. Therefore, none of the individual communication
 structure measures could be used to predict build outcome.
 
 In addition to the communication related measures, we also examined whether the
@@ -472,9 +471,9 @@ of the development tasks to be coordinated. According to Nagappan and
 Ball~\cite{nagappan:icse:2005}, one might expect that increased size and complexity
 of code changes relate to more build failures. But in our study these single
 measures did not significantly differentiate between successful and failed build
-results. However, additional technical measures (i.e., Object Oriented metrics) that were used by Nagappan might be good predictors in Jazz as well.
+results. However, additional technical measures (i.e., Object Oriented metrics) that were used by Nagappan may prove to be good predictors in Jazz as well.
 
-The second contribution of this work is the predictive model that uses measures
+The second contribution of this work is the predictive model that utilizes measures
 of communication structures to predict build results. The
 combination of communication structure measures was a good predictor of failure
 even when the single measurements were not. Our model's precision in predicting
@@ -493,7 +492,7 @@ $24/55=.44=$ 44\% (cf. Table~\ref{tab:DescriptiveStats}).
 
 \section{Summary}
 \label{sec:conclusion}
-We conclude this chapter by bringing it back to the initial research question we set out to answer:
+We conclude this chapter returning to the initial research question that we set out to answer:
 \begin{description}
 \item[RQ 1.1] Do Social Networks from repositories influence build success?
 \end{description}
@@ -502,6 +501,6 @@ The results we presented in Section~\ref{sec:AnalysisResults} show that our pred
 Therefore, we conclude that with recall of 55\% to 75\% and precision of 50\% to 76\%, depending on the development team, that communication indeed influences build success.
 
 This finding opens the research avenue of investigating whether the manipulation of communication among software developers can yield positive results with respect to build success.
-This leads us to the next research question that we want to search for places within the social networks that we should manipulate to stimulate build success.
-For this purpose we turn in the next chapter to the concept of socio-technical congruence who might help us highlighting those developers that should have communicated.
+This leads us to our next research focus, to search for places within the social networks that we should manipulate to stimulate build success.
+For this purpose, in the next chapter we shift our focus to the concept of socio-technical congruence which may help us to pinpoint the developers that should have communicated.
 
