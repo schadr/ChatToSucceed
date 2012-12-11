@@ -105,23 +105,23 @@ developer pair that worked on that build without communicating to each other.
 For management, such a recommender system can provide details about the
 individual developers in, and properties of, these potentially problematic
 developer pairs. Individual developers may be an explanation for the behaviour of
-the pairs we found in Rational Team Concert. This may indicate developers that are
+the pairs we found in Rational Team Concert. This may indicate which developers are
 harder to work with or too busy to coordinate appropriately, prompting management
 to reorganize teams and workloads. This would minimize the likelihood of a build
-to fail, by removing the underlying cause of a pair to be failure related.
-Similarly, as another example from our study, most developer pairs
+to fail by removing the underlying cause of a pair to be failure related.
+Similarly, as another example in our study demonstrates, most developer pairs
 consisted of developers that were part of different teams. In such
-situations management may decide to investigate reasons for coordination
+situations, management may decide to investigate reasons for coordination
 problems that include factors such as geographical or functional distance in the project.
 
 \subsection{Recommender System Design Guidelines}
 \label{sec:sub:tools}
 % talk or not to talk
 In our first qualitative study (cf. Chapter~\ref{chap:talk}) we explored whether developers would accept recommendations produced by our approach.
-It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
-For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
+Our results showed that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
+For instance, we found that depending on how close a development team is to a software release, the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
 
-Nakakoji et al.~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al. guidelines:
+Nakakoji et al.~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of these guidelines deal with minimizing the interruptions experienced by the developers who are asked for information, while others focus on enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al. guidelines:
 
 \paragraph{Guideline \#1} \emph{Recommender systems should adjust to the development mode.}
 Our first finding presented in Chapter~\ref{chap:talk} strongly suggests that a developer's information needs can dramatically change between development modes. 
@@ -131,22 +131,22 @@ When in normal iteration mode, developers act upon planned work and can therefor
 Many tools, such as Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008} provide information and recommendations in a fixed way. 
 Codebook enables developers to discover other developers whose code is related.
 In contrast,  Ensemble provides a constant stream of potentially relevant events for each developer.
-In the Codebook case, this might lead to extra overhead in endgame mode when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
+In the Codebook case, this might lead to extra overhead in endgame mode, when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
 
 To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
 \paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
 Our second and third findings (cf. Chapter~\ref{chap:talk}) unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
-Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
+Instead, developers pay close attention to the experience level, as well as the quality of previously delivered work, to determine whether to speak to the change-set owner.
 
-Traditional recommender systems in software engineering focus on the source code to determine useful recommendations (e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}).
+Traditional recommender systems in software engineering focus on the source code in order to determine useful recommendations (e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}).
 This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
 
-But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
+Since developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
 Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
 
-Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
-Since this information can be difficult to determine automatically since perceptions are specific to the individual developer, a recommender system should allow users to manually input information.
+Implementing filtering mechanisms based on author characteristics, such as experience and quality of previously delivered work, can help developers to focus on the information that is important to them.
+Since this information can be difficult to determine automatically, since perceptions are specific to the individual developer, a recommender system should allow users to manually input information.
 
 
 \paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
@@ -156,49 +156,50 @@ In software engineering, most recommendations are focused on providing informati
 
 \paragraph{Guideline \#4} \emph{Recommender systems should account for business goals.}
 Our last finding (cf. Chapter~\ref{chap:talk}) points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
-Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
+Thus, developers often need to be reminded that their efforts need to be focused on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
 
 To support developers to focus on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
 
 
 \subsection{Socio-Technical Congruence in Real Time}
 % leveraging stc in real time
-Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild, leads us to our last study (cf. Chapter~\ref{chap:actionable}).
+Knowing that socio-technical congruence lends itself to producing actionable knowledge that has an acceptable form to support developers in the wild, we are lead to our last study (cf. Chapter~\ref{chap:actionable}).
 In this study we showed the feasibility of generating recommendations at the right time, by gathering data to generate socio-technical congruence in real time.
 Thus, we showed that socio-technical congruence could be used in real time to create actionable knowledge that might be of use to developers.
 
 
 \section{Threats to Validity}
 \label{sec:threat}
-In his section we detail the threats to validity of this dissertation.
+In this section, we detail the threats to validity of this dissertation.
 
 % limited number of studies
 \paragraph{External Validity}
 In part of this work we draw on information from observational studies (cf. Chapters~\ref{chap:talk} and~\ref{chap:actionable}) and studies relying on development repositories (cf. Chapters~\ref{chap:soc-net},~\ref{chap:stc-net2}, and~\ref{chap:stc-net}) that cover two development projects.
-Although this limits the generalizability of the findings presented as well as the validity of the inferred approach, we think that the approach still holds merit as the studies that lay the foundation for the validity of generating insights in real time are derived from and industrial project comprising more than one hundred developers at a large software corporation.
-This in-depth relationship created by working together with the IBM Rational Team Concert development team limits the amount of data available for the studies we presented but this in-depth relationship enables us to better interpret the collected data as well as gain a deeper understanding of the organization and their processes and how they influence the data.
-In the case of the in class study, we aimed to minimize the conclusions we drew to only serve as a feasibility study to demonstrate that technical networks can be constructed in real time as well as give some evidence that potential recommendations can prevented build failures from occurring.
+Although this limits the generalizability of the findings presented, as well as the validity of the inferred approach, we believe that the approach still holds merit since the studies that lay the foundation for the validity of generating insights in real time are derived from an industrial project comprised of more than one hundred developers at a large software corporation.
+This in-depth relationship created by working together with the IBM Rational Team Concert development team limits the amount of data available for the studies we presented.
+However, this in-depth relationship enables us to better interpret the collected data as well as gain a deeper understanding of the organization, their processes, and how they influence the data.
+In the case of the in class study, we aimed to minimize the conclusions we drew to only serve as a feasibility study to demonstrate that technical networks can be constructed in real time as well as offer some evidence that potential recommendations can prevent build failures from occurring.
 
 In our close relationship with the IBM Rational Team Concert team we had the chance to interview ten developers, which represent a fraction of the development team at large. These ten developers were all located at the same site. As a result of this, our interview data could be biased and unrepresentative of the RTC team at large.
 However, we are confident that this threat is minor, due to the mix of developers we interviewed, including novices, senior developers, and team members that had been part of the group since its beginning.
-Furthermore, the triangulation with our observations and survey responses increases our confidence in our findings.
+Furthermore, the triangulation with our observations and survey responses increases the confidence in our findings.
 
 \paragraph{Construct Validity}
-In this dissertation we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions as well as relied on technical dependencies inferred from developers changing the same source code file.
+In this dissertation, we conceptualized social dependencies among developers using digitally recorded communication artifacts in the form of work item discussions, as well as relied on technical dependencies inferred from developers changing the same source code file.
 Both constructs are used by the software engineering research community in several studies (e.g.~\cite{cataldo:cscw:2006}).
 Nevertheless, both the social and technical dependency characterizations come with the danger that they do not necessarily measure social or technical dependencies of relevance or might as well miss existing dependencies.
-This leads to the threat that our inferences might be based on inconsistencies in the data such as meaningless communication among developers or file changes that are not technical in nature.
-For instance, due to storage problems the Jazz teams erased some build results. In the case of
+This leads to the threat that our inferences might be based on inconsistencies in the data, such as meaningless communication among developers, or file changes that are not technical in nature.
+For instance, due to storage problems, the Jazz teams erased some build results. In the case of
 nightly builds we expected 90 builds (according to project duration) but found
-only 15. This might affect our results but we argue that due to our richness of
-data the general trend is still preserved.
-Given that we use data that was generate by highly disciplined professionals or by students that we monitored we are confident that the data available for analysis is of high quality.
+only 15. This could possibly affect our results, but we argue that due to our richness of
+data the general trend remains preserved.
+Given that we use data that was generated by highly disciplined professionals, or by students that we monitored, we are confident that the data available for analysis is of high quality.
 
 \paragraph{Internal Validity}
 % never traced found patterns to issues/rellied on statistical analysis
-Chapters~\ref{chap:stc-net2} and~\ref{chap:stc-net} demonstrated that constructing the socio-technical networks is feasible and in Chapter~\ref{chap:stc-net} we showed that there is a relationship between the network configuration and build success that can be used to generate recommendations.
-One issue that we will need to address in future work is showing a definite link between the insights presented in Chapter~\ref{chap:stc-net} and the actual build failures and to what extend the recommendations actually can prevent build failures from happening. 
-To mitigate this threat we showed some initial evidence of tracing a failed build back to its original failure source and showed that the failure could have been prevented with the socio-technical information available at the point in time when the error was introduced into the code base.
+Chapters~\ref{chap:stc-net2} and~\ref{chap:stc-net} demonstrated that constructing the socio-technical networks is feasible, and in Chapter~\ref{chap:stc-net} we showed that there is a relationship between the network configuration and build success that can be used to generate recommendations.
+One issue that we will need to address in future work is showing a definite link between the insights presented in Chapter~\ref{chap:stc-net} and the actual build failures as well as to what extend the recommendations can actually prevent build failures from happening. 
+To mitigate this threat, we demonstrated some initial evidence of tracing a failed build back to its original failure source and showed that the failure could have been prevented using the socio-technical information available at the point in time when the error was introduced into the code base.
 
 %We conceptualized communication based on comments on work items. Besides
 %that, the Jazz team communicates via email, chat, web-based information and
@@ -206,8 +207,8 @@ To mitigate this threat we showed some initial evidence of tracing a failed buil
 %team, we are certain that comments are mostly used to communicate about work
 %items. Since they are work item-specific and immediately available.
 
-Another threat to the approach, which is related to the previously mentioned lack of tracing the basis of the recommendations back to actual build failures, is that we did not test it in the field to see how the recommendation affect the development process.
-We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
+Another threat to the approach, which is related to the previously mentioned lack of tracing the basis of the recommendations back to actual build failures, is that we did not test it in the field to see how the recommendation would affect the development process.
+In Chapter~\ref{chap:talk}, we presented a study that explored if the recommendations are made at an appropriate level of granularity as well looked at the feedback concerning the usefulness of such recommendations.
 Furthermore, the study conducted in a classroom setting also suggests that there is value in generating such recommendations.
 
 The surveys we deployed in our qualitative studies (cf. Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers that might introduce a bias.
@@ -226,48 +227,49 @@ We mitigated it by developing the survey iteratively by piloting and discussing 
 
 \section{Future Work}
 \label{ch:dis:con}
-In this dissertation we illustrated an approach to leverage the concept of social-technical congruence to generate actionable knowledge.
+In this dissertation, we illustrated an approach to leverage the concept of social-technical congruence in order to generate actionable knowledge.
 This five step approach focuses on defining two key parameters up front: (1) the scope of interest and (2) the outcome metric of interest.
 The first parameter scope helps with constructing the social networks (the third step) and constructing the technical networks (the fourth step) by supporting the selection of the best data sources.
-The outcome metric guides the analysis to produce actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
+The outcome metric guides the analysis in producing actionable knowledge in the form of indicators that positively or negatively influence the outcome metric (step 5). 
 
-We see four promising direction we can take based on the research we presented in this dissertation:
+We see four promising directions we can take based on the research we presented in this dissertation:
 \begin{itemize}
 \item Implement and deploy the recommender system
 \item Extend the recommender system with more technical dependencies
 \item Extend the recommender system by generalizing the recommendations
-\item Investigate architectures that better fit organizational structures.
+\item Investigate architectures that better fit organizational structures
 \end{itemize}
 
 \subsection{Implement and Deploy the Recommender System}
-The approach that we motivated and validated in this dissertation as a next step needs to implemented and deployed to test its effects in a real development environment.
-This implementation would also follow the recommendation we mentioned in Section~\ref{sec:sub:tools} by allowing the user to manually input data that cannot be automatically inferred from recorded data.
+The approach we presented and validated in this dissertation needs to be implemented and deployed to test its effects in a real development environment.
+This implementation would also follow the recommendation we mentioned in Section~\ref{sec:sub:tools}, by allowing the user to manually input data that cannot be automatically inferred from recorded data.
 
 The purpose of this deployment is twofold.
 The deployment creates a baseline for future improvements on the recommendation.
-Furthermore the deployment of the system to actual developers will provide developer with insights and support the development effort by reducing the risk of build failure.
+Furthermore, the deployment of the system to actual developers will provide developers with insights, and support the development effort by reducing the risk of build failure.
 
 
 
 \subsection{Extend the Recommender System with more Technical Dependencies}
-In this dissertation we defined two developers to share a technical dependency if they modified the same file.
+In this dissertation, we defined two developers as sharing a technical dependency if they modified the same file.
 This technical dependency is very basic and missed several code dependencies that define dependencies among code artifacts.
-For instance Schr\"oter et al.~\cite{schroeter:isese:2006} showed that usage relationship point to failures.
-Other measures that measure dependencies among software artifacts are also good predictors for failures (e.g.~\cite{nagappan:icse:2006}).
+For instance, Schr\"oter et al.~\cite{schroeter:isese:2006} showed that usage relationships point to failures.
+Other measures that rely on dependencies among software artifacts are also good predictors for failures (e.g.~\cite{nagappan:icse:2006}).
 
-Using multiple types of technical dependencies will not only increase the accuracy of our approach but it also enables us to provide recommendations that offer more insights into the reason for failure.
+Using multiple types of technical dependencies will not only increase the accuracy of our approach, but it also enables us to provide recommendations that offer more insights into the reason for failure.
 Leveraging the different technical dependencies allows us to further prioritize recommendations based on the predictive power of a technical relationship.
 Moreover, developers using the recommender system can decide which technical dependency is most relevant for their work and filter recommendations based on that information.
 
 \subsection{Extend the Recommender System by Generalizing the Recommendations}
-Currently recommendations are specific to developer.
-To further explore patterns of coordination related to failures and to extract more general rules we plan on generalizing the developers.
-Developer can be characterized in several ways such as their roles, positions or experience levels.
+Currently, recommendations are specific to developers.
+To further explore patterns of coordination related to failures and to extract more general rules, we plan on generalizing the developers.
+Developer can be characterized in several ways; such as their roles, positions or experience levels.
 
-The generalization of developers into roles or position does allow for the knowledge of one project to be transferred to other projects.
-We plan to extract these more general patterns from several projects to find general rules that can be used to guide new projects that cannot rely on a rich history to generate recommendations generated by our approach.
+The generalization of developers into roles or positions allows for the knowledge of one project to be transferred to other projects.
+We plan to extract these more general patterns from several projects in order to find general rules that can be used to guide new projects that cannot rely on a rich history to generate recommendations generated by our approach.
 
 \subsection{Investigate Architectures that Better Fit Organizational Structures}
-Another interesting avenue to pursue is to explore what software architecture can support what kind of communication and organizational structure.
-So far, the research around socio-technical congruence is pointing into the direction of changing how software developers coordinate their work, but we propose to return to the original observation Conway made in that the software architecture will change to accommodate the communication structures in an organization.
-Therefore, analyzing software architectures with respect to the project properties, such as distribution of the development team or the organizational hierarchy, might yield valuable insight in guiding design decisions of the software product that not only take into account properties to increase the feature richness or maintainability of the software product but is optimal with respect to properties of the organization and the development team in order to increase productivity and quality. 
+Another interesting avenue to explore is what software architecture can support what types of communication and organizational structure.
+So far, the research surrounding socio-technical congruence is leading in the direction of changing how software developers coordinate their work.
+However, we propose returning to the original observation Conway made in that the software architecture will change to accommodate the communication structures in an organization.
+Therefore, analyzing software architectures with respect to the project properties, such as distribution of the development team, or the organizational hierarchy, might yield valuable insight in guiding design decisions of the software product that not only take into account properties to increase the feature richness or maintainability of the software product, but is optimal with respect to properties of the organization and the development team in order to increase productivity and quality. 
