@@ -170,7 +170,8 @@ p_x\text{=}\frac{ \text{pair}_{\text{failed}} / \text{total}_{\text{failed}} }
 The coefficient is comprised of four counts: (1) pair$_{\text{failed}}$, the number of failed builds where the pair occurred; (2) total$_{\text{failed}}$, the number of failed builds; (3) pair$_{\text{success}}$, the number of successful builds where the pair occurred; (4) total$_{\text{success}}$, the number of successful builds.
 A value closer to one means the developer pair is strongly related to build
 failure.
-
+We are using the percentages of failed and successful pairs in this equation to avoid an imbalance between successful and failed builds.
+In our study the number of successful builds was twice as large as the number of failed builds and thus the occurrences in successful builds might be skew the coefficient towards a lower failure likelihood.
 
 
 %\addtocounter{table}{1}
