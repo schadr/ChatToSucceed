@@ -1,15 +1,18 @@
 % !TEX root = thesis.tex
 \startchapter{Conclusions}
 \label{chap:disc}
-In this chapter we summarize and discuss our approach and how the research we presented in the last three chapters support it (cf. Section~\ref{ch:dis:app}).
-Followed by our second contribution that takes the form of the individual insights gained by the five studies we presented (cf. Section~\ref{sec:cont:emp}).
-Before we end this dissertation with concluding remarks as well as some future work (cf. Section~\ref{ch:dis:con}) we discuss the threats to validity (cf. Section~\ref{sec:threat}).
+\vspace{-5pt}
+In this chapter, we summarize and discuss our approach and look at how the research we presented in the last three chapters support it (cf. Section~\ref{ch:dis:app}).
+We will then delve in to our second contribution that takes the form of the individual insights gained by the five studies we presented (cf. Section~\ref{sec:cont:emp}).
+Before ending this dissertation with concluding remarks as well as some future work (cf. Section~\ref{ch:dis:con}), we discuss the threats to validity (cf. Section~\ref{sec:threat}).
 
+\vspace{-5pt}
 \section{An Approach For Improving Social Interactions}
 \label{ch:dis:app}
+\vspace{-5pt}
 We derived the approach presented in Chapter~\ref{chap:approach} through two case studies that investigate the usefulness of social and socio-technical networks to predict build outcome (cf. Chapters~\ref{chap:soc-net} and~\ref{chap:stc-net2}).
 We conducted a study to see if the approach can generate relevant recommendations in Chapter~\ref{chap:soc-net}.
-The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explores the usefulness of the information with respect to whether experts expect the level of recommendations to be of use as well as if these recommendations could be produced in real time and potentially prevent issues from arising.
+The studies we conducted in the subsequent Chapters~\ref{chap:talk} and~\ref{chap:actionable} further explore the usefulness of the information with respect to whether experts expect the level of recommendations to be of use, as well as whether these recommendations could be produced in real time and potentially prevent issues from arising.
 The approach we presented in Chapter~\ref{chap:approach} consists of five steps:
 
 \begin{enumerate}
@@ -20,11 +23,12 @@ The approach we presented in Chapter~\ref{chap:approach} consists of five steps:
 \item Generate actionable insights
 \end{enumerate}
 
-In Chapter~\ref{chap:soc-net} we showed that the communication structure of a software development team influences build success, suggesting that there is value in manipulating this structure to improve the likelihood for a successful build.
+In Chapter~\ref{chap:soc-net}, we showed that the communication structure of a software development team influences build success.
+This suggests that there is value in manipulating this structure to improve the likelihood for a successful build.
 That evidence is further supported by our finding that gaps in the social network constructed from developer communication as suggested by technical dependencies among developers also affect build success (cf. Chapter~\ref{chap:stc-net2}).
 
-In those two studies we already applied the first four steps of the approach presented in Chapter~\ref{chap:approach}.
-We defined the build as the scope and we defined the outcome metric as the build outcome.
+In these two studies, we already applied the first four steps of the approach presented in Chapter~\ref{chap:approach}.
+We defined the build as the scope and the outcome metric as the build outcome.
 Using the scope we constructed social networks from the communication among developer that can be related to a build as described in Chapter~\ref{chap:bg} in both Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2}.
 Chapter~\ref{chap:stc-net2} used dependencies among change-set committed by developers that are relevant to a given build to construct a technical network to complement the social network forming a socio-technical network.
 
@@ -33,12 +37,12 @@ The study in Chapter~\ref{chap:stc-net} showed that we are able to produce recom
 These recommendations take the form of highlighting two developers that have a technical dependency but did not communicate in the context of the build.
 %These recommendations in the form of recommending developers to communicate changes the structure of the social network, which we intend in order to improve build success.
 
-We decided to focus on generating recommendation enticing developer to communicate in order improve build success over recommendation that would suggest code changes changing the dependencies among developer for two reasons:
+We decided to focus on generating recommendations, enticing developers to communicate in order improve build success over recommendation, that would suggest code changes, changing the dependencies among developers for two reasons:
 (1) proper code changes are more difficult to suggest without a sufficient understanding of the program requiring more in-depth program analysis and 
-(2) developer need to trust the recommendation, which is easier to achieve by limiting ourselves to suggesting people that are affected by a change.
+(2) developers need to trust the recommendation, which is easier to achieve by limiting ourselves to suggesting people that are affected by a change.
 
-In Chapter~\ref{chap:talk} we explored the developer view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
-The feedback we received generally welcomed such recommendations as long as they are not seen as irrelevant, thus, corroborating Murphy and Murphy-Hill's~\cite{murphy:rsse:2010} point.
+In Chapter~\ref{chap:talk} we explored the developer's view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
+The feedback we received generally welcomed such recommendations as long as they were not seen as irrelevant, thus, corroborating Murphy and Murphy-Hill's~\cite{murphy:rsse:2010} point.
 Developers, in fact, discuss change-sets in general, but specifically towards the end of a release cycle, as each change becomes more important with respect to the stability of the overall project.
 
 Through an in-class study with several students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing (cf. Chapter~\ref{chap:actionable}).
@@ -47,14 +51,14 @@ Furthermore, the in class study gave us the chance to see the possible effect of
 
 Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (cf. Chapter~\ref{chap:bg}).
 Furthermore, we showed that the approach could generate actionable insights that are acceptable to developers.
-In a final study involving students from two countries we found evidence that we are both able to generate recommendation early enough to be acted upon as well as demonstrated that such recommendation could actually prevent build failures.
+In a final study involving students from two countries, we found evidence that we are both able to generate recommendation early enough to be acted upon, as well as demonstrated that such recommendation could actually prevent build failures.
 
 
 
 \section{Contributions through Empirical Studies}
 \label{sec:cont:emp}
 Each study by itself contributed to the overall body of knowledge of software development team coordination.
-We present in the order of our five research questions the contribution of each  study.
+We present, in the order of our five research questions, the contribution of each  study.
 
 
 \subsection{Using Build Success as Communication Quality Indicator}
@@ -65,11 +69,11 @@ We present in the order of our five research questions the contribution of each 
 We started our investigation by exploring whether there exists a relationship between build success and communication by using prediction models (Chapter~\ref{chap:soc-net}).
 Our models can be used by Jazz teams to assess the quality of their current
 communication in relation to the result of their upcoming integration. If a team
-is currently working on a component and an integration build is planned in the
+is currently working on a component, and an integration build is planned in the
 near future, the measures of the current communication in the team can be
 provided as input to our prediction model and the model will predict whether the
 build will fail with a precision shown in Table~\ref{tab:PredictionResultTable}.
-For example, if team P is working towards a build and our model predicts that the
+For example, if team P is working towards a build, and our model predicts that the
 structure of its current communication leads to a failed build, the team can have
 a 76\% (see Chapter~\ref{chap:soc-net} Table~\ref{tab:PredictionResultTable}) confidence that the build is
 going to fail. This information can be used by developers in monitoring their
@@ -78,22 +82,24 @@ adjusting collaborative tools or processes towards improving the integration.
 
 \subsection{Unmet Coordination Needs Matter}
 % stc and build success
-The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
-This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
-Backed up by findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
+The relationship between communication structure and build failures however significant, has only a small effect on the overall success rate of software builds, the outcome metric we studied.
+This lead us to include information about the system by adding technical dependencies, as expressed by the source code among software developers.
+Backed up by findings in the research area of socio-technical congruence, we hypothesized that the technical relationships help to zero in on the important relationships among developers that relate to build failures.
 As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Chapter~\ref{chap:stc-net2} that it actually predicts build failures with varying accuracy depending on the type of build.
-Thus not meeting coordination needs as demanded by technical dependencies among software developers has a negative effect on build success.
+Thus, not meeting coordination needs, as demanded by technical dependencies among software developers, has a negative effect on build success.
 
 \subsection{Developers That Induce Build Failures}
 \label{sec:implications}
 % failure inducing pairs
-Being able to predict whether a build fails already helps developers to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
-To that purpose we need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
+Being able to predict whether a build fails already helps developers to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features.
+However, ultimately we want to be able to prevent builds from failing.
+For that purpose, we need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
 We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success (Chapter~\ref{chap:stc-net}).
-This evidence can be used to recommend action before the build is commenced in the sense that developers can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
+This evidence can be used to recommend action before the build is commenced in the sense that developers can investigate their relationship.
+For example, they can do this by discussing the code changes that created a technical relationship between them.
 
-Thus, our findings have several implications for the design of collaborative systems.
-By automating the analyses presented here we can incorporate the knowledge about
+Our findings have several implications for the design of collaborative systems.
+By automating the analyses presented here, we can incorporate the knowledge about
 developer pairs that tend to be failure related in a real-time recommender
 system. Not only do we provide the recommendations that matter to the upcoming
 build, we also provide incentives to motivate developers to talk about their
@@ -105,8 +111,7 @@ developer pair that worked on that build without communicating to each other.
 For management, such a recommender system can provide details about the
 individual developers in, and properties of, these potentially problematic
 developer pairs. Individual developers may be an explanation for the behaviour of
-the pairs we found in Rational Team Concert. This may indicate which developers are
-harder to work with or too busy to coordinate appropriately, prompting management
+the pairs we found in Rational Team Concert. This may indicate which developers are harder to work with or too busy to coordinate appropriately, prompting management
 to reorganize teams and workloads. This would minimize the likelihood of a build
 to fail by removing the underlying cause of a pair to be failure related.
 Similarly, as another example in our study demonstrates, most developer pairs
