@@ -57,7 +57,7 @@ The main difference to the calculation proposed by Cataldo et al~\cite{cataldo:c
 \label{ph:relationships}
 \end{figure}
 
-
+\vspace{5pt}
 \section{Analysis Methods}
 \label{sec:methodology}
 Logistic regression is ideal~\cite{Sheskin2000} to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
@@ -68,6 +68,7 @@ We show the relationship between a variable and the build success probability by
 We run a logistic regression model for congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We center and scale each numeric variable.
 Furthermore, because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
 
+\vspace{15pt}
 \section{Results}
 \label{sec:results}
 In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
@@ -291,6 +292,7 @@ Intercept & 1.32 \\
 	\includegraphics[width=.5\columnwidth]{figures/boxplot_meangapsize}
 	\caption{Gap Ratio per Build}
 	\label{fig:gapsizes}
+	\vspace{15pt}
 \end{figure}
 
 \begin{figure}[t]
