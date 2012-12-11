@@ -1,19 +1,19 @@
 % !TEX root = thesis.tex
 \startchapter{Leveraging Socio-Technical Networks}
 \label{chap:stc-net}
-The first step we take towards exploring the usefulness of our approach is to test whether we can generate recommendations that break patterns related to build failure.
-Thus we focus on the following research question:
+The first step towards exploring the usefulness of our approach is to test whether we can generate recommendations that break patterns related to build failure.
+In order to do this, we focus on the following research question:
 
 \begin{description}
   \item[RQ 2.1:] Can Socio-Technical-Networks be manipulated to increase build success? 
 \end{description}
 
-Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
-Thus we explore to what extent the history of a project can be used to highlight those cases where developers that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
+Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial, instead of preventing failures such a recommendation might only create additional communication issues.
+Thus, we explore to what extent the history of a project can be used to highlight the cases where developers that shared an unmet coordination need are found more often to failed builds.
 
 In this chapter, we start by briefly presenting the methodology that is relevant to exploring our research question (cf. Section~\ref{sec:data} and~\ref{ch8:gaps}).
 Then, we present the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results Sections~\ref{ch8:dis}.
-We conclude this chapter with offering an answer to our research question (cf. Section~\ref{sec:8:conclusions}).
+In conclusion of this chapter, we offer an answer to our research question (cf. Section~\ref{sec:8:conclusions}).
 
 
 \section{Socio-Technical Coordination}
@@ -27,7 +27,7 @@ We build our socio-technical networks according to the approach outlined in Chap
 \item Build technical networks
 \end{enumerate}
 
-As our scope we select the software build and as outcome metric whether a build failed or succeeded.
+As our scope, we select the software build and as outcome metric we use the build outcome.
 We construct the social and technical networks from the Rational Team Concert development team repository as outlined in Chapter~\ref{chap:bg}.
 
 
@@ -126,8 +126,8 @@ Pair & \#successful & \#failed & $p_x$ \\
 \label{ch8:gaps}
 The lack of communication between two developers that share a
 technical dependency is referred to in the literature as a
-socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
-unmet coordination need) in socio-technical networks. We refer to these pairs of
+socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need), but not a social edge (implying
+unmet coordination need), in socio-technical networks. We refer to these pairs of
 developers as \emph{technical pairs} (there is a gap), and to those who do
 share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}. 
 
@@ -151,10 +151,10 @@ A Fischer Exact Value test yields significance at a confidence level of $\alpha 
 Note that we adjust the p-values of the Fischer Exact Value test to account for multiple hypotheses testing using the Bonferroni adjustment.
 The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
-To enable us to discuss the findings as to whether closing socio-technical gaps
+To enable us to discuss the findings, and to look at whether closing socio-technical gaps
 are needed to avoid build failure, or which of these gaps are more important to
 close, we perform two additional analyses. 
-First we analyze whether the
+First, we analyze whether the
 socio-technical pairs also appear to be build failure-related or not, by
 following the same steps as above for socio-technical pairs. 
 %
@@ -229,9 +229,9 @@ relationship between the developer pair and build failure. For instance, the
 developer pair (Adam, Bart) appears in 13 failed builds and in 3
 successful builds. This means that pair$_{failed}$ = 13 and pair$_{success}$ = 3
 with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
-Besides that we report the number of successful builds the pair was observed with
-(\#successful) as well as the number of failed builds the pairs was observed with
-(\#failed). The $p_x$ values are all above 0.74, implying that the likelihood
+Besides that, we report the number of successful builds the pair was observed with
+(\#successful), as well as the number of failed builds the pairs was observed with
+(\#failed). The $p_x$ values are all above 0.74, which implies that the likelihood
 of failure is at least 74\% in all builds in which these developer pairs are
 involved. 
 
@@ -251,7 +251,7 @@ pairs (15 out of 48 failed builds have 4 or less).
 This distribution of technical pairs indicates that the developer
 pairs we found  did not concentrate in a small number of builds. 
 In addition, it validates the assumption that it is
-worthwhile seeking insights about developer coordination in failed builds.
+worthwhile to seek insights about developer coordination in failed builds.
 %Moreover, this enables us to explain why two thirds of the builds failed.
 
 
@@ -274,17 +274,17 @@ corresponding socio-technical pair. Of these, none were statistically
 related to build failure. This means that 97 pairs of developers that had a
 technical dependency did not communicate with each other and
 consequently increased the likelihood of a build failure. Our results not only
-corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
-have a negative effect in software development. More importantly, they indicate
+corroborate the past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
+have a negative effect in software development, but more importantly, they indicate
 that the analysis presented in this paper is able to identify the specific
 socio-technical gaps, namely the actual developer pairs where the gaps occur
-and that increase the likelihood of build failure. 
+and increase the likelihood of build failure. 
 
 A preliminary analysis of developer membership to teams shows that most
 of the technical pairs related to build failure consist of developers belonging to
 different teams. Nagappan et al.~\cite{nagappan:icse:2008} found that using the
 organizational distance between people predicts failures. They reasoned that this
-is due to the lack of awareness what people separated by organizational distance
+is due to the lack of awareness that people separated by organizational distance
 work on. Although the Rational Team Concert team strongly emphasizes communication
 regardless of team boundaries, it still seems that organizational distance has
 an influence on its communication behaviour.
@@ -292,36 +292,36 @@ an influence on its communication behaviour.
 
 Although the analysis of technical pairs in relation to build failures
 showed that they have a negative influence on the build result, it does not take
-into account possible confounding variables. The question is if there are developer pairs still effect the build outcome in the presence of confounding variables, such as number of developers involved in a build, number of work items
+into account possible confounding variables. The question is whether there are developer pairs still affect the build outcome in the presence of confounding variables, such as number of developers involved in a build, number of work items
 related to a build, number of change sets per build, and number of files changed.
 We tested this using a logistical regression model including both developer pairs and confounding variables.
 
-Overall the logistic regression confirms the effect of the developer pairs
-even in the presence of confounding variables, such as number of files changed
+Overall, the logistic regression confirms the effect of the developer pairs
+even in the presence of confounding variables, such as the number of files changed,
 and numbers of developers (AIC of 706). 
 Table~\ref{tab:regression} shows an excerpt from the complete logistical
-regression that shows that the twenty pairs previously identified are still
-significant under the influence of the four confounding variables. Because we have 2872 developer pairs, space constraints prevent us from reporting the entire regression model. We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression} as well as the coefficients for the four control features.
+regression that demonstrates that the twenty pairs previously identified are still
+significant under the influence of the four confounding variables. Because we have 2872 developer pairs, space constraints prevent us from reporting the entire regression model. We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression}, as well as the coefficients for the four control features.
 
 All features shown in Table~\ref{tab:regression} are significant at the $\alpha=.001$ level (indicated by the p-value and ***).
 We checked for all the other technical pairs that were reported significant using the approach described in the previous section and found that they are all significant in the regression model as well.
-Moreover, the four control variables of number of developers per build, number
+Moreover, the four control variables of the number of developers per build, number
 of work items per build, number of change sets per build, and number of files changed per build are also significant.
 
-Since we model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
-All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
+Since our model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
+All pairs reported in Table~\ref{tab:regression}, and the technical pairs that we identified to be related to build failure, have a negative coefficient.
  
 
 
 \section{Summary}
 \label{sec:8:conclusions}
-We end this chapter by bringing it back to the initial research question we set out to answer:
+We end this chapter by returning to the initial research question we set out to answer:
 \begin{description}
   \item[RQ 2.1:] Can Socio-Technical-Networks be manipulated to increase build success? 
 \end{description}
 
 The results we presented in Section~\ref{ch:fse:result2} show that there are developer pairs with unmet coordination needs that negatively influence build success.
-Furthermore, we showed that the corresponding developer pair that fulfills its coordination need is less likely to be associated with build failure and thus theoretically decreasing the likelihood of build failure.
-To put it in perspective if any of the twenty most harmful patterns is present in a build the build had at least  a 74\% chance to fail.
+Furthermore, we demonstrated that the corresponding developer pair that fulfills its coordination need is less likely to be associated with build failure and thus theoretically decreasing the likelihood of build failure.
+To put it in perspective, if any of the twenty most harmful patterns is present in a build, the build has at least  a 74\% chance to fail.
 
 Besides the technical side of the approach to generate statistically relevant recommendations as Murphy and Murphy-Hill~\cite{murphy:rsse:2010} pointed out, developers need to accept such recommendations for them to be ultimately useful.
