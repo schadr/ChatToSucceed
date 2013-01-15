@@ -219,6 +219,7 @@ For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dep
 \begin{figure}[t!]
 \centering
 \[
+\underbrace{
 \left(
 \begin{matrix}
 1 & 0 & 1 & 1\\
@@ -227,7 +228,9 @@ For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dep
 0 & 1 & 0 & 1
 \end{matrix}
 \right)
+}_{A}
 \times
+\underbrace{
 \left(
 \begin{matrix}
 0 & 1 & 0 & 0\\
@@ -236,15 +239,18 @@ For example, Cataldo et al.~\cite{cataldo:cscw:2006} defined two tasks to be dep
 0 & 0 & 1 & 0
 \end{matrix}
 \right)
+}_{D}
 \times
+\underbrace{
 \left(
 \begin{matrix}
-0 & 1 & 0 & 0\\
 1 & 0 & 1 & 0\\
-0 & 1 & 0 & 1\\
-0 & 0 & 1 & 0
+0 & 0 & 0 & 1\\
+1 & 0 & 0 & 0\\
+1 & 1 & 0 & 1
 \end{matrix}
 \right)
+}_{A^T}
 =
 \left(
 \begin{matrix}
@@ -265,7 +271,7 @@ Further multiplying this matrix with the transposed task assignment matrix yield
 Thus, the calculation of the technical dependency among developers follows the formula presented below:
 \begin{equation}
 \label{eq:stc:cataldo}
-\text{Task Assignment} \times \text{Task Dependency} \times \text{Task Assignment}^{\text{T}} = \text{Coordination Needs}
+A \times D \times A^{\text{T}} = \text{Coordination Needs}
 \end{equation}
 
 Figure~\ref{chap:3:fig:example:stc:cataldo} shows an example of how to derive the technical dependencies among developers given a task assignment and task dependency matrix.
